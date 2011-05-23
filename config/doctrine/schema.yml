@@ -1,0 +1,281 @@
+Autor:
+  columns:
+    nombre: {type: string(32), notnull: true}
+    apellidos: {type: string(40), notnull: true}
+  relations:
+    Recurso:
+      class: Recurso
+      local: autor_id
+      foreign: recurso_id
+      refClass: RecursoAutor
+      foreignAlias: Autores
+
+Recurso:
+  actAs:
+    Timestampable:
+    DmVersionable:
+    DmSortable:
+    DmBlameable:
+ #   DmTaggable:
+  columns:
+    titulo: {type: string(40), notnull: true}
+    anno: {type: string(4)}
+    resumen: {type: string(255)}
+    idioma: {type: string(24)}
+    aprobado: {type: boolean, default: false}
+    fichero: {type: string(255), notnull: false}
+    formato_duro: {type: boolean, default: false}
+  relations:
+    Autor:
+      class: Autor
+      local: recurso_id
+      foreign: autor_id
+      refClass: RecursoAutor
+      foreignAlias: Recursos
+      onDelete: CASCADE
+    Evento:
+      class: Evento
+      local: recurso_id
+      foreign: evento_id
+      refClass: RecursoEvento
+      foreignAlias: Trabajos
+    Tematica:
+      class: Tematica
+      local: id
+      foreign: tematica_id
+      onDelete: RESTRICT
+
+RecursoEvento:
+  columns:
+    recurso_id: {type: integer, primary: true}
+    evento_id: {type: integer, primary: true}
+
+RecursoAutor:
+  columns:
+    autor_id: {type: integer, primary: true}
+    recurso_id: {type: integer, primary: true}
+
+RecursoTematica:
+  columns:
+    tematica_id: {type: integer, primary: true}
+    recurso_id: {type: integer, primary: true}
+
+Tematica:
+  columns:
+    nombre: {type: string(32), notnull: true}
+      
+DmUser:
+  actAs:
+    Timestampable:
+  columns:
+    titulo: {type: enum, values: [9no, 12, Lic, Ing, MsC, Dr]}
+    nombre: {type: string(32), notnull: true}
+    apellidos: {type: string(40), notnull: true}
+    email: {type: string(32), notnull: true, unique: true}
+    foto_id: {type: integer, notnull: false}
+    is_active: {type: boolean, default: true}
+    penalizado: {type: boolean, default: false}
+  relations:
+    Image:
+      class: DmMedia
+      local: foto_id
+      onDelete: RESTRICT
+    Tematica:
+      class: Tematica
+      local: user_id
+      foreign: tematica_id
+      refClass: Diseminacion
+
+Patente:
+  inheritance:
+    extends: Recurso
+    type: column_aggregation
+    keyField: type
+    keyValue: Patente
+  columns:
+    pais: {type: string(32)}
+    institucion: {type: string(40)}
+    total_paginas: {type: integer(4)}
+    num_internacional: {type: string(32)}
+
+DocumentoLegal:
+  inheritance:
+    extends: Recurso
+    type: column_aggregation
+    keyField: type
+    keyValue: DocumentoLegal
+  columns:
+    organismo: {type: string(40)}
+    total_paginas: {type: integer(4)}
+    tipo_dc: {type: enum, values: [Procedimiento, Ley]}
+
+BibliotecaPersonal:
+  inheritance:
+    extends: Recurso
+    type: column_aggregation
+    keyField: type
+    keyValue: BibliotecaPersonal
+  columns:
+    cant_registros: {type: integer(4)}
+    fecha_inicial: {type: timestamp}
+    fecha_final: {type: timestamp}
+
+Monografia:
+  inheritance:
+    extends: Recurso
+    type: column_aggregation
+    keyField: type
+    keyValue: Monografia
+  columns:
+    ciudad_pub: {type: string(32)}
+    editorial: {type: string(32)}
+    total_paginas: {type: integer(4)}
+    isbn: {type: string(16)}
+
+Articulo:
+  inheritance:
+    extends: Recurso
+    type: column_aggregation
+    keyField: type
+    keyValue: Articulo
+  columns:
+    volumen: {type: string(16)}
+    num_revista: {type: string(16)}
+    pagina_inicial: {type: integer(3)}
+    pagina_final: {type: integer(3)}
+    issn: {type: string(16)}
+
+Presentacion:
+  inheritance:
+    extends: Recurso
+    type: column_aggregation
+    keyField: type
+    keyValue: Presentacion
+  columns:
+    num_diapositivas: {type: integer(3)}
+
+Tesis:
+  inheritance:
+    extends: Recurso
+    type: column_aggregation
+    keyField: type
+    keyValue: Tesis
+  columns:
+    departamento: {type: string(32)}
+    ciudad: {type: string(32)}
+    institucion: {type: string(32)}
+    total_paginas: {type: integer(4)}
+    tutor: {type: string(128)}
+    tipo: {type: enum, values: [Pregrado, Maestria, Doctorado]}
+
+Evento:
+  actAs:
+    Timestampable:
+  columns:
+    titulo: {type: string(64), notnull: true}
+    ciudad: {type: string(64), notnull: true}
+    fecha_inicio: {type: timestamp}
+    fecha_final: {type: timestamp}
+    descripcion: {type: string(255)}
+
+Descarga:
+  actAs:
+    Timestampable:
+  columns:
+    recurso_id: {type: integer}
+    user_id: {type: integer}
+  relations:
+    DmUser:
+      local: user_id
+      foreign: id
+      onDelete: RESTRICT
+    Recurso:
+      local: recurso_id
+      foreign: id
+      onDelete: RESTRICT
+
+Solicitud:
+  actAs:
+    Timestampable:
+#    DmTaggable:
+  columns:
+    user_id: {type: integer, notnull: true}
+    titulo: {type: string(128)}
+    mensaje: {type: clob, extra: markdown}
+    is_active: {type: boolean, default: true}
+  relations:
+    DmUser:
+      local: user_id
+      foreign: id
+      onDelete: CASCADE
+
+Respuesta:
+  actAs:
+    Timestampable:
+    DmBlameable:
+  columns:
+    mensaje: {type: clob, extra: markdown}
+
+RespuestaSolicitud:
+  inheritance:
+    extends: Respuesta
+    type: simple
+  columns:
+    solicitud_id: {type: integer}
+    recurso_id: {type: integer}
+  relations:
+    Solicitud:
+      local: solicitud_id
+      foreign: id
+      onDelete: CASCADE
+    Recurso:
+      local: recurso_id
+      foreign: id
+      onDelete: CASCADE
+
+Pregunta:
+  actAs:
+    Timestampable:
+  columns:
+    user_id: {type: integer, notnull: true}
+    titulo: {type: string(128)}
+    mensaje: {type: clob, extra: markdown}
+  relations:
+    DmUser:
+      local: user_id
+      foreign: id
+      class: DmUser
+      foreignAlias: Preguntas
+      onDelete: CASCADE
+
+Diseminacion:
+  columns:
+    user_id: {type: integer, primary: true}
+    tematica_id: {type: integer, primary: true}
+
+Prestamo:
+  columns:
+    user_id: {type: integer, notnull: true, unique: true}
+    recurso_id: {type: integer, notnull: true, unique: true}
+    fecha_prestamo: {type: timestamp, notnull: true}
+    fecha_devolucion: {type: timestamp, notnull: true}
+    prorroga: {type: boolean, default: false}
+  relations:
+    DmUser:
+      local: user_id
+      foreign: id
+      foreignAlias: Prestamos
+      onDelete: RESTRICT
+    Recurso:
+      local: recurso_id
+      foreign: id
+      foreignAlias: Prestamos
+      onDelete: CASCADE
+
+SolicitudPrestamo:
+  actAs:
+    Timestampable:
+  columns:
+    user_id: {type: integer, unique: true, notnull: true}
+    recurso_id: {type: integer, unique: true, notnull: true}
+    
