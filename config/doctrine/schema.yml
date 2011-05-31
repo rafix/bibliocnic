@@ -16,7 +16,7 @@ Recurso:
     DmVersionable:
     DmSortable:
     DmBlameable:
- #   DmTaggable:
+ # DmTaggable:
   columns:
     titulo: {type: string(40), notnull: true}
     anno: {type: string(4)}
@@ -197,7 +197,7 @@ Descarga:
 Solicitud:
   actAs:
     Timestampable:
-#    DmTaggable:
+# DmTaggable:
   columns:
     user_id: {type: integer, notnull: true}
     titulo: {type: string(128)}
@@ -278,4 +278,3 @@ SolicitudPrestamo:
   columns:
     user_id: {type: integer, unique: true, notnull: true}
     recurso_id: {type: integer, unique: true, notnull: true}
-    
