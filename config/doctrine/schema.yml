@@ -1,73 +1,89 @@
-Autor:
-  columns:
-    nombre: {type: string(32), notnull: true}
-    apellidos: {type: string(40), notnull: true}
-  relations:
-    Recurso:
-      class: Recurso
-      local: autor_id
-      foreign: recurso_id
-      refClass: RecursoAutor
-      foreignAlias: Autores
-
 Recurso:
   actAs:
     Timestampable:
     DmVersionable:
     DmSortable:
     DmBlameable:
- # DmTaggable:
+#    DmSluggable:
+#    DmSearchable:
+#      fields: [titulo, resumen]
+ #   DmTaggable:
   columns:
+    id: {type: integer, autoincrement: true, primary: true}
     titulo: {type: string(40), notnull: true}
     anno: {type: string(4)}
     resumen: {type: string(255)}
     idioma: {type: string(24)}
     aprobado: {type: boolean, default: false}
+    is_active: {type: boolean, default: false}
     fichero: {type: string(255), notnull: false}
     formato_duro: {type: boolean, default: false}
   relations:
     Autor:
       class: Autor
-      local: recurso_id
-      foreign: autor_id
       refClass: RecursoAutor
       foreignAlias: Recursos
       onDelete: CASCADE
-    Evento:
-      class: Evento
-      local: recurso_id
-      foreign: evento_id
-      refClass: RecursoEvento
-      foreignAlias: Trabajos
     Tematica:
       class: Tematica
-      local: id
-      foreign: tematica_id
+      refClass: RecursoTematica
+      foreignAlias: Recursos
       onDelete: RESTRICT
+    DmUser:
+      class: DmUser
+      refClass: SolicitudPrestamo
+      foreignAlias: Recursos
+      onDelete: CASCADE
+    DmUser:
+      class: DmUser
+      refClass: Descarga
+      foreignAlias: Recursos
+    DmUser:
+      class: DmUser
+      foreignAlias: Recursos
+      refClass: Prestamo
+    
 
-RecursoEvento:
+Autor:
+  actAs:
+#    DmSluggable:
+#    DmSearchable:
+#      file: [nombre, apellidos]
   columns:
-    recurso_id: {type: integer, primary: true}
-    evento_id: {type: integer, primary: true}
+    id: {type: integer, autoincrement: true, primary: true}
+    nombre: {type: string(32), notnull: true}
+    apellidos: {type: string(40), notnull: true}
 
 RecursoAutor:
   columns:
     autor_id: {type: integer, primary: true}
     recurso_id: {type: integer, primary: true}
+  relations:
+    Autor:
+      foreignAlias: RecursoAutors
+    Recurso:
+      foreignAlias: RecursoAutors
 
 RecursoTematica:
   columns:
     tematica_id: {type: integer, primary: true}
     recurso_id: {type: integer, primary: true}
+  relations:
+    Tematica:
+      foreignAlias: RecursoTematicas
+    Recurso:
+      foreignAlias: RecursoTematicas
 
 Tematica:
   columns:
+    id: {type: integer, primary: true, autoincrement: true}
     nombre: {type: string(32), notnull: true}
-      
+
 DmUser:
   actAs:
     Timestampable:
   columns:
+    id: {type: integer, primary: true, autoincrement: true}
     titulo: {type: enum, values: [9no, 12, Lic, Ing, MsC, Dr]}
     nombre: {type: string(32), notnull: true}
     apellidos: {type: string(40), notnull: true}
@@ -80,12 +96,51 @@ DmUser:
       class: DmMedia
       local: foto_id
       onDelete: RESTRICT
-    Tematica:
-      class: Tematica
-      local: user_id
-      foreign: tematica_id
-      refClass: Diseminacion
 
+SolicitudPrestamo:
+  actAs:
+    Timestampable:
+  columns:
+    user_id: {type: integer, primary: true,}
+    recurso_id: {type: integer, primary: true,}
+  relations:
+    DmUser:
+      foreignAlias: SolicitudPrestamos
+    Recurso:
+      foreignAlias: SolicitudPrestamos
+      onDelete: CASCADE
+
+Descarga:
+  actAs:
+    Timestampable:
+  columns:
+    recurso_id: {type: integer, primary: true}
+    user_id: {type: integer, primary: true}
+  relations:
+    DmUser:
+      local: user_id
+      foreignAlias: Descargas
+      onDelete: RESTRICT
+    Recurso:
+      foreignAlias: Descargas
+      onDelete: RESTRICT
+
+Prestamo:
+  actAs:
+    Timestampable:
+  columns:
+    id: {type: integer, primary: true, autoincrement: true}
+    user_id: {type: integer, primary: true}
+    recurso_id: {type: integer, primary: true}
+    fecha_devolucion: {type: timestamp, notnull: true}
+    prorroga: {type: boolean, default: false}
+  relations:
+    DmUser:
+      foreignAlias: Prestamos
+      onDelete: CASCADE
+    Recurso:
+      foreignAlias: Prestamos
+      onDelete: CASCADE
 Patente:
   inheritance:
     extends: Recurso
@@ -168,45 +223,33 @@ Tesis:
     tutor: {type: string(128)}
     tipo: {type: enum, values: [Pregrado, Maestria, Doctorado]}
 
-Evento:
+Busqueda:
   actAs:
     Timestampable:
+#    DmTaggable:
   columns:
-    titulo: {type: string(64), notnull: true}
-    ciudad: {type: string(64), notnull: true}
-    fecha_inicio: {type: timestamp}
-    fecha_final: {type: timestamp}
-    descripcion: {type: string(255)}
-
-Descarga:
-  actAs:
-    Timestampable:
-  columns:
-    recurso_id: {type: integer}
+    id: {type: integer, primary: true, autoincrement: true}
     user_id: {type: integer}
-  relations:
-    DmUser:
-      local: user_id
-      foreign: id
-      onDelete: RESTRICT
-    Recurso:
-      local: recurso_id
-      foreign: id
-      onDelete: RESTRICT
-
-Solicitud:
-  actAs:
-    Timestampable:
-# DmTaggable:
-  columns:
-    user_id: {type: integer, notnull: true}
     titulo: {type: string(128)}
     mensaje: {type: clob, extra: markdown}
     is_active: {type: boolean, default: true}
   relations:
     DmUser:
       local: user_id
-      foreign: id
+      foreignAlias: Busquedas
+      onDelete: RESTRICT
+
+Respuestab:
+  actAs:
+    Timestampable:
+  columns:
+    id: {type: integer, primary: true}
+    mensaje: {type: clob, extra: markdown}
+    busqueda_id: {type: integer}
+    uri: {type: string}
+  relations:
+    Busqueda:
+      foreignAlias: Respuestabs
       onDelete: CASCADE
 
 Respuesta:
@@ -214,7 +257,13 @@ Respuesta:
     Timestampable:
     DmBlameable:
   columns:
+    id: {type: integer, primary: true}
     mensaje: {type: clob, extra: markdown}
+    pregunta_id: {type: integer}
+  relations:
+    Pregunta:
+      foreignAlias: Respuestas
+      onDelete: CASCADE
 
 RespuestaSolicitud:
   inheritance:
@@ -237,24 +286,30 @@ Pregunta:
   actAs:
     Timestampable:
   columns:
+    id: {type: integer, primary: true}
     user_id: {type: integer, notnull: true}
     titulo: {type: string(128)}
     mensaje: {type: clob, extra: markdown}
   relations:
     DmUser:
       local: user_id
-      foreign: id
-      class: DmUser
       foreignAlias: Preguntas
-      onDelete: CASCADE
 
 Diseminacion:
   columns:
     user_id: {type: integer, primary: true}
     tematica_id: {type: integer, primary: true}
+  relations:
+    DmUser:
+      local: user_id
+      foreignAlias: Diseminacions
+    Tematica:
+      foreignAlias: Diseminacions
+      onDelete: CASCADE
 
 Prestamo:
   columns:
+    id: {type: integer, primary: true}
     user_id: {type: integer, notnull: true, unique: true}
     recurso_id: {type: integer, notnull: true, unique: true}
     fecha_prestamo: {type: timestamp, notnull: true}
@@ -263,12 +318,9 @@ Prestamo:
   relations:
     DmUser:
       local: user_id
-      foreign: id
       foreignAlias: Prestamos
       onDelete: RESTRICT
     Recurso:
-      local: recurso_id
-      foreign: id
       foreignAlias: Prestamos
       onDelete: CASCADE
 
@@ -278,3 +330,21 @@ SolicitudPrestamo:
   columns:
     user_id: {type: integer, unique: true, notnull: true}
     recurso_id: {type: integer, unique: true, notnull: true}
+  relations:
+    DmUser:
+      local: user_id
+      foreignAlias: SolicitudPrestamos
+    Recurso:
+      foreignAlias: SolicitudPrestamos
+      onDelete: CASCADE
+
+SolicitudProrroga:
+    actAs:
+      Timestampable:
+    columns:
+      prestamo_id: {type: integer}
+      id: {type: integer, primary: true, autoincrement: true}
+    relations:
+      Prestamo:
+        foreignAlias: SolicitudProrrogas
+        onDelete: CASCADE
