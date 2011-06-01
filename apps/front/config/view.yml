@@ -5,11 +5,14 @@ default:
 
   stylesheets:
     - layout
+    - homepage
+    - forms
+    - navi
+    - tables
     - main
     - markdown
 
   javascripts:
-    - front
 
   has_layout:     true
   layout:         layout
