@@ -1,0 +1,53 @@
+/*
+Template Name: Solutions
+File: Navigation CSS
+Author: OS Templates
+Author URI: http://www.os-templates.com/
+Licence: <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported</a>
+*/
+
+#topnav{
+	display:block;
+	position:absolute;
+	top:15px;
+	right:0;
+	font-size:12px;
+	}
+
+#topnav ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	}
+	
+#topnav li{
+	display:block;
+	float:left;
+	width:115px;
+	height:155px;
+	margin:0 15px 0 0;
+	padding:0;
+	color:#FFFFFF;
+	background-color:#2E3A43;
+	}
+
+#topnav li.last{
+	margin-right:0;
+	}
+
+#topnav li a{
+	display:block;
+	width:105px;
+	height:85px;
+	padding:70px 5px 0 5px;
+	color:#FFFFFF;
+	background-color:#2E3A43;
+	text-transform:uppercase;
+	text-align:center;
+	font-weight:bold;
+	}
+
+#topnav li a:hover, #topnav li a.active{
+	color:#273239;
+	background-color:#F78F1E;
+	}

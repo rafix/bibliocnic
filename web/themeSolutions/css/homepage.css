@@ -1,0 +1,139 @@
+/*
+Template Name: Solutions
+File: Homepage CSS
+Author: OS Templates
+Author URI: http://www.os-templates.com/
+Licence: <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported</a>
+*/
+
+
+#gallery{
+	padding:25px 0;
+	text-transform:uppercase;
+	font-size:26px;
+	font-family:Georgia, "Times New Roman", Times, serif;
+	}
+
+#gallery img{
+	margin:0;
+	padding:0;
+	line-height:normal;
+	}
+
+#gallery ul{
+	display:block;
+	width:960px;
+	height:210px;
+	margin:0;
+	padding:0;
+	list-style:none;
+	overflow:hidden;
+	}
+
+#gallery li{
+	display:block;
+	float:left;
+	width:234px;
+	height:210px;
+	margin:0 8px 0 0;
+	padding:0;
+	}
+
+#gallery li.last{
+	margin-right:0;
+	}
+
+#gallery a strong{
+	display:none;
+	font-weight:normal;
+	text-align:center;
+	}
+
+#gallery a:hover strong{
+	display:block;
+	width:100%;
+	margin:0;
+	padding:15px 0;
+	color:#FFFFFF;
+	background-color:#273239;
+	}
+
+
+
+
+#homecontent{
+	padding:25px 0;
+	border-top:1px dashed #FFFFFF;
+	}
+
+#homecontent ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	}
+
+#homecontent a{
+	color:#F78F1E;
+	background-color:#3B4852;
+	}
+
+#homecontent li{
+	display:block;
+	float:left;
+	width:300px;
+	margin:0 30px 0 0;
+	padding:0;
+	}
+
+#homecontent li.last{margin-right:0;}
+
+#homecontent li p.imgholder{
+	display:block;
+	width:290px;
+	height:100px;
+	margin:0 0 10px 0;
+	padding:4px;
+	color:#FFFFFF;
+	background-color:#4D5C6A;
+	border:1px solid #1F262C;
+	}
+
+#homecontent li h2{
+	font-family:Georgia, "Times New Roman", Times, serif;
+	font-size:13px;
+	font-weight:bold;
+	}
+
+#homecontent p.readmore{
+	display:block;
+	width:290px;
+	margin:0;
+	padding:5px;
+	text-align:right;
+	font-weight:bold;
+	}
+
+#homecontent p.readmore, #homecontent p.readmore a{
+	color:#FFFFFF;
+	background-color:#4D5C6A;
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
