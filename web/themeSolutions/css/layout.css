@@ -20,7 +20,30 @@ body{
 	color:#CCCCCC;
 	background-color:#000000;
 	}
-
+div.dm_layout {
+  width: 960px;
+  margin: 0 auto;
+  text-align: left;
+}
+.dm_layout_right {
+  float: right;
+  width: 260px;
+  padding: 0;
+  background-color:#333;
+  
+}
+#dm_content {
+  float: left;
+  width: 700px;
+  padding: 20px 0 0 0;
+  background-color:#3B4852;
+}
+#dm_content .dm_page_content {
+  padding: 0 25px 0 20px;
+}
+.dm_layout_top{
+  height: 170px;
+}
 img{border:0; padding:0; margin:0;}
 .justify{text-align:justify;}
 .bold{font-weight:bold;}

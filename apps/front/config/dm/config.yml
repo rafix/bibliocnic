@@ -2,8 +2,7 @@ all:
 
   theming:                                        # front css themes
     themes:                                       # list of themes
-      solutions:
-        name: Solutions
+      "Solutions":
         dir:              themeSolutions                   # relative to web dir
         enabled:          true                    # theme disponibility
 
