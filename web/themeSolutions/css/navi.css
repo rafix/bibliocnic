@@ -6,21 +6,20 @@ Author URI: http://www.os-templates.com/
 Licence: <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported</a>
 */
 
-#topnav{
+div.navigation_menu{
 	display:block;
-	position:absolute;
-	top:15px;
-	right:0;
+	float: right;
+	
 	font-size:12px;
 	}
 
-#topnav ul{
+div.navigation_menu ul{
 	margin:0;
 	padding:0;
 	list-style:none;
 	}
 	
-#topnav li{
+div.navigation_menu li{
 	display:block;
 	float:left;
 	width:115px;
@@ -31,11 +30,10 @@ Licence: <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons 
 	background-color:#2E3A43;
 	}
 
-#topnav li.last{
+div.navigation_menu li.last{
 	margin-right:0;
 	}
-
-#topnav li a{
+div.navigation_menu li a{
 	display:block;
 	width:105px;
 	height:85px;
@@ -47,7 +45,17 @@ Licence: <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons 
 	font-weight:bold;
 	}
 
-#topnav li a:hover, #topnav li a.active{
+div.navigation_menu ul li a:hover{
 	color:#273239;
 	background-color:#F78F1E;
 	}
+div.navigation_menu  ul li.dm_current{
+	color:#273239;
+	background-color:#F78F1E;
+	}
+div.navigation_menu ul li.first{
+   background: url(../images/home.png) no-repeat 100% 100%;
+}
+div.navigation_menu ul li.last{
+   background: url(../images/busqueda.png) no-repeat 100% 100%;
+}
