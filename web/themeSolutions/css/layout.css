@@ -23,7 +23,7 @@ body{
 div.dm_layout {
   width: 960px;
   margin: 0 auto;
-  text-align: left;
+  
 }
 .dm_layout_right {
   float: right;
@@ -40,6 +40,10 @@ div.dm_layout {
 }
 #dm_content .dm_page_content {
   padding: 0 25px 0 20px;
+}
+#dm_content p.dm_first_p{
+text-align: justify;
+
 }
 .dm_layout_top{
   height: 170px;
