@@ -6,3 +6,31 @@ Content:
       components:
         header:
         footer:
+    
+  BusquedaEspecial:
+    Busqueda:
+      page: true
+      name: Búsqueda especializada
+      front: true
+      admin: true
+      components:
+        list:
+          cache: true
+        show:
+          cache: true
+        formEdit:
+        formCreate:
+
+    Respuesta:
+      model: respuestab
+      page: true
+      name: Respuesta búsqueda
+      parent: busqueda
+      front: true
+      admin: true
+      components:
+        listByBusqueda:
+        filters: [busqueda]
+        show:
+        formEdit:
+        formCreate:
