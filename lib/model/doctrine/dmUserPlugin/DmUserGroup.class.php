@@ -12,4 +12,5 @@
  */
 class DmUserGroup extends PluginDmUserGroup
 {
+
 }

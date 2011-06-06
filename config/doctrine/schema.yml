@@ -233,6 +233,9 @@ Busqueda:
     titulo: {type: string(128)}
     mensaje: {type: clob, extra: markdown}
     is_active: {type: boolean, default: true}
+    tematicas: {type: enum, values: [FISICA, MATEMATICA, AGRICULTURA, ARTE Y HUMANIDADES]}
+    fecha_antes: {type: timestamp}
+    fecha_despues: {type: timestamp}
   relations:
     DmUser:
       local: user_id
@@ -310,14 +313,13 @@ Diseminacion:
 Prestamo:
   columns:
     id: {type: integer, primary: true}
-    user_id: {type: integer, notnull: true, unique: true}
+    user_id: {type: integer, unique: true}
     recurso_id: {type: integer, notnull: true, unique: true}
     fecha_prestamo: {type: timestamp, notnull: true}
     fecha_devolucion: {type: timestamp, notnull: true}
     prorroga: {type: boolean, default: false}
   relations:
     DmUser:
-      local: user_id
       foreignAlias: Prestamos
       onDelete: RESTRICT
     Recurso:

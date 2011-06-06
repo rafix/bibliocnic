@@ -12,4 +12,5 @@
  */
 class DmError extends PluginDmError
 {
+
 }

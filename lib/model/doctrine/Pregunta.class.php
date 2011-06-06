@@ -12,4 +12,5 @@
  */
 class Pregunta extends BasePregunta
 {
+
 }

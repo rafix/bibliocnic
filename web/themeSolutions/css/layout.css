@@ -48,6 +48,15 @@ text-align: justify;
 .dm_layout_top{
   height: 170px;
 }
+#dm_zone_3 {
+float: left;
+width: 30%;
+}
+#dm_zone_8 {
+float: right;
+width: 70%
+}
+
 img{border:0; padding:0; margin:0;}
 .justify{text-align:justify;}
 .bold{font-weight:bold;}

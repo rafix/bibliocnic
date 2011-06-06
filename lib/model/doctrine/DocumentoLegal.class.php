@@ -12,4 +12,5 @@
  */
 class DocumentoLegal extends BaseDocumentoLegal
 {
+
 }

@@ -12,4 +12,5 @@
  */
 class DmSentMail extends PluginDmSentMail
 {
+
 }

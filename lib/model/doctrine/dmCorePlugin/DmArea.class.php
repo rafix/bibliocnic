@@ -12,4 +12,5 @@
  */
 class DmArea extends PluginDmArea
 {
+
 }
