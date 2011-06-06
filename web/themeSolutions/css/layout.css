@@ -45,12 +45,19 @@ div.dm_layout {
 text-align: justify;
 
 }
+#dm_widget_7.main_header {
+position: absolute;
+left: 0;
+bottom: 0;
+}
 .dm_layout_top{
   height: 170px;
+  position: relative;
 }
 #dm_zone_3 {
 float: left;
 width: 30%;
+
 }
 #dm_zone_8 {
 float: right;
