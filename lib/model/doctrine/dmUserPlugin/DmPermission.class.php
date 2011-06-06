@@ -12,4 +12,5 @@
  */
 class DmPermission extends PluginDmPermission
 {
+
 }

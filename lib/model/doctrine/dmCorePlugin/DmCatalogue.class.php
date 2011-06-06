@@ -12,4 +12,5 @@
  */
 class DmCatalogue extends PluginDmCatalogue
 {
+
 }

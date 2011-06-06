@@ -12,4 +12,5 @@
  */
 class DmSetting extends PluginDmSetting
 {
+
 }

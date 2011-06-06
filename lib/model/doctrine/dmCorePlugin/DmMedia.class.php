@@ -12,4 +12,5 @@
  */
 class DmMedia extends PluginDmMedia
 {
+
 }

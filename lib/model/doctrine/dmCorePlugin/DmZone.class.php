@@ -12,4 +12,5 @@
  */
 class DmZone extends PluginDmZone
 {
+
 }

@@ -12,4 +12,5 @@
  */
 class Patente extends BasePatente
 {
+
 }

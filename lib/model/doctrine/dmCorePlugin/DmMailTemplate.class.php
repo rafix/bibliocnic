@@ -12,4 +12,5 @@
  */
 class DmMailTemplate extends PluginDmMailTemplate
 {
+
 }

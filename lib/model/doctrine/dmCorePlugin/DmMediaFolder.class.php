@@ -12,4 +12,5 @@
  */
 class DmMediaFolder extends PluginDmMediaFolder
 {
+
 }

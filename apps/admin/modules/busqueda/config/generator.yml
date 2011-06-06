@@ -1,0 +1,53 @@
+generator:
+  class: dmAdminDoctrineGenerator
+  param:
+    model_class: Busqueda
+    theme: dmAdmin
+    non_verbose_templates: true
+    with_show: false
+    route_prefix: busqueda
+    with_doctrine_route: false
+    config:
+      actions: ~
+      fields:
+        is_active:
+          label: Active
+      list:
+        display:
+          - '=id'
+          - user_id
+          - titulo
+          - mensaje
+          - is_active
+          - tematicas
+          - fecha_antes
+          - fecha_despues
+          - created_at
+          - updated_at
+        sort:
+          - created_at
+          - desc
+        table_method: getAdminListQuery
+        table_count_method: ~
+        sortable: false
+      filter:
+        display:
+          - id
+          - is_active
+          - user_id
+          - titulo
+          - mensaje
+          - tematicas
+          - fecha_antes
+          - fecha_despues
+          - created_at
+          - updated_at
+      form:
+        display:
+          NONE: [is_active, user_id]
+          Mensaje: [mensaje]
+          Others: [titulo, tematicas, fecha_antes, fecha_despues]
+        class: BusquedaAdminForm
+        fields: {  }
+      edit: ~
+      new: ~

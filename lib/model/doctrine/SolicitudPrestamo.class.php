@@ -12,4 +12,5 @@
  */
 class SolicitudPrestamo extends BaseSolicitudPrestamo
 {
+
 }
