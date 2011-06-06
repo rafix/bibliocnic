@@ -12,4 +12,5 @@
  */
 class DmLock extends PluginDmLock
 {
+
 }

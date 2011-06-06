@@ -12,4 +12,5 @@
  */
 class Monografia extends BaseMonografia
 {
+
 }

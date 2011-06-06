@@ -12,4 +12,5 @@
  */
 class DmUser extends PluginDmUser
 {
+
 }

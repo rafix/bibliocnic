@@ -12,4 +12,5 @@
  */
 class DmPage extends PluginDmPage
 {
+
 }

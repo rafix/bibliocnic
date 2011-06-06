@@ -12,4 +12,5 @@
  */
 class RecursoTematica extends BaseRecursoTematica
 {
+
 }

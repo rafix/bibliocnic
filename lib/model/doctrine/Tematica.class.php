@@ -12,4 +12,5 @@
  */
 class Tematica extends BaseTematica
 {
+
 }

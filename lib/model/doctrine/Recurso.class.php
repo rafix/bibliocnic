@@ -12,4 +12,5 @@
  */
 class Recurso extends BaseRecurso
 {
+
 }

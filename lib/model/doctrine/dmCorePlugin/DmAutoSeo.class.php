@@ -12,4 +12,5 @@
  */
 class DmAutoSeo extends PluginDmAutoSeo
 {
+
 }

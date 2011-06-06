@@ -12,4 +12,5 @@
  */
 class Prestamo extends BasePrestamo
 {
+
 }
