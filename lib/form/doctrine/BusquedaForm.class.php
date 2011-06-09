@@ -14,6 +14,14 @@ class BusquedaForm extends BaseBusquedaForm
   {
     unset($this['user_id'], $this['created_at'], $this['updated_at'], $this['is_active']);
     $this->getObject()->setUserId( sfcontext::getInstance()->getUser()->getAttribute(  'user_id', ' ' ,'dmSecurityUser'  ));
+   $this->validatorSchema->setOption('allow_extra_fields', true);
+   $this->setValidators(array(
+    'titulo'    => new sfValidatorString(),
+    'mensaje' => new sfValidatorString(array('min_length' => 10), array(
+    'required'   => 'Por favor describa su busqueda',
+    'min_length' => 'Please provide a longer message (at least 4 characters)'
+  ))
+));
   }
 }
 ?>
