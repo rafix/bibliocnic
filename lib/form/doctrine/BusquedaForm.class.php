@@ -12,5 +12,8 @@ class BusquedaForm extends BaseBusquedaForm
 {
   public function configure()
   {
+    unset($this['user_id'], $this['created_at'], $this['updated_at'], $this['is_active']);
+    $this->getObject()->setUserId( sfcontext::getInstance()->getUser()->getAttribute(  'user_id', ' ' ,'dmSecurityUser'  ));
   }
 }
+?>
