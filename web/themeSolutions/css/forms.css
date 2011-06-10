@@ -54,7 +54,7 @@ legend{display:none;}
 
 /* ----------------------------------------------Contact Form in Footer-------------------------------------*/
 
-#contactform form{
+#dm_widget_6 form{
 	margin:0;
 	padding:0;
 	border:none;
@@ -62,7 +62,7 @@ legend{display:none;}
 	}
 
 
-#contactform label{
+#dm_widget_6 label{
 	display:inline;
 	width:170px;
 	float:left;
@@ -70,11 +70,11 @@ legend{display:none;}
 	padding:0;
 	}
 
-#contactform label.margin{
+#dm_widget_6 label.margin{
 	margin-left:10px;
 	}
 
-#contactform label input, #contactform label textarea{
+#dm_widget_6 label input, #dm_widget_6 label textarea{
 	display:block;
 	width:162px;
 	margin:5px 0;
@@ -84,13 +84,13 @@ legend{display:none;}
 	border:1px solid #CCCCCC;
 	}
 
-#contactform label textarea{
+#dm_widget_6 label textarea{
 	display:block;
 	width:342px;
 	overflow:auto;
 	}
 
-#contactform p{
+#dm_widget_6 p{
 	display:block;
 	width:350px;
 	margin:0;
@@ -98,9 +98,14 @@ legend{display:none;}
 	clear:both;
 	}
 
-#contactform p input{
+#dm_widget_6 p input{
 	padding:5px 10px;
 	color:#666666;
 	background-color:#F7F7F7;
 	border:1px solid #CCCCCC;
 	}
+ul.error_list {
+color: red;
+margin-left: 170px;
+list-style: none outside 
+}
