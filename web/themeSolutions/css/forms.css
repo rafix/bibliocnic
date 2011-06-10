@@ -104,12 +104,8 @@ legend{display:none;}
 	background-color:#F7F7F7;
 	border:1px solid #CCCCCC;
 	}
-.error {
-	display:block;
-	width:350px;
-	margin:0;
-	padding:0;
-	clear:both;
-    color: red;
-	
+ul.error_list {
+color: red;
+margin-left: 170px;
+list-style: none outside 
 }
