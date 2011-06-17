@@ -4,10 +4,6 @@ Recurso:
     DmVersionable:
     DmSortable:
     DmBlameable:
-#    DmSluggable:
-#    DmSearchable:
-#      fields: [titulo, resumen]
- #   DmTaggable:
   columns:
     id: {type: integer, autoincrement: true, primary: true}
     titulo: {type: string(40), notnull: true}
@@ -42,14 +38,9 @@ Recurso:
       class: DmUser
       foreignAlias: Recursos
       refClass: Prestamo
-    
 
 Autor:
-  actAs:
-#    DmSluggable:
-#    DmSearchable:
-#      file: [nombre, apellidos]
-  columns:
+   columns:
     id: {type: integer, autoincrement: true, primary: true}
     nombre: {type: string(32), notnull: true}
     apellidos: {type: string(40), notnull: true}
@@ -91,6 +82,8 @@ DmUser:
     foto_id: {type: integer, notnull: false}
     is_active: {type: boolean, default: true}
     penalizado: {type: boolean, default: false}
+    solapin: {type: string(16), notnull: false}
+    departamento: {type: string(16), notnull: false}
   relations:
     Image:
       class: DmMedia
@@ -101,10 +94,11 @@ SolicitudPrestamo:
   actAs:
     Timestampable:
   columns:
-    user_id: {type: integer, primary: true,}
-    recurso_id: {type: integer, primary: true,}
+    user_id: {type: integer, unique: true, notnull: true}
+    recurso_id: {type: integer, unique: true, notnull: true}
   relations:
     DmUser:
+      local: user_id
       foreignAlias: SolicitudPrestamos
     Recurso:
       foreignAlias: SolicitudPrestamos
@@ -125,22 +119,6 @@ Descarga:
       foreignAlias: Descargas
       onDelete: RESTRICT
 
-Prestamo:
-  actAs:
-    Timestampable:
-  columns:
-    id: {type: integer, primary: true, autoincrement: true}
-    user_id: {type: integer, primary: true}
-    recurso_id: {type: integer, primary: true}
-    fecha_devolucion: {type: timestamp, notnull: true}
-    prorroga: {type: boolean, default: false}
-  relations:
-    DmUser:
-      foreignAlias: Prestamos
-      onDelete: CASCADE
-    Recurso:
-      foreignAlias: Prestamos
-      onDelete: CASCADE
 Patente:
   inheritance:
     extends: Recurso
@@ -233,7 +211,7 @@ Busqueda:
     titulo: {type: string(128)}
     mensaje: {type: clob, extra: markdown}
     is_active: {type: boolean, default: true}
-    tematicas: {type: enum, values: [FISICA, MATEMATICA, AGRICULTURA, ARTE Y HUMANIDADES]}
+    tematica: {type: enum, values: [MATEMATICA, AGRICULTURA, ARTE Y HUMANIDADES, BIOINFORMÁTICA, BIOQUÍMICA GENÉTICA Y BIOLOGÍA MOLECULAR, CIENCIA AMBIENTAL, CIENCIA DE LA COMPUTACION, CIENCIA DE MATERIALES, CIENCIAS BILÓGICAS, CIENCIAS DE LA DECISIÓN, CIENCIAS DE LA TIERRA Y DEL ESPACIO, CIENCIAS SOCIALES, CIENCIAS VETERINARIAS, CONTABILIDAD Y GESTIÓN DE EMPRESAS, ECONOMÍA, ECONOMETRÍA Y FINANZAS, ENERGÍA, ENFERMERÍA, ESTOMATOLOGÍA, FARMACOLOGÍA TOXICOLOGÍA Y FARMACIA, FÍSICA Y ASTRONOMÍA, INGENIERÍA QUÍMICA, INGENIERÍAS, INMUNOLOGÍA Y MICROBIOLOGÍA, MEDICINA, NANOCIENCIA Y NANOTECNOLOGÍAS, NEUROCIENCIAS, PROFECIONALES EN SALUD, PSICOLOGÍA, QUÍMICA]}
     fecha_antes: {type: timestamp}
     fecha_despues: {type: timestamp}
   relations:
@@ -313,31 +291,18 @@ Diseminacion:
 Prestamo:
   columns:
     id: {type: integer, primary: true}
-    user_id: {type: integer, unique: true}
-    recurso_id: {type: integer, notnull: true, unique: true}
+    user_id: {type: integer, notnull: true}
+    recurso_id: {type: integer, notnull: true}
     fecha_prestamo: {type: timestamp, notnull: true}
     fecha_devolucion: {type: timestamp, notnull: true}
     prorroga: {type: boolean, default: false}
   relations:
     DmUser:
+      local: user_id
       foreignAlias: Prestamos
       onDelete: RESTRICT
     Recurso:
       foreignAlias: Prestamos
-      onDelete: CASCADE
-
-SolicitudPrestamo:
-  actAs:
-    Timestampable:
-  columns:
-    user_id: {type: integer, unique: true, notnull: true}
-    recurso_id: {type: integer, unique: true, notnull: true}
-  relations:
-    DmUser:
-      local: user_id
-      foreignAlias: SolicitudPrestamos
-    Recurso:
-      foreignAlias: SolicitudPrestamos
       onDelete: CASCADE
 
 SolicitudProrroga:

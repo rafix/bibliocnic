@@ -55,13 +55,17 @@ legend{display:none;}
 /* ----------------------------------------------Contact Form in Footer-------------------------------------*/
 
 #dm_widget_6 form{
-	margin:0;
+	
 	padding:0;
 	border:none;
 	line-height:normal;
+	margin:10px;
 	}
 
+#dm_widget_6 li{
 
+
+	}
 #dm_widget_6 label{
 	display:inline;
 	width:170px;
@@ -74,7 +78,7 @@ legend{display:none;}
 	margin-left:10px;
 	}
 
-#dm_widget_6 label input, #dm_widget_6 label textarea{
+#dm_widget_6 li input, #dm_widget_6 li textarea{
 	display:block;
 	width:162px;
 	margin:5px 0;
@@ -83,13 +87,19 @@ legend{display:none;}
 	background-color:#F7F7F7;
 	border:1px solid #CCCCCC;
 	}
-
-#dm_widget_6 label textarea{
+#dm_widget_6 li input.submit{
+width:60px;
+}
+#dm_widget_6 li textarea{
 	display:block;
-	width:342px;
+	width:338px;
 	overflow:auto;
+	
 	}
-
+#dm_widget_6 li textarea{
+	
+	margin-bottom: 10px;
+	}
 #dm_widget_6 p{
 	display:block;
 	width:350px;
@@ -104,3 +114,13 @@ legend{display:none;}
 	background-color:#F7F7F7;
 	border:1px solid #CCCCCC;
 	}
+ul.error_list {
+color: red;
+margin-left: 170px;
+list-style: none outside 
+}
+#dm_widget_6 p.felicitaciones {
+color: lime;
+display: block;
+margin-bottom: 10px;
+}
