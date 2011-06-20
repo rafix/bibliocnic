@@ -45,5 +45,5 @@ generator:
         display:
           NONE: [username, email, password, password_again, is_active, is_super_admin]
           "Groups & Permissions": [groups_list, permissions_list]
-          "Mis campos": [titulo, apellidos, foto_id_form, foto_id_view, penalizado, solapin, departamento]
+          "Mis campos": [titulo, nombre, apellidos, foto_id_form, foto_id_view, penalizado, solapin, departamento]
         class: DmUserAdminForm
