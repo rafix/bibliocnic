@@ -19,7 +19,7 @@ generator:
           - titulo
           - mensaje
           - is_active
-          - tematicas
+          - tematica
           - fecha_antes
           - fecha_despues
           - created_at
