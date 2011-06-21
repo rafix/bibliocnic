@@ -1,8 +1,12 @@
 <?php
 
 if($sf_user->isAuthenticated())
-{
+{ 
+  /*echo _media($dm_user->Image);*/
+  $image = $sf_user->getUser()->get('Image');
+  echo _media($image)->size(30,40);
   echo _tag('p', __('Bienvenido %username%', array('%username%' => $sf_user->getUsername())));
+  echo _link('+/dmUser/signout')->text('Cerrar sesión');
   return;
 }
 
