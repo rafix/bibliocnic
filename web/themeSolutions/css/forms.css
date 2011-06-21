@@ -52,9 +52,9 @@ legend{display:none;}
 	border:1px solid #CCCCCC;
 	}
 
-/* ----------------------------------------------Contact Form in Footer-------------------------------------*/
+/* ----------------------------------------------busqueda Form -------------------------------------*/
 
-#dm_widget_6 form{
+.busqueda_form form{
 	
 	padding:0;
 	border:none;
@@ -62,11 +62,8 @@ legend{display:none;}
 	margin:10px;
 	}
 
-#dm_widget_6 li{
 
-
-	}
-#dm_widget_6 label{
+.busqueda_form label{
 	display:inline;
 	width:170px;
 	float:left;
@@ -74,11 +71,11 @@ legend{display:none;}
 	padding:0;
 	}
 
-#dm_widget_6 label.margin{
+.busqueda_form label.margin{
 	margin-left:10px;
 	}
 
-#dm_widget_6 li input, #dm_widget_6 li textarea{
+.busqueda_form li input, .busqueda_form li textarea{
 	display:block;
 	width:162px;
 	margin:5px 0;
@@ -87,20 +84,21 @@ legend{display:none;}
 	background-color:#F7F7F7;
 	border:1px solid #CCCCCC;
 	}
-#dm_widget_6 li input.submit{
+.busqueda_form li input.submit{
 width:60px;
+list-style: none outside;
 }
-#dm_widget_6 li textarea{
+.busqueda_form li textarea{
 	display:block;
 	width:338px;
 	overflow:auto;
 	
 	}
-#dm_widget_6 li textarea{
+.busqueda_form li textarea{
 	
 	margin-bottom: 10px;
 	}
-#dm_widget_6 p{
+.busqueda_form p{
 	display:block;
 	width:350px;
 	margin:0;
@@ -108,19 +106,54 @@ width:60px;
 	clear:both;
 	}
 
-#dm_widget_6 p input{
+.busqueda_form p input{
 	padding:5px 10px;
 	color:#666666;
 	background-color:#F7F7F7;
 	border:1px solid #CCCCCC;
 	}
-ul.error_list {
+.busqueda_form ul.error_list {
 color: red;
 margin-left: 170px;
 list-style: none outside 
 }
-#dm_widget_6 p.felicitaciones {
+.busqueda_form p.felicitaciones {
 color: lime;
 display: block;
 margin-bottom: 10px;
+}
+/* ----------------------------------------------Register Form -------------------------------------*/
+.dm_user_form  form {
+    padding:0;
+	border:none;
+	line-height:normal;
+	margin:10px;
+}
+.dm_user_form  label{
+	display:inline;
+	width:170px;
+	float:left;
+	margin:0 0 12px 0;
+	padding:0;
+	}
+.dm_user_form input{
+	padding:5px 10px;
+	color:#666666;
+	background-color:#F7F7F7;
+	border:1px solid #CCCCCC;
+	}
+/* ----------------------------------------------Signin Form -------------------------------------*/
+.dm_user_signin img{
+margin-left:5px;
+margin-top: 5px;
+
+border: 1px solid yellow;
+}
+.dm_user_signin p{
+margin-left:5px;
+margin-top: 5px;
+color: yellow;
+}
+.dm_user_signin a{
+margin-left:5px;
 }
