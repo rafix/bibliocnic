@@ -27,6 +27,7 @@ div.navigation_menu li{
 	padding:0;
 	color:#FFFFFF;
 	background-color:#2E3A43;
+	list-style:none;
 	}
 
 div.navigation_menu li.last{

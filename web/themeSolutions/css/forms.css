@@ -142,3 +142,18 @@ margin-bottom: 10px;
 	background-color:#F7F7F7;
 	border:1px solid #CCCCCC;
 	}
+/* ----------------------------------------------Signin Form -------------------------------------*/
+.dm_user_signin img{
+margin-left:5px;
+margin-top: 5px;
+
+border: 1px solid yellow;
+}
+.dm_user_signin p{
+margin-left:5px;
+margin-top: 5px;
+color: yellow;
+}
+.dm_user_signin a{
+margin-left:5px;
+}
