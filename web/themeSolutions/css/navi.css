@@ -55,6 +55,6 @@ div.navigation_menu  ul li.dm_current{
 div.navigation_menu ul li.first{
    background: url(../images/home.png) no-repeat 100% 100%;
 }
-div.navigation_menu ul li.last{
+div.navigation_menu ul li.dm_current{
    background: url(../images/busqueda.png) no-repeat 100% 100%;
 }

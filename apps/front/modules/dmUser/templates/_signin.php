@@ -1,7 +1,10 @@
 <?php
 
 if($sf_user->isAuthenticated())
-{
+{ 
+  /*echo _media($dm_user->Image);*/
+  $image = $sf_user->getUser()->get('Image');
+  echo _media($sf_user->getUser()->get('foto_id'));
   echo _tag('p', __('Bienvenido %username%', array('%username%' => $sf_user->getUsername())));
   return;
 }
