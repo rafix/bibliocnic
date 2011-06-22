@@ -2,10 +2,10 @@
 -- version 3.2.4
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Jun 20, 2011 at 12:40 
--- Server version: 5.1.41
--- PHP Version: 5.3.1
+-- Servidor: localhost
+-- Tiempo de generación: 21-06-2011 a las 17:32:00
+-- Versión del servidor: 5.1.41
+-- Versión de PHP: 5.3.1
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -16,13 +16,13 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `bibliocnic`
+-- Base de datos: `bibliocnic`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `articulo_version`
+-- Estructura de tabla para la tabla `articulo_version`
 --
 
 CREATE TABLE IF NOT EXISTS `articulo_version` (
@@ -65,14 +65,14 @@ CREATE TABLE IF NOT EXISTS `articulo_version` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `articulo_version`
+-- Volcar la base de datos para la tabla `articulo_version`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `autor`
+-- Estructura de tabla para la tabla `autor`
 --
 
 CREATE TABLE IF NOT EXISTS `autor` (
@@ -83,14 +83,14 @@ CREATE TABLE IF NOT EXISTS `autor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `autor`
+-- Volcar la base de datos para la tabla `autor`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `biblioteca_personal_version`
+-- Estructura de tabla para la tabla `biblioteca_personal_version`
 --
 
 CREATE TABLE IF NOT EXISTS `biblioteca_personal_version` (
@@ -133,14 +133,14 @@ CREATE TABLE IF NOT EXISTS `biblioteca_personal_version` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `biblioteca_personal_version`
+-- Volcar la base de datos para la tabla `biblioteca_personal_version`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `busqueda`
+-- Estructura de tabla para la tabla `busqueda`
 --
 
 CREATE TABLE IF NOT EXISTS `busqueda` (
@@ -159,7 +159,7 @@ CREATE TABLE IF NOT EXISTS `busqueda` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=12 ;
 
 --
--- Dumping data for table `busqueda`
+-- Volcar la base de datos para la tabla `busqueda`
 --
 
 INSERT INTO `busqueda` (`id`, `user_id`, `titulo`, `mensaje`, `is_active`, `tematica`, `fecha_antes`, `fecha_despues`, `created_at`, `updated_at`) VALUES
@@ -177,7 +177,7 @@ INSERT INTO `busqueda` (`id`, `user_id`, `titulo`, `mensaje`, `is_active`, `tema
 -- --------------------------------------------------------
 
 --
--- Table structure for table `descarga`
+-- Estructura de tabla para la tabla `descarga`
 --
 
 CREATE TABLE IF NOT EXISTS `descarga` (
@@ -190,14 +190,14 @@ CREATE TABLE IF NOT EXISTS `descarga` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `descarga`
+-- Volcar la base de datos para la tabla `descarga`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `diseminacion`
+-- Estructura de tabla para la tabla `diseminacion`
 --
 
 CREATE TABLE IF NOT EXISTS `diseminacion` (
@@ -208,14 +208,14 @@ CREATE TABLE IF NOT EXISTS `diseminacion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `diseminacion`
+-- Volcar la base de datos para la tabla `diseminacion`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_area`
+-- Estructura de tabla para la tabla `dm_area`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_area` (
@@ -229,7 +229,7 @@ CREATE TABLE IF NOT EXISTS `dm_area` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
--- Dumping data for table `dm_area`
+-- Volcar la base de datos para la tabla `dm_area`
 --
 
 INSERT INTO `dm_area` (`id`, `dm_layout_id`, `dm_page_view_id`, `type`) VALUES
@@ -249,7 +249,7 @@ INSERT INTO `dm_area` (`id`, `dm_layout_id`, `dm_page_view_id`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_auto_seo`
+-- Estructura de tabla para la tabla `dm_auto_seo`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_auto_seo` (
@@ -263,7 +263,7 @@ CREATE TABLE IF NOT EXISTS `dm_auto_seo` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `dm_auto_seo`
+-- Volcar la base de datos para la tabla `dm_auto_seo`
 --
 
 INSERT INTO `dm_auto_seo` (`id`, `module`, `action`, `created_at`, `updated_at`) VALUES
@@ -272,7 +272,7 @@ INSERT INTO `dm_auto_seo` (`id`, `module`, `action`, `created_at`, `updated_at`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_auto_seo_translation`
+-- Estructura de tabla para la tabla `dm_auto_seo_translation`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_auto_seo_translation` (
@@ -289,7 +289,7 @@ CREATE TABLE IF NOT EXISTS `dm_auto_seo_translation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_auto_seo_translation`
+-- Volcar la base de datos para la tabla `dm_auto_seo_translation`
 --
 
 INSERT INTO `dm_auto_seo_translation` (`id`, `slug`, `name`, `title`, `h1`, `description`, `keywords`, `strip_words`, `lang`) VALUES
@@ -298,7 +298,7 @@ INSERT INTO `dm_auto_seo_translation` (`id`, `slug`, `name`, `title`, `h1`, `des
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_catalogue`
+-- Estructura de tabla para la tabla `dm_catalogue`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_catalogue` (
@@ -310,7 +310,7 @@ CREATE TABLE IF NOT EXISTS `dm_catalogue` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `dm_catalogue`
+-- Volcar la base de datos para la tabla `dm_catalogue`
 --
 
 INSERT INTO `dm_catalogue` (`id`, `name`, `source_lang`, `target_lang`) VALUES
@@ -320,7 +320,7 @@ INSERT INTO `dm_catalogue` (`id`, `name`, `source_lang`, `target_lang`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_error`
+-- Estructura de tabla para la tabla `dm_error`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_error` (
@@ -337,7 +337,7 @@ CREATE TABLE IF NOT EXISTS `dm_error` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=38 ;
 
 --
--- Dumping data for table `dm_error`
+-- Volcar la base de datos para la tabla `dm_error`
 --
 
 INSERT INTO `dm_error` (`id`, `php_class`, `name`, `description`, `module`, `action`, `uri`, `env`, `created_at`) VALUES
@@ -384,7 +384,7 @@ INSERT INTO `dm_error` (`id`, `php_class`, `name`, `description`, `module`, `act
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_group`
+-- Estructura de tabla para la tabla `dm_group`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_group` (
@@ -398,7 +398,7 @@ CREATE TABLE IF NOT EXISTS `dm_group` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `dm_group`
+-- Volcar la base de datos para la tabla `dm_group`
 --
 
 INSERT INTO `dm_group` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
@@ -413,7 +413,7 @@ INSERT INTO `dm_group` (`id`, `name`, `description`, `created_at`, `updated_at`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_group_permission`
+-- Estructura de tabla para la tabla `dm_group_permission`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_group_permission` (
@@ -424,7 +424,7 @@ CREATE TABLE IF NOT EXISTS `dm_group_permission` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_group_permission`
+-- Volcar la base de datos para la tabla `dm_group_permission`
 --
 
 INSERT INTO `dm_group_permission` (`dm_group_id`, `dm_permission_id`) VALUES
@@ -509,7 +509,7 @@ INSERT INTO `dm_group_permission` (`dm_group_id`, `dm_permission_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_layout`
+-- Estructura de tabla para la tabla `dm_layout`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_layout` (
@@ -522,7 +522,7 @@ CREATE TABLE IF NOT EXISTS `dm_layout` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `dm_layout`
+-- Volcar la base de datos para la tabla `dm_layout`
 --
 
 INSERT INTO `dm_layout` (`id`, `name`, `template`, `css_class`) VALUES
@@ -531,7 +531,7 @@ INSERT INTO `dm_layout` (`id`, `name`, `template`, `css_class`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_lock`
+-- Estructura de tabla para la tabla `dm_lock`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_lock` (
@@ -551,7 +551,7 @@ CREATE TABLE IF NOT EXISTS `dm_lock` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `dm_lock`
+-- Volcar la base de datos para la tabla `dm_lock`
 --
 
 INSERT INTO `dm_lock` (`id`, `user_id`, `user_name`, `module`, `action`, `record_id`, `time`, `app`, `url`, `culture`) VALUES
@@ -562,7 +562,7 @@ INSERT INTO `dm_lock` (`id`, `user_id`, `user_name`, `module`, `action`, `record
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_mail_template`
+-- Estructura de tabla para la tabla `dm_mail_template`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_mail_template` (
@@ -576,7 +576,7 @@ CREATE TABLE IF NOT EXISTS `dm_mail_template` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `dm_mail_template`
+-- Volcar la base de datos para la tabla `dm_mail_template`
 --
 
 INSERT INTO `dm_mail_template` (`id`, `name`, `vars`, `created_at`, `updated_at`) VALUES
@@ -585,7 +585,7 @@ INSERT INTO `dm_mail_template` (`id`, `name`, `vars`, `created_at`, `updated_at`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_mail_template_translation`
+-- Estructura de tabla para la tabla `dm_mail_template_translation`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_mail_template_translation` (
@@ -607,7 +607,7 @@ CREATE TABLE IF NOT EXISTS `dm_mail_template_translation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_mail_template_translation`
+-- Volcar la base de datos para la tabla `dm_mail_template_translation`
 --
 
 INSERT INTO `dm_mail_template_translation` (`id`, `description`, `subject`, `body`, `from_email`, `to_email`, `cc_email`, `bcc_email`, `reply_to_email`, `sender_email`, `list_unsuscribe`, `is_html`, `is_active`, `lang`) VALUES
@@ -616,7 +616,7 @@ INSERT INTO `dm_mail_template_translation` (`id`, `description`, `subject`, `bod
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_media`
+-- Estructura de tabla para la tabla `dm_media`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_media` (
@@ -634,20 +634,21 @@ CREATE TABLE IF NOT EXISTS `dm_media` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `folderFile_idx` (`dm_media_folder_id`,`file`),
   KEY `dm_media_folder_id_idx` (`dm_media_folder_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `dm_media`
+-- Volcar la base de datos para la tabla `dm_media`
 --
 
 INSERT INTO `dm_media` (`id`, `dm_media_folder_id`, `file`, `legend`, `author`, `license`, `mime`, `size`, `dimensions`, `created_at`, `updated_at`) VALUES
 (1, 1, 'defaultMedia.jpg', NULL, NULL, NULL, 'image/jpeg', 159453, '1000x700', '2011-06-05 16:32:40', '2011-06-05 21:05:50'),
-(2, 3, 'IMG_0100.JPG', '', '', '', 'image/jpeg', 43081, NULL, '2011-06-20 11:18:15', '2011-06-20 11:18:15');
+(2, 3, 'IMG_0100.JPG', '', '', '', 'image/jpeg', 43081, '320x480', '2011-06-20 11:18:15', '2011-06-21 09:51:58'),
+(3, 3, 'Thumbs.db', NULL, NULL, NULL, 'application/force-download', 5120, NULL, '2011-06-21 11:46:24', '2011-06-21 11:46:24');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_media_folder`
+-- Estructura de tabla para la tabla `dm_media_folder`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_media_folder` (
@@ -661,7 +662,7 @@ CREATE TABLE IF NOT EXISTS `dm_media_folder` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=4 ;
 
 --
--- Dumping data for table `dm_media_folder`
+-- Volcar la base de datos para la tabla `dm_media_folder`
 --
 
 INSERT INTO `dm_media_folder` (`id`, `rel_path`, `lft`, `rgt`, `level`) VALUES
@@ -672,7 +673,7 @@ INSERT INTO `dm_media_folder` (`id`, `rel_path`, `lft`, `rgt`, `level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_page`
+-- Estructura de tabla para la tabla `dm_page`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_page` (
@@ -689,7 +690,7 @@ CREATE TABLE IF NOT EXISTS `dm_page` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=17 ;
 
 --
--- Dumping data for table `dm_page`
+-- Volcar la base de datos para la tabla `dm_page`
 --
 
 INSERT INTO `dm_page` (`id`, `module`, `action`, `record_id`, `credentials`, `lft`, `rgt`, `level`) VALUES
@@ -713,7 +714,7 @@ INSERT INTO `dm_page` (`id`, `module`, `action`, `record_id`, `credentials`, `lf
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_page_translation`
+-- Estructura de tabla para la tabla `dm_page_translation`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_page_translation` (
@@ -733,7 +734,7 @@ CREATE TABLE IF NOT EXISTS `dm_page_translation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_page_translation`
+-- Volcar la base de datos para la tabla `dm_page_translation`
 --
 
 INSERT INTO `dm_page_translation` (`id`, `slug`, `name`, `title`, `h1`, `description`, `keywords`, `auto_mod`, `is_active`, `is_secure`, `is_indexable`, `lang`) VALUES
@@ -757,7 +758,7 @@ INSERT INTO `dm_page_translation` (`id`, `slug`, `name`, `title`, `h1`, `descrip
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_page_view`
+-- Estructura de tabla para la tabla `dm_page_view`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_page_view` (
@@ -771,7 +772,7 @@ CREATE TABLE IF NOT EXISTS `dm_page_view` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `dm_page_view`
+-- Volcar la base de datos para la tabla `dm_page_view`
 --
 
 INSERT INTO `dm_page_view` (`id`, `module`, `action`, `dm_layout_id`) VALUES
@@ -786,7 +787,7 @@ INSERT INTO `dm_page_view` (`id`, `module`, `action`, `dm_layout_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_permission`
+-- Estructura de tabla para la tabla `dm_permission`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_permission` (
@@ -800,7 +801,7 @@ CREATE TABLE IF NOT EXISTS `dm_permission` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=60 ;
 
 --
--- Dumping data for table `dm_permission`
+-- Volcar la base de datos para la tabla `dm_permission`
 --
 
 INSERT INTO `dm_permission` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
@@ -867,7 +868,7 @@ INSERT INTO `dm_permission` (`id`, `name`, `description`, `created_at`, `updated
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_redirect`
+-- Estructura de tabla para la tabla `dm_redirect`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_redirect` (
@@ -881,14 +882,14 @@ CREATE TABLE IF NOT EXISTS `dm_redirect` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `dm_redirect`
+-- Volcar la base de datos para la tabla `dm_redirect`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_remember_key`
+-- Estructura de tabla para la tabla `dm_remember_key`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_remember_key` (
@@ -901,7 +902,7 @@ CREATE TABLE IF NOT EXISTS `dm_remember_key` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_remember_key`
+-- Volcar la base de datos para la tabla `dm_remember_key`
 --
 
 INSERT INTO `dm_remember_key` (`dm_user_id`, `remember_key`, `ip_address`, `created_at`) VALUES
@@ -910,7 +911,7 @@ INSERT INTO `dm_remember_key` (`dm_user_id`, `remember_key`, `ip_address`, `crea
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_sent_mail`
+-- Estructura de tabla para la tabla `dm_sent_mail`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_sent_mail` (
@@ -934,14 +935,14 @@ CREATE TABLE IF NOT EXISTS `dm_sent_mail` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `dm_sent_mail`
+-- Volcar la base de datos para la tabla `dm_sent_mail`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_setting`
+-- Estructura de tabla para la tabla `dm_setting`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_setting` (
@@ -956,7 +957,7 @@ CREATE TABLE IF NOT EXISTS `dm_setting` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=19 ;
 
 --
--- Dumping data for table `dm_setting`
+-- Volcar la base de datos para la tabla `dm_setting`
 --
 
 INSERT INTO `dm_setting` (`id`, `name`, `type`, `params`, `group_name`, `credentials`) VALUES
@@ -982,7 +983,7 @@ INSERT INTO `dm_setting` (`id`, `name`, `type`, `params`, `group_name`, `credent
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_setting_translation`
+-- Estructura de tabla para la tabla `dm_setting_translation`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_setting_translation` (
@@ -995,7 +996,7 @@ CREATE TABLE IF NOT EXISTS `dm_setting_translation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_setting_translation`
+-- Volcar la base de datos para la tabla `dm_setting_translation`
 --
 
 INSERT INTO `dm_setting_translation` (`id`, `description`, `value`, `default_value`, `lang`) VALUES
@@ -1021,7 +1022,7 @@ INSERT INTO `dm_setting_translation` (`id`, `description`, `value`, `default_val
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_trans_unit`
+-- Estructura de tabla para la tabla `dm_trans_unit`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_trans_unit` (
@@ -1037,7 +1038,7 @@ CREATE TABLE IF NOT EXISTS `dm_trans_unit` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=518 ;
 
 --
--- Dumping data for table `dm_trans_unit`
+-- Volcar la base de datos para la tabla `dm_trans_unit`
 --
 
 INSERT INTO `dm_trans_unit` (`id`, `dm_catalogue_id`, `source`, `target`, `meta`, `created_at`, `updated_at`) VALUES
@@ -1563,7 +1564,7 @@ INSERT INTO `dm_trans_unit` (`id`, `dm_catalogue_id`, `source`, `target`, `meta`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_user`
+-- Estructura de tabla para la tabla `dm_user`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_user` (
@@ -1595,17 +1596,17 @@ CREATE TABLE IF NOT EXISTS `dm_user` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `dm_user`
+-- Volcar la base de datos para la tabla `dm_user`
 --
 
 INSERT INTO `dm_user` (`username`, `email`, `algorithm`, `salt`, `password`, `is_active`, `is_super_admin`, `last_login`, `forgot_password_code`, `id`, `titulo`, `nombre`, `apellidos`, `foto_id`, `penalizado`, `solapin`, `departamento`, `created_at`, `updated_at`) VALUES
-('admin', 'admin@bibliocnic.com', 'sha1', '20145d874137f0b47716601f40edba0e', '86e615de7ddd0b9f01f522cfcc70e7d9b336478e', 1, 1, '2011-06-19 21:29:01', NULL, 1, NULL, '', '', NULL, 0, NULL, NULL, '2011-06-05 16:30:32', '2011-06-05 16:30:32'),
-('corey', 'pablo.reyes@cnic.edu.cu', 'sha1', 'd9e8c6471b33f15fe80e25514136897f', '7283bc02eef5be6b92e1ca7191280bacedd524fa', 1, 0, '2011-06-20 13:37:43', NULL, 2, '12', 'Pablo', 'Reyes Naranjo', 2, 0, '0512', 'ICT', '2011-06-20 11:18:15', '2011-06-20 11:18:15');
+('admin', 'admin@bibliocnic.com', 'sha1', '20145d874137f0b47716601f40edba0e', '86e615de7ddd0b9f01f522cfcc70e7d9b336478e', 1, 1, '2011-06-21 17:23:05', NULL, 1, NULL, '', '', NULL, 0, NULL, NULL, '2011-06-05 16:30:32', '2011-06-05 16:30:32'),
+('corey', 'pablo.reyes@cnic.edu.cu', 'sha1', 'd9e8c6471b33f15fe80e25514136897f', '7283bc02eef5be6b92e1ca7191280bacedd524fa', 1, 0, '2011-06-21 13:40:57', NULL, 2, '12', 'Pablo', 'Reyes Naranjo', 2, 0, '0512', 'ICT', '2011-06-20 11:18:15', '2011-06-20 11:18:15');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_user_group`
+-- Estructura de tabla para la tabla `dm_user_group`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_user_group` (
@@ -1616,7 +1617,7 @@ CREATE TABLE IF NOT EXISTS `dm_user_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_user_group`
+-- Volcar la base de datos para la tabla `dm_user_group`
 --
 
 INSERT INTO `dm_user_group` (`dm_user_id`, `dm_group_id`) VALUES
@@ -1625,7 +1626,7 @@ INSERT INTO `dm_user_group` (`dm_user_id`, `dm_group_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_user_permission`
+-- Estructura de tabla para la tabla `dm_user_permission`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_user_permission` (
@@ -1636,7 +1637,7 @@ CREATE TABLE IF NOT EXISTS `dm_user_permission` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_user_permission`
+-- Volcar la base de datos para la tabla `dm_user_permission`
 --
 
 INSERT INTO `dm_user_permission` (`dm_user_id`, `dm_permission_id`) VALUES
@@ -1646,7 +1647,7 @@ INSERT INTO `dm_user_permission` (`dm_user_id`, `dm_permission_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_widget`
+-- Estructura de tabla para la tabla `dm_widget`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_widget` (
@@ -1662,7 +1663,7 @@ CREATE TABLE IF NOT EXISTS `dm_widget` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
--- Dumping data for table `dm_widget`
+-- Volcar la base de datos para la tabla `dm_widget`
 --
 
 INSERT INTO `dm_widget` (`id`, `dm_zone_id`, `module`, `action`, `css_class`, `position`, `updated_at`) VALUES
@@ -1680,7 +1681,7 @@ INSERT INTO `dm_widget` (`id`, `dm_zone_id`, `module`, `action`, `css_class`, `p
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_widget_translation`
+-- Estructura de tabla para la tabla `dm_widget_translation`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_widget_translation` (
@@ -1691,7 +1692,7 @@ CREATE TABLE IF NOT EXISTS `dm_widget_translation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_widget_translation`
+-- Volcar la base de datos para la tabla `dm_widget_translation`
 --
 
 INSERT INTO `dm_widget_translation` (`id`, `value`, `lang`) VALUES
@@ -1709,7 +1710,7 @@ INSERT INTO `dm_widget_translation` (`id`, `value`, `lang`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_zone`
+-- Estructura de tabla para la tabla `dm_zone`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_zone` (
@@ -1723,7 +1724,7 @@ CREATE TABLE IF NOT EXISTS `dm_zone` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=14 ;
 
 --
--- Dumping data for table `dm_zone`
+-- Volcar la base de datos para la tabla `dm_zone`
 --
 
 INSERT INTO `dm_zone` (`id`, `dm_area_id`, `css_class`, `width`, `position`) VALUES
@@ -1744,7 +1745,7 @@ INSERT INTO `dm_zone` (`id`, `dm_area_id`, `css_class`, `width`, `position`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `documento_legal_version`
+-- Estructura de tabla para la tabla `documento_legal_version`
 --
 
 CREATE TABLE IF NOT EXISTS `documento_legal_version` (
@@ -1787,14 +1788,14 @@ CREATE TABLE IF NOT EXISTS `documento_legal_version` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `documento_legal_version`
+-- Volcar la base de datos para la tabla `documento_legal_version`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `monografia_version`
+-- Estructura de tabla para la tabla `monografia_version`
 --
 
 CREATE TABLE IF NOT EXISTS `monografia_version` (
@@ -1837,14 +1838,14 @@ CREATE TABLE IF NOT EXISTS `monografia_version` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `monografia_version`
+-- Volcar la base de datos para la tabla `monografia_version`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `patente_version`
+-- Estructura de tabla para la tabla `patente_version`
 --
 
 CREATE TABLE IF NOT EXISTS `patente_version` (
@@ -1887,14 +1888,14 @@ CREATE TABLE IF NOT EXISTS `patente_version` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `patente_version`
+-- Volcar la base de datos para la tabla `patente_version`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pregunta`
+-- Estructura de tabla para la tabla `pregunta`
 --
 
 CREATE TABLE IF NOT EXISTS `pregunta` (
@@ -1909,14 +1910,14 @@ CREATE TABLE IF NOT EXISTS `pregunta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `pregunta`
+-- Volcar la base de datos para la tabla `pregunta`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `presentacion_version`
+-- Estructura de tabla para la tabla `presentacion_version`
 --
 
 CREATE TABLE IF NOT EXISTS `presentacion_version` (
@@ -1959,14 +1960,14 @@ CREATE TABLE IF NOT EXISTS `presentacion_version` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `presentacion_version`
+-- Volcar la base de datos para la tabla `presentacion_version`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prestamo`
+-- Estructura de tabla para la tabla `prestamo`
 --
 
 CREATE TABLE IF NOT EXISTS `prestamo` (
@@ -1982,14 +1983,14 @@ CREATE TABLE IF NOT EXISTS `prestamo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `prestamo`
+-- Volcar la base de datos para la tabla `prestamo`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recurso`
+-- Estructura de tabla para la tabla `recurso`
 --
 
 CREATE TABLE IF NOT EXISTS `recurso` (
@@ -2038,14 +2039,14 @@ CREATE TABLE IF NOT EXISTS `recurso` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `recurso`
+-- Volcar la base de datos para la tabla `recurso`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recurso_autor`
+-- Estructura de tabla para la tabla `recurso_autor`
 --
 
 CREATE TABLE IF NOT EXISTS `recurso_autor` (
@@ -2056,14 +2057,14 @@ CREATE TABLE IF NOT EXISTS `recurso_autor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `recurso_autor`
+-- Volcar la base de datos para la tabla `recurso_autor`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recurso_tematica`
+-- Estructura de tabla para la tabla `recurso_tematica`
 --
 
 CREATE TABLE IF NOT EXISTS `recurso_tematica` (
@@ -2074,14 +2075,14 @@ CREATE TABLE IF NOT EXISTS `recurso_tematica` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `recurso_tematica`
+-- Volcar la base de datos para la tabla `recurso_tematica`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recurso_version`
+-- Estructura de tabla para la tabla `recurso_version`
 --
 
 CREATE TABLE IF NOT EXISTS `recurso_version` (
@@ -2124,14 +2125,14 @@ CREATE TABLE IF NOT EXISTS `recurso_version` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `recurso_version`
+-- Volcar la base de datos para la tabla `recurso_version`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `respuesta`
+-- Estructura de tabla para la tabla `respuesta`
 --
 
 CREATE TABLE IF NOT EXISTS `respuesta` (
@@ -2152,14 +2153,14 @@ CREATE TABLE IF NOT EXISTS `respuesta` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `respuesta`
+-- Volcar la base de datos para la tabla `respuesta`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `respuestab`
+-- Estructura de tabla para la tabla `respuestab`
 --
 
 CREATE TABLE IF NOT EXISTS `respuestab` (
@@ -2174,14 +2175,14 @@ CREATE TABLE IF NOT EXISTS `respuestab` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `respuestab`
+-- Volcar la base de datos para la tabla `respuestab`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `solicitud_prestamo`
+-- Estructura de tabla para la tabla `solicitud_prestamo`
 --
 
 CREATE TABLE IF NOT EXISTS `solicitud_prestamo` (
@@ -2198,14 +2199,14 @@ CREATE TABLE IF NOT EXISTS `solicitud_prestamo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `solicitud_prestamo`
+-- Volcar la base de datos para la tabla `solicitud_prestamo`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `solicitud_prorroga`
+-- Estructura de tabla para la tabla `solicitud_prorroga`
 --
 
 CREATE TABLE IF NOT EXISTS `solicitud_prorroga` (
@@ -2218,14 +2219,14 @@ CREATE TABLE IF NOT EXISTS `solicitud_prorroga` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `solicitud_prorroga`
+-- Volcar la base de datos para la tabla `solicitud_prorroga`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tematica`
+-- Estructura de tabla para la tabla `tematica`
 --
 
 CREATE TABLE IF NOT EXISTS `tematica` (
@@ -2235,14 +2236,14 @@ CREATE TABLE IF NOT EXISTS `tematica` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `tematica`
+-- Volcar la base de datos para la tabla `tematica`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tesis_version`
+-- Estructura de tabla para la tabla `tesis_version`
 --
 
 CREATE TABLE IF NOT EXISTS `tesis_version` (
@@ -2285,224 +2286,224 @@ CREATE TABLE IF NOT EXISTS `tesis_version` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tesis_version`
+-- Volcar la base de datos para la tabla `tesis_version`
 --
 
 
 --
--- Constraints for dumped tables
+-- Filtros para las tablas descargadas (dump)
 --
 
 --
--- Constraints for table `articulo_version`
+-- Filtros para la tabla `articulo_version`
 --
 ALTER TABLE `articulo_version`
   ADD CONSTRAINT `articulo_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `biblioteca_personal_version`
+-- Filtros para la tabla `biblioteca_personal_version`
 --
 ALTER TABLE `biblioteca_personal_version`
   ADD CONSTRAINT `biblioteca_personal_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `busqueda`
+-- Filtros para la tabla `busqueda`
 --
 ALTER TABLE `busqueda`
   ADD CONSTRAINT `busqueda_user_id_dm_user_id` FOREIGN KEY (`user_id`) REFERENCES `dm_user` (`id`);
 
 --
--- Constraints for table `descarga`
+-- Filtros para la tabla `descarga`
 --
 ALTER TABLE `descarga`
   ADD CONSTRAINT `descarga_recurso_id_recurso_id` FOREIGN KEY (`recurso_id`) REFERENCES `recurso` (`id`),
   ADD CONSTRAINT `descarga_user_id_dm_user_id` FOREIGN KEY (`user_id`) REFERENCES `dm_user` (`id`);
 
 --
--- Constraints for table `diseminacion`
+-- Filtros para la tabla `diseminacion`
 --
 ALTER TABLE `diseminacion`
   ADD CONSTRAINT `diseminacion_tematica_id_tematica_id` FOREIGN KEY (`tematica_id`) REFERENCES `tematica` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `diseminacion_user_id_dm_user_id` FOREIGN KEY (`user_id`) REFERENCES `dm_user` (`id`);
 
 --
--- Constraints for table `dm_area`
+-- Filtros para la tabla `dm_area`
 --
 ALTER TABLE `dm_area`
   ADD CONSTRAINT `dm_area_dm_layout_id_dm_layout_id` FOREIGN KEY (`dm_layout_id`) REFERENCES `dm_layout` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `dm_area_dm_page_view_id_dm_page_view_id` FOREIGN KEY (`dm_page_view_id`) REFERENCES `dm_page_view` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_auto_seo_translation`
+-- Filtros para la tabla `dm_auto_seo_translation`
 --
 ALTER TABLE `dm_auto_seo_translation`
   ADD CONSTRAINT `dm_auto_seo_translation_id_dm_auto_seo_id` FOREIGN KEY (`id`) REFERENCES `dm_auto_seo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `dm_group_permission`
+-- Filtros para la tabla `dm_group_permission`
 --
 ALTER TABLE `dm_group_permission`
   ADD CONSTRAINT `dm_group_permission_dm_group_id_dm_group_id` FOREIGN KEY (`dm_group_id`) REFERENCES `dm_group` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `dm_group_permission_dm_permission_id_dm_permission_id` FOREIGN KEY (`dm_permission_id`) REFERENCES `dm_permission` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_lock`
+-- Filtros para la tabla `dm_lock`
 --
 ALTER TABLE `dm_lock`
   ADD CONSTRAINT `dm_lock_user_id_dm_user_id` FOREIGN KEY (`user_id`) REFERENCES `dm_user` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_mail_template_translation`
+-- Filtros para la tabla `dm_mail_template_translation`
 --
 ALTER TABLE `dm_mail_template_translation`
   ADD CONSTRAINT `dm_mail_template_translation_id_dm_mail_template_id` FOREIGN KEY (`id`) REFERENCES `dm_mail_template` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `dm_media`
+-- Filtros para la tabla `dm_media`
 --
 ALTER TABLE `dm_media`
   ADD CONSTRAINT `dm_media_dm_media_folder_id_dm_media_folder_id` FOREIGN KEY (`dm_media_folder_id`) REFERENCES `dm_media_folder` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_page_translation`
+-- Filtros para la tabla `dm_page_translation`
 --
 ALTER TABLE `dm_page_translation`
   ADD CONSTRAINT `dm_page_translation_id_dm_page_id` FOREIGN KEY (`id`) REFERENCES `dm_page` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `dm_page_view`
+-- Filtros para la tabla `dm_page_view`
 --
 ALTER TABLE `dm_page_view`
   ADD CONSTRAINT `dm_page_view_dm_layout_id_dm_layout_id` FOREIGN KEY (`dm_layout_id`) REFERENCES `dm_layout` (`id`) ON DELETE SET NULL;
 
 --
--- Constraints for table `dm_remember_key`
+-- Filtros para la tabla `dm_remember_key`
 --
 ALTER TABLE `dm_remember_key`
   ADD CONSTRAINT `dm_remember_key_dm_user_id_dm_user_id` FOREIGN KEY (`dm_user_id`) REFERENCES `dm_user` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_sent_mail`
+-- Filtros para la tabla `dm_sent_mail`
 --
 ALTER TABLE `dm_sent_mail`
   ADD CONSTRAINT `dm_sent_mail_dm_mail_template_id_dm_mail_template_id` FOREIGN KEY (`dm_mail_template_id`) REFERENCES `dm_mail_template` (`id`) ON DELETE SET NULL;
 
 --
--- Constraints for table `dm_setting_translation`
+-- Filtros para la tabla `dm_setting_translation`
 --
 ALTER TABLE `dm_setting_translation`
   ADD CONSTRAINT `dm_setting_translation_id_dm_setting_id` FOREIGN KEY (`id`) REFERENCES `dm_setting` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `dm_trans_unit`
+-- Filtros para la tabla `dm_trans_unit`
 --
 ALTER TABLE `dm_trans_unit`
   ADD CONSTRAINT `dm_trans_unit_dm_catalogue_id_dm_catalogue_id` FOREIGN KEY (`dm_catalogue_id`) REFERENCES `dm_catalogue` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_user`
+-- Filtros para la tabla `dm_user`
 --
 ALTER TABLE `dm_user`
   ADD CONSTRAINT `dm_user_foto_id_dm_media_id` FOREIGN KEY (`foto_id`) REFERENCES `dm_media` (`id`);
 
 --
--- Constraints for table `dm_user_group`
+-- Filtros para la tabla `dm_user_group`
 --
 ALTER TABLE `dm_user_group`
   ADD CONSTRAINT `dm_user_group_dm_group_id_dm_group_id` FOREIGN KEY (`dm_group_id`) REFERENCES `dm_group` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `dm_user_group_dm_user_id_dm_user_id` FOREIGN KEY (`dm_user_id`) REFERENCES `dm_user` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_user_permission`
+-- Filtros para la tabla `dm_user_permission`
 --
 ALTER TABLE `dm_user_permission`
   ADD CONSTRAINT `dm_user_permission_dm_permission_id_dm_permission_id` FOREIGN KEY (`dm_permission_id`) REFERENCES `dm_permission` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `dm_user_permission_dm_user_id_dm_user_id` FOREIGN KEY (`dm_user_id`) REFERENCES `dm_user` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_widget`
+-- Filtros para la tabla `dm_widget`
 --
 ALTER TABLE `dm_widget`
   ADD CONSTRAINT `dm_widget_dm_zone_id_dm_zone_id` FOREIGN KEY (`dm_zone_id`) REFERENCES `dm_zone` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_widget_translation`
+-- Filtros para la tabla `dm_widget_translation`
 --
 ALTER TABLE `dm_widget_translation`
   ADD CONSTRAINT `dm_widget_translation_id_dm_widget_id` FOREIGN KEY (`id`) REFERENCES `dm_widget` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `dm_zone`
+-- Filtros para la tabla `dm_zone`
 --
 ALTER TABLE `dm_zone`
   ADD CONSTRAINT `dm_zone_dm_area_id_dm_area_id` FOREIGN KEY (`dm_area_id`) REFERENCES `dm_area` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `documento_legal_version`
+-- Filtros para la tabla `documento_legal_version`
 --
 ALTER TABLE `documento_legal_version`
   ADD CONSTRAINT `documento_legal_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `monografia_version`
+-- Filtros para la tabla `monografia_version`
 --
 ALTER TABLE `monografia_version`
   ADD CONSTRAINT `monografia_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `patente_version`
+-- Filtros para la tabla `patente_version`
 --
 ALTER TABLE `patente_version`
   ADD CONSTRAINT `patente_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `pregunta`
+-- Filtros para la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
   ADD CONSTRAINT `pregunta_user_id_dm_user_id` FOREIGN KEY (`user_id`) REFERENCES `dm_user` (`id`);
 
 --
--- Constraints for table `presentacion_version`
+-- Filtros para la tabla `presentacion_version`
 --
 ALTER TABLE `presentacion_version`
   ADD CONSTRAINT `presentacion_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `prestamo`
+-- Filtros para la tabla `prestamo`
 --
 ALTER TABLE `prestamo`
   ADD CONSTRAINT `prestamo_recurso_id_recurso_id` FOREIGN KEY (`recurso_id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `prestamo_user_id_dm_user_id` FOREIGN KEY (`user_id`) REFERENCES `dm_user` (`id`);
 
 --
--- Constraints for table `recurso`
+-- Filtros para la tabla `recurso`
 --
 ALTER TABLE `recurso`
   ADD CONSTRAINT `recurso_created_by_dm_user_id` FOREIGN KEY (`created_by`) REFERENCES `dm_user` (`id`),
   ADD CONSTRAINT `recurso_updated_by_dm_user_id` FOREIGN KEY (`updated_by`) REFERENCES `dm_user` (`id`);
 
 --
--- Constraints for table `recurso_autor`
+-- Filtros para la tabla `recurso_autor`
 --
 ALTER TABLE `recurso_autor`
   ADD CONSTRAINT `recurso_autor_autor_id_autor_id` FOREIGN KEY (`autor_id`) REFERENCES `autor` (`id`),
   ADD CONSTRAINT `recurso_autor_recurso_id_recurso_id` FOREIGN KEY (`recurso_id`) REFERENCES `recurso` (`id`);
 
 --
--- Constraints for table `recurso_tematica`
+-- Filtros para la tabla `recurso_tematica`
 --
 ALTER TABLE `recurso_tematica`
   ADD CONSTRAINT `recurso_tematica_recurso_id_recurso_id` FOREIGN KEY (`recurso_id`) REFERENCES `recurso` (`id`),
   ADD CONSTRAINT `recurso_tematica_tematica_id_tematica_id` FOREIGN KEY (`tematica_id`) REFERENCES `tematica` (`id`);
 
 --
--- Constraints for table `recurso_version`
+-- Filtros para la tabla `recurso_version`
 --
 ALTER TABLE `recurso_version`
   ADD CONSTRAINT `recurso_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `respuesta`
+-- Filtros para la tabla `respuesta`
 --
 ALTER TABLE `respuesta`
   ADD CONSTRAINT `respuesta_created_by_dm_user_id` FOREIGN KEY (`created_by`) REFERENCES `dm_user` (`id`),
@@ -2511,26 +2512,26 @@ ALTER TABLE `respuesta`
   ADD CONSTRAINT `respuesta_updated_by_dm_user_id` FOREIGN KEY (`updated_by`) REFERENCES `dm_user` (`id`);
 
 --
--- Constraints for table `respuestab`
+-- Filtros para la tabla `respuestab`
 --
 ALTER TABLE `respuestab`
   ADD CONSTRAINT `respuestab_busqueda_id_busqueda_id` FOREIGN KEY (`busqueda_id`) REFERENCES `busqueda` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `solicitud_prestamo`
+-- Filtros para la tabla `solicitud_prestamo`
 --
 ALTER TABLE `solicitud_prestamo`
   ADD CONSTRAINT `solicitud_prestamo_recurso_id_recurso_id` FOREIGN KEY (`recurso_id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `solicitud_prestamo_user_id_dm_user_id` FOREIGN KEY (`user_id`) REFERENCES `dm_user` (`id`);
 
 --
--- Constraints for table `solicitud_prorroga`
+-- Filtros para la tabla `solicitud_prorroga`
 --
 ALTER TABLE `solicitud_prorroga`
   ADD CONSTRAINT `solicitud_prorroga_prestamo_id_prestamo_id` FOREIGN KEY (`prestamo_id`) REFERENCES `prestamo` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `tesis_version`
+-- Filtros para la tabla `tesis_version`
 --
 ALTER TABLE `tesis_version`
   ADD CONSTRAINT `tesis_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
