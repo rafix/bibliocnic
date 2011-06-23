@@ -15,21 +15,38 @@ class DmUserForm extends PluginDmUserForm
   unset($this['penalizado'], $this['recursos_list']);
   $this->widgetSchema->setLabels(array(
       'foto_id_form'    => 'Subir foto',
-      'username'      => 'Apodo de usuario',
+      'username'      => 'Apodo dentificador',
       
     ));
    $this->setValidators(array(
     'username' => new sfValidatorString(array('min_length' =>5), array ('required' => 'Debe escribir apodo para identificarlo en la red', 'min_length' => 'El apodo debe tener al menos 5 caracteres')),
     'email' => new sfValidatorEmail(array(), array('invalid' => 'Por favor escriba un email v&aacutelido')),
-	'tematica' => new sfValidatorString(),
-	'fecha_antes' => new sfValidatorDate(array('required' => false)),
+	'password' => new sfValidatorRegex(array('pattern' => '(^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{5,8}$)'), array ('invalid' => 'El password debe tener al menos una letra min&uacutescula, una may&uacutescula, un n&uacutemero y no debe contener espacios')),
+	'password_again' => new sfValidatorPass(array(), array('required' => true)),
 	'fecha_despues' => new sfValidatorDate(array('required' => false)),
-	'id' => new sfValidatorDoctrineChoice(array('model' => 'busqueda', 'column' => 'id', 'required' => false))
+	'titulo' => new sfValidatorString(),
+	'nombre' => new sfValidatorString(array('min_length' =>3), array ('required' => 'Debe escribir el nombre', 'min_length' => 'El nombre debe tener al menos 3 caracteres')),
+	'departamento' => new sfValidatorString(array('min_length' =>3), array ('required' => 'Debe escribir el departamento', 'min_length' => 'El departamento debe tener al menos 3 caracteres')),
+	'apellidos' => new sfValidatorString(array('min_length' =>3), array ('required' => 'Debe escribir sus apellidos', 'min_length' => 'Sus apellidos deben tener al menos 3 caracteres')),
+	'solapin' => new sfValidatorRegex(array ('pattern' => '(^[0-9]{4}$)')),
+	
+	'id' => new sfValidatorDoctrineChoice(array('model' => 'DmUser', 'column' => 'id', 'required' => false))
 	));
   
-  
-  
-  
+   $this->validatorSchema->setPostValidator(
+  new sfValidatorSchemaCompare('password', sfValidatorSchemaCompare::EQUAL, 'password_again',
+    array(),
+    array('invalid' => 'Por favor, verifique que coincidan las contraseñas.')
+  )
+);
+
+$this->validatorSchema->setPostValidator(
+	        new sfValidatorDoctrineUnique(array('model' => 'DmUser', 'column' => array('email')), array('invalid' => 'El email ya existe, por favor contacte al administrador si es el suyo '))
+	    );
+
+	$this->mergePostValidator(
+			new sfValidatorDoctrineUnique(array('model' => 'DmUser', 'column' => array('username')), array('invalid' => 'Este apodo ya existe, por favor escoja otro'))
+		);
   
   
   }
