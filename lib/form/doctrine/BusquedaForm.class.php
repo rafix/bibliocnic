@@ -14,7 +14,7 @@ class BusquedaForm extends BaseBusquedaForm
   {
     unset($this['user_id'], $this['created_at'], $this['updated_at'], $this['is_active']);
     $this->getObject()->setUserId( sfcontext::getInstance()->getUser()->getAttribute(  'user_id', ' ' ,'dmSecurityUser'  ));
-   $years = range(1900, date('Y'));
+    $years = range(1900, date('Y'));
    
   $today = array(
                 'year'  => date('Y'),       
