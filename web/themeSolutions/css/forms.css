@@ -60,8 +60,13 @@ legend{display:none;}
 	border:none;
 	line-height:normal;
 	margin:10px;
+	
 	}
-
+.busqueda_form ul {
+list-style: none;
+border: 1px solid #7C7C7C;
+padding: 10px;
+}
 
 .busqueda_form label{
 	display:inline;
@@ -71,33 +76,38 @@ legend{display:none;}
 	padding:0;
 	}
 
-.busqueda_form label.margin{
-	margin-left:10px;
-	}
 
 .busqueda_form li input, .busqueda_form li textarea{
-	display:block;
+	padding: 2px;
 	width:162px;
 	margin:5px 0;
-	padding:3px;
-	color:#000000;
+	font: calibri;
+    font-size: 9pt;
+	color:#3B4852;
 	background-color:#F7F7F7;
 	border:1px solid #CCCCCC;
+	
 	}
+
+
+.busqueda_form li select{
+
+font: calibri;
+font-size: 9pt;
+}
 .busqueda_form li input.submit{
 width:60px;
-list-style: none outside;
+
 }
 .busqueda_form li textarea{
 	display:block;
 	width:338px;
 	overflow:auto;
-	
-	}
-.busqueda_form li textarea{
-	
+	font: calibri;
+	font-size: 9pt;
 	margin-bottom: 10px;
 	}
+
 .busqueda_form p{
 	display:block;
 	width:350px;
@@ -106,21 +116,33 @@ list-style: none outside;
 	clear:both;
 	}
 
-.busqueda_form p input{
+/*.busqueda_form input, .busqueda_form select{
 	padding:5px 10px;
 	color:#666666;
 	background-color:#F7F7F7;
 	border:1px solid #CCCCCC;
-	}
-.busqueda_form ul.error_list {
+	font: calibri;
+	font-size: 11pt;
+	}*/
+.busqueda_form ul li ul.error_list {
 color: red;
 margin-left: 170px;
-list-style: none outside 
+list-style: none outside;
+padding: 0;
+border: 0;
 }
 .busqueda_form p.felicitaciones {
 color: lime;
 display: block;
 margin-bottom: 10px;
+padding: 10px;
+border:1px solid lime;
+margin-left: 10px;
+}
+.busqueda_form  input:focus, .busqueda_form  textarea:focus{
+background-color: #FFF2C4;
+border: 1px solid #FBCB0D;
+padding: 2px;
 }
 /* ----------------------------------------------Register Form -------------------------------------*/
 .registrarse_form form{
@@ -131,7 +153,18 @@ margin-bottom: 10px;
 	margin:10px;
 	}
 
-
+.registrarse_form ul {
+padding: 10px;
+border: 1px solid #7C7C7C;
+list-style: none;
+}
+.registrarse_form ul.error_list{
+padding: 0;
+border: 0;
+}
+.registrarse_form ul li ul{
+list-style-position: outside;
+}
 .registrarse_form label{
 	display:inline;
 	width:170px;
@@ -140,33 +173,17 @@ margin-bottom: 10px;
 	padding:0;
 	}
 
-.registrarse label.margin{
-	margin-left:10px;
-	}
-
-.registrarse li input, .registrarse_form li textarea{
-	display:block;
-	width:162px;
-	margin:5px 0;
-	padding:3px;
-	color:#000000;
-	background-color:#F7F7F7;
-	border:1px solid #CCCCCC;
-	}
+.registrarse_form  input:focus{
+background-color: #FFF2C4;
+border: 1px solid #FBCB0D;
+padding: 2px;
+}
 .registrarse li input.submit{
 width:60px;
-list-style: none outside;
+
 }
-.registrarse_form li textarea{
-	display:block;
-	width:338px;
-	overflow:auto;
-	
-	}
-.registrarse_form li textarea{
-	
-	margin-bottom: 10px;
-	}
+
+
 .registrarse_form p{
 	display:block;
 	width:350px;
@@ -184,26 +201,80 @@ list-style: none outside;
 .registrarse_form ul.error_list {
 color: red;
 margin-left: 170px;
-list-style: none outside 
+list-style: none outside;
+
 }
-.registrarse p.felicitaciones {
+.registrarse_form  p.ya_registrado {
+color: yellow;
+padding: 10px;
+border:1px solid yellow;
+margin-left: 10px;
+}
+.registrarse_form p.felicitaciones {
 color: lime;
 display: block;
 margin-bottom: 10px;
+padding: 10px;
+border:1px solid lime;
+margin-left: 10px;
+
 }
-}
+
 /* ----------------------------------------------Signin Form -------------------------------------*/
-.dm_user_signin img{
+.loguearse_form form{
+	
+	padding:0;
+	
+	line-height:normal;
+	
+	}
+
+
+.loguearse_form img{
 margin-left:5px;
 margin-top: 5px;
-
 border: 1px solid yellow;
 }
-.dm_user_signin p{
+.loguearse_form p{
 margin-left:5px;
 margin-top: 5px;
 color: yellow;
 }
-.dm_user_signin a{
+.loguearse_form a{
 margin-left:5px;
+}
+.loguearse_form ul {
+list-style: none outside;
+padding: 10px;
+
+
+}
+
+.loguearse_form label, .loguearse_form input{
+	display:inline;
+	width:150px;
+	float:left;
+	margin:0 0 5px 0;
+	padding: 2px;
+
+	}
+.loguearse_form input {
+	border: 1px solid #ccc;
+}
+#signin_remember {
+position: relative;
+width: 15px;
+right: 80px;
+top: 5px;
+}
+
+.loguearse_form input.submit{
+width: 100px;
+margin-left: 10px;
+float:left;
+}
+.loguearse_form  input:focus{
+background-color: #FFF2C4;
+border: 1px solid #FBCB0D;
+padding: 2px;
 }

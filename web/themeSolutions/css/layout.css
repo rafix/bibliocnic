@@ -27,16 +27,29 @@ div.dm_layout {
 }
 .dm_layout_right {
   float: right;
-  width: 260px;
-  padding: 0;
+  width: 27.5%;
+  padding: 10px;
   background-color:#333;
+  1border: 1px solid #7C7C7C;
   
+}
+.header_left {
+width: 30%;
+height: 170px;
+float: left;
+}
+.header_right {
+width: 70%;
+height: 170px;
+float: right
 }
 #dm_content {
   float: left;
-  width: 700px;
+  width: 70%;
   padding: 20px 0 0 0;
   background-color:#3B4852;
+  min-height: 300px;
+  1border: 1px solid #7C7C7C;
 }
 #dm_content .dm_page_content {
   padding: 0 25px 0 20px;
@@ -45,7 +58,7 @@ div.dm_layout {
 text-align: justify;
 
 }
-#dm_widget_7.main_header {
+.texto_header {
 position: absolute;
 left: 0;
 bottom: 0;
@@ -54,15 +67,7 @@ bottom: 0;
   height: 170px;
   position: relative;
 }
-#dm_zone_3 {
-float: left;
-width: 30%;
 
-}
-#dm_zone_8 {
-float: right;
-width: 70%
-}
 
 img{border:0; padding:0; margin:0;}
 .justify{text-align:justify;}

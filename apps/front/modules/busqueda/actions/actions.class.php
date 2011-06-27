@@ -14,6 +14,10 @@ class busquedaActions extends myFrontModuleActions
     {
       $form->save();
 	  $this->getUser()->setFlash('busqueda_form_valid', true);
+	  
+	  $this->getService('mail')->setTemplate('solicitud_busqueda_especializada')->send(); 
+	  
+	  
       $this->redirectBack();
     }
     

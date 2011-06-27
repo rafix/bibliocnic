@@ -24,6 +24,7 @@ a.link:hover {
 h1, h2, h3 {
   font-family: 'Trebuchet MS', Tahoma, Sans-serif;
   margin: 10px 0;
+  padding: 10px;
 }
 
 /* site name */
