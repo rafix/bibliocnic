@@ -27,3 +27,11 @@
 .markdown li {
   list-style: disc inside;
 }
+.text_image img{
+float:left;
+margin: 5px;
+}
+.dm_text {
+padding: 5px;
+text-align: justify;
+}

@@ -267,7 +267,12 @@ width: 15px;
 right: 80px;
 top: 5px;
 }
-
+.loguearse_form ul.error_list {
+color: red;
+position: relative;
+list-style: none intside;
+float: left;
+}
 .loguearse_form input.submit{
 width: 100px;
 margin-left: 10px;

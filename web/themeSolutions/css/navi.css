@@ -38,7 +38,7 @@ Licence: <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons 
 	width:105px;
 	height:85px;
 	padding:70px 5px 0 5px;
-	color:#FFFFFF;
+	color:#FB9233;
 	background-color:#2E3A43;
 	text-transform:uppercase;
 	text-align:center;
@@ -58,4 +58,7 @@ Licence: <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons 
 }
 .menu_principal ul li.dm_current{
    background: url(../images/busqueda.png) no-repeat 100% 100%;
+}
+.menu_principal ul li.last.dm_current{
+   background: url(../images/huella2.png) no-repeat 100% 100%;
 }

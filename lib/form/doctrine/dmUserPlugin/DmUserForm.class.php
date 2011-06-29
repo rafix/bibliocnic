@@ -16,14 +16,15 @@ class DmUserForm extends PluginDmUserForm
   $this->widgetSchema->setLabels(array(
       'foto_id_form'    => 'Subir foto',
       'username'      => 'Apodo dentificador',
-      
+      'titulo'       => 'Grado de escolaridad'
     ));
    $this->setValidators(array(
     'username' => new sfValidatorString(array('min_length' =>5), array ('required' => 'Debe escribir apodo para identificarlo en la red', 'min_length' => 'El apodo debe tener al menos 5 caracteres')),
     'email' => new sfValidatorEmail(array(), array('invalid' => 'Por favor escriba un email v&aacutelido')),
-	'password' => new sfValidatorRegex(array(
+	/*'password' => new sfValidatorRegex(array(
 	'pattern' => '(^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{5,8}$)'), array (
-	'invalid' => 'El password debe tener al menos una letra min&uacutescula, una may&uacutescula, un n&uacutemero, no debe contener espacios y debe tener de 5 a 8 letras')),
+	'invalid' => 'El password debe tener al menos una letra min&uacutescula, una may&uacutescula, un n&uacutemero, no debe contener espacios y debe tener de 5 a 8 letras')),*/
+	'password' => new sfValidatorString(array('min_length' =>5, 'max_length' => 10), array ('required' => 'Debe escribir una contraseña', 'min_length' => 'La contraseña debe tener al menos 5 caracteres', 'max_length' => 'La contraseña no debe exceder los 10 caracteres')),
 	'password_again' => new sfValidatorPass(array(), array('required' => true)),
 	'fecha_despues' => new sfValidatorDate(array('required' => false)),
 	'titulo' => new sfValidatorString(),

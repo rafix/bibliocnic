@@ -320,16 +320,21 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 
 /* ----------------------------------------------Footer-------------------------------------*/
 
-#footer{
-	padding:25px 0;
+.main_footer{
+    margin-top: 4px; 
+	padding:10px;
+	color:#F78F1E;
+	background-color:#22292F;
+	text-align: center;
+    font-size: 90%;
 	}
 
-#footer a{
+.main_footer a{
 	color:#F78F1E;
 	background-color:#22292F;
 	}
 
-#footer h2{
+.main_footer h2{
 	margin:0 0 15px 0;
 	padding:0 0 8px 0;
 	font-size:22px;
