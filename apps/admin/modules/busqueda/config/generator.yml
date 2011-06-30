@@ -37,7 +37,7 @@ generator:
           - user_id
           - titulo
           - mensaje
-          - tematicas
+          - tematica
           - fecha_antes
           - fecha_despues
           - created_at
@@ -46,7 +46,7 @@ generator:
         display:
           NONE: [is_active, user_id]
           Mensaje: [mensaje]
-          Others: [titulo, tematicas, fecha_antes, fecha_despues]
+          Others: [titulo, tematica, fecha_antes, fecha_despues]
         class: BusquedaAdminForm
         fields: {  }
       edit: ~
