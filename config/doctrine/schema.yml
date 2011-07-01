@@ -224,7 +224,7 @@ Respuestab:
   actAs:
     Timestampable:
   columns:
-    id: {type: integer, primary: true}
+    id: {type: integer, primary: true, autoincrement: true}
     mensaje: {type: clob, extra: markdown}
     busqueda_id: {type: integer}
     uri: {type: string}
@@ -238,7 +238,7 @@ Respuesta:
     Timestampable:
     DmBlameable:
   columns:
-    id: {type: integer, primary: true}
+    id: {type: integer, primary: true, autoincrement: true}
     mensaje: {type: clob, extra: markdown}
     pregunta_id: {type: integer}
   relations:
@@ -267,7 +267,7 @@ Pregunta:
   actAs:
     Timestampable:
   columns:
-    id: {type: integer, primary: true}
+    id: {type: integer, primary: true, autoincrement: true}
     user_id: {type: integer, notnull: true}
     titulo: {type: string(128)}
     mensaje: {type: clob, extra: markdown}
@@ -290,7 +290,7 @@ Diseminacion:
 
 Prestamo:
   columns:
-    id: {type: integer, primary: true}
+    id: {type: integer, primary: true, autoincrement: true}
     user_id: {type: integer, notnull: true}
     recurso_id: {type: integer, notnull: true}
     fecha_prestamo: {type: timestamp, notnull: true}

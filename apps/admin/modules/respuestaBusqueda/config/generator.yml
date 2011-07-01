@@ -1,0 +1,43 @@
+generator:
+  class: dmAdminDoctrineGenerator
+  param:
+    model_class: respuestab
+    theme: dmAdmin
+    non_verbose_templates: true
+    with_show: false
+    route_prefix: respuesta_busqueda
+    with_doctrine_route: false
+    config:
+      actions: ~
+      fields: {  }
+      list:
+        display:
+          - '=id'
+          - busqueda_id
+          - mensaje
+          - uri
+          - created_at
+          - updated_at
+        sort:
+          - created_at
+          - desc
+        table_method: getAdminListQuery
+        table_count_method: ~
+        sortable: false
+      filter:
+        display:
+          - id
+          - mensaje
+          - busqueda_id
+          - uri
+          - created_at
+          - updated_at
+      form:
+        display:
+          NONE: [busqueda_id]
+          Mensaje: [mensaje]
+          Others: [uri]
+        class: respuestabAdminForm
+        fields: {  }
+      edit: ~
+      new: ~
