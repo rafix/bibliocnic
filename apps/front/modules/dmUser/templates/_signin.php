@@ -10,6 +10,7 @@ if($sf_user->isAuthenticated())
   return;
 }
 
+
 echo $form->open('.dm_signin_form action=@signin');
 
 echo _tag('ul.dm_form_elements',
