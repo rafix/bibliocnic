@@ -14,3 +14,11 @@ Content:
       page: true
       components:
         form:
+        list:
+        show:
+    respuesta_busqueda:
+      model: respuestab
+      page:  true
+      components:
+        listByBusqueda:
+        show:

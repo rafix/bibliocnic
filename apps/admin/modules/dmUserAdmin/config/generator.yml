@@ -22,6 +22,7 @@ generator:
 
       list:
         display:
+          - id
           - =username
           - email
           - is_active

@@ -12,5 +12,8 @@
  */
 class Busqueda extends BaseBusqueda
 {
-
+public function __toString()
+  {
+    return self::getTitulo();
+  }
 }

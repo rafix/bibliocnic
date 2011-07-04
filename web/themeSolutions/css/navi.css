@@ -6,19 +6,19 @@ Author URI: http://www.os-templates.com/
 Licence: <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution 3.0 Unported</a>
 */
 
-div.navigation_menu{
+.menu_principal{
 	display:block;
 	float: right;
 	font-size:12px;
 	}
 
-div.navigation_menu ul{
+.menu_principal ul{
 	margin:0;
 	padding:0;
 	list-style:none;
 	}
 	
-div.navigation_menu li{
+.menu_principal li{
 	display:block;
 	float:left;
 	width:115px;
@@ -30,32 +30,35 @@ div.navigation_menu li{
 	list-style:none;
 	}
 
-div.navigation_menu li.last{
+.menu_principal li.last{
 	margin-right:0;
 	}
-div.navigation_menu li a{
+.menu_principal li a{
 	display:block;
 	width:105px;
 	height:85px;
 	padding:70px 5px 0 5px;
-	color:#FFFFFF;
+	color:#FB9233;
 	background-color:#2E3A43;
 	text-transform:uppercase;
 	text-align:center;
 	font-weight:bold;
 	}
 
-div.navigation_menu ul li a:hover{
+.menu_principal ul li a:hover{
 	color:#273239;
 	background-color:#F78F1E;
 	}
-div.navigation_menu  ul li.dm_current{
+.menu_principal  ul li.dm_current{
 	color:#273239;
 	background-color:#F78F1E;
 	}
-div.navigation_menu ul li.first{
+.menu_principal li.first.dm_current{
    background: url(../images/home.png) no-repeat 100% 100%;
 }
-div.navigation_menu ul li.dm_current{
+.menu_principal ul li.dm_current{
    background: url(../images/busqueda.png) no-repeat 100% 100%;
+}
+.menu_principal ul li.last.dm_current{
+   background: url(../images/huella2.png) no-repeat 100% 100%;
 }

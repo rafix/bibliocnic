@@ -35,7 +35,15 @@ class dmUserActions extends BasedmUserActions
       }  
  
       $form->bind($data, $request->getFiles($form->getName()));  
- 
+      
+	  if ($request->isMethod('post') && $form->bindAndValid($request))
+    
+	   {
+         $form->save();
+	     $this->getUser()->setFlash('busqueda_form_valid', true);
+         $this->redirectBack();
+       }
+	
       if ($form->isValid())  
       {  
         $user = $form->save();  
@@ -49,6 +57,7 @@ class dmUserActions extends BasedmUserActions
     // pass the form to the component  
     $this->forms['DmUser'] = $form;  
   }  
+  
 }
  
 ?>
