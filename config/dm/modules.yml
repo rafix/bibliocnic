@@ -22,3 +22,26 @@ Content:
       components:
         listByBusqueda:
         show:
+  Recursos:
+    tesis:
+      model: tesis
+      page: true
+      components:
+        form:
+        list:
+        show:
+        formUpload:
+
+    monografia:
+      model: monografia
+      page: true
+      components:
+        form:
+        list:
+        show:
+    recurso:
+      model: recurso
+      components:
+        list:
+        form:
+        show:
