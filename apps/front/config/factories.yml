@@ -30,7 +30,7 @@ test:
 dev:
   mailer:
     param:
-      delivery_strategy: realtime
+      delivery_strategy: none
 
 all:
   routing:
@@ -46,14 +46,4 @@ all:
       cache_key_use_host_name:    true
   mailer:
     param:
-      logging:           %SF_LOGGING_ENABLED%
-      charset:           %SF_CHARSET%
-      delivery_strategy: realtime
-      transport:
-        class: Swift_SmtpTransport
-        param:
-          host: 10.36.1.2
-          port: 25
-          encryptation: ~
-          username: pablo.reyes@cnic.edu.cu
-          password: 123456
+      delivery_strategy: none

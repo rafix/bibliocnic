@@ -12,32 +12,46 @@ Recurso:
     idioma: {type: string(24)}
     aprobado: {type: boolean, default: false}
     is_active: {type: boolean, default: false}
-    fichero: {type: string(255), notnull: false}
     formato_duro: {type: boolean, default: false}
+    palabras_claves: {type: string(255), notnull: false}
   relations:
-    Autor:
+    Autors:
       class: Autor
+      local: recurso_id
+      foreign: autor_id
       refClass: RecursoAutor
       foreignAlias: Recursos
       onDelete: CASCADE
-    Tematica:
+    Tematicas:
       class: Tematica
       refClass: RecursoTematica
       foreignAlias: Recursos
       onDelete: RESTRICT
-    DmUser:
+    DmUsers:
       class: DmUser
+      local: recurso_id
+      foreign: dm_user_id
       refClass: SolicitudPrestamo
       foreignAlias: Recursos
       onDelete: CASCADE
-    DmUser:
+    DmUsers:
       class: DmUser
       refClass: Descarga
       foreignAlias: Recursos
-    DmUser:
+      local: recurso_id
+      foreign: dm_user_id
+    DmUsers:
       class: DmUser
       foreignAlias: Recursos
       refClass: Prestamo
+      local: recurso_id
+      foreign: dm_user_id
+#    DmUsers:
+#      class: DmUser
+#      refClass: SolicitudProrroga
+#      local: recurso_id
+#      foreign: dm_user_id
+#      foreignAlias: Recursos
 
 Autor:
    columns:
@@ -94,11 +108,11 @@ SolicitudPrestamo:
   actAs:
     Timestampable:
   columns:
-    user_id: {type: integer, unique: true, notnull: true}
+    dm_user_id: {type: integer, unique: true, notnull: true}
     recurso_id: {type: integer, unique: true, notnull: true}
   relations:
     DmUser:
-      local: user_id
+      local: dm_user_id
       foreignAlias: SolicitudPrestamos
     Recurso:
       foreignAlias: SolicitudPrestamos
@@ -109,10 +123,10 @@ Descarga:
     Timestampable:
   columns:
     recurso_id: {type: integer, primary: true}
-    user_id: {type: integer, primary: true}
+    dm_user_id: {type: integer, primary: true}
   relations:
     DmUser:
-      local: user_id
+      local: dm_user_id
       foreignAlias: Descargas
       onDelete: RESTRICT
     Recurso:
@@ -207,7 +221,7 @@ Busqueda:
 #    DmTaggable:
   columns:
     id: {type: integer, primary: true, autoincrement: true}
-    user_id: {type: integer}
+    dm_user_id: {type: integer}
     titulo: {type: string(128)}
     mensaje: {type: clob, extra: markdown}
     is_active: {type: boolean, default: true}
@@ -216,13 +230,14 @@ Busqueda:
     fecha_despues: {type: timestamp}
   relations:
     DmUser:
-      local: user_id
+      local: dm_user_id
       foreignAlias: Busquedas
       onDelete: RESTRICT
 
 Respuestab:
   actAs:
     Timestampable:
+    DmBlameable:
   columns:
     id: {type: integer, primary: true, autoincrement: true}
     mensaje: {type: clob, extra: markdown}
@@ -246,43 +261,26 @@ Respuesta:
       foreignAlias: Respuestas
       onDelete: CASCADE
 
-RespuestaSolicitud:
-  inheritance:
-    extends: Respuesta
-    type: simple
-  columns:
-    solicitud_id: {type: integer}
-    recurso_id: {type: integer}
-  relations:
-    Solicitud:
-      local: solicitud_id
-      foreign: id
-      onDelete: CASCADE
-    Recurso:
-      local: recurso_id
-      foreign: id
-      onDelete: CASCADE
-
 Pregunta:
   actAs:
     Timestampable:
   columns:
     id: {type: integer, primary: true, autoincrement: true}
-    user_id: {type: integer, notnull: true}
+    dm_user_id: {type: integer, notnull: true}
     titulo: {type: string(128)}
     mensaje: {type: clob, extra: markdown}
   relations:
     DmUser:
-      local: user_id
+      local: dm_user_id
       foreignAlias: Preguntas
 
 Diseminacion:
   columns:
-    user_id: {type: integer, primary: true}
+    dm_user_id: {type: integer, primary: true}
     tematica_id: {type: integer, primary: true}
   relations:
     DmUser:
-      local: user_id
+      local: dm_user_id
       foreignAlias: Diseminacions
     Tematica:
       foreignAlias: Diseminacions
@@ -290,28 +288,16 @@ Diseminacion:
 
 Prestamo:
   columns:
-    id: {type: integer, primary: true, autoincrement: true}
-    user_id: {type: integer, notnull: true}
+    dm_user_id: {type: integer, notnull: true}
     recurso_id: {type: integer, notnull: true}
     fecha_prestamo: {type: timestamp, notnull: true}
     fecha_devolucion: {type: timestamp, notnull: true}
     prorroga: {type: boolean, default: false}
   relations:
     DmUser:
-      local: user_id
+      local: dm_user_id
       foreignAlias: Prestamos
       onDelete: RESTRICT
     Recurso:
       foreignAlias: Prestamos
       onDelete: CASCADE
-
-SolicitudProrroga:
-    actAs:
-      Timestampable:
-    columns:
-      prestamo_id: {type: integer}
-      id: {type: integer, primary: true, autoincrement: true}
-    relations:
-      Prestamo:
-        foreignAlias: SolicitudProrrogas
-        onDelete: CASCADE

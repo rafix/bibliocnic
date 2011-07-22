@@ -12,9 +12,9 @@ class TesisForm extends BaseTesisForm
 {
   /**
    * @see RecursoForm
-   */
+   */ 
   public function configure()
   {
-    parent::configure();
+ 
   }
 }

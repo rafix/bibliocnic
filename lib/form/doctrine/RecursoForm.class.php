@@ -10,6 +10,7 @@
  */
 class RecursoForm extends BaseRecursoForm
 {
+
   public function configure()
   {
   }
