@@ -22,7 +22,7 @@ class DmUserForm extends PluginDmUserForm
       'titulo'       => 'Grado de escolaridad'
     ));
 	
-	$this->widgetSchema['foto_id_form'] = new sfWidgetFormInputFileEditable(array(
+	/*$this->widgetSchema['foto_id_form'] = new sfWidgetFormInputFileEditable(array(
  'label'     => 'imagen',
  'file_src'  => '/uploads/dm-user/' . $this->getObject()->getFilename(),
  'is_image'  => true,
@@ -33,7 +33,7 @@ $this->validatorSchema['foto_id_form'] = new sfValidatorFile(array(
  'required'   => false,
  'path'       => sfConfig::get('sf_upload_dir') . '/dm_user',
  'mime_types' => 'web_images'
-));
+));*/
    $this->setValidators(array(
     'username' => new sfValidatorString(array('min_length' =>5), array ('required' => 'Debe escribir apodo para identificarlo en la red', 'min_length' => 'El apodo debe tener al menos 5 caracteres')),
     'email' => new sfValidatorEmail(array(), array('invalid' => 'Por favor escriba un email v&aacutelido')),
