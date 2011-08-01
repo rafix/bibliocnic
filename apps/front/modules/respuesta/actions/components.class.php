@@ -4,6 +4,7 @@
  * 
  * No redirection nor database manipulation ( insert, update, delete ) here
  * 
+ * 
  */
 class respuestaComponents extends myFrontModuleComponents
 {
@@ -20,6 +21,13 @@ class respuestaComponents extends myFrontModuleComponents
     $query = $this->getShowQuery();
     
     $this->respuesta = $this->getRecord($query);
+  }
+
+  public function executeListByPregunta()
+  {
+    $query = $this->getListQuery();
+    
+    $this->respuestaPager = $this->getPager($query);
   }
 
 

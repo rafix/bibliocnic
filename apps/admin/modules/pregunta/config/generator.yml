@@ -1,27 +1,21 @@
 generator:
   class: dmAdminDoctrineGenerator
   param:
-    model_class: Busqueda
+    model_class: pregunta
     theme: dmAdmin
     non_verbose_templates: true
     with_show: false
-    route_prefix: busqueda
+    route_prefix: pregunta
     with_doctrine_route: false
     config:
       actions: ~
-      fields:
-        is_active:
-          label: Active
+      fields: {  }
       list:
         display:
           - '=id'
           - dm_user_id
           - titulo
           - mensaje
-          - is_active
-          - tematica
-          - fecha_antes
-          - fecha_despues
           - created_at
           - updated_at
         sort:
@@ -33,21 +27,17 @@ generator:
       filter:
         display:
           - id
-          - is_active
           - dm_user_id
           - titulo
           - mensaje
-          - tematica
-          - fecha_antes
-          - fecha_despues
           - created_at
           - updated_at
       form:
         display:
-          NONE: [is_active, dm_user_id]
+          NONE: [dm_user_id]
           Mensaje: [mensaje]
-          Others: [titulo, tematica, fecha_antes, fecha_despues]
-        class: BusquedaAdminForm
+          Others: [titulo]
+        class: preguntaAdminForm
         fields: {  }
       edit: ~
       new: ~

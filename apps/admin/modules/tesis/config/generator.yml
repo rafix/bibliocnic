@@ -21,7 +21,6 @@ generator:
       list:
         display:
           - '=id'
-          - pdf
           - created_by
           - updated_by
           - autors_list
@@ -75,7 +74,6 @@ generator:
           - anno
           - resumen
           - idioma
-          - pdf
           - palabras_claves
           - pais
           - institucion
