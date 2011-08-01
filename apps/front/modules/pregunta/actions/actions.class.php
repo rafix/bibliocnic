@@ -9,9 +9,22 @@ class preguntaActions extends myFrontModuleActions
   {
     $form = new preguntaForm();
         
-    if ($request->hasParameter($form->getName()) && $form->bindAndValid($request))
+    if ($request->isMethod('post') && $form->bindAndValid($request))
     {
       $form->save();
+	  $this->getUser()->setFlash('pregunta_form_valid', true);
+	  $user = $this->getUser()->getDmUser();
+	  /*$this->getService('mail')->setTemplate('solicitud_busqueda_especializada')
+	  ->addValues(array(                            
+       'titulo'       => $form->getValue('titulo'),
+       'email'	      => $user->getEmail(),
+	   'mensaje'      => $form->getValue('mensaje'),
+	   'nombre'       => $user->getNombre(),
+	   'apellidos'    => $user->getApellidos()
+      
+)) 
+	  
+	  ->send();  */
       $this->redirectBack();
     }
     
