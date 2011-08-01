@@ -27,16 +27,14 @@ generator:
       filter:
         display:
           - id
-          - mensaje
           - busqueda_id
-          - uri
           - created_at
           - updated_at
       form:
         display:
-          NONE: [busqueda_id]
+          Búsqueda: [busqueda_id]
           Mensaje: [mensaje]
-          Others: [uri]
+          Link al recurso: [uri]
         class: respuestabAdminForm
         fields: {  }
       edit: ~

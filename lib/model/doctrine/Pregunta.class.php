@@ -12,5 +12,9 @@
  */
 class Pregunta extends BasePregunta
 {
+public function __toString()
+  {
+    return self::getTitulo();
+  }
 
 }
