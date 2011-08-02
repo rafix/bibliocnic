@@ -14,6 +14,8 @@ generator:
         display:
           - '=id'
           - busqueda_id
+          - created_by
+          - updated_by
           - mensaje
           - uri
           - created_at
@@ -32,12 +34,15 @@ generator:
           - uri
           - created_at
           - updated_at
+          - created_by
+          - updated_by
       form:
         display:
           NONE: [busqueda_id]
           Mensaje: [mensaje]
           Others: [uri]
         class: respuestabAdminForm
-        fields: {  }
+        fields:
+          uri: { is_link: true, help: 'Arrastre una página o un fichero para crear un link aquí.' }
       edit: ~
       new: ~
