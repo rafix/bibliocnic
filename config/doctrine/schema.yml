@@ -242,7 +242,7 @@ Respuestab:
     id: {type: integer, primary: true, autoincrement: true}
     mensaje: {type: clob, extra: markdown}
     busqueda_id: {type: integer}
-    uri: {type: string}
+    uri: {type: string, extra: link}
   relations:
     Busqueda:
       foreignAlias: Respuestabs
