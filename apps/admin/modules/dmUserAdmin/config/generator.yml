@@ -24,24 +24,37 @@ generator:
         display:
           - id
           - =username
+          - nombre
+          - apellidos
           - email
+          - solapin
+          - departamento		  
+          - foto_id
+          - titulo 
           - is_active
           - is_super_admin
           - last_login
-          - titulo
-          - apellidos
-          - foto_id
           - penalizado
-          - solapin
-          - departamento
           - created_at
           - updated_at
         sort:
-          - username
+          - nombre
           - asc
         table_method: getAdminListQuery
         table_count_method: ~
         loremize: false
+      filter:
+        display:
+          - id
+          - username
+          - nombre
+          - apellidos
+          - email
+          - is_active
+          - last_login
+          - penalizado
+          - solapin
+          - titulo
       form:
         display:
           NONE: [username, email, password, password_again, is_active, is_super_admin]

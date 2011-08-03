@@ -16,7 +16,7 @@ class busquedaActions extends myFrontModuleActions
 	  $this->getUser()->setFlash('busqueda_form_valid', true);
 	  $user = $this->getUser()->getDmUser();
 	  
-	  /*$this->getService('mail')->setTemplate('solicitud_busqueda_especializada')
+	  $this->getService('mail')->setTemplate('solicitud_busqueda_especializada')
 	  ->addValues(array(                            
        'titulo'       => $form->getValue('titulo'),
        'email'	      => $user->getEmail(),
@@ -29,7 +29,7 @@ class busquedaActions extends myFrontModuleActions
       
 )) 
 	  
-	  ->send();  */
+	  ->send();  
 	  
 	  
       $this->redirectBack();

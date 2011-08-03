@@ -14,17 +14,18 @@ class preguntaActions extends myFrontModuleActions
       $form->save();
 	  $this->getUser()->setFlash('pregunta_form_valid', true);
 	  $user = $this->getUser()->getDmUser();
-	  /*$this->getService('mail')->setTemplate('solicitud_busqueda_especializada')
+	  $this->getService('mail')->setTemplate('pregunte_al_bibliotecario')
 	  ->addValues(array(                            
        'titulo'       => $form->getValue('titulo'),
        'email'	      => $user->getEmail(),
 	   'mensaje'      => $form->getValue('mensaje'),
+       'username'     => $user->getUsername(),
 	   'nombre'       => $user->getNombre(),
 	   'apellidos'    => $user->getApellidos()
       
 )) 
 	  
-	  ->send();  */
+	  ->send();  
       $this->redirectBack();
     }
     

@@ -13,7 +13,7 @@ generator:
       list:
         display:
           - '=id'
-          - pregunta_id
+          - '=pregunta_id'
           - mensaje
           - created_at
           - updated_at
@@ -32,8 +32,7 @@ generator:
       form:
         display:
           Pregunta: [pregunta_id]
-          Mensaje: [mensaje]
-          
+          NONE: [mensaje]
         class: respuestaAdminForm
         fields: {  }
       edit: ~
