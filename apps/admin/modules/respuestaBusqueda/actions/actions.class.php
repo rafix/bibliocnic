@@ -13,4 +13,28 @@ require_once dirname(__FILE__).'/../lib/respuestaBusquedaGeneratorHelper.class.p
  */
 class respuestaBusquedaActions extends autoRespuestaBusquedaActions
 {
+public function executeFormWidget(dmWebRequest $request)
+  {
+ $form = new respuestaBusquedaForm();
+ if ($request->isMethod('post') && $form->bindAndValid($request))
+    {
+      $form->save();
+	  $user = $this->getUser()->getDmUser();
+	  $this->getService('mail')->setTemplate('respuesta_busqueda')
+	  ->addValues(array(                            
+       'busqueda_id'  => $form->getValue('busqueda_id'),
+       'email'	      => $user->getEmail(),
+	   'mensaje'      => $form->getValue('mensaje'),
+       'username'     => $user->getUsername(),
+	   'nombre'       => $user->getNombre(),
+	   'apellidos'    => $user->getApellidos(),
+       'create_at'    => $form->getValue('create_at')
+      
+)) 
+	  
+	  ->send();  
+      $this->redirectBack();
+    }
+ $this->forms['respuestaBusqueda'] = $form;
+}
 }
