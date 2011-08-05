@@ -44,10 +44,13 @@ generator:
           - updated_at
       form:
         display:
-          NONE: [titulo, is_active, dm_user_id]
+          NONE: [dm_user_id, is_active, titulo]
           Mensaje: [mensaje]
-          Others: [ tematica, fecha_antes, fecha_despues]
+          Others: [ tematica]
+          Periodo de tiempo: [fecha_antes, fecha_despues]
         class: BusquedaAdminForm
-        fields: {  }
+        fields:
+          fecha_antes: {label: Entre el}
+          fecha_despues: {label: Y el}
       edit: ~
       new: ~
