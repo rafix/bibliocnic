@@ -16,7 +16,7 @@ generator:
         display:
           - '=id'
           - dm_user_id
-          - titulo
+          - '=titulo'
           - mensaje
           - is_active
           - tematica
@@ -29,7 +29,7 @@ generator:
           - desc
         table_method: getAdminListQuery
         table_count_method: ~
-        sortable: false
+        sortable: true
       filter:
         display:
           - id
@@ -44,10 +44,13 @@ generator:
           - updated_at
       form:
         display:
-          NONE: [is_active, dm_user_id]
+          NONE: [dm_user_id, is_active, titulo]
           Mensaje: [mensaje]
-          Others: [titulo, tematica, fecha_antes, fecha_despues]
+          Others: [ tematica]
+          Periodo de tiempo: [fecha_antes, fecha_despues]
         class: BusquedaAdminForm
-        fields: {  }
+        fields:
+          fecha_antes: {label: Entre el}
+          fecha_despues: {label: Y el}
       edit: ~
       new: ~

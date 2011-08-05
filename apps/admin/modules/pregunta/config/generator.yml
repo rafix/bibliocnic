@@ -14,7 +14,7 @@ generator:
         display:
           - '=id'
           - dm_user_id
-          - titulo
+          - '=titulo'
           - mensaje
           - created_at
           - updated_at
@@ -29,14 +29,13 @@ generator:
           - id
           - dm_user_id
           - titulo
-          - mensaje
           - created_at
           - updated_at
       form:
         display:
-          NONE: [dm_user_id]
+          NONE: [titulo, dm_user_id]
           Mensaje: [mensaje]
-          Others: [titulo]
+          
         class: preguntaAdminForm
         fields: {  }
       edit: ~
