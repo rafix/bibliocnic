@@ -13,9 +13,10 @@ generator:
       list:
         display:
           - '=id'
-          - busqueda_id
+          - '=busqueda_id'
+          - created_by
+          - updated_by
           - mensaje
-          - uri
           - created_at
           - updated_at
         sort:
@@ -26,18 +27,18 @@ generator:
         sortable: false
       filter:
         display:
-          - id
-          - mensaje
           - busqueda_id
-          - uri
           - created_at
           - updated_at
+          - created_by
+          - updated_by
       form:
         display:
-          NONE: [busqueda_id]
+          Busqueda: [busqueda_id]
           Mensaje: [mensaje]
-          Others: [uri]
+          
         class: respuestabAdminForm
-        fields: {  }
+        fields:
+          mensaje: { help: 'Arrastre una página o un fichero si desea crear un link.' }
       edit: ~
       new: ~

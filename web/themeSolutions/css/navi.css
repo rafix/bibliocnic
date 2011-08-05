@@ -53,12 +53,15 @@ Licence: <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons 
 	color:#273239;
 	background-color:#F78F1E;
 	}
-.menu_principal li.first.dm_current{
+.menu_principal ul li#menu-0-inicio{
    background: url(../images/home.png) no-repeat 100% 100%;
 }
-.menu_principal ul li.dm_current{
+.menu_principal ul li#menu-1-busqueda-especializada{
    background: url(../images/busqueda.png) no-repeat 100% 100%;
 }
-.menu_principal ul li.last.dm_current{
+.menu_principal ul li#menu-3-registrarse{
    background: url(../images/huella2.png) no-repeat 100% 100%;
+}   
+.menu_principal ul li#menu-2-pregunte-al-bibliotecario{
+   background: url(../images/pregunte.png) no-repeat 100% 100%;  
 }
