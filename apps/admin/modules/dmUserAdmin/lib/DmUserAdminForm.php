@@ -1,46 +1,59 @@
 <?php
 
 /**
- * DmUser form.
+ * DmUserAdminForm for admin generators
  *
- * @package    bibliocnic
+ * @package    sfDoctrineGuardPlugin
  * @subpackage form
- * @author     Your name here
- * @version    SVN: $Id$
+ * @author     Fabien Potencier <fabien.potencier@symfony-project.com>
+ * @version    SVN: $Id: DmUserAdminForm.class.php 23536 2009-11-02 21:41:21Z Kris.Wallsmith $
  */
-class DmUserForm extends PluginDmUserForm
+class DmUserAdminForm extends BaseDmUserAdminForm
 {
-   
-   
+  /*protected function createMediaFormForFotoIdForm()  
+  {  
+    // get the DmMedia form  
+    $form = parent::createMediaFormForFotoIdForm();  
+ 
+    // choose mime types allowed  
+    $form->setMimeTypeWhiteList(array(  
+      'image/jpeg',  
+      'image/png'  
+    ));  
+ 
+    return $form;  
+  }    */ 
   public function configure()
   {
-   
-  unset($this['penalizado'], $this['recursos_list']);
-  $this->widgetSchema->setLabels(array(
-      'foto_id_form'    => 'Subir foto',
-      'username'      => 'Apodo identificador',
-      'titulo'       => 'Grado de escolaridad'
-    ));
+    
+ 
 	
-	/*$this->widgetSchema['foto_id_form'] = new sfWidgetFormInputFileEditable(array(
+	$this->widgetSchema['foto_id_form'] = new sfWidgetFormInputFileEditable(array(
  'label'     => 'imagen',
- 'file_src'  => '/uploads/dm-user/' . $this->getObject()->getFilename(),
+ 'file_src'  => '/uploads/dm-user/',
  'is_image'  => true,
  'edit_mode' => !$this->isNew(),
   'template'  => '<div>%file%<br />%input%<br /></div>'
 ));
 $this->validatorSchema['foto_id_form'] = new sfValidatorFile(array(
  'required'   => false,
- 'path'       => sfConfig::get('sf_upload_dir') . '/dm_user',
+ 'path'       => sfConfig::get('sf_upload_dir') . '/dm_user/',
  'mime_types' => 'web_images'
-));*/
+));
+
+/*$this->validatorSchema['foto_id_form'] = new sfValidatorFile(array(
+        'required'                          =>  false,
+        'path'                              =>  sfConfig::get('sf_upload_dir').'/dm_user/',
+        'mime_types'                        =>  array('image/jpeg','image/pjpeg','image/png','image/x-png','image/gif','application/x-shockwave-flash')
+        )
+    );*/
    $this->setValidators(array(
     'username' => new sfValidatorString(array('min_length' =>5), array ('required' => 'Debe escribir apodo para identificarlo en la red', 'min_length' => 'El apodo debe tener al menos 5 caracteres')),
-    'email' => new sfValidatorEmail(array(), array('invalid' => 'Por favor escriba un email v&aacutelido')),
+    'email' => new sfValidatorEmail(array('required' => false), array('invalid' => 'Por favor escriba un email v&aacutelido')),
 	/*'password' => new sfValidatorRegex(array(
 	'pattern' => '(^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])\w{5,8}$)'), array (
 	'invalid' => 'El password debe tener al menos una letra min&uacutescula, una may&uacutescula, un n&uacutemero, no debe contener espacios y debe tener de 5 a 8 letras')),*/
-	'password' => new sfValidatorString(array('min_length' =>5, 'max_length' => 10), array ('required' => 'Debe escribir una contraseña', 'min_length' => 'La contraseña debe tener al menos 5 caracteres', 'max_length' => 'La contraseña no debe exceder los 10 caracteres')),
+	'password' => new sfValidatorString(array('min_length' =>5, 'max_length' => 10), array ('required' => 'Debe escribir una contrase&ntildea', 'min_length' => 'La contrase&ntildea debe tener al menos 5 caracteres', 'max_length' => 'La contraseña no debe exceder los 10 caracteres')),
 	'password_again' => new sfValidatorPass(array(), array('required' => true)),
 	'fecha_despues' => new sfValidatorDate(array('required' => false)),
 	'titulo' => new sfValidatorString(),
@@ -48,6 +61,9 @@ $this->validatorSchema['foto_id_form'] = new sfValidatorFile(array(
 	'departamento' => new sfValidatorString(array('min_length' =>3), array ('required' => 'Debe escribir el departamento', 'min_length' => 'El departamento debe tener al menos 3 caracteres')),
 	'apellidos' => new sfValidatorString(array('min_length' =>3), array ('required' => 'Debe escribir sus apellidos', 'min_length' => 'Sus apellidos deben tener al menos 3 caracteres')),
 	'solapin' => new sfValidatorRegex(array ('pattern' => '(^[0-9]{4}$)')),
+	'is_active' => new sfValidatorBoolean(),
+	'groups_list' => new sfValidatorBoolean(array('required' => 'false')),
+	
 	
 	'id' => new sfValidatorDoctrineChoice(array('model' => 'DmUser', 'column' => 'id', 'required' => false))
 	));
@@ -58,16 +74,7 @@ $this->validatorSchema['foto_id_form'] = new sfValidatorFile(array(
     array('invalid' => 'Por favor, verifique que coincidan las contraseñas.')
   )
 );
-/*$this->validatorSchema['foto_id_form'] = new sfValidatorFile(array(
-'required'   => false,
-'max_size' => '5242880',
-'mime_types' => 'web_images',
-'path' => sfConfig::get('sf_upload_dir').'/dm_user',
 
-), array('mime_types' => '%mime_type% no es un formato de imagen permitido.', 'max_size' => 'No!!!'));*/
-$this->validatorSchema['foto_id_form'] = new sfValidatorFile(array(
-'required'   => true,
-));
 
 $this->validatorSchema->setPostValidator(
 	        new sfValidatorDoctrineUnique(array('model' => 'DmUser', 'column' => array('email')), array('invalid' => 'El email ya existe, por favor contacte al administrador si es el suyo '))
@@ -82,6 +89,4 @@ $this->validatorSchema->setPostValidator(
 		);
 
   }
-  
- 
 }
