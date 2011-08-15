@@ -1,13 +1,13 @@
 <?php
 
 /**
- * recurso admin form
+ * respuesta admin form
  *
  * @package    bibliocnic
- * @subpackage recurso
+ * @subpackage respuesta
  * @author     Your name here
  */
-class RecursoAdminForm extends BaseRecursoForm
+class respuestabAdminForm extends BaserespuestabForm
 {
   public function configure()
   {

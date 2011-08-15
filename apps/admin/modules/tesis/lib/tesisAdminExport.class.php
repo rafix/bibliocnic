@@ -7,6 +7,6 @@
  * @subpackage tesis
  * @author     Your name here
  */
-class tesisAdminExport extends myDoctrineTableExport
+class TesisAdminExport extends myDoctrineTableExport
 {
 }

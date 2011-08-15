@@ -14,11 +14,6 @@ class recursoComponents extends myFrontModuleComponents
     $this->recursoPager = $this->getPager($query);
   }
 
-  public function executeForm()
-  {
-    $this->form = $this->forms['recurso'];
-  }
-
   public function executeShow()
   {
     $query = $this->getShowQuery();

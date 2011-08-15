@@ -8,7 +8,7 @@ foreach ($recursoPager as $recurso)
 {
   echo _open('li.element');
 
-    echo $recurso;
+    echo _link($recurso);
 
   echo _close('li');
 }

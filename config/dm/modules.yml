@@ -22,33 +22,6 @@ Content:
       components:
         listByBusqueda:
         show:
-  Recursos:
-
-    tesis:
-      model: tesis
-      page: true
-      components:
-        form:
-        list:
-        show:
-        formUpload:
-
-    monografia:
-      model: monografia
-      page: true
-      components:
-        form:
-        list:
-        show:
-
-    recurso:
-      model: recurso
-      page: true
-      components:
-        list:
-        form:
-        show:
-
   Preguntas:
     
     pregunta:
@@ -65,3 +38,17 @@ Content:
       components:
         listByPregunta:
         show:
+
+  Recursos:
+    recurso:
+      model: Recurso
+      page: true
+      components:
+        list:
+        show:
+    tesis:
+      page: true
+      components:
+        list:
+        show:  
+  

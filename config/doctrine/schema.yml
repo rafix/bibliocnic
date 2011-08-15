@@ -14,6 +14,7 @@ Recurso:
     is_active: {type: boolean, default: false}
     formato_duro: {type: boolean, default: false}
     palabras_claves: {type: string(255), notnull: false}
+    slide_id: {type: integer, notnull: false}
   relations:
     Autors:
       class: Autor
@@ -46,12 +47,10 @@ Recurso:
       refClass: Prestamo
       local: recurso_id
       foreign: dm_user_id
-#    DmUsers:
-#      class: DmUser
-#      refClass: SolicitudProrroga
-#      local: recurso_id
-#      foreign: dm_user_id
-#      foreignAlias: Recursos
+    Slide:
+      class: DmMedia
+      local: slide_id
+      onDelete: SET NULL
 
 Autor:
    columns:
