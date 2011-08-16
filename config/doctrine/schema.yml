@@ -8,7 +8,7 @@ Recurso:
     id: {type: integer, autoincrement: true, primary: true}
     titulo: {type: string(40), notnull: true}
     anno: {type: string(4)}
-    resumen: {type: string(255)}
+    resumen: {type: clob, extra: markdown}
     idioma: {type: string(24)}
     aprobado: {type: boolean, default: false}
     is_active: {type: boolean, default: false}

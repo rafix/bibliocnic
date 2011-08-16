@@ -28,7 +28,7 @@ generator:
           - apellidos
           - email
           - solapin
-          - departamento		  
+          - departamento
           - foto_id
           - titulo 
           - is_active

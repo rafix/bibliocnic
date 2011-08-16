@@ -3,6 +3,7 @@
  * Recurso components
  * 
  * No redirection nor database manipulation ( insert, update, delete ) here
+ * 
  */
 class recursoComponents extends myFrontModuleComponents
 {
@@ -19,6 +20,11 @@ class recursoComponents extends myFrontModuleComponents
     $query = $this->getShowQuery();
     
     $this->recurso = $this->getRecord($query);
+  }
+
+  public function executeForm()
+  {
+    $this->form = $this->forms['Recurso'];
   }
 
 

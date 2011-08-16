@@ -62,7 +62,7 @@ class DmUserForm extends PluginDmUserForm
 $this->validatorSchema['username'] = new sfValidatorString(array('min_length' =>5), array ('required' => 'Debe escribir apodo para identificarlo en la red', 'min_length' => 'El apodo debe tener al menos 5 caracteres'));
 $this->validatorSchema['password'] = new sfValidatorString(array('min_length' =>5, 'max_length' => 10), array ('required' => 'Debe escribir una contrase&ntildea', 'min_length' => 'La contrase&ntildea debe tener al menos 5 caracteres', 'max_length' => 'La contrase&ntildea no debe exceder los 10 caracteres'));
 $this->validatorSchema['email'] = new sfValidatorEmail(array(), array ('invalid' => 'Por favor escriba un email v&aacutelido'));
-$this->validatorSchema['solapin'] = new sfValidatorRegex(array ('pattern' => '(^[0-9]{4}$)'));
+$this->validatorSchema['solapin'] = new sfValidatorRegex(array ('pattern' => '(^[0-9]{4}$)'), array('invalid' => 'El No. de solap&iacuten deber ser de 4 d&iacutegitos'));
 
 
 $this->validatorSchema->setPostValidator( new sfValidatorDoctrineUnique(array('model' => 'DmUser', 'column' => array('email')), array('invalid' => 'El email ya existe, por favor contacte al administrador si es el suyo'))

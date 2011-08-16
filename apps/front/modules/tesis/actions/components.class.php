@@ -4,6 +4,7 @@
  * 
  * No redirection nor database manipulation ( insert, update, delete ) here
  * 
+ * 
  */
 class tesisComponents extends myFrontModuleComponents
 {
@@ -27,6 +28,11 @@ class tesisComponents extends myFrontModuleComponents
     $query = $this->getListQuery();
     
     $this->tesisPager = $this->getPager($query);
+  }
+
+  public function executeForm()
+  {
+    $this->form = $this->forms['Tesis'];
   }
 
 

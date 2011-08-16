@@ -46,9 +46,46 @@ Content:
       components:
         list:
         show:
+        form:
     tesis:
       page: true
       components:
         list:
-        show:  
-  
+        show:
+        form:
+    monografia:
+      page: true
+      components:
+        list:
+        show:
+        form:
+    articulo:
+      page: true
+      components:
+        list:
+        show:
+        form:
+    BibliotecaPersonal:
+      page: true
+      components:
+        list:
+        show:
+        form:
+    DocumentoLegal:
+      page: true
+      componets:
+        list:
+        show:
+        form:
+    patente:
+      page: true
+      components:
+        list:
+        show:
+        form:
+    presentacion:
+      page: true
+      components:
+        list:
+        show:
+        form:
