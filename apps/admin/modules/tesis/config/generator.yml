@@ -1,7 +1,7 @@
 generator:
   class: dmAdminDoctrineGenerator
   param:
-    model_class: tesis
+    model_class: Tesis
     theme: dmAdmin
     non_verbose_templates: true
     with_show: false
@@ -11,9 +11,9 @@ generator:
       actions: ~
       fields:
         autors_list:
-          label: Autor
+          label: Autors
         tematicas_list:
-          label: Tematica
+          label: Tematicas
         dm_users_list:
           label: Users
         is_active:
@@ -21,6 +21,7 @@ generator:
       list:
         display:
           - '=id'
+          - slide_id
           - created_by
           - updated_by
           - autors_list
@@ -75,6 +76,7 @@ generator:
           - resumen
           - idioma
           - palabras_claves
+          - slide_id
           - pais
           - institucion
           - total_paginas
@@ -104,10 +106,10 @@ generator:
       form:
         display:
           NONE: [aprobado, is_active, formato_duro, created_by, updated_by]
-        
+          Slide: [slide_id_form, slide_id_view]
           Users: [dm_users_list]
-          Others: [titulo]
-        class: tesisAdminForm
+          Others: [titulo, anno, resumen, idioma, palabras_claves, pais, institucion, total_paginas, num_internacional, organismo, tipo_dc, cant_registros, fecha_inicial, fecha_final, ciudad_pub, editorial, isbn, volumen, num_revista, pagina_inicial, pagina_final, issn, num_diapositivas, departamento, ciudad, tutor, tipo]
+        class: TesisAdminForm
         fields: {  }
       edit: ~
       new: ~

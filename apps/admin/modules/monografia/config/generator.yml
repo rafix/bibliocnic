@@ -21,42 +21,19 @@ generator:
       list:
         display:
           - '=id'
-          - pdf_id
-          - created_by
-          - updated_by
-          - autor_list
-          - tematica_list
-          - dm_users_list
-          - titulo
-          - anno
+          - '=titulo'
           - resumen
+          - isbn
           - idioma
-          - aprobado
-          - is_active
+          - editorial
+          - ciudad_pub
+          - total_paginas
           - formato_duro
           - palabras_claves
-          - pais
-          - institucion
-          - total_paginas
-          - num_internacional
-          - organismo
-          - tipo_dc
-          - cant_registros
-          - fecha_inicial
-          - fecha_final
-          - ciudad_pub
-          - editorial
-          - isbn
-          - volumen
-          - num_revista
-          - pagina_inicial
-          - pagina_final
-          - issn
-          - num_diapositivas
-          - departamento
-          - ciudad
-          - tutor
-          - tipo
+          - aprobado
+          - is_active
+          - created_by 
+          - updated_by
           - created_at
           - updated_at
         sort:
@@ -106,9 +83,9 @@ generator:
       form:
         display:
           NONE: [aprobado, is_active, formato_duro, created_by, updated_by]
-          Pdf: [pdf_id_form, pdf_id_view]
+          Pdf: [slide_id_form, slide_id_view]
           Users: [dm_users_list]
-          Others: [titulo, anno, resumen, idioma, palabras_claves, pais, institucion, total_paginas, num_internacional, organismo, tipo_dc, cant_registros, fecha_inicial, fecha_final, ciudad_pub, editorial, isbn, volumen, num_revista, pagina_inicial, pagina_final, issn, num_diapositivas, departamento, ciudad, tutor, tipo]
+          Others: [titulo, anno, resumen, idioma, palabras_claves, pais, institucion, total_paginas, num_internacional, organismo, tipo_dc, cant_registros, fecha_inicial, fecha_final, ciudad_pub, editorial, isbn, volumen, num_revista, pagina_inicial, pagina_final, issn, num_diapositivas, departamento, ciudad, tutor, tipo, autors_list]
         class: monografiaAdminForm
         fields: {  }
       edit: ~

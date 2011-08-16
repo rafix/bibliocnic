@@ -4,16 +4,12 @@
  * 
  * No redirection nor database manipulation ( insert, update, delete ) here
  * 
+ * 
  */
 class tesisComponents extends myFrontModuleComponents
 {
 
-  public function executeForm()
-  {
-    $this->form = $this->forms['tesis'];
-  }
-
-  public function executeList()
+  public function executeListByRecurso()
   {
     $query = $this->getListQuery();
     
@@ -27,9 +23,16 @@ class tesisComponents extends myFrontModuleComponents
     $this->tesis = $this->getRecord($query);
   }
 
-  public function executeFormUpload()
+  public function executeList()
   {
-    $this->form = $this->forms['tesis'];
+    $query = $this->getListQuery();
+    
+    $this->tesisPager = $this->getPager($query);
+  }
+
+  public function executeForm()
+  {
+    $this->form = $this->forms['Tesis'];
   }
 
 

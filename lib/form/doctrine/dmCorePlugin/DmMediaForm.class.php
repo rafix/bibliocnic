@@ -12,6 +12,6 @@ class DmMediaForm extends PluginDmMediaForm
 {
   public function configure()
   {
- unset($this['legend'], $this['author'], $this['license']);
+ /*unset($this['legend'], $this['author'], $this['license']);*/
   }
 }

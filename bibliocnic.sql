@@ -2,10 +2,10 @@
 -- version 3.2.4
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Aug 04, 2011 at 10:12 
--- Server version: 5.1.41
--- PHP Version: 5.3.1
+-- Servidor: localhost
+-- Tiempo de generación: 16-08-2011 a las 09:53:08
+-- Versión del servidor: 5.1.41
+-- Versión de PHP: 5.3.1
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -16,20 +16,20 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `bibliocnic`
+-- Base de datos: `bibliocnic`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `articulo_version`
+-- Estructura de tabla para la tabla `articulo_version`
 --
 
 CREATE TABLE IF NOT EXISTS `articulo_version` (
   `id` bigint(20) NOT NULL DEFAULT '0',
   `titulo` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `anno` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `resumen` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `resumen` longtext COLLATE utf8_unicode_ci,
   `idioma` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
   `aprobado` tinyint(1) DEFAULT '0',
   `is_active` tinyint(1) DEFAULT '0',
@@ -61,18 +61,19 @@ CREATE TABLE IF NOT EXISTS `articulo_version` (
   `updated_at` datetime NOT NULL,
   `version` bigint(20) NOT NULL DEFAULT '0',
   `palabras_claves` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `slide_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `articulo_version`
+-- Volcar la base de datos para la tabla `articulo_version`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `autor`
+-- Estructura de tabla para la tabla `autor`
 --
 
 CREATE TABLE IF NOT EXISTS `autor` (
@@ -80,24 +81,26 @@ CREATE TABLE IF NOT EXISTS `autor` (
   `nombre` varchar(32) COLLATE utf8_unicode_ci NOT NULL,
   `apellidos` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `autor`
+-- Volcar la base de datos para la tabla `autor`
 --
 
+INSERT INTO `autor` (`id`, `nombre`, `apellidos`) VALUES
+(1, 'Vicente', 'Del Bosque');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `biblioteca_personal_version`
+-- Estructura de tabla para la tabla `biblioteca_personal_version`
 --
 
 CREATE TABLE IF NOT EXISTS `biblioteca_personal_version` (
   `id` bigint(20) NOT NULL DEFAULT '0',
   `titulo` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `anno` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `resumen` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `resumen` longtext COLLATE utf8_unicode_ci,
   `idioma` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
   `aprobado` tinyint(1) DEFAULT '0',
   `is_active` tinyint(1) DEFAULT '0',
@@ -129,18 +132,19 @@ CREATE TABLE IF NOT EXISTS `biblioteca_personal_version` (
   `updated_at` datetime NOT NULL,
   `version` bigint(20) NOT NULL DEFAULT '0',
   `palabras_claves` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `slide_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `biblioteca_personal_version`
+-- Volcar la base de datos para la tabla `biblioteca_personal_version`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `busqueda`
+-- Estructura de tabla para la tabla `busqueda`
 --
 
 CREATE TABLE IF NOT EXISTS `busqueda` (
@@ -161,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `busqueda` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=81 ;
 
 --
--- Dumping data for table `busqueda`
+-- Volcar la base de datos para la tabla `busqueda`
 --
 
 INSERT INTO `busqueda` (`id`, `user_id`, `titulo`, `mensaje`, `is_active`, `tematica`, `fecha_antes`, `fecha_despues`, `created_at`, `updated_at`, `dm_user_id`) VALUES
@@ -192,7 +196,7 @@ INSERT INTO `busqueda` (`id`, `user_id`, `titulo`, `mensaje`, `is_active`, `tema
 -- --------------------------------------------------------
 
 --
--- Table structure for table `descarga`
+-- Estructura de tabla para la tabla `descarga`
 --
 
 CREATE TABLE IF NOT EXISTS `descarga` (
@@ -205,14 +209,14 @@ CREATE TABLE IF NOT EXISTS `descarga` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `descarga`
+-- Volcar la base de datos para la tabla `descarga`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `diseminacion`
+-- Estructura de tabla para la tabla `diseminacion`
 --
 
 CREATE TABLE IF NOT EXISTS `diseminacion` (
@@ -224,14 +228,14 @@ CREATE TABLE IF NOT EXISTS `diseminacion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `diseminacion`
+-- Volcar la base de datos para la tabla `diseminacion`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_area`
+-- Estructura de tabla para la tabla `dm_area`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_area` (
@@ -245,7 +249,7 @@ CREATE TABLE IF NOT EXISTS `dm_area` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=15 ;
 
 --
--- Dumping data for table `dm_area`
+-- Volcar la base de datos para la tabla `dm_area`
 --
 
 INSERT INTO `dm_area` (`id`, `dm_layout_id`, `dm_page_view_id`, `type`) VALUES
@@ -267,7 +271,7 @@ INSERT INTO `dm_area` (`id`, `dm_layout_id`, `dm_page_view_id`, `type`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_auto_seo`
+-- Estructura de tabla para la tabla `dm_auto_seo`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_auto_seo` (
@@ -278,10 +282,10 @@ CREATE TABLE IF NOT EXISTS `dm_auto_seo` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `dmAutoSeoModuleAction_idx` (`module`,`action`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
--- Dumping data for table `dm_auto_seo`
+-- Volcar la base de datos para la tabla `dm_auto_seo`
 --
 
 INSERT INTO `dm_auto_seo` (`id`, `module`, `action`, `created_at`, `updated_at`) VALUES
@@ -291,12 +295,17 @@ INSERT INTO `dm_auto_seo` (`id`, `module`, `action`, `created_at`, `updated_at`)
 (4, 'monografia', 'show', '2011-08-01 10:54:00', '2011-08-01 10:54:00'),
 (5, 'recurso', 'show', '2011-08-01 10:54:00', '2011-08-01 10:54:00'),
 (6, 'pregunta', 'show', '2011-08-01 10:54:00', '2011-08-01 10:54:00'),
-(7, 'respuesta', 'show', '2011-08-01 10:54:00', '2011-08-01 10:54:00');
+(7, 'respuesta', 'show', '2011-08-01 10:54:00', '2011-08-01 10:54:00'),
+(8, 'articulo', 'show', '2011-08-15 20:57:24', '2011-08-15 20:57:24'),
+(9, 'patente', 'show', '2011-08-15 20:57:24', '2011-08-15 20:57:24'),
+(10, 'presentacion', 'show', '2011-08-15 20:57:24', '2011-08-15 20:57:24'),
+(11, 'bibliotecaPersonal', 'show', '2011-08-15 20:57:25', '2011-08-15 20:57:25'),
+(12, 'documentoLegal', 'show', '2011-08-15 20:57:25', '2011-08-15 20:57:25');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_auto_seo_translation`
+-- Estructura de tabla para la tabla `dm_auto_seo_translation`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_auto_seo_translation` (
@@ -313,7 +322,7 @@ CREATE TABLE IF NOT EXISTS `dm_auto_seo_translation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_auto_seo_translation`
+-- Volcar la base de datos para la tabla `dm_auto_seo_translation`
 --
 
 INSERT INTO `dm_auto_seo_translation` (`id`, `slug`, `name`, `title`, `h1`, `description`, `keywords`, `strip_words`, `lang`) VALUES
@@ -323,12 +332,17 @@ INSERT INTO `dm_auto_seo_translation` (`id`, `slug`, `name`, `title`, `h1`, `des
 (4, '%monografia%', '%monografia%', '%monografia%', NULL, '%monografia%', NULL, NULL, 'es'),
 (5, '%recurso%', '%recurso%', '%recurso%', NULL, '%recurso%', NULL, NULL, 'es'),
 (6, '%pregunta%', '%pregunta%', '%pregunta%', NULL, '%pregunta%', NULL, NULL, 'es'),
-(7, '%respuesta%', '%respuesta%', '%respuesta%', NULL, '%respuesta%', NULL, NULL, 'es');
+(7, '%respuesta%', '%respuesta%', '%respuesta%', NULL, '%respuesta%', NULL, NULL, 'es'),
+(8, '%articulo%', '%articulo%', '%articulo%', NULL, '%articulo%', NULL, NULL, 'es'),
+(9, '%patente%', '%patente%', '%patente%', NULL, '%patente%', NULL, NULL, 'es'),
+(10, '%presentacion%', '%presentacion%', '%presentacion%', NULL, '%presentacion%', NULL, NULL, 'es'),
+(11, '%biblioteca_personal%', '%biblioteca_personal%', '%biblioteca_personal%', NULL, '%biblioteca_personal%', NULL, NULL, 'es'),
+(12, '%documento_legal%', '%documento_legal%', '%documento_legal%', NULL, '%documento_legal%', NULL, NULL, 'es');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_catalogue`
+-- Estructura de tabla para la tabla `dm_catalogue`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_catalogue` (
@@ -340,7 +354,7 @@ CREATE TABLE IF NOT EXISTS `dm_catalogue` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `dm_catalogue`
+-- Volcar la base de datos para la tabla `dm_catalogue`
 --
 
 INSERT INTO `dm_catalogue` (`id`, `name`, `source_lang`, `target_lang`) VALUES
@@ -350,7 +364,7 @@ INSERT INTO `dm_catalogue` (`id`, `name`, `source_lang`, `target_lang`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_error`
+-- Estructura de tabla para la tabla `dm_error`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_error` (
@@ -364,10 +378,10 @@ CREATE TABLE IF NOT EXISTS `dm_error` (
   `env` varchar(63) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=148 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=171 ;
 
 --
--- Dumping data for table `dm_error`
+-- Volcar la base de datos para la tabla `dm_error`
 --
 
 INSERT INTO `dm_error` (`id`, `php_class`, `name`, `description`, `module`, `action`, `uri`, `env`, `created_at`) VALUES
@@ -530,12 +544,37 @@ INSERT INTO `dm_error` (`id`, `php_class`, `name`, `description`, `module`, `act
 (145, 'InvalidArgumentException', 'sfWidgetFormSchema constructor takes an array of sfWidget objects.', 'sfWidgetFormSchema constructor takes an array of sfWidget objects.\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(651): sfWidgetFormSchema->__construct(''fecha_antes'')\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\form\\dmForm.php(58): sfForm->setWidgets(''fecha_antes'')\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\form\\doctrine\\BusquedaForm.class.php(35): dmForm->setWidgets(''fecha_antes'', Object(sfWidgetFormChoice))\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(70): BusquedaForm->configure()\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormSymfony.class.php(33): sfForm->__construct(Array, Array, NULL)\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\form\\sfFormDoctrine.class.php(52): sfFormSymfony->__construct(Array, Array, NULL)\n#6 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\busqueda\\actions\\actions.class.php(11): sfFormDoctrine->__construct()\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(179): busquedaActions->executeFormWidget(Object(dmWebRequest))\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(126): BasedmFrontActions->launchDirectActions()\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(12): BasedmFrontActions->renderPage()\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmFrontActions->executePage(Object(dmWebRequest))\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmFrontActions))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmFrontActions))\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmFront'', ''page'')\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#24 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#25 {main}', 'dmFront', 'page', 'http://bibliocnic.localhost/dev.php/busqueda-especializada', 'dev', '2011-08-04 21:45:15');
 INSERT INTO `dm_error` (`id`, `php_class`, `name`, `description`, `module`, `action`, `uri`, `env`, `created_at`) VALUES
 (146, 'InvalidArgumentException', 'A field must be an instance of sfWidget.', 'A field must be an instance of sfWidget.\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\widget\\sfWidgetFormSchema.class.php(72): sfWidgetFormSchema->offsetSet(''add_empty'', '''')\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(651): sfWidgetFormSchema->__construct(Array)\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\form\\dmForm.php(58): sfForm->setWidgets(Array)\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\form\\doctrine\\BusquedaForm.class.php(37): dmForm->setWidgets(Array)\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(70): BusquedaForm->configure()\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormSymfony.class.php(33): sfForm->__construct(Array, Array, NULL)\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\form\\sfFormDoctrine.class.php(52): sfFormSymfony->__construct(Array, Array, NULL)\n#7 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\busqueda\\actions\\actions.class.php(11): sfFormDoctrine->__construct()\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(179): busquedaActions->executeFormWidget(Object(dmWebRequest))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(126): BasedmFrontActions->launchDirectActions()\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(12): BasedmFrontActions->renderPage()\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmFrontActions->executePage(Object(dmWebRequest))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmFrontActions))\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmFrontActions))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmFront'', ''page'')\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#25 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#26 {main}', 'dmFront', 'page', 'http://bibliocnic.localhost/dev.php/busqueda-especializada', 'dev', '2011-08-04 21:46:12'),
-(147, 'InvalidArgumentException', 'A field must be an instance of sfWidget.', 'A field must be an instance of sfWidget.\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\widget\\sfWidgetFormSchema.class.php(72): sfWidgetFormSchema->offsetSet(''default'', '''')\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(651): sfWidgetFormSchema->__construct(Array)\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\form\\dmForm.php(58): sfForm->setWidgets(Array)\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\form\\doctrine\\BusquedaForm.class.php(37): dmForm->setWidgets(Array)\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(70): BusquedaForm->configure()\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormSymfony.class.php(33): sfForm->__construct(Array, Array, NULL)\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\form\\sfFormDoctrine.class.php(52): sfFormSymfony->__construct(Array, Array, NULL)\n#7 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\busqueda\\actions\\actions.class.php(11): sfFormDoctrine->__construct()\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(179): busquedaActions->executeFormWidget(Object(dmWebRequest))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(126): BasedmFrontActions->launchDirectActions()\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(12): BasedmFrontActions->renderPage()\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmFrontActions->executePage(Object(dmWebRequest))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmFrontActions))\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmFrontActions))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmFront'', ''page'')\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#25 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#26 {main}', 'dmFront', 'page', 'http://bibliocnic.localhost/dev.php/busqueda-especializada', 'dev', '2011-08-04 21:46:55');
+(147, 'InvalidArgumentException', 'A field must be an instance of sfWidget.', 'A field must be an instance of sfWidget.\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\widget\\sfWidgetFormSchema.class.php(72): sfWidgetFormSchema->offsetSet(''default'', '''')\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(651): sfWidgetFormSchema->__construct(Array)\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\form\\dmForm.php(58): sfForm->setWidgets(Array)\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\form\\doctrine\\BusquedaForm.class.php(37): dmForm->setWidgets(Array)\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(70): BusquedaForm->configure()\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormSymfony.class.php(33): sfForm->__construct(Array, Array, NULL)\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\form\\sfFormDoctrine.class.php(52): sfFormSymfony->__construct(Array, Array, NULL)\n#7 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\busqueda\\actions\\actions.class.php(11): sfFormDoctrine->__construct()\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(179): busquedaActions->executeFormWidget(Object(dmWebRequest))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(126): BasedmFrontActions->launchDirectActions()\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(12): BasedmFrontActions->renderPage()\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmFrontActions->executePage(Object(dmWebRequest))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmFrontActions))\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmFrontActions))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmFront'', ''page'')\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#25 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#26 {main}', 'dmFront', 'page', 'http://bibliocnic.localhost/dev.php/busqueda-especializada', 'dev', '2011-08-04 21:46:55'),
+(148, 'Exception', 'Warning : "fopen(http://diem-project.org/service/current-version/5_1) [<a href=''function.fopen''>function.fopen</a>]: failed to open stream: HTTP request failed! " occured in C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBr', 'Warning : "fopen(http://diem-project.org/service/current-version/5_1) [<a href=''function.fopen''>function.fopen</a>]: failed to open stream: HTTP request failed! " occured in C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfFopenAdapter.class.php on line 60\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfWebBrowser.class.php(217): sfFopenAdapter->call(Object(dmWebBrowser), ''http://diem-pro...'', ''GET'', Array, Array)\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfWebBrowser.class.php(116): sfWebBrowser->call(''http://diem-pro...'', ''GET'', Array, Array)\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\webService\\dmDiemVersionCheck.php(50): sfWebBrowser->get(''http://diem-pro...'')\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\webService\\dmDiemVersionCheck.php(32): dmDiemVersionCheck->getLatestServerVersionForBranch(''5.1'')\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\modules\\dmAdmin\\lib\\BasedmAdminActions.class.php(93): dmDiemVersionCheck->isUpToDate()\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmAdminActions->executeVersionCheck(Object(dmWebRequest))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmAdminActions))\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmAdminActions))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmAdmin'', ''versionCheck'')\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#21 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#22 {main}', 'dmAdmin', 'versionCheck', 'http://bibliocnic:8080/admin_dev.php/+/dmAdmin/versionCheck?_=1312526823516&dm_cpi=0&dm_xhr=1', 'dev', '2011-08-05 08:47:31'),
+(149, 'InvalidArgumentException', 'sfValidatorEmail does not support the following options: ''requiered''.', 'sfValidatorEmail does not support the following options: ''requiered''.\n#0 C:\\development\\dmprojects\\bibliocnic\\apps\\admin\\modules\\dmUserAdmin\\lib\\DmUserAdminForm.php(45): sfValidatorBase->__construct(Array, Array)\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(70): DmUserAdminForm->configure()\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormSymfony.class.php(33): sfForm->__construct(Array, Array, NULL)\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\form\\sfFormDoctrine.class.php(52): sfFormSymfony->__construct(Array, Array, NULL)\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\generator\\sfModelGeneratorConfiguration.class.php(484): sfFormDoctrine->__construct(NULL, Array)\n#5 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoDmUserAdmin\\actions\\actions.class.php(132): sfModelGeneratorConfiguration->getForm()\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): autoDmUserAdminActions->executeCreate(Object(dmWebRequest))\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmUserAdminActions))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmUserAdminActions))\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmUserAdmin'', ''create'')\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#22 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#23 {main}', 'dmUserAdmin', 'create', 'http://bibliocnic:8080/admin_dev.php/system/security/users/create', 'dev', '2011-08-05 15:05:16'),
+(150, 'Doctrine_Record_UnknownPropertyException', 'Unknown record property / related component "filename" on "DmUser"', 'Unknown record property / related component "filename" on "DmUser"\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\doctrine\\record\\dmDoctrineRecord.php(700): Doctrine_Record_Filter_Standard->filterGet(Object(DmUser), ''filename'')\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\doctrine\\record\\dmDoctrineRecord.php(616): dmDoctrineRecord->_get(''filename'', true)\n#2 [internal function]: dmDoctrineRecord->get(''filename'')\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\record\\sfDoctrineRecord.class.php(186): call_user_func_array(Array, Array)\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\doctrine\\record\\dmDoctrineRecord.php(857): sfDoctrineRecord->__call(''getFilename'', Array)\n#5 [internal function]: dmDoctrineRecord->__call(''getFilename'', Array)\n#6 C:\\development\\dmprojects\\bibliocnic\\apps\\admin\\modules\\dmUserAdmin\\lib\\DmUserAdminForm.php(33): DmUser->getFilename()\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(70): DmUserAdminForm->configure()\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormSymfony.class.php(33): sfForm->__construct(Array, Array, NULL)\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\form\\sfFormDoctrine.class.php(52): sfFormSymfony->__construct(Array, Array, NULL)\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\generator\\sfModelGeneratorConfiguration.class.php(484): sfFormDoctrine->__construct(NULL, Array)\n#11 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoDmUserAdmin\\actions\\actions.class.php(132): sfModelGeneratorConfiguration->getForm()\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): autoDmUserAdminActions->executeCreate(Object(dmWebRequest))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmUserAdminActions))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmUserAdminActions))\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#25 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#26 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmUserAdmin'', ''create'')\n#27 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#28 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#29 {main}', 'dmUserAdmin', 'create', 'http://bibliocnic:8080/admin_dev.php/system/security/users/create', 'dev', '2011-08-05 15:19:24'),
+(151, 'InvalidArgumentException', 'sfValidatorFile does not support the following options: ''max_height'', ''min_height'', ''max_width'', ''min_width''.', 'sfValidatorFile does not support the following options: ''max_height'', ''min_height'', ''max_width'', ''min_width''.\n#0 C:\\development\\dmprojects\\bibliocnic\\apps\\admin\\modules\\dmUserAdmin\\lib\\DmUserAdminForm.php(53): sfValidatorBase->__construct(Array)\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(70): DmUserAdminForm->configure()\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormSymfony.class.php(33): sfForm->__construct(Array, Array, NULL)\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\form\\sfFormDoctrine.class.php(52): sfFormSymfony->__construct(Array, Array, NULL)\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\generator\\sfModelGeneratorConfiguration.class.php(484): sfFormDoctrine->__construct(Object(DmUser), Array)\n#5 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoDmUserAdmin\\actions\\actions.class.php(159): sfModelGeneratorConfiguration->getForm(Object(DmUser))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): autoDmUserAdminActions->executeUpdate(Object(dmWebRequest))\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmUserAdminActions))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmUserAdminActions))\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmUserAdmin'', ''update'')\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#22 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#23 {main}', 'dmUserAdmin', 'update', 'http://bibliocnic:8080/admin_dev.php/system/security/users/update/pk/8', 'dev', '2011-08-05 16:31:22'),
+(152, 'Exception', 'Warning : "fopen(http://diem-project.org/service/current-version/5_1) [<a href=''function.fopen''>function.fopen</a>]: failed to open stream: php_network_getaddresses: getaddrinfo failed: Host desconocido. " occured in C:\\development\\dmprojects\\bibliocnic\\l', 'Warning : "fopen(http://diem-project.org/service/current-version/5_1) [<a href=''function.fopen''>function.fopen</a>]: failed to open stream: php_network_getaddresses: getaddrinfo failed: Host desconocido. " occured in C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfFopenAdapter.class.php on line 60\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfWebBrowser.class.php(217): sfFopenAdapter->call(Object(dmWebBrowser), ''http://diem-pro...'', ''GET'', Array, Array)\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfWebBrowser.class.php(116): sfWebBrowser->call(''http://diem-pro...'', ''GET'', Array, Array)\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\webService\\dmDiemVersionCheck.php(50): sfWebBrowser->get(''http://diem-pro...'')\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\webService\\dmDiemVersionCheck.php(32): dmDiemVersionCheck->getLatestServerVersionForBranch(''5.1'')\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\modules\\dmAdmin\\lib\\BasedmAdminActions.class.php(93): dmDiemVersionCheck->isUpToDate()\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmAdminActions->executeVersionCheck(Object(dmWebRequest))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmAdminActions))\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmAdminActions))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmAdmin'', ''versionCheck'')\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#21 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#22 {main}', 'dmAdmin', 'versionCheck', 'http://bibliocnic.localhost/admin_dev.php/+/dmAdmin/versionCheck?_=1312624867159&dm_cpi=0&dm_xhr=1', 'dev', '2011-08-06 12:01:11'),
+(153, 'sfError404Exception', 'web is not a module type', 'web is not a module type\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\modules\\dmAdmin\\lib\\BasedmAdminActions.class.php(37): sfAction->forward404Unless(NULL, ''web is not a mo...'')\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmAdminActions->executeModuleSpace(Object(dmWebRequest))\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmAdminActions))\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmAdminActions))\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmAdmin'', ''moduleSpace'')\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#17 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#18 {main}', 'dmAdmin', 'moduleSpace', 'http://bibliocnic.localhost/admin_dev.php/web/dev.php', 'dev', '2011-08-06 18:08:31'),
+(154, 'Exception', 'Warning : "fopen(http://diem-project.org/service/current-version/5_1) [<a href=''function.fopen''>function.fopen</a>]: failed to open stream: php_network_getaddresses: getaddrinfo failed: Host desconocido. " occured in C:\\development\\dmprojects\\bibliocnic\\l', 'Warning : "fopen(http://diem-project.org/service/current-version/5_1) [<a href=''function.fopen''>function.fopen</a>]: failed to open stream: php_network_getaddresses: getaddrinfo failed: Host desconocido. " occured in C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfFopenAdapter.class.php on line 60\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfWebBrowser.class.php(217): sfFopenAdapter->call(Object(dmWebBrowser), ''http://diem-pro...'', ''GET'', Array, Array)\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfWebBrowser.class.php(116): sfWebBrowser->call(''http://diem-pro...'', ''GET'', Array, Array)\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\webService\\dmDiemVersionCheck.php(50): sfWebBrowser->get(''http://diem-pro...'')\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\webService\\dmDiemVersionCheck.php(32): dmDiemVersionCheck->getLatestServerVersionForBranch(''5.1'')\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\modules\\dmAdmin\\lib\\BasedmAdminActions.class.php(93): dmDiemVersionCheck->isUpToDate()\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmAdminActions->executeVersionCheck(Object(dmWebRequest))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmAdminActions))\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmAdminActions))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmAdmin'', ''versionCheck'')\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#21 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#22 {main}', 'dmAdmin', 'versionCheck', 'http://bibliocnic.localhost/admin_dev.php/+/dmAdmin/versionCheck?_=1312647911868&dm_cpi=0&dm_xhr=1', 'dev', '2011-08-06 18:26:06'),
+(155, 'Exception', 'Warning : "fopen(http://diem-project.org/service/current-version/5_1) [<a href=''function.fopen''>function.fopen</a>]: failed to open stream: HTTP request failed! " occured in C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBr', 'Warning : "fopen(http://diem-project.org/service/current-version/5_1) [<a href=''function.fopen''>function.fopen</a>]: failed to open stream: HTTP request failed! " occured in C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfFopenAdapter.class.php on line 60\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfWebBrowser.class.php(217): sfFopenAdapter->call(Object(dmWebBrowser), ''http://diem-pro...'', ''GET'', Array, Array)\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfWebBrowser.class.php(116): sfWebBrowser->call(''http://diem-pro...'', ''GET'', Array, Array)\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\webService\\dmDiemVersionCheck.php(50): sfWebBrowser->get(''http://diem-pro...'')\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\webService\\dmDiemVersionCheck.php(32): dmDiemVersionCheck->getLatestServerVersionForBranch(''5.1'')\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\modules\\dmAdmin\\lib\\BasedmAdminActions.class.php(93): dmDiemVersionCheck->isUpToDate()\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmAdminActions->executeVersionCheck(Object(dmWebRequest))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmAdminActions))\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmAdminActions))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmAdmin'', ''versionCheck'')\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#21 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#22 {main}', 'dmAdmin', 'versionCheck', 'http://bibliocnic:8080/admin_dev.php/+/dmAdmin/versionCheck?_=1312791886410&dm_cpi=0&dm_xhr=1', 'dev', '2011-08-08 10:25:48'),
+(156, 'Exception', 'Warning : "fopen(http://diem-project.org/service/current-version/5_1) [<a href=''function.fopen''>function.fopen</a>]: failed to open stream: HTTP request failed! " occured in C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBr', 'Warning : "fopen(http://diem-project.org/service/current-version/5_1) [<a href=''function.fopen''>function.fopen</a>]: failed to open stream: HTTP request failed! " occured in C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfFopenAdapter.class.php on line 60\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfWebBrowser.class.php(217): sfFopenAdapter->call(Object(dmWebBrowser), ''http://diem-pro...'', ''GET'', Array, Array)\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfWebBrowser.class.php(116): sfWebBrowser->call(''http://diem-pro...'', ''GET'', Array, Array)\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\webService\\dmDiemVersionCheck.php(50): sfWebBrowser->get(''http://diem-pro...'')\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\webService\\dmDiemVersionCheck.php(32): dmDiemVersionCheck->getLatestServerVersionForBranch(''5.1'')\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\modules\\dmAdmin\\lib\\BasedmAdminActions.class.php(93): dmDiemVersionCheck->isUpToDate()\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmAdminActions->executeVersionCheck(Object(dmWebRequest))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmAdminActions))\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmAdminActions))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmAdmin'', ''versionCheck'')\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#21 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#22 {main}', 'dmAdmin', 'versionCheck', 'http://bibliocnic:8080/admin_dev.php/+/dmAdmin/versionCheck?_=1312795765308&dm_cpi=0&dm_xhr=1', 'dev', '2011-08-08 11:29:50');
+INSERT INTO `dm_error` (`id`, `php_class`, `name`, `description`, `module`, `action`, `uri`, `env`, `created_at`) VALUES
+(157, 'Exception', 'Warning : "fopen(http://diem-project.org/service/current-version/5_1) [<a href=''function.fopen''>function.fopen</a>]: failed to open stream: HTTP request failed! " occured in C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBr', 'Warning : "fopen(http://diem-project.org/service/current-version/5_1) [<a href=''function.fopen''>function.fopen</a>]: failed to open stream: HTTP request failed! " occured in C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfFopenAdapter.class.php on line 60\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfWebBrowser.class.php(217): sfFopenAdapter->call(Object(dmWebBrowser), ''http://diem-pro...'', ''GET'', Array, Array)\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfWebBrowser.class.php(116): sfWebBrowser->call(''http://diem-pro...'', ''GET'', Array, Array)\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\webService\\dmDiemVersionCheck.php(50): sfWebBrowser->get(''http://diem-pro...'')\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\webService\\dmDiemVersionCheck.php(32): dmDiemVersionCheck->getLatestServerVersionForBranch(''5.1'')\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\modules\\dmAdmin\\lib\\BasedmAdminActions.class.php(93): dmDiemVersionCheck->isUpToDate()\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmAdminActions->executeVersionCheck(Object(dmWebRequest))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmAdminActions))\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmAdminActions))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmAdmin'', ''versionCheck'')\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#21 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#22 {main}', 'dmAdmin', 'versionCheck', 'http://bibliocnic:8080/admin_dev.php/+/dmAdmin/versionCheck?_=1313045247671&dm_cpi=0&dm_xhr=1', 'dev', '2011-08-11 08:47:52'),
+(158, 'sfException', 'Call to undefined method DmMediaForRecordForm::setMessage.', 'Call to undefined method DmMediaForRecordForm::setMessage.\n#0 [internal function]: sfFormSymfony->__call(''setMessage'', Array)\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\form\\doctrine\\dmUserPlugin\\DmUserForm.class.php(24): DmMediaForRecordForm->setMessage(''mime_types'', ''The file must b...'')\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\form\\doctrine\\dmUserPlugin\\base\\BaseDmUserForm.class.php(71): DmUserForm->createMediaFormForFotoId()\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\form\\doctrine\\PluginDmUserForm.class.php(18): BaseDmUserForm->setup()\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(69): PluginDmUserForm->setup()\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormSymfony.class.php(33): sfForm->__construct(Array, Array, NULL)\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\form\\sfFormDoctrine.class.php(52): sfFormSymfony->__construct(Array, Array, NULL)\n#7 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\dmUser\\actions\\actions.class.php(22): sfFormDoctrine->__construct()\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(179): dmUserActions->executeFormWidget(Object(dmWebRequest))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(126): BasedmFrontActions->launchDirectActions()\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(12): BasedmFrontActions->renderPage()\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmFrontActions->executePage(Object(dmWebRequest))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmFrontActions))\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmFrontActions))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmFront'', ''page'')\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#25 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#26 {main}', 'dmFront', 'page', 'http://bibliocnic:8080/dev.php/registrarse', 'dev', '2011-08-11 13:09:55'),
+(159, 'InvalidArgumentException', 'sfValidatorRegex does not support the following options: ''invalid''.', 'sfValidatorRegex does not support the following options: ''invalid''.\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\form\\doctrine\\dmUserPlugin\\DmUserForm.class.php(65): sfValidatorBase->__construct(Array, Array)\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(70): DmUserForm->configure()\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormSymfony.class.php(33): sfForm->__construct(Array, Array, NULL)\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\form\\sfFormDoctrine.class.php(52): sfFormSymfony->__construct(Array, Array, NULL)\n#4 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\dmUser\\actions\\actions.class.php(22): sfFormDoctrine->__construct()\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(179): dmUserActions->executeFormWidget(Object(dmWebRequest))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(126): BasedmFrontActions->launchDirectActions()\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(12): BasedmFrontActions->renderPage()\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmFrontActions->executePage(Object(dmWebRequest))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmFrontActions))\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmFrontActions))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmFront'', ''page'')\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#22 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#23 {main}', 'dmFront', 'page', 'http://bibliocnic:8080/dev.php/registrarse', 'dev', '2011-08-11 15:16:42'),
+(160, 'InvalidArgumentException', 'sfValidatorRegex does not support the following options: ''0''.', 'sfValidatorRegex does not support the following options: ''0''.\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\form\\doctrine\\dmUserPlugin\\DmUserForm.class.php(65): sfValidatorBase->__construct(Array, Array)\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(70): DmUserForm->configure()\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormSymfony.class.php(33): sfForm->__construct(Array, Array, NULL)\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\form\\sfFormDoctrine.class.php(52): sfFormSymfony->__construct(Array, Array, NULL)\n#4 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\dmUser\\actions\\actions.class.php(22): sfFormDoctrine->__construct()\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(179): dmUserActions->executeFormWidget(Object(dmWebRequest))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(126): BasedmFrontActions->launchDirectActions()\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(12): BasedmFrontActions->renderPage()\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmFrontActions->executePage(Object(dmWebRequest))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmFrontActions))\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmFrontActions))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmFront'', ''page'')\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#22 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#23 {main}', 'dmFront', 'page', 'http://bibliocnic:8080/dev.php/registrarse', 'dev', '2011-08-11 15:21:22'),
+(161, 'InvalidArgumentException', 'sfValidatorRegex does not support the following options: ''0''.', 'sfValidatorRegex does not support the following options: ''0''.\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\form\\doctrine\\dmUserPlugin\\DmUserForm.class.php(65): sfValidatorBase->__construct(Array, Array)\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(70): DmUserForm->configure()\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormSymfony.class.php(33): sfForm->__construct(Array, Array, NULL)\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\form\\sfFormDoctrine.class.php(52): sfFormSymfony->__construct(Array, Array, NULL)\n#4 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\dmUser\\actions\\actions.class.php(22): sfFormDoctrine->__construct()\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(179): dmUserActions->executeFormWidget(Object(dmWebRequest))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(126): BasedmFrontActions->launchDirectActions()\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(12): BasedmFrontActions->renderPage()\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmFrontActions->executePage(Object(dmWebRequest))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmFrontActions))\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmFrontActions))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmFront'', ''page'')\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#22 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#23 {main}', 'dmFront', 'page', 'http://bibliocnic:8080/dev.php/registrarse', 'dev', '2011-08-11 15:26:00'),
+(162, 'InvalidArgumentException', 'sfValidatorRegex does not support the following options: ''0''.', 'sfValidatorRegex does not support the following options: ''0''.\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\form\\doctrine\\dmUserPlugin\\DmUserForm.class.php(65): sfValidatorBase->__construct(Array)\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(70): DmUserForm->configure()\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormSymfony.class.php(33): sfForm->__construct(Array, Array, NULL)\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\form\\sfFormDoctrine.class.php(52): sfFormSymfony->__construct(Array, Array, NULL)\n#4 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\dmUser\\actions\\actions.class.php(22): sfFormDoctrine->__construct()\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(179): dmUserActions->executeFormWidget(Object(dmWebRequest))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(126): BasedmFrontActions->launchDirectActions()\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(12): BasedmFrontActions->renderPage()\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmFrontActions->executePage(Object(dmWebRequest))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmFrontActions))\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmFrontActions))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmFront'', ''page'')\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#22 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#23 {main}', 'dmFront', 'page', 'http://bibliocnic:8080/dev.php/registrarse', 'dev', '2011-08-11 15:26:29'),
+(163, 'InvalidArgumentException', 'sfValidatorRegex does not support the following options: ''0''.', 'sfValidatorRegex does not support the following options: ''0''.\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\form\\doctrine\\dmUserPlugin\\DmUserForm.class.php(65): sfValidatorBase->__construct(Array)\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(70): DmUserForm->configure()\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormSymfony.class.php(33): sfForm->__construct(Array, Array, NULL)\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\form\\sfFormDoctrine.class.php(52): sfFormSymfony->__construct(Array, Array, NULL)\n#4 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\dmUser\\actions\\actions.class.php(22): sfFormDoctrine->__construct()\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(179): dmUserActions->executeFormWidget(Object(dmWebRequest))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(126): BasedmFrontActions->launchDirectActions()\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(12): BasedmFrontActions->renderPage()\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmFrontActions->executePage(Object(dmWebRequest))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmFrontActions))\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmFrontActions))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmFront'', ''page'')\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#22 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#23 {main}', 'dmFront', 'page', 'http://bibliocnic:8080/dev.php/registrarse', 'dev', '2011-08-11 15:29:10'),
+(164, 'InvalidArgumentException', 'sfValidatorRegex does not support the following options: ''0''.', 'sfValidatorRegex does not support the following options: ''0''.\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\form\\doctrine\\dmUserPlugin\\DmUserForm.class.php(65): sfValidatorBase->__construct(Array)\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(70): DmUserForm->configure()\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormSymfony.class.php(33): sfForm->__construct(Array, Array, NULL)\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\form\\sfFormDoctrine.class.php(52): sfFormSymfony->__construct(Array, Array, NULL)\n#4 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\dmUser\\actions\\actions.class.php(22): sfFormDoctrine->__construct()\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(179): dmUserActions->executeFormWidget(Object(dmWebRequest))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(126): BasedmFrontActions->launchDirectActions()\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(12): BasedmFrontActions->renderPage()\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmFrontActions->executePage(Object(dmWebRequest))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmFrontActions))\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmFrontActions))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmFront'', ''page'')\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#22 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#23 {main}', 'dmFront', 'page', 'http://bibliocnic:8080/dev.php/registrarse', 'dev', '2011-08-11 15:30:48'),
+(165, 'InvalidArgumentException', 'sfValidatorRegex does not support the following options: ''0''.', 'sfValidatorRegex does not support the following options: ''0''.\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\form\\doctrine\\dmUserPlugin\\DmUserForm.class.php(66): sfValidatorBase->__construct(Array)\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(70): DmUserForm->configure()\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormSymfony.class.php(33): sfForm->__construct(Array, Array, NULL)\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\form\\sfFormDoctrine.class.php(52): sfFormSymfony->__construct(Array, Array, NULL)\n#4 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\dmUser\\actions\\actions.class.php(22): sfFormDoctrine->__construct()\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(179): dmUserActions->executeFormWidget(Object(dmWebRequest))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(126): BasedmFrontActions->launchDirectActions()\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmFront\\lib\\BasedmFrontActions.class.php(12): BasedmFrontActions->renderPage()\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmFrontActions->executePage(Object(dmWebRequest))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmFrontActions))\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmFrontActions))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmFront'', ''page'')\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#22 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#23 {main}', 'dmFront', 'page', 'http://bibliocnic:8080/dev.php/registrarse', 'dev', '2011-08-12 08:57:40'),
+(166, 'dmException', 'pdf_id_form is not a valid form field', 'pdf_id_form is not a valid form field\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require()\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''monografia/form...'', Array)\n#4 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoMonografia\\templates\\_form_fieldset.php(24): include_partial(''monografia/form...'', Array)\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''monografia/form...'', Array)\n#9 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoMonografia\\templates\\_form.php(29): include_partial(''monografia/form...'', Array)\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''monografia/form'', Array)\n#14 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoMonografia\\templates\\newSuccess.php(19): include_partial(''monografia/form'', Array)\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(185): sfPHPView->renderFile(''C:\\development\\...'')\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(155): sfPHPView->render()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(116): sfExecutionFilter->executeView(''monografia'', ''new'', ''Success'', Array)\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(47): sfExecutionFilter->handleView(Object(sfFilterChain), Object(monografiaActions), ''Success'')\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#25 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#26 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#27 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#28 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#29 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#30 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''monografia'', ''new'')\n#31 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#32 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#33 {main}', 'monografia', 'new', 'http://bibliocnic:8080/admin_dev.php/content/recursos/monografias/new', 'dev', '2011-08-15 16:23:34'),
+(167, 'sfConfigurationException', 'The route "biblioteca_personal" does not exist.', 'The route "biblioteca_personal" does not exist.\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfWebController.class.php(74): sfPatternRouting->generate(''biblioteca_pers...'', Array, false)\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\UrlHelper.php(88): sfWebController->genUrl(''biblioteca_pers...'', false)\n#2 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoBibliotecapersonal\\templates\\indexSuccess.php(12): url_for1(''biblioteca_pers...'')\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(185): sfPHPView->renderFile(''C:\\development\\...'')\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(155): sfPHPView->render()\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(116): sfExecutionFilter->executeView(''bibliotecaperso...'', ''index'', ''Success'', Array)\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(47): sfExecutionFilter->handleView(Object(sfFilterChain), Object(bibliotecaPersonalActions), ''Success'')\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''bibliotecaperso...'', ''index'')\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#20 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#21 {main}', 'bibliotecapersonal', 'index', 'http://bibliocnic:8080/admin_dev.php/content/recursos/bibliotecapersonals/index', 'dev', '2011-08-15 16:33:41'),
+(168, 'sfConfigurationException', 'The route "documento_legal" does not exist.', 'The route "documento_legal" does not exist.\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfWebController.class.php(74): sfPatternRouting->generate(''documento_legal'', Array, false)\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\UrlHelper.php(88): sfWebController->genUrl(''documento_legal'', false)\n#2 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoDocumentolegal\\templates\\indexSuccess.php(12): url_for1(''documento_legal'')\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(185): sfPHPView->renderFile(''C:\\development\\...'')\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(155): sfPHPView->render()\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(116): sfExecutionFilter->executeView(''documentolegal'', ''index'', ''Success'', Array)\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(47): sfExecutionFilter->handleView(Object(sfFilterChain), Object(documentoLegalActions), ''Success'')\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''documentolegal'', ''index'')\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#20 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#21 {main}', 'documentolegal', 'index', 'http://bibliocnic:8080/admin_dev.php/content/recursos/documentolegals/index', 'dev', '2011-08-15 16:33:56');
+INSERT INTO `dm_error` (`id`, `php_class`, `name`, `description`, `module`, `action`, `uri`, `env`, `created_at`) VALUES
+(169, 'Doctrine_Record_UnknownPropertyException', 'Unknown record property / related component "autor_list" on "Monografia"', 'Unknown record property / related component "autor_list" on "Monografia"\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\doctrine\\record\\dmDoctrineRecord.php(700): Doctrine_Record_Filter_Standard->filterGet(Object(Monografia), ''autor_list'')\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\doctrine\\record\\dmDoctrineRecord.php(616): dmDoctrineRecord->_get(''autor_list'', true)\n#2 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoMonografia\\templates\\_list_td_tabular.php(11): dmDoctrineRecord->get(''autor_list'')\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''monografia/list...'', Array)\n#7 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoMonografia\\templates\\_list.php(24): include_partial(''monografia/list...'', Array)\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''monografia/list'', Array)\n#12 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoMonografia\\templates\\indexSuccess.php(26): include_partial(''monografia/list'', Array)\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(185): sfPHPView->renderFile(''C:\\development\\...'')\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(155): sfPHPView->render()\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(116): sfExecutionFilter->executeView(''monografia'', ''index'', ''Success'', Array)\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(47): sfExecutionFilter->handleView(Object(sfFilterChain), Object(monografiaActions), ''Success'')\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#25 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#26 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#27 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#28 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''monografia'', ''index'')\n#29 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#30 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#31 {main}', 'monografia', 'index', 'http://bibliocnic:8080/admin_dev.php/content/recursos/monografias/index', 'dev', '2011-08-16 01:44:14'),
+(170, 'dmException', 'autor_list is not a valid form field', 'autor_list is not a valid form field\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require()\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''monografia/form...'', Array)\n#4 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoMonografia\\templates\\_form_fieldset.php(24): include_partial(''monografia/form...'', Array)\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''monografia/form...'', Array)\n#9 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoMonografia\\templates\\_form.php(29): include_partial(''monografia/form...'', Array)\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''monografia/form'', Array)\n#14 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoMonografia\\templates\\newSuccess.php(19): include_partial(''monografia/form'', Array)\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(185): sfPHPView->renderFile(''C:\\development\\...'')\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(155): sfPHPView->render()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(116): sfExecutionFilter->executeView(''monografia'', ''new'', ''Success'', Array)\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(47): sfExecutionFilter->handleView(Object(sfFilterChain), Object(monografiaActions), ''Success'')\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#25 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#26 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#27 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#28 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#29 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#30 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''monografia'', ''new'')\n#31 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#32 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#33 {main}', 'monografia', 'new', 'http://bibliocnic:8080/admin_dev.php/content/recursos/monografias/new', 'dev', '2011-08-16 02:05:10');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_group`
+-- Estructura de tabla para la tabla `dm_group`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_group` (
@@ -549,7 +588,7 @@ CREATE TABLE IF NOT EXISTS `dm_group` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `dm_group`
+-- Volcar la base de datos para la tabla `dm_group`
 --
 
 INSERT INTO `dm_group` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
@@ -564,7 +603,7 @@ INSERT INTO `dm_group` (`id`, `name`, `description`, `created_at`, `updated_at`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_group_permission`
+-- Estructura de tabla para la tabla `dm_group_permission`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_group_permission` (
@@ -575,7 +614,7 @@ CREATE TABLE IF NOT EXISTS `dm_group_permission` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_group_permission`
+-- Volcar la base de datos para la tabla `dm_group_permission`
 --
 
 INSERT INTO `dm_group_permission` (`dm_group_id`, `dm_permission_id`) VALUES
@@ -660,7 +699,7 @@ INSERT INTO `dm_group_permission` (`dm_group_id`, `dm_permission_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_layout`
+-- Estructura de tabla para la tabla `dm_layout`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_layout` (
@@ -673,7 +712,7 @@ CREATE TABLE IF NOT EXISTS `dm_layout` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `dm_layout`
+-- Volcar la base de datos para la tabla `dm_layout`
 --
 
 INSERT INTO `dm_layout` (`id`, `name`, `template`, `css_class`) VALUES
@@ -682,7 +721,7 @@ INSERT INTO `dm_layout` (`id`, `name`, `template`, `css_class`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_lock`
+-- Estructura de tabla para la tabla `dm_lock`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_lock` (
@@ -702,7 +741,7 @@ CREATE TABLE IF NOT EXISTS `dm_lock` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `dm_lock`
+-- Volcar la base de datos para la tabla `dm_lock`
 --
 
 INSERT INTO `dm_lock` (`id`, `user_id`, `user_name`, `module`, `action`, `record_id`, `time`, `app`, `url`, `culture`) VALUES
@@ -712,7 +751,7 @@ INSERT INTO `dm_lock` (`id`, `user_id`, `user_name`, `module`, `action`, `record
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_mail_template`
+-- Estructura de tabla para la tabla `dm_mail_template`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_mail_template` (
@@ -726,7 +765,7 @@ CREATE TABLE IF NOT EXISTS `dm_mail_template` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `dm_mail_template`
+-- Volcar la base de datos para la tabla `dm_mail_template`
 --
 
 INSERT INTO `dm_mail_template` (`id`, `name`, `vars`, `created_at`, `updated_at`) VALUES
@@ -738,7 +777,7 @@ INSERT INTO `dm_mail_template` (`id`, `name`, `vars`, `created_at`, `updated_at`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_mail_template_translation`
+-- Estructura de tabla para la tabla `dm_mail_template_translation`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_mail_template_translation` (
@@ -760,7 +799,7 @@ CREATE TABLE IF NOT EXISTS `dm_mail_template_translation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_mail_template_translation`
+-- Volcar la base de datos para la tabla `dm_mail_template_translation`
 --
 
 INSERT INTO `dm_mail_template_translation` (`id`, `description`, `subject`, `body`, `from_email`, `to_email`, `cc_email`, `bcc_email`, `reply_to_email`, `sender_email`, `list_unsuscribe`, `is_html`, `is_active`, `lang`) VALUES
@@ -772,7 +811,7 @@ INSERT INTO `dm_mail_template_translation` (`id`, `description`, `subject`, `bod
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_media`
+-- Estructura de tabla para la tabla `dm_media`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_media` (
@@ -790,10 +829,10 @@ CREATE TABLE IF NOT EXISTS `dm_media` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `folderFile_idx` (`dm_media_folder_id`,`file`),
   KEY `dm_media_folder_id_idx` (`dm_media_folder_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=34 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=39 ;
 
 --
--- Dumping data for table `dm_media`
+-- Volcar la base de datos para la tabla `dm_media`
 --
 
 INSERT INTO `dm_media` (`id`, `dm_media_folder_id`, `file`, `legend`, `author`, `license`, `mime`, `size`, `dimensions`, `created_at`, `updated_at`) VALUES
@@ -818,12 +857,17 @@ INSERT INTO `dm_media` (`id`, `dm_media_folder_id`, `file`, `legend`, `author`, 
 (30, 4, 'imagecloud.swf', NULL, NULL, NULL, 'application/x-shockwave-flash', 34889, NULL, '2011-08-03 11:21:29', '2011-08-03 11:21:29'),
 (31, 4, 'sitio en construccion.png', NULL, NULL, NULL, 'image/png', 21751, NULL, '2011-08-03 11:21:29', '2011-08-03 11:21:29'),
 (32, 3, 'images2.jpeg', NULL, NULL, NULL, 'image/jpeg', 7847, '246x205', '2011-08-03 14:08:34', '2011-08-03 14:08:40'),
-(33, 3, 'defaultMedia_1.jpg', NULL, NULL, NULL, 'image/jpeg', 159453, '1000x700', '2011-08-03 14:09:20', '2011-08-03 14:09:26');
+(33, 3, 'defaultMedia_1.jpg', NULL, NULL, NULL, 'image/jpeg', 159453, '1000x700', '2011-08-03 14:09:20', '2011-08-03 14:09:26'),
+(34, 3, 'images2_1.jpeg', 'as', 'as', 'as', 'image/jpeg', 7847, '246x205', '2011-08-09 16:45:30', '2011-08-09 16:46:25'),
+(35, 3, 'images2_2.jpeg', NULL, NULL, NULL, 'image/jpeg', 7847, NULL, '2011-08-09 16:59:43', '2011-08-09 16:59:43'),
+(36, 3, 'images2_3.jpeg', NULL, NULL, NULL, 'image/jpeg', 7847, '246x205', '2011-08-09 17:01:22', '2011-08-15 10:27:18'),
+(37, 3, 'favicon.png', NULL, NULL, NULL, 'image/png', 427, NULL, '2011-08-15 10:34:38', '2011-08-15 10:34:38'),
+(38, 3, 'favicon_1.png', NULL, NULL, NULL, 'image/png', 427, NULL, '2011-08-15 10:34:38', '2011-08-15 10:34:38');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_media_folder`
+-- Estructura de tabla para la tabla `dm_media_folder`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_media_folder` (
@@ -834,23 +878,31 @@ CREATE TABLE IF NOT EXISTS `dm_media_folder` (
   `level` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `rel_path` (`rel_path`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=14 ;
 
 --
--- Dumping data for table `dm_media_folder`
+-- Volcar la base de datos para la tabla `dm_media_folder`
 --
 
 INSERT INTO `dm_media_folder` (`id`, `rel_path`, `lft`, `rgt`, `level`) VALUES
-(1, '', 1, 10, 0),
+(1, '', 1, 26, 0),
 (2, 'assets', 4, 5, 1),
 (3, 'dm_user', 2, 3, 1),
 (4, 'widget', 6, 7, 1),
-(5, 'Docpdf', 8, 9, 1);
+(5, 'Docpdf', 8, 9, 1),
+(6, 'tesis', 10, 11, 1),
+(7, 'recurso', 12, 13, 1),
+(8, 'monografia', 14, 15, 1),
+(9, 'articulo', 16, 17, 1),
+(10, 'patente', 18, 19, 1),
+(11, 'presentacion', 20, 21, 1),
+(12, 'biblioteca_personal', 22, 23, 1),
+(13, 'documento_legal', 24, 25, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_page`
+-- Estructura de tabla para la tabla `dm_page`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_page` (
@@ -864,39 +916,39 @@ CREATE TABLE IF NOT EXISTS `dm_page` (
   `level` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `recordModuleAction_idx` (`module`,`action`,`record_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=59 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=68 ;
 
 --
--- Dumping data for table `dm_page`
+-- Volcar la base de datos para la tabla `dm_page`
 --
 
 INSERT INTO `dm_page` (`id`, `module`, `action`, `record_id`, `credentials`, `lft`, `rgt`, `level`) VALUES
-(1, 'main', 'root', 0, NULL, 1, 92, 0),
+(1, 'main', 'root', 0, NULL, 1, 110, 0),
 (2, 'main', 'error404', 0, NULL, 4, 5, 1),
 (3, 'main', 'signin', 0, NULL, 2, 3, 1),
 (4, 'main', 'busquedas', 0, NULL, 6, 7, 1),
-(5, 'busqueda', 'list', 0, '', 8, 49, 1),
-(16, 'main', 'registrarse', 0, '', 50, 51, 1),
-(17, 'respuestaBusqueda', 'list', 0, NULL, 52, 63, 1),
-(18, 'tesis', 'list', 0, NULL, 64, 65, 1),
+(5, 'busqueda', 'list', 0, '', 8, 55, 1),
+(16, 'main', 'registrarse', 0, '', 56, 57, 1),
+(17, 'respuestaBusqueda', 'list', 0, NULL, 58, 69, 1),
+(18, 'tesis', 'list', 0, NULL, 70, 71, 1),
 (19, 'busqueda', 'show', 57, NULL, 9, 10, 2),
 (20, 'busqueda', 'show', 58, NULL, 11, 12, 2),
 (21, 'busqueda', 'show', 59, NULL, 13, 14, 2),
 (22, 'busqueda', 'show', 60, NULL, 15, 16, 2),
 (23, 'busqueda', 'show', 61, NULL, 17, 18, 2),
 (24, 'busqueda', 'show', 62, NULL, 19, 20, 2),
-(25, 'respuestaBusqueda', 'show', 1, NULL, 53, 54, 2),
-(26, 'respuestaBusqueda', 'show', 2, NULL, 55, 56, 2),
+(25, 'respuestaBusqueda', 'show', 1, NULL, 59, 60, 2),
+(26, 'respuestaBusqueda', 'show', 2, NULL, 61, 62, 2),
 (27, 'busqueda', 'show', 63, NULL, 21, 22, 2),
-(30, 'monografia', 'list', 0, NULL, 66, 67, 1),
-(31, 'recurso', 'list', 0, NULL, 68, 69, 1),
-(32, 'pregunta', 'list', 0, '', 70, 85, 1),
-(33, 'respuesta', 'list', 0, NULL, 86, 91, 1),
+(30, 'monografia', 'list', 0, NULL, 72, 75, 1),
+(31, 'recurso', 'list', 0, NULL, 76, 77, 1),
+(32, 'pregunta', 'list', 0, '', 78, 93, 1),
+(33, 'respuesta', 'list', 0, NULL, 94, 99, 1),
 (34, 'busqueda', 'show', 64, NULL, 23, 24, 2),
 (35, 'busqueda', 'show', 66, NULL, 25, 26, 2),
-(36, 'pregunta', 'show', 3, NULL, 71, 72, 2),
-(37, 'pregunta', 'show', 4, NULL, 73, 74, 2),
-(38, 'respuesta', 'show', 1, NULL, 87, 88, 2),
+(36, 'pregunta', 'show', 3, NULL, 79, 80, 2),
+(37, 'pregunta', 'show', 4, NULL, 81, 82, 2),
+(38, 'respuesta', 'show', 1, NULL, 95, 96, 2),
 (39, 'busqueda', 'show', 67, NULL, 27, 28, 2),
 (40, 'busqueda', 'show', 68, NULL, 29, 30, 2),
 (41, 'busqueda', 'show', 69, NULL, 31, 32, 2),
@@ -908,20 +960,29 @@ INSERT INTO `dm_page` (`id`, `module`, `action`, `record_id`, `credentials`, `lf
 (47, 'busqueda', 'show', 75, NULL, 43, 44, 2),
 (48, 'busqueda', 'show', 76, NULL, 45, 46, 2),
 (49, 'busqueda', 'show', 77, NULL, 47, 48, 2),
-(50, 'respuestaBusqueda', 'show', 3, NULL, 57, 58, 2),
-(51, 'respuestaBusqueda', 'show', 4, NULL, 59, 60, 2),
-(52, 'respuestaBusqueda', 'show', 5, NULL, 61, 62, 2),
-(53, 'pregunta', 'show', 5, NULL, 75, 76, 2),
-(54, 'pregunta', 'show', 6, NULL, 77, 78, 2),
-(55, 'pregunta', 'show', 7, NULL, 79, 80, 2),
-(56, 'pregunta', 'show', 8, NULL, 81, 82, 2),
-(57, 'pregunta', 'show', 9, NULL, 83, 84, 2),
-(58, 'respuesta', 'show', 2, NULL, 89, 90, 2);
+(50, 'respuestaBusqueda', 'show', 3, NULL, 63, 64, 2),
+(51, 'respuestaBusqueda', 'show', 4, NULL, 65, 66, 2),
+(52, 'respuestaBusqueda', 'show', 5, NULL, 67, 68, 2),
+(53, 'pregunta', 'show', 5, NULL, 83, 84, 2),
+(54, 'pregunta', 'show', 6, NULL, 85, 86, 2),
+(55, 'pregunta', 'show', 7, NULL, 87, 88, 2),
+(56, 'pregunta', 'show', 8, NULL, 89, 90, 2),
+(57, 'pregunta', 'show', 9, NULL, 91, 92, 2),
+(58, 'respuesta', 'show', 2, NULL, 97, 98, 2),
+(59, 'busqueda', 'show', 78, NULL, 49, 50, 2),
+(60, 'busqueda', 'show', 79, NULL, 51, 52, 2),
+(61, 'busqueda', 'show', 80, NULL, 53, 54, 2),
+(62, 'articulo', 'list', 0, NULL, 100, 101, 1),
+(63, 'patente', 'list', 0, NULL, 102, 103, 1),
+(64, 'presentacion', 'list', 0, NULL, 104, 105, 1),
+(65, 'bibliotecaPersonal', 'list', 0, NULL, 106, 107, 1),
+(66, 'documentoLegal', 'list', 0, NULL, 108, 109, 1),
+(67, 'monografia', 'show', 1, NULL, 73, 74, 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_page_translation`
+-- Estructura de tabla para la tabla `dm_page_translation`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_page_translation` (
@@ -941,7 +1002,7 @@ CREATE TABLE IF NOT EXISTS `dm_page_translation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_page_translation`
+-- Volcar la base de datos para la tabla `dm_page_translation`
 --
 
 INSERT INTO `dm_page_translation` (`id`, `slug`, `name`, `title`, `h1`, `description`, `keywords`, `auto_mod`, `is_active`, `is_secure`, `is_indexable`, `lang`) VALUES
@@ -990,12 +1051,21 @@ INSERT INTO `dm_page_translation` (`id`, `slug`, `name`, `title`, `h1`, `descrip
 (55, 'pregunte-al-bibliotecario/probando-correo-de-pregunta', 'probando correo de pregunta', 'Probando correo de pregunta', NULL, 'probando correo de pregunta', NULL, 'snthdk', 1, 0, 1, 'es'),
 (56, 'pregunte-al-bibliotecario/probando-correo-con-prueba-1', 'probando correo con prueba 1', 'Probando correo con prueba 1', NULL, 'probando correo con prueba 1', NULL, 'snthdk', 1, 0, 1, 'es'),
 (57, 'pregunte-al-bibliotecario/prueba-a-ver-si-llega', 'prueba a ver si llega', 'Prueba a ver si llega', NULL, 'prueba a ver si llega', NULL, 'snthdk', 1, 0, 1, 'es'),
-(58, 'respuestas/2', '2', '2', NULL, '2', NULL, 'snthdk', 1, 0, 1, 'es');
+(58, 'respuestas/2', '2', '2', NULL, '2', NULL, 'snthdk', 1, 0, 1, 'es'),
+(59, 'busqueda-especializada/veamos-el-error-que-da', 'veamos el error que da', 'Veamos el error que da', NULL, 'veamos el error que da', NULL, 'snthdk', 1, 0, 1, 'es'),
+(60, 'busqueda-especializada/veamos-el-error-que-da-60', 'veamos el error que da', 'Veamos el error que da', NULL, 'veamos el error que da', NULL, 'snthdk', 1, 0, 1, 'es'),
+(61, 'busqueda-especializada/qweqweqweasdasdas', 'qweqweqweasdasdas', 'Qweqweqweasdasdas', NULL, 'qweqweqweasdasdas', NULL, 'snthdk', 1, 0, 1, 'es'),
+(62, 'articulos', 'Articulos', 'Articulos', NULL, 'Articulos', NULL, 'snthdk', 1, 0, 1, 'es'),
+(63, 'patentes', 'Patentes', 'Patentes', NULL, 'Patentes', NULL, 'snthdk', 1, 0, 1, 'es'),
+(64, 'presentacions', 'Presentacions', 'Presentacions', NULL, 'Presentacions', NULL, 'snthdk', 1, 0, 1, 'es'),
+(65, 'biblioteca-personals', 'Biblioteca personals', 'Biblioteca personals', NULL, 'Biblioteca personals', NULL, 'snthdk', 1, 0, 1, 'es'),
+(66, 'documento-legals', 'Documento legals', 'Documento legals', NULL, 'Documento legals', NULL, 'snthdk', 1, 0, 1, 'es'),
+(67, 'monografias/1', '1', '1', NULL, '1', NULL, 'snthdk', 0, 0, 1, 'es');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_page_view`
+-- Estructura de tabla para la tabla `dm_page_view`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_page_view` (
@@ -1006,10 +1076,10 @@ CREATE TABLE IF NOT EXISTS `dm_page_view` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `dmPageViewModuleAction_idx` (`module`,`action`),
   KEY `dm_layout_id_idx` (`dm_layout_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=24 ;
 
 --
--- Dumping data for table `dm_page_view`
+-- Volcar la base de datos para la tabla `dm_page_view`
 --
 
 INSERT INTO `dm_page_view` (`id`, `module`, `action`, `dm_layout_id`) VALUES
@@ -1029,12 +1099,18 @@ INSERT INTO `dm_page_view` (`id`, `module`, `action`, `dm_layout_id`) VALUES
 (14, 'pregunta', 'list', 1),
 (15, 'respuesta', 'list', 1),
 (16, 'pregunta', 'show', 1),
-(17, 'respuesta', 'show', 1);
+(17, 'respuesta', 'show', 1),
+(18, 'articulo', 'list', 1),
+(19, 'patente', 'list', 1),
+(20, 'presentacion', 'list', 1),
+(21, 'bibliotecaPersonal', 'list', 1),
+(22, 'documentoLegal', 'list', 1),
+(23, 'monografia', 'show', 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_permission`
+-- Estructura de tabla para la tabla `dm_permission`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_permission` (
@@ -1048,7 +1124,7 @@ CREATE TABLE IF NOT EXISTS `dm_permission` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=60 ;
 
 --
--- Dumping data for table `dm_permission`
+-- Volcar la base de datos para la tabla `dm_permission`
 --
 
 INSERT INTO `dm_permission` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
@@ -1115,7 +1191,7 @@ INSERT INTO `dm_permission` (`id`, `name`, `description`, `created_at`, `updated
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_redirect`
+-- Estructura de tabla para la tabla `dm_redirect`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_redirect` (
@@ -1129,14 +1205,14 @@ CREATE TABLE IF NOT EXISTS `dm_redirect` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `dm_redirect`
+-- Volcar la base de datos para la tabla `dm_redirect`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_remember_key`
+-- Estructura de tabla para la tabla `dm_remember_key`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_remember_key` (
@@ -1149,16 +1225,16 @@ CREATE TABLE IF NOT EXISTS `dm_remember_key` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_remember_key`
+-- Volcar la base de datos para la tabla `dm_remember_key`
 --
 
 INSERT INTO `dm_remember_key` (`dm_user_id`, `remember_key`, `ip_address`, `created_at`) VALUES
-(1, '2d3f821a5c44e96229f76e8bcdc97bfe', '127.0.0.5', '2011-08-04 13:53:53');
+(1, '5b2d2a4992ac7929bcdd332eac213a67', '10.36.46.6', '2011-08-15 16:05:05');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_sent_mail`
+-- Estructura de tabla para la tabla `dm_sent_mail`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_sent_mail` (
@@ -1182,7 +1258,7 @@ CREATE TABLE IF NOT EXISTS `dm_sent_mail` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=28 ;
 
 --
--- Dumping data for table `dm_sent_mail`
+-- Volcar la base de datos para la tabla `dm_sent_mail`
 --
 
 INSERT INTO `dm_sent_mail` (`id`, `dm_mail_template_id`, `subject`, `body`, `from_email`, `to_email`, `cc_email`, `bcc_email`, `reply_to_email`, `sender_email`, `strategy`, `transport`, `culture`, `debug_string`, `created_at`) VALUES
@@ -1205,7 +1281,7 @@ INSERT INTO `dm_sent_mail` (`id`, `dm_mail_template_id`, `subject`, `body`, `fro
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_setting`
+-- Estructura de tabla para la tabla `dm_setting`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_setting` (
@@ -1220,7 +1296,7 @@ CREATE TABLE IF NOT EXISTS `dm_setting` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=19 ;
 
 --
--- Dumping data for table `dm_setting`
+-- Volcar la base de datos para la tabla `dm_setting`
 --
 
 INSERT INTO `dm_setting` (`id`, `name`, `type`, `params`, `group_name`, `credentials`) VALUES
@@ -1246,7 +1322,7 @@ INSERT INTO `dm_setting` (`id`, `name`, `type`, `params`, `group_name`, `credent
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_setting_translation`
+-- Estructura de tabla para la tabla `dm_setting_translation`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_setting_translation` (
@@ -1259,7 +1335,7 @@ CREATE TABLE IF NOT EXISTS `dm_setting_translation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_setting_translation`
+-- Volcar la base de datos para la tabla `dm_setting_translation`
 --
 
 INSERT INTO `dm_setting_translation` (`id`, `description`, `value`, `default_value`, `lang`) VALUES
@@ -1272,7 +1348,7 @@ INSERT INTO `dm_setting_translation` (`id`, `description`, `value`, `default_val
 (7, 'The google webmaster tools filename without google and .html ( e.g. a913b555ba9b4f13 )', NULL, '', 'es'),
 (8, 'The xiti html code', NULL, '', 'es'),
 (9, 'Words to exclude from searches (e.g. the, a, to )', NULL, '', 'es'),
-(10, 'Diem base urls for different applications/environments/cultures', '{"front-dev":"http:\\/\\/bibliocnic.localhost\\/dev.php","admin-dev":"http:\\/\\/bibliocnic.localhost\\/admin_dev.php","admin-prod":"http:\\/\\/bibliocnic.localhost\\/admin.php","front-prod":"http:\\/\\/bibliocnic:8080\\/index.php"}', '', 'es'),
+(10, 'Diem base urls for different applications/environments/cultures', '{"front-dev":"http:\\/\\/bibliocnic:8080\\/dev.php","admin-dev":"http:\\/\\/bibliocnic:8080\\/admin_dev.php","admin-prod":"http:\\/\\/bibliocnic.localhost\\/admin.php","front-prod":"http:\\/\\/bibliocnic.localhost\\/index.php"}', '', 'es'),
 (11, 'Default method when an image needs to be resized', 'center', 'center', 'es'),
 (12, 'Jpeg default quality when generating thumbnails', '95', '95', 'es'),
 (13, 'Links to other domain get automatically a _blank target', NULL, '0', 'es'),
@@ -1285,7 +1361,7 @@ INSERT INTO `dm_setting_translation` (`id`, `description`, `value`, `default_val
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_trans_unit`
+-- Estructura de tabla para la tabla `dm_trans_unit`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_trans_unit` (
@@ -1301,7 +1377,7 @@ CREATE TABLE IF NOT EXISTS `dm_trans_unit` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=518 ;
 
 --
--- Dumping data for table `dm_trans_unit`
+-- Volcar la base de datos para la tabla `dm_trans_unit`
 --
 
 INSERT INTO `dm_trans_unit` (`id`, `dm_catalogue_id`, `source`, `target`, `meta`, `created_at`, `updated_at`) VALUES
@@ -1344,7 +1420,7 @@ INSERT INTO `dm_trans_unit` (`id`, `dm_catalogue_id`, `source`, `target`, `meta`
 (37, 2, 'Search in %1%', 'Buscar en %1%', NULL, '2011-06-05 16:32:13', '2011-06-05 16:32:13'),
 (38, 2, 'Cancel search', 'Cancelar la búsqueda', NULL, '2011-06-05 16:32:13', '2011-06-05 16:32:13'),
 (39, 2, 'Active search', 'Búsqueda activa', NULL, '2011-06-05 16:32:13', '2011-06-05 16:32:13'),
-(40, 2, 'is empty', 'está vacío', NULL, '2011-06-05 16:32:13', '2011-06-05 16:32:13'),
+(40, 2, 'is empty', 'está vacído', NULL, '2011-06-05 16:32:13', '2011-06-05 16:32:13'),
 (41, 2, 'from', 'desde', NULL, '2011-06-05 16:32:13', '2011-06-05 16:32:13'),
 (42, 2, 'to', 'hasta', NULL, '2011-06-05 16:32:13', '2011-06-05 16:32:13'),
 (43, 2, '[0] no result|[1] 1 result|(1,+Inf] %1% results', '[0] ningún resultado | [1] 1 resultado | (1,+Inf] %1% de resultados', NULL, '2011-06-05 16:32:13', '2011-06-05 16:32:13'),
@@ -1827,7 +1903,7 @@ INSERT INTO `dm_trans_unit` (`id`, `dm_catalogue_id`, `source`, `target`, `meta`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_user`
+-- Estructura de tabla para la tabla `dm_user`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_user` (
@@ -1856,22 +1932,23 @@ CREATE TABLE IF NOT EXISTS `dm_user` (
   UNIQUE KEY `forgot_password_code` (`forgot_password_code`),
   KEY `is_active_idx_idx` (`is_active`),
   KEY `foto_id_idx` (`foto_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=9 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
--- Dumping data for table `dm_user`
+-- Volcar la base de datos para la tabla `dm_user`
 --
 
 INSERT INTO `dm_user` (`username`, `email`, `algorithm`, `salt`, `password`, `is_active`, `is_super_admin`, `last_login`, `forgot_password_code`, `id`, `titulo`, `nombre`, `apellidos`, `foto_id`, `penalizado`, `solapin`, `departamento`, `created_at`, `updated_at`) VALUES
-('admin', 'pablo.reyes.mail@gmail.com', 'sha1', '20145d874137f0b47716601f40edba0e', '17d7ba6c9efddf6f3718ca89778bb2fbd542848f', 1, 1, '2011-08-04 20:54:39', NULL, 1, 'Ing', 'DiemAdmin', 'DiemAdmin', 33, 0, '', '', '2011-06-05 16:30:32', '2011-08-03 14:33:02'),
-('corey', 'pablo.reyes@cnic.edu.cu', 'sha1', 'd9e8c6471b33f15fe80e25514136897f', '7283bc02eef5be6b92e1ca7191280bacedd524fa', 1, 0, '2011-08-03 12:04:53', NULL, 2, '12', 'Pablo', 'Reyes Naranjo', 2, 0, '0512', 'ICT', '2011-06-20 11:18:15', '2011-06-20 11:18:15'),
+('admin', 'pablo.reyes.mail@gmail.com', 'sha1', '20145d874137f0b47716601f40edba0e', '17d7ba6c9efddf6f3718ca89778bb2fbd542848f', 1, 1, '2011-08-16 02:44:18', NULL, 1, 'Ing', 'DiemAdmin', 'DiemAdmin', 33, 0, '', '', '2011-06-05 16:30:32', '2011-08-03 14:33:02'),
+('corey', 'pablo.reyes@cnic.edu.cu', 'sha1', 'd9e8c6471b33f15fe80e25514136897f', '7283bc02eef5be6b92e1ca7191280bacedd524fa', 1, 0, '2011-08-15 16:03:27', NULL, 2, '12', 'Pablo', 'Reyes Naranjo', 2, 0, '0512', 'ICT', '2011-06-20 11:18:15', '2011-06-20 11:18:15'),
 ('xinita', 'yanays@cneuro.edu.cu', 'sha1', '6a6ed21d7e776365d62266f24988b607', '7d134057f573b96402614d61f7422a2d4488bf54', 1, 0, '2011-08-03 12:50:25', NULL, 3, 'MsC', 'Yanays', 'Rodriguez Puentes', 17, 0, '0416', 'Fisica Nuclear', '2011-07-06 20:48:18', '2011-07-06 20:50:04'),
-('DRM', 'dalmer.ruiz@cnic.edu.cu', 'sha1', '93b277d7b15320a3cb498c6bb20be858', '3dc1b6c105cb880c386c8e2d1573afa35c16fee1', 1, 0, '2011-08-03 13:59:19', NULL, 8, '9no', 'Dalmer', 'Ruiz Mas', 32, 0, '1478', 'si', '2011-07-11 18:24:34', '2011-08-03 14:08:34');
+('DRM', 'dalmer.ruiz@cnic.edu.cu', 'sha1', '93b277d7b15320a3cb498c6bb20be858', '3dc1b6c105cb880c386c8e2d1573afa35c16fee1', 1, 0, '2011-08-03 13:59:19', NULL, 8, '9no', 'Dalmer', 'Ruiz Mas', 32, 0, '1478', 'si', '2011-07-11 18:24:34', '2011-08-03 14:08:34'),
+('Richin', 'ricardo.arencibia@cnic.edu.cu', 'sha1', 'e830c29ae178a0dabece9249d9308a8f', '901ae91095d4e12b11165e5ba5bb9802606d7c88', 1, 1, NULL, NULL, 9, 'Dr', 'Ricardo', 'Arencibia', 36, 0, '0552', 'ICT', '2011-08-09 12:05:23', '2011-08-09 17:01:22');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_user_group`
+-- Estructura de tabla para la tabla `dm_user_group`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_user_group` (
@@ -1882,7 +1959,7 @@ CREATE TABLE IF NOT EXISTS `dm_user_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_user_group`
+-- Volcar la base de datos para la tabla `dm_user_group`
 --
 
 INSERT INTO `dm_user_group` (`dm_user_id`, `dm_group_id`) VALUES
@@ -1893,7 +1970,7 @@ INSERT INTO `dm_user_group` (`dm_user_id`, `dm_group_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_user_permission`
+-- Estructura de tabla para la tabla `dm_user_permission`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_user_permission` (
@@ -1904,7 +1981,7 @@ CREATE TABLE IF NOT EXISTS `dm_user_permission` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_user_permission`
+-- Volcar la base de datos para la tabla `dm_user_permission`
 --
 
 INSERT INTO `dm_user_permission` (`dm_user_id`, `dm_permission_id`) VALUES
@@ -1916,7 +1993,7 @@ INSERT INTO `dm_user_permission` (`dm_user_id`, `dm_permission_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_widget`
+-- Estructura de tabla para la tabla `dm_widget`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_widget` (
@@ -1929,10 +2006,10 @@ CREATE TABLE IF NOT EXISTS `dm_widget` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `dm_zone_id_idx` (`dm_zone_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=22 ;
 
 --
--- Dumping data for table `dm_widget`
+-- Volcar la base de datos para la tabla `dm_widget`
 --
 
 INSERT INTO `dm_widget` (`id`, `dm_zone_id`, `module`, `action`, `css_class`, `position`, `updated_at`) VALUES
@@ -1950,7 +2027,7 @@ INSERT INTO `dm_widget` (`id`, `dm_zone_id`, `module`, `action`, `css_class`, `p
 (13, 12, 'dmWidgetContent', 'title', '', 1, '2011-06-25 20:00:25'),
 (14, 12, 'dmWidgetContent', 'text', '', 2, '2011-06-25 20:07:21'),
 (16, 5, 'dmWidgetContent', 'text', '', 1, '2011-06-28 16:06:34'),
-(17, 7, 'main', 'footer', 'main_footer', 1, '2011-06-29 17:10:58'),
+(17, 7, 'main', 'footer', 'main_footer', 2, '2011-08-15 10:28:22'),
 (18, 14, 'dmWidgetContent', 'title', '', 1, '2011-08-01 10:55:42'),
 (19, 14, 'dmWidgetContent', 'text', '', 2, '2011-08-01 10:58:43'),
 (20, 14, 'pregunta', 'form', 'busqueda_form', 3, '2011-08-01 11:01:32');
@@ -1958,7 +2035,7 @@ INSERT INTO `dm_widget` (`id`, `dm_zone_id`, `module`, `action`, `css_class`, `p
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_widget_translation`
+-- Estructura de tabla para la tabla `dm_widget_translation`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_widget_translation` (
@@ -1969,7 +2046,7 @@ CREATE TABLE IF NOT EXISTS `dm_widget_translation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_widget_translation`
+-- Volcar la base de datos para la tabla `dm_widget_translation`
 --
 
 INSERT INTO `dm_widget_translation` (`id`, `value`, `lang`) VALUES
@@ -1995,7 +2072,7 @@ INSERT INTO `dm_widget_translation` (`id`, `value`, `lang`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_zone`
+-- Estructura de tabla para la tabla `dm_zone`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_zone` (
@@ -2009,7 +2086,7 @@ CREATE TABLE IF NOT EXISTS `dm_zone` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=16 ;
 
 --
--- Dumping data for table `dm_zone`
+-- Volcar la base de datos para la tabla `dm_zone`
 --
 
 INSERT INTO `dm_zone` (`id`, `dm_area_id`, `css_class`, `width`, `position`) VALUES
@@ -2032,14 +2109,14 @@ INSERT INTO `dm_zone` (`id`, `dm_area_id`, `css_class`, `width`, `position`) VAL
 -- --------------------------------------------------------
 
 --
--- Table structure for table `documento_legal_version`
+-- Estructura de tabla para la tabla `documento_legal_version`
 --
 
 CREATE TABLE IF NOT EXISTS `documento_legal_version` (
   `id` bigint(20) NOT NULL DEFAULT '0',
   `titulo` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `anno` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `resumen` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `resumen` longtext COLLATE utf8_unicode_ci,
   `idioma` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
   `aprobado` tinyint(1) DEFAULT '0',
   `is_active` tinyint(1) DEFAULT '0',
@@ -2071,18 +2148,19 @@ CREATE TABLE IF NOT EXISTS `documento_legal_version` (
   `updated_at` datetime NOT NULL,
   `version` bigint(20) NOT NULL DEFAULT '0',
   `palabras_claves` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `slide_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `documento_legal_version`
+-- Volcar la base de datos para la tabla `documento_legal_version`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migration_version`
+-- Estructura de tabla para la tabla `migration_version`
 --
 
 CREATE TABLE IF NOT EXISTS `migration_version` (
@@ -2090,23 +2168,23 @@ CREATE TABLE IF NOT EXISTS `migration_version` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `migration_version`
+-- Volcar la base de datos para la tabla `migration_version`
 --
 
 INSERT INTO `migration_version` (`version`) VALUES
-(2);
+(5);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `monografia_version`
+-- Estructura de tabla para la tabla `monografia_version`
 --
 
 CREATE TABLE IF NOT EXISTS `monografia_version` (
   `id` bigint(20) NOT NULL DEFAULT '0',
   `titulo` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `anno` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `resumen` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `resumen` longtext COLLATE utf8_unicode_ci,
   `idioma` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
   `aprobado` tinyint(1) DEFAULT '0',
   `is_active` tinyint(1) DEFAULT '0',
@@ -2138,25 +2216,29 @@ CREATE TABLE IF NOT EXISTS `monografia_version` (
   `updated_at` datetime NOT NULL,
   `version` bigint(20) NOT NULL DEFAULT '0',
   `palabras_claves` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `slide_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `monografia_version`
+-- Volcar la base de datos para la tabla `monografia_version`
 --
 
+INSERT INTO `monografia_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `aprobado`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `fecha_final`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `palabras_claves`, `slide_id`) VALUES
+(1, 'ligula. Vivamus fringilla mi eu massa', NULL, 'nc ultricies mollis libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos h', 'tiam dolor.', 0, 0, 1, 'imperdiet quis, semper nec, dolor. Praesent sapien. Fusce sed lectus qu', 'lerisque porttitor', NULL, 2565, 'lor. Aliquam bibendum mi eu', 'nte.', 'Procedimiento', 4730, '2011-07-26 03:24:42', '2002-11-28 01:15:08', 'sent grav', 'bilia Cura', 'ris. Ali', 'am vul', 'auct', 635, 564, NULL, 588, 'rci congue e', NULL, 'tra non, lobortis vitae, quam.', 'Maestria', '2011-08-16 01:44:06', '2011-08-16 01:44:06', 1, NULL, 14),
+(1, 'ligula. Vivamus fringilla mi eu massa', NULL, 'nc ultricies mollis libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos h', 'tiam dolor.', 0, 0, 1, 'Monografia', 'lerisque porttitor', NULL, 2565, 'lor. Aliquam bibendum mi eu', 'nte.', 'Procedimiento', 4730, '2011-07-26 03:24:42', '2002-11-28 01:15:08', 'sent grav', 'bilia Cura', 'ris. Ali', 'am vul', 'auct', 635, 564, NULL, 588, 'rci congue e', NULL, 'tra non, lobortis vitae, quam.', 'Maestria', '2011-08-16 01:44:06', '2011-08-16 01:44:06', 2, NULL, 14);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `patente_version`
+-- Estructura de tabla para la tabla `patente_version`
 --
 
 CREATE TABLE IF NOT EXISTS `patente_version` (
   `id` bigint(20) NOT NULL DEFAULT '0',
   `titulo` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `anno` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `resumen` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `resumen` longtext COLLATE utf8_unicode_ci,
   `idioma` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
   `aprobado` tinyint(1) DEFAULT '0',
   `is_active` tinyint(1) DEFAULT '0',
@@ -2188,18 +2270,19 @@ CREATE TABLE IF NOT EXISTS `patente_version` (
   `updated_at` datetime NOT NULL,
   `version` bigint(20) NOT NULL DEFAULT '0',
   `palabras_claves` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `slide_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `patente_version`
+-- Volcar la base de datos para la tabla `patente_version`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pregunta`
+-- Estructura de tabla para la tabla `pregunta`
 --
 
 CREATE TABLE IF NOT EXISTS `pregunta` (
@@ -2214,7 +2297,7 @@ CREATE TABLE IF NOT EXISTS `pregunta` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
--- Dumping data for table `pregunta`
+-- Volcar la base de datos para la tabla `pregunta`
 --
 
 INSERT INTO `pregunta` (`id`, `titulo`, `mensaje`, `created_at`, `updated_at`, `dm_user_id`) VALUES
@@ -2229,14 +2312,14 @@ INSERT INTO `pregunta` (`id`, `titulo`, `mensaje`, `created_at`, `updated_at`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `presentacion_version`
+-- Estructura de tabla para la tabla `presentacion_version`
 --
 
 CREATE TABLE IF NOT EXISTS `presentacion_version` (
   `id` bigint(20) NOT NULL DEFAULT '0',
   `titulo` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `anno` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `resumen` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `resumen` longtext COLLATE utf8_unicode_ci,
   `idioma` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
   `aprobado` tinyint(1) DEFAULT '0',
   `is_active` tinyint(1) DEFAULT '0',
@@ -2268,18 +2351,19 @@ CREATE TABLE IF NOT EXISTS `presentacion_version` (
   `updated_at` datetime NOT NULL,
   `version` bigint(20) NOT NULL DEFAULT '0',
   `palabras_claves` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `slide_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `presentacion_version`
+-- Volcar la base de datos para la tabla `presentacion_version`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prestamo`
+-- Estructura de tabla para la tabla `prestamo`
 --
 
 CREATE TABLE IF NOT EXISTS `prestamo` (
@@ -2295,21 +2379,21 @@ CREATE TABLE IF NOT EXISTS `prestamo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `prestamo`
+-- Volcar la base de datos para la tabla `prestamo`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recurso`
+-- Estructura de tabla para la tabla `recurso`
 --
 
 CREATE TABLE IF NOT EXISTS `recurso` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `anno` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `resumen` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `resumen` longtext COLLATE utf8_unicode_ci,
   `idioma` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
   `aprobado` tinyint(1) DEFAULT '0',
   `is_active` tinyint(1) DEFAULT '0',
@@ -2344,21 +2428,25 @@ CREATE TABLE IF NOT EXISTS `recurso` (
   `created_by` bigint(20) DEFAULT NULL,
   `updated_by` bigint(20) DEFAULT NULL,
   `palabras_claves` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `slide_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `recurso_type_idx` (`type`),
   KEY `created_by_idx` (`created_by`),
-  KEY `updated_by_idx` (`updated_by`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+  KEY `updated_by_idx` (`updated_by`),
+  KEY `recurso_slide_id_idx` (`slide_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `recurso`
+-- Volcar la base de datos para la tabla `recurso`
 --
 
+INSERT INTO `recurso` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `aprobado`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `fecha_final`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `position`, `created_by`, `updated_by`, `palabras_claves`, `slide_id`) VALUES
+(1, 'ligula. Vivamus fringilla mi eu massa', NULL, 'nc ultricies mollis libero. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos h', 'tiam dolor.', 0, 0, 1, 'Monografia', 'lerisque porttitor', NULL, 2565, 'lor. Aliquam bibendum mi eu', 'nte.', 'Procedimiento', 4730, '2011-07-26 03:24:42', '2002-11-28 01:15:08', 'sent grav', 'bilia Cura', 'ris. Ali', 'am vul', 'auct', 635, 564, NULL, 588, 'rci congue e', NULL, 'tra non, lobortis vitae, quam.', 'Maestria', '2011-08-16 01:44:06', '2011-08-16 01:44:06', 2, -1, 2, 1, NULL, 14);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recurso_autor`
+-- Estructura de tabla para la tabla `recurso_autor`
 --
 
 CREATE TABLE IF NOT EXISTS `recurso_autor` (
@@ -2369,14 +2457,14 @@ CREATE TABLE IF NOT EXISTS `recurso_autor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `recurso_autor`
+-- Volcar la base de datos para la tabla `recurso_autor`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recurso_tematica`
+-- Estructura de tabla para la tabla `recurso_tematica`
 --
 
 CREATE TABLE IF NOT EXISTS `recurso_tematica` (
@@ -2387,21 +2475,21 @@ CREATE TABLE IF NOT EXISTS `recurso_tematica` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `recurso_tematica`
+-- Volcar la base de datos para la tabla `recurso_tematica`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recurso_version`
+-- Estructura de tabla para la tabla `recurso_version`
 --
 
 CREATE TABLE IF NOT EXISTS `recurso_version` (
   `id` bigint(20) NOT NULL DEFAULT '0',
   `titulo` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `anno` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `resumen` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `resumen` longtext COLLATE utf8_unicode_ci,
   `idioma` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
   `aprobado` tinyint(1) DEFAULT '0',
   `is_active` tinyint(1) DEFAULT '0',
@@ -2433,18 +2521,19 @@ CREATE TABLE IF NOT EXISTS `recurso_version` (
   `updated_at` datetime NOT NULL,
   `version` bigint(20) NOT NULL DEFAULT '0',
   `palabras_claves` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `slide_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `recurso_version`
+-- Volcar la base de datos para la tabla `recurso_version`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `respuesta`
+-- Estructura de tabla para la tabla `respuesta`
 --
 
 CREATE TABLE IF NOT EXISTS `respuesta` (
@@ -2462,7 +2551,7 @@ CREATE TABLE IF NOT EXISTS `respuesta` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `respuesta`
+-- Volcar la base de datos para la tabla `respuesta`
 --
 
 INSERT INTO `respuesta` (`id`, `mensaje`, `pregunta_id`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
@@ -2472,7 +2561,7 @@ INSERT INTO `respuesta` (`id`, `mensaje`, `pregunta_id`, `created_at`, `updated_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `respuestab`
+-- Estructura de tabla para la tabla `respuestab`
 --
 
 CREATE TABLE IF NOT EXISTS `respuestab` (
@@ -2491,7 +2580,7 @@ CREATE TABLE IF NOT EXISTS `respuestab` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `respuestab`
+-- Volcar la base de datos para la tabla `respuestab`
 --
 
 INSERT INTO `respuestab` (`id`, `mensaje`, `busqueda_id`, `uri`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
@@ -2504,7 +2593,7 @@ INSERT INTO `respuestab` (`id`, `mensaje`, `busqueda_id`, `uri`, `created_at`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `solicitud_prestamo`
+-- Estructura de tabla para la tabla `solicitud_prestamo`
 --
 
 CREATE TABLE IF NOT EXISTS `solicitud_prestamo` (
@@ -2522,14 +2611,14 @@ CREATE TABLE IF NOT EXISTS `solicitud_prestamo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `solicitud_prestamo`
+-- Volcar la base de datos para la tabla `solicitud_prestamo`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tematica`
+-- Estructura de tabla para la tabla `tematica`
 --
 
 CREATE TABLE IF NOT EXISTS `tematica` (
@@ -2539,21 +2628,21 @@ CREATE TABLE IF NOT EXISTS `tematica` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `tematica`
+-- Volcar la base de datos para la tabla `tematica`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tesis_version`
+-- Estructura de tabla para la tabla `tesis_version`
 --
 
 CREATE TABLE IF NOT EXISTS `tesis_version` (
   `id` bigint(20) NOT NULL DEFAULT '0',
   `titulo` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
   `anno` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `resumen` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `resumen` longtext COLLATE utf8_unicode_ci,
   `idioma` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
   `aprobado` tinyint(1) DEFAULT '0',
   `is_active` tinyint(1) DEFAULT '0',
@@ -2585,228 +2674,230 @@ CREATE TABLE IF NOT EXISTS `tesis_version` (
   `updated_at` datetime NOT NULL,
   `version` bigint(20) NOT NULL DEFAULT '0',
   `palabras_claves` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `slide_id` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tesis_version`
+-- Volcar la base de datos para la tabla `tesis_version`
 --
 
 
 --
--- Constraints for dumped tables
+-- Filtros para las tablas descargadas (dump)
 --
 
 --
--- Constraints for table `articulo_version`
+-- Filtros para la tabla `articulo_version`
 --
 ALTER TABLE `articulo_version`
   ADD CONSTRAINT `articulo_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `biblioteca_personal_version`
+-- Filtros para la tabla `biblioteca_personal_version`
 --
 ALTER TABLE `biblioteca_personal_version`
   ADD CONSTRAINT `biblioteca_personal_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `busqueda`
+-- Filtros para la tabla `busqueda`
 --
 ALTER TABLE `busqueda`
   ADD CONSTRAINT `busqueda_dm_user_id_dm_user_id` FOREIGN KEY (`dm_user_id`) REFERENCES `dm_user` (`id`);
 
 --
--- Constraints for table `descarga`
+-- Filtros para la tabla `descarga`
 --
 ALTER TABLE `descarga`
   ADD CONSTRAINT `descarga_dm_user_id_dm_user_id` FOREIGN KEY (`dm_user_id`) REFERENCES `dm_user` (`id`),
   ADD CONSTRAINT `descarga_recurso_id_recurso_id` FOREIGN KEY (`recurso_id`) REFERENCES `recurso` (`id`);
 
 --
--- Constraints for table `diseminacion`
+-- Filtros para la tabla `diseminacion`
 --
 ALTER TABLE `diseminacion`
   ADD CONSTRAINT `diseminacion_dm_user_id_dm_user_id` FOREIGN KEY (`dm_user_id`) REFERENCES `dm_user` (`id`),
   ADD CONSTRAINT `diseminacion_tematica_id_tematica_id` FOREIGN KEY (`tematica_id`) REFERENCES `tematica` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_area`
+-- Filtros para la tabla `dm_area`
 --
 ALTER TABLE `dm_area`
   ADD CONSTRAINT `dm_area_dm_layout_id_dm_layout_id` FOREIGN KEY (`dm_layout_id`) REFERENCES `dm_layout` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `dm_area_dm_page_view_id_dm_page_view_id` FOREIGN KEY (`dm_page_view_id`) REFERENCES `dm_page_view` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_auto_seo_translation`
+-- Filtros para la tabla `dm_auto_seo_translation`
 --
 ALTER TABLE `dm_auto_seo_translation`
   ADD CONSTRAINT `dm_auto_seo_translation_id_dm_auto_seo_id` FOREIGN KEY (`id`) REFERENCES `dm_auto_seo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `dm_group_permission`
+-- Filtros para la tabla `dm_group_permission`
 --
 ALTER TABLE `dm_group_permission`
   ADD CONSTRAINT `dm_group_permission_dm_group_id_dm_group_id` FOREIGN KEY (`dm_group_id`) REFERENCES `dm_group` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `dm_group_permission_dm_permission_id_dm_permission_id` FOREIGN KEY (`dm_permission_id`) REFERENCES `dm_permission` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_lock`
+-- Filtros para la tabla `dm_lock`
 --
 ALTER TABLE `dm_lock`
   ADD CONSTRAINT `dm_lock_user_id_dm_user_id` FOREIGN KEY (`user_id`) REFERENCES `dm_user` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_mail_template_translation`
+-- Filtros para la tabla `dm_mail_template_translation`
 --
 ALTER TABLE `dm_mail_template_translation`
   ADD CONSTRAINT `dm_mail_template_translation_id_dm_mail_template_id` FOREIGN KEY (`id`) REFERENCES `dm_mail_template` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `dm_media`
+-- Filtros para la tabla `dm_media`
 --
 ALTER TABLE `dm_media`
   ADD CONSTRAINT `dm_media_dm_media_folder_id_dm_media_folder_id` FOREIGN KEY (`dm_media_folder_id`) REFERENCES `dm_media_folder` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_page_translation`
+-- Filtros para la tabla `dm_page_translation`
 --
 ALTER TABLE `dm_page_translation`
   ADD CONSTRAINT `dm_page_translation_id_dm_page_id` FOREIGN KEY (`id`) REFERENCES `dm_page` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `dm_page_view`
+-- Filtros para la tabla `dm_page_view`
 --
 ALTER TABLE `dm_page_view`
   ADD CONSTRAINT `dm_page_view_dm_layout_id_dm_layout_id` FOREIGN KEY (`dm_layout_id`) REFERENCES `dm_layout` (`id`) ON DELETE SET NULL;
 
 --
--- Constraints for table `dm_remember_key`
+-- Filtros para la tabla `dm_remember_key`
 --
 ALTER TABLE `dm_remember_key`
   ADD CONSTRAINT `dm_remember_key_dm_user_id_dm_user_id` FOREIGN KEY (`dm_user_id`) REFERENCES `dm_user` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_sent_mail`
+-- Filtros para la tabla `dm_sent_mail`
 --
 ALTER TABLE `dm_sent_mail`
   ADD CONSTRAINT `dm_sent_mail_dm_mail_template_id_dm_mail_template_id` FOREIGN KEY (`dm_mail_template_id`) REFERENCES `dm_mail_template` (`id`) ON DELETE SET NULL;
 
 --
--- Constraints for table `dm_setting_translation`
+-- Filtros para la tabla `dm_setting_translation`
 --
 ALTER TABLE `dm_setting_translation`
   ADD CONSTRAINT `dm_setting_translation_id_dm_setting_id` FOREIGN KEY (`id`) REFERENCES `dm_setting` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `dm_trans_unit`
+-- Filtros para la tabla `dm_trans_unit`
 --
 ALTER TABLE `dm_trans_unit`
   ADD CONSTRAINT `dm_trans_unit_dm_catalogue_id_dm_catalogue_id` FOREIGN KEY (`dm_catalogue_id`) REFERENCES `dm_catalogue` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_user`
+-- Filtros para la tabla `dm_user`
 --
 ALTER TABLE `dm_user`
   ADD CONSTRAINT `dm_user_foto_id_dm_media_id` FOREIGN KEY (`foto_id`) REFERENCES `dm_media` (`id`);
 
 --
--- Constraints for table `dm_user_group`
+-- Filtros para la tabla `dm_user_group`
 --
 ALTER TABLE `dm_user_group`
   ADD CONSTRAINT `dm_user_group_dm_group_id_dm_group_id` FOREIGN KEY (`dm_group_id`) REFERENCES `dm_group` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `dm_user_group_dm_user_id_dm_user_id` FOREIGN KEY (`dm_user_id`) REFERENCES `dm_user` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_user_permission`
+-- Filtros para la tabla `dm_user_permission`
 --
 ALTER TABLE `dm_user_permission`
   ADD CONSTRAINT `dm_user_permission_dm_permission_id_dm_permission_id` FOREIGN KEY (`dm_permission_id`) REFERENCES `dm_permission` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `dm_user_permission_dm_user_id_dm_user_id` FOREIGN KEY (`dm_user_id`) REFERENCES `dm_user` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_widget`
+-- Filtros para la tabla `dm_widget`
 --
 ALTER TABLE `dm_widget`
   ADD CONSTRAINT `dm_widget_dm_zone_id_dm_zone_id` FOREIGN KEY (`dm_zone_id`) REFERENCES `dm_zone` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_widget_translation`
+-- Filtros para la tabla `dm_widget_translation`
 --
 ALTER TABLE `dm_widget_translation`
   ADD CONSTRAINT `dm_widget_translation_id_dm_widget_id` FOREIGN KEY (`id`) REFERENCES `dm_widget` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `dm_zone`
+-- Filtros para la tabla `dm_zone`
 --
 ALTER TABLE `dm_zone`
   ADD CONSTRAINT `dm_zone_dm_area_id_dm_area_id` FOREIGN KEY (`dm_area_id`) REFERENCES `dm_area` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `documento_legal_version`
+-- Filtros para la tabla `documento_legal_version`
 --
 ALTER TABLE `documento_legal_version`
   ADD CONSTRAINT `documento_legal_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `monografia_version`
+-- Filtros para la tabla `monografia_version`
 --
 ALTER TABLE `monografia_version`
   ADD CONSTRAINT `monografia_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `patente_version`
+-- Filtros para la tabla `patente_version`
 --
 ALTER TABLE `patente_version`
   ADD CONSTRAINT `patente_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `pregunta`
+-- Filtros para la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
   ADD CONSTRAINT `pregunta_dm_user_id_dm_user_id` FOREIGN KEY (`dm_user_id`) REFERENCES `dm_user` (`id`);
 
 --
--- Constraints for table `presentacion_version`
+-- Filtros para la tabla `presentacion_version`
 --
 ALTER TABLE `presentacion_version`
   ADD CONSTRAINT `presentacion_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `prestamo`
+-- Filtros para la tabla `prestamo`
 --
 ALTER TABLE `prestamo`
   ADD CONSTRAINT `prestamo_dm_user_id_dm_user_id` FOREIGN KEY (`dm_user_id`) REFERENCES `dm_user` (`id`),
   ADD CONSTRAINT `prestamo_recurso_id_recurso_id` FOREIGN KEY (`recurso_id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `recurso`
+-- Filtros para la tabla `recurso`
 --
 ALTER TABLE `recurso`
   ADD CONSTRAINT `recurso_created_by_dm_user_id` FOREIGN KEY (`created_by`) REFERENCES `dm_user` (`id`),
+  ADD CONSTRAINT `recurso_slide_id_dm_media_id` FOREIGN KEY (`slide_id`) REFERENCES `dm_media` (`id`) ON DELETE SET NULL,
   ADD CONSTRAINT `recurso_updated_by_dm_user_id` FOREIGN KEY (`updated_by`) REFERENCES `dm_user` (`id`);
 
 --
--- Constraints for table `recurso_autor`
+-- Filtros para la tabla `recurso_autor`
 --
 ALTER TABLE `recurso_autor`
   ADD CONSTRAINT `recurso_autor_autor_id_autor_id` FOREIGN KEY (`autor_id`) REFERENCES `autor` (`id`),
   ADD CONSTRAINT `recurso_autor_recurso_id_recurso_id` FOREIGN KEY (`recurso_id`) REFERENCES `recurso` (`id`);
 
 --
--- Constraints for table `recurso_tematica`
+-- Filtros para la tabla `recurso_tematica`
 --
 ALTER TABLE `recurso_tematica`
   ADD CONSTRAINT `recurso_tematica_recurso_id_recurso_id` FOREIGN KEY (`recurso_id`) REFERENCES `recurso` (`id`),
   ADD CONSTRAINT `recurso_tematica_tematica_id_tematica_id` FOREIGN KEY (`tematica_id`) REFERENCES `tematica` (`id`);
 
 --
--- Constraints for table `recurso_version`
+-- Filtros para la tabla `recurso_version`
 --
 ALTER TABLE `recurso_version`
   ADD CONSTRAINT `recurso_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `respuesta`
+-- Filtros para la tabla `respuesta`
 --
 ALTER TABLE `respuesta`
   ADD CONSTRAINT `respuesta_created_by_dm_user_id` FOREIGN KEY (`created_by`) REFERENCES `dm_user` (`id`),
@@ -2814,7 +2905,7 @@ ALTER TABLE `respuesta`
   ADD CONSTRAINT `respuesta_updated_by_dm_user_id` FOREIGN KEY (`updated_by`) REFERENCES `dm_user` (`id`);
 
 --
--- Constraints for table `respuestab`
+-- Filtros para la tabla `respuestab`
 --
 ALTER TABLE `respuestab`
   ADD CONSTRAINT `respuestab_busqueda_id_busqueda_id` FOREIGN KEY (`busqueda_id`) REFERENCES `busqueda` (`id`) ON DELETE CASCADE,
@@ -2822,14 +2913,14 @@ ALTER TABLE `respuestab`
   ADD CONSTRAINT `respuestab_updated_by_dm_user_id` FOREIGN KEY (`updated_by`) REFERENCES `dm_user` (`id`);
 
 --
--- Constraints for table `solicitud_prestamo`
+-- Filtros para la tabla `solicitud_prestamo`
 --
 ALTER TABLE `solicitud_prestamo`
   ADD CONSTRAINT `solicitud_prestamo_dm_user_id_dm_user_id` FOREIGN KEY (`dm_user_id`) REFERENCES `dm_user` (`id`),
   ADD CONSTRAINT `solicitud_prestamo_recurso_id_recurso_id` FOREIGN KEY (`recurso_id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `tesis_version`
+-- Filtros para la tabla `tesis_version`
 --
 ALTER TABLE `tesis_version`
   ADD CONSTRAINT `tesis_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
