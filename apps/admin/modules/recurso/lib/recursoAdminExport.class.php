@@ -7,6 +7,6 @@
  * @subpackage recurso
  * @author     Your name here
  */
-class recursoAdminExport extends myDoctrineTableExport
+class RecursoAdminExport extends myDoctrineTableExport
 {
 }

@@ -1,7 +1,7 @@
 generator:
   class: dmAdminDoctrineGenerator
   param:
-    model_class: recurso
+    model_class: Recurso
     theme: dmAdmin
     non_verbose_templates: true
     with_show: false
@@ -21,7 +21,7 @@ generator:
       list:
         display:
           - '=id'
-
+          - slide_id
           - created_by
           - updated_by
           - autors_list
@@ -76,8 +76,8 @@ generator:
           - anno
           - resumen
           - idioma
-
           - palabras_claves
+          - slide_id
           - type
           - pais
           - institucion
@@ -108,10 +108,10 @@ generator:
       form:
         display:
           NONE: [aprobado, is_active, formato_duro, created_by, updated_by]
-         
+          Slide: [slide_id_form, slide_id_view]
           Users: [dm_users_list]
           Others: [titulo, anno, resumen, idioma, palabras_claves, type, pais, institucion, total_paginas, num_internacional, organismo, tipo_dc, cant_registros, fecha_inicial, fecha_final, ciudad_pub, editorial, isbn, volumen, num_revista, pagina_inicial, pagina_final, issn, num_diapositivas, departamento, ciudad, tutor, tipo]
-        class: recursoAdminForm
+        class: RecursoAdminForm
         fields: {  }
       edit: ~
       new: ~

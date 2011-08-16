@@ -12,5 +12,10 @@
  */
 class Autor extends BaseAutor
 {
+public function __toString()
+  {
+    
+	return self::getApellidos();
+  }
 
 }

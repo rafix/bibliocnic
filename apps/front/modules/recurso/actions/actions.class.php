@@ -1,13 +1,14 @@
 <?php
 /**
  * Recurso actions
+ * 
  */
 class recursoActions extends myFrontModuleActions
 {
 
   public function executeFormWidget(dmWebRequest $request)
   {
-    $form = new recursoForm();
+    $form = new RecursoForm();
         
     if ($request->hasParameter($form->getName()) && $form->bindAndValid($request))
     {
@@ -15,7 +16,7 @@ class recursoActions extends myFrontModuleActions
       $this->redirectBack();
     }
     
-    $this->forms['recurso'] = $form;
+    $this->forms['Recurso'] = $form;
   }
 
 
