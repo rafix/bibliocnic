@@ -44,38 +44,16 @@ generator:
         sortable: true
       filter:
         display:
-          - id
           - aprobado
           - is_active
           - formato_duro
           - titulo
           - anno
-          - resumen
           - idioma
-          - pdf_id
           - palabras_claves
-          - pais
-          - institucion
-          - total_paginas
-          - num_internacional
-          - organismo
-          - tipo_dc
-          - cant_registros
-          - fecha_inicial
-          - fecha_final
           - ciudad_pub
           - editorial
           - isbn
-          - volumen
-          - num_revista
-          - pagina_inicial
-          - pagina_final
-          - issn
-          - num_diapositivas
-          - departamento
-          - ciudad
-          - tutor
-          - tipo
           - created_at
           - updated_at
           - created_by
