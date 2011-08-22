@@ -78,9 +78,7 @@ $this->validatorSchema->setPostValidator( new sfValidatorDoctrineUnique(array('m
     array('invalid' => 'Por favor, verifique que coincidan las contrase�as.')
   )
 );
-   /*$this->mergePostValidator(setValidator(array(
-    'username' => new sfValidatorString(array('min_length' =>5), array ('required' => 'Debe escribir apodo para identificarlo en la red', 'min_length' => 'El apodo debe tener al menos 5 caracteres')))
-           ));*/
+   
   }
   
 }

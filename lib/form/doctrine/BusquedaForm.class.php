@@ -42,7 +42,7 @@ class BusquedaForm extends BaseBusquedaForm
 	'tematica' => new sfValidatorString(),
 	'fecha_antes' => new sfValidatorString(array('required' => false)),
 	'fecha_despues' => new sfValidatorString(array('required' => false)),
-	'id' => new sfValidatorDoctrineChoice(array('model' => 'busqueda', 'column' => 'id', 'required' => false))
+	'id' => new sfValidatorDoctrineChoice(array('model' => 'Busqueda', 'column' => 'id', 'required' => false))
 	));
  $this->validatorSchema->setPostValidator(
   new sfValidatorSchemaCompare('fecha_antes', sfValidatorSchemaCompare::LESS_THAN_EQUAL, 'fecha_despues',

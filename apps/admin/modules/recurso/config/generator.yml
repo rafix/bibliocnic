@@ -44,7 +44,6 @@ generator:
           - tipo_dc
           - cant_registros
           - fecha_inicial
-          - fecha_final
           - ciudad_pub
           - editorial
           - isbn
@@ -94,7 +93,6 @@ generator:
           - volumen
           - num_revista
           - pagina_inicial
-          - pagina_final
           - issn
           - num_diapositivas
           - departamento
@@ -107,10 +105,9 @@ generator:
           - updated_by
       form:
         display:
-          NONE: [aprobado, is_active, formato_duro, created_by, updated_by]
+          NONE: [aprobado, is_active, formato_duro]
           Slide: [slide_id_form, slide_id_view]
-          Users: [dm_users_list]
-          Others: [titulo, anno, resumen, idioma, palabras_claves, type, pais, institucion, total_paginas, num_internacional, organismo, tipo_dc, cant_registros, fecha_inicial, fecha_final, ciudad_pub, editorial, isbn, volumen, num_revista, pagina_inicial, pagina_final, issn, num_diapositivas, departamento, ciudad, tutor, tipo]
+          Others: [titulo, anno, resumen, idioma, palabras_claves, type, pais, institucion, total_paginas, num_internacional, organismo, tipo_dc, cant_registros, fecha_inicial, ciudad_pub, editorial, isbn, volumen, num_revista, pagina_inicial, pagina_final, issn, num_diapositivas, departamento, ciudad, tutor, tipo]
         class: RecursoAdminForm
         fields: {  }
       edit: ~
