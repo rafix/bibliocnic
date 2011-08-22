@@ -163,8 +163,7 @@ BibliotecaPersonal:
     keyValue: BibliotecaPersonal
   columns:
     cant_registros: {type: integer(4)}
-    fecha_inicial: {type: timestamp}
-    fecha_final: {type: timestamp}
+    fecha_inicial: {type: string(40)}
 
 Monografia:
   inheritance:

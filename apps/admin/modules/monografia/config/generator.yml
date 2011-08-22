@@ -13,7 +13,7 @@ generator:
         autor_list:
           label: Autor
         tematica_list:
-          label: Tematica
+          label: Tematicas
         dm_users_list:
           label: Users
         is_active:
@@ -22,20 +22,22 @@ generator:
         display:
           - '=id'
           - '=titulo'
-          - resumen
-          - isbn
+          - anno
           - idioma
-          - editorial
-          - ciudad_pub
-          - total_paginas
-          - formato_duro
-          - palabras_claves
           - aprobado
           - is_active
-          - created_by 
-          - updated_by
+          - formato_duro
+          - palabras_claves
+          - ciudad_pub
+          - editorial
+          - total_paginas
+          - isbn
+          - slide_id
+          - tematicas_list
           - created_at
           - updated_at
+          - created_by
+          - updated_by
         sort:
           - position
           - asc
@@ -60,11 +62,11 @@ generator:
           - updated_by
       form:
         display:
-          NONE: [aprobado, is_active, formato_duro, created_by, updated_by]
+          NONE: [aprobado, is_active, formato_duro]
           Pdf: [slide_id_form, slide_id_view]
-          Users: [dm_users_list]
-          Others: [titulo, anno, resumen, idioma, palabras_claves, pais, institucion, total_paginas, num_internacional, organismo, tipo_dc, cant_registros, fecha_inicial, fecha_final, ciudad_pub, editorial, isbn, volumen, num_revista, pagina_inicial, pagina_final, issn, num_diapositivas, departamento, ciudad, tutor, tipo, autors_list]
+          Recurso: [titulo, anno, resumen, idioma, isbn, editorial, palabras_claves, total_paginas, tematicas_list]
         class: monografiaAdminForm
-        fields: {  }
+        fields: 
+          anno: {label: A&ntildeo de publicaci&oacuten }
       edit: ~
       new: ~
