@@ -21,44 +21,21 @@ generator:
       list:
         display:
           - '=id'
-          - slide_id
-          - created_by
-          - updated_by
-          - autors_list
-          - tematicas_list
-          - dm_users_list
-          - titulo
+          - '=titulo'
           - anno
-          - resumen
           - idioma
           - aprobado
           - is_active
           - formato_duro
           - palabras_claves
-          - pais
-          - institucion
-          - total_paginas
-          - num_internacional
-          - organismo
-          - tipo_dc
           - cant_registros
           - fecha_inicial
-          - fecha_final
-          - ciudad_pub
-          - editorial
-          - isbn
-          - volumen
-          - num_revista
-          - pagina_inicial
-          - pagina_final
-          - issn
-          - num_diapositivas
-          - departamento
-          - ciudad
-          - tutor
-          - tipo
+          - slide_id
+          - tematicas_list
           - created_at
           - updated_at
+          - created_by
+          - updated_by
         sort:
           - position
           - asc
@@ -73,42 +50,18 @@ generator:
           - formato_duro
           - titulo
           - anno
-          - resumen
           - idioma
           - palabras_claves
-          - slide_id
-          - pais
-          - institucion
-          - total_paginas
-          - num_internacional
-          - organismo
-          - tipo_dc
-          - cant_registros
           - fecha_inicial
-          - fecha_final
-          - ciudad_pub
-          - editorial
-          - isbn
-          - volumen
-          - num_revista
-          - pagina_inicial
-          - pagina_final
-          - issn
-          - num_diapositivas
-          - departamento
-          - ciudad
-          - tutor
-          - tipo
           - created_at
           - updated_at
           - created_by
-          - updated_by
+          - updated_by 
       form:
         display:
-          NONE: [aprobado, is_active, formato_duro, created_by, updated_by]
-          Slide: [slide_id_form, slide_id_view]
-          Users: [dm_users_list]
-          Others: [titulo, anno, resumen, idioma, palabras_claves, pais, institucion, total_paginas, num_internacional, organismo, tipo_dc, cant_registros, fecha_inicial, fecha_final, ciudad_pub, editorial, isbn, volumen, num_revista, pagina_inicial, pagina_final, issn, num_diapositivas, departamento, ciudad, tutor, tipo]
+          NONE: [aprobado, is_active, formato_duro]
+          PDF: [slide_id_form, slide_id_view]
+          Others: [titulo, anno, resumen, idioma, palabras_claves, cant_registros, fecha_inicial, tematicas_list]
         class: bibliotecapersonalAdminForm
         fields: {  }
       edit: ~

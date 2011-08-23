@@ -5,9 +5,11 @@ default:
 
   stylesheets:
     - markdown
+    - lib.ui-datepicker
 
   javascripts:
     - admin
-
+    - lib.ui-i18n  
+    - lib.ui-datepicker
   has_layout:     true
   layout:         <?php echo dm::getDir() ?>/dmAdminPlugin/modules/dmAdmin/templates/layout
