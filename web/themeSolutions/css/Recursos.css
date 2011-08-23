@@ -2,7 +2,9 @@
 .recurso_list .element {
   padding-top: 1em;
 }
-
+.recurso_list .elements .element{
+list-style-type: none;
+}
 .recurso_list .t_medium .link {
   color:#2666C3;
   text-decoration:none;
@@ -19,7 +21,7 @@
 
 /* infos */
 .recurso_infos {
-  background: #F4F8FD;
+
   padding: 5px;
   border: 1px solid #E5F0FB;
   font-size: 95%;

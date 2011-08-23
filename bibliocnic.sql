@@ -2,10 +2,10 @@
 -- version 3.2.4
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Aug 21, 2011 at 07:46 
--- Server version: 5.1.41
--- PHP Version: 5.3.1
+-- Servidor: localhost
+-- Tiempo de generación: 23-08-2011 a las 16:54:29
+-- Versión del servidor: 5.1.41
+-- Versión de PHP: 5.3.1
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -16,13 +16,13 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `bibliocnic`
+-- Base de datos: `bibliocnic`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `articulo_version`
+-- Estructura de tabla para la tabla `articulo_version`
 --
 
 CREATE TABLE IF NOT EXISTS `articulo_version` (
@@ -65,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `articulo_version` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `articulo_version`
+-- Volcar la base de datos para la tabla `articulo_version`
 --
 
 INSERT INTO `articulo_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `aprobado`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `palabras_claves`, `slide_id`) VALUES
@@ -75,7 +75,7 @@ INSERT INTO `articulo_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `ap
 -- --------------------------------------------------------
 
 --
--- Table structure for table `autor`
+-- Estructura de tabla para la tabla `autor`
 --
 
 CREATE TABLE IF NOT EXISTS `autor` (
@@ -86,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `autor` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `autor`
+-- Volcar la base de datos para la tabla `autor`
 --
 
 INSERT INTO `autor` (`id`, `nombre`, `apellidos`) VALUES
@@ -95,7 +95,7 @@ INSERT INTO `autor` (`id`, `nombre`, `apellidos`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `biblioteca_personal_version`
+-- Estructura de tabla para la tabla `biblioteca_personal_version`
 --
 
 CREATE TABLE IF NOT EXISTS `biblioteca_personal_version` (
@@ -138,14 +138,14 @@ CREATE TABLE IF NOT EXISTS `biblioteca_personal_version` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `biblioteca_personal_version`
+-- Volcar la base de datos para la tabla `biblioteca_personal_version`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `busqueda`
+-- Estructura de tabla para la tabla `busqueda`
 --
 
 CREATE TABLE IF NOT EXISTS `busqueda` (
@@ -166,7 +166,7 @@ CREATE TABLE IF NOT EXISTS `busqueda` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=81 ;
 
 --
--- Dumping data for table `busqueda`
+-- Volcar la base de datos para la tabla `busqueda`
 --
 
 INSERT INTO `busqueda` (`id`, `user_id`, `titulo`, `mensaje`, `is_active`, `tematica`, `fecha_antes`, `fecha_despues`, `created_at`, `updated_at`, `dm_user_id`) VALUES
@@ -197,7 +197,7 @@ INSERT INTO `busqueda` (`id`, `user_id`, `titulo`, `mensaje`, `is_active`, `tema
 -- --------------------------------------------------------
 
 --
--- Table structure for table `descarga`
+-- Estructura de tabla para la tabla `descarga`
 --
 
 CREATE TABLE IF NOT EXISTS `descarga` (
@@ -210,14 +210,14 @@ CREATE TABLE IF NOT EXISTS `descarga` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `descarga`
+-- Volcar la base de datos para la tabla `descarga`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `diseminacion`
+-- Estructura de tabla para la tabla `diseminacion`
 --
 
 CREATE TABLE IF NOT EXISTS `diseminacion` (
@@ -229,14 +229,14 @@ CREATE TABLE IF NOT EXISTS `diseminacion` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `diseminacion`
+-- Volcar la base de datos para la tabla `diseminacion`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_area`
+-- Estructura de tabla para la tabla `dm_area`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_area` (
@@ -247,10 +247,10 @@ CREATE TABLE IF NOT EXISTS `dm_area` (
   PRIMARY KEY (`id`),
   KEY `dm_layout_id_idx` (`dm_layout_id`),
   KEY `dm_page_view_id_idx` (`dm_page_view_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=24 ;
 
 --
--- Dumping data for table `dm_area`
+-- Volcar la base de datos para la tabla `dm_area`
 --
 
 INSERT INTO `dm_area` (`id`, `dm_layout_id`, `dm_page_view_id`, `type`) VALUES
@@ -267,12 +267,21 @@ INSERT INTO `dm_area` (`id`, `dm_layout_id`, `dm_page_view_id`, `type`) VALUES
 (11, NULL, 3, 'content'),
 (12, NULL, 7, 'content'),
 (13, NULL, 14, 'content'),
-(14, NULL, 9, 'content');
+(14, NULL, 9, 'content'),
+(15, NULL, 13, 'content'),
+(16, NULL, 25, 'content'),
+(17, NULL, 26, 'content'),
+(18, NULL, 19, 'content'),
+(19, NULL, 22, 'content'),
+(20, NULL, 12, 'content'),
+(21, NULL, 18, 'content'),
+(22, NULL, 20, 'content'),
+(23, NULL, 21, 'content');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_auto_seo`
+-- Estructura de tabla para la tabla `dm_auto_seo`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_auto_seo` (
@@ -286,7 +295,7 @@ CREATE TABLE IF NOT EXISTS `dm_auto_seo` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=13 ;
 
 --
--- Dumping data for table `dm_auto_seo`
+-- Volcar la base de datos para la tabla `dm_auto_seo`
 --
 
 INSERT INTO `dm_auto_seo` (`id`, `module`, `action`, `created_at`, `updated_at`) VALUES
@@ -306,7 +315,7 @@ INSERT INTO `dm_auto_seo` (`id`, `module`, `action`, `created_at`, `updated_at`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_auto_seo_translation`
+-- Estructura de tabla para la tabla `dm_auto_seo_translation`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_auto_seo_translation` (
@@ -323,7 +332,7 @@ CREATE TABLE IF NOT EXISTS `dm_auto_seo_translation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_auto_seo_translation`
+-- Volcar la base de datos para la tabla `dm_auto_seo_translation`
 --
 
 INSERT INTO `dm_auto_seo_translation` (`id`, `slug`, `name`, `title`, `h1`, `description`, `keywords`, `strip_words`, `lang`) VALUES
@@ -343,7 +352,7 @@ INSERT INTO `dm_auto_seo_translation` (`id`, `slug`, `name`, `title`, `h1`, `des
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_catalogue`
+-- Estructura de tabla para la tabla `dm_catalogue`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_catalogue` (
@@ -355,7 +364,7 @@ CREATE TABLE IF NOT EXISTS `dm_catalogue` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `dm_catalogue`
+-- Volcar la base de datos para la tabla `dm_catalogue`
 --
 
 INSERT INTO `dm_catalogue` (`id`, `name`, `source_lang`, `target_lang`) VALUES
@@ -365,7 +374,7 @@ INSERT INTO `dm_catalogue` (`id`, `name`, `source_lang`, `target_lang`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_error`
+-- Estructura de tabla para la tabla `dm_error`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_error` (
@@ -379,10 +388,10 @@ CREATE TABLE IF NOT EXISTS `dm_error` (
   `env` varchar(63) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=187 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=193 ;
 
 --
--- Dumping data for table `dm_error`
+-- Volcar la base de datos para la tabla `dm_error`
 --
 
 INSERT INTO `dm_error` (`id`, `php_class`, `name`, `description`, `module`, `action`, `uri`, `env`, `created_at`) VALUES
@@ -587,12 +596,19 @@ INSERT INTO `dm_error` (`id`, `php_class`, `name`, `description`, `module`, `act
 (183, 'dmException', 'fecha_final is not a valid form field', 'fecha_final is not a valid form field\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require()\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''tesis/form_fiel...'', Array)\n#4 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoTesis\\templates\\_form_fieldset.php(24): include_partial(''tesis/form_fiel...'', Array)\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''tesis/form_fiel...'', Array)\n#9 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoTesis\\templates\\_form.php(29): include_partial(''tesis/form_fiel...'', Array)\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''tesis/form'', Array)\n#14 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoTesis\\templates\\newSuccess.php(19): include_partial(''tesis/form'', Array)\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(185): sfPHPView->renderFile(''C:\\development\\...'')\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(155): sfPHPView->render()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(116): sfExecutionFilter->executeView(''tesis'', ''new'', ''Success'', Array)\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(47): sfExecutionFilter->handleView(Object(sfFilterChain), Object(tesisActions), ''Success'')\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#25 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#26 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#27 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#28 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#29 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#30 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''tesis'', ''new'')\n#31 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#32 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#33 {main}', 'tesis', 'new', 'http://bibliocnic.localhost/admin_dev.php/content/recursos/tesis/new', 'dev', '2011-08-20 00:45:09'),
 (184, 'Doctrine_Record_UnknownPropertyException', 'Unknown record property / related component "fecha_final" on "Patente"', 'Unknown record property / related component "fecha_final" on "Patente"\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\doctrine\\record\\dmDoctrineRecord.php(700): Doctrine_Record_Filter_Standard->filterGet(Object(Patente), ''fecha_final'')\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\doctrine\\record\\dmDoctrineRecord.php(616): dmDoctrineRecord->_get(''fecha_final'', true)\n#2 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoRecurso\\templates\\_list_td_tabular.php(91): dmDoctrineRecord->get(''fecha_final'')\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''recurso/list_td...'', Array)\n#7 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoRecurso\\templates\\_list.php(24): include_partial(''recurso/list_td...'', Array)\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''recurso/list'', Array)\n#12 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoRecurso\\templates\\indexSuccess.php(26): include_partial(''recurso/list'', Array)\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(185): sfPHPView->renderFile(''C:\\development\\...'')\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(155): sfPHPView->render()\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(116): sfExecutionFilter->executeView(''recurso'', ''index'', ''Success'', Array)\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(47): sfExecutionFilter->handleView(Object(sfFilterChain), Object(recursoActions), ''Success'')\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#25 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#26 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#27 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#28 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''recurso'', ''index'')\n#29 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#30 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#31 {main}', 'recurso', 'index', 'http://bibliocnic.localhost/admin_dev.php/content/recursos/recursos/index', 'dev', '2011-08-20 19:52:29'),
 (185, 'dmException', 'The "presentaciones" module does not exist', 'The "presentaciones" module does not exist\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\seo\\dmSeoSynchronizer.php(361): dmModuleManager->getModule(''presentaciones'')\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\seo\\dmSeoSynchronizer.php(253): dmSeoSynchronizer->getReplacementsForPatterns(Object(dmProjectModule), Array, Object(Presentacion))\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\seo\\dmSeoSynchronizer.php(146): dmSeoSynchronizer->updatePage(Array, Object(dmProjectModule), Object(Presentacion), Array, ''presentaciones'')\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\seo\\dmSeoSynchronizer.php(46): dmSeoSynchronizer->updateRecursive(Object(dmProjectModule))\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\page\\dmPageTreeWatcher.php(227): dmSeoSynchronizer->execute(Array, ''es'')\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\page\\dmPageTreeWatcher.php(118): dmPageTreeWatcher->synchronizeSeo(Array)\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\page\\dmPageTreeWatcher.php(99): dmPageTreeWatcher->update()\n#7 [internal function]: dmPageTreeWatcher->listenToControllerRedirectionEvent(Object(sfEvent))\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\event_dispatcher\\sfEventDispatcher.php(79): call_user_func(Array, Object(sfEvent))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\controller\\dmFrontWebController.php(10): sfEventDispatcher->notify(Object(sfEvent))\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfAction.class.php(202): dmFrontWebController->redirect(Array, 0, 302)\n#11 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoPresentacion\\actions\\actions.class.php(230): sfAction->redirect(Array)\n#12 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoPresentacion\\actions\\actions.class.php(135): autoPresentacionActions->processForm(Object(dmWebRequest), Object(PresentacionAdminForm))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): autoPresentacionActions->executeCreate(Object(dmWebRequest))\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(presentacionActions))\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(presentacionActions))\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#25 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#26 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#27 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''presentacion'', ''create'')\n#28 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#29 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#30 {main}', 'presentacion', 'create', 'http://bibliocnic.localhost/admin_dev.php/content/recursos/presentacions/create', 'dev', '2011-08-21 14:26:40'),
-(186, 'dmException', 'fecha_final is not a valid form field', 'fecha_final is not a valid form field\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require()\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''tesis/form_fiel...'', Array)\n#4 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoTesis\\templates\\_form_fieldset.php(24): include_partial(''tesis/form_fiel...'', Array)\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''tesis/form_fiel...'', Array)\n#9 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoTesis\\templates\\_form.php(29): include_partial(''tesis/form_fiel...'', Array)\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''tesis/form'', Array)\n#14 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoTesis\\templates\\newSuccess.php(19): include_partial(''tesis/form'', Array)\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(185): sfPHPView->renderFile(''C:\\development\\...'')\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(155): sfPHPView->render()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(116): sfExecutionFilter->executeView(''tesis'', ''new'', ''Success'', Array)\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(47): sfExecutionFilter->handleView(Object(sfFilterChain), Object(tesisActions), ''Success'')\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#25 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#26 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#27 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#28 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#29 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#30 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''tesis'', ''new'')\n#31 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#32 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#33 {main}', 'tesis', 'new', 'http://bibliocnic.localhost/admin_dev.php/content/recursos/tesis/new', 'dev', '2011-08-21 16:16:08');
+(186, 'dmException', 'fecha_final is not a valid form field', 'fecha_final is not a valid form field\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require()\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''tesis/form_fiel...'', Array)\n#4 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoTesis\\templates\\_form_fieldset.php(24): include_partial(''tesis/form_fiel...'', Array)\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''tesis/form_fiel...'', Array)\n#9 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoTesis\\templates\\_form.php(29): include_partial(''tesis/form_fiel...'', Array)\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''tesis/form'', Array)\n#14 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoTesis\\templates\\newSuccess.php(19): include_partial(''tesis/form'', Array)\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(185): sfPHPView->renderFile(''C:\\development\\...'')\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(155): sfPHPView->render()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(116): sfExecutionFilter->executeView(''tesis'', ''new'', ''Success'', Array)\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(47): sfExecutionFilter->handleView(Object(sfFilterChain), Object(tesisActions), ''Success'')\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#25 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#26 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#27 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#28 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#29 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#30 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''tesis'', ''new'')\n#31 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#32 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#33 {main}', 'tesis', 'new', 'http://bibliocnic.localhost/admin_dev.php/content/recursos/tesis/new', 'dev', '2011-08-21 16:16:08'),
+(187, 'Exception', 'Warning : "fopen(http://diem-project.org/service/current-version/5_1) [<a href=''function.fopen''>function.fopen</a>]: failed to open stream: php_network_getaddresses: getaddrinfo failed: Host desconocido. " occured in C:\\development\\dmprojects\\bibliocnic\\l', 'Warning : "fopen(http://diem-project.org/service/current-version/5_1) [<a href=''function.fopen''>function.fopen</a>]: failed to open stream: php_network_getaddresses: getaddrinfo failed: Host desconocido. " occured in C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfFopenAdapter.class.php on line 60\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfWebBrowser.class.php(217): sfFopenAdapter->call(Object(dmWebBrowser), ''http://diem-pro...'', ''GET'', Array, Array)\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfWebBrowser.class.php(116): sfWebBrowser->call(''http://diem-pro...'', ''GET'', Array, Array)\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\webService\\dmDiemVersionCheck.php(50): sfWebBrowser->get(''http://diem-pro...'')\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\webService\\dmDiemVersionCheck.php(32): dmDiemVersionCheck->getLatestServerVersionForBranch(''5.1'')\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\modules\\dmAdmin\\lib\\BasedmAdminActions.class.php(93): dmDiemVersionCheck->isUpToDate()\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmAdminActions->executeVersionCheck(Object(dmWebRequest))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmAdminActions))\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmAdminActions))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmAdmin'', ''versionCheck'')\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#21 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#22 {main}', 'dmAdmin', 'versionCheck', 'http://bibliocnic:8080/admin_dev.php/+/dmAdmin/versionCheck?_=1313997705184&dm_cpi=0&dm_xhr=1', 'dev', '2011-08-22 09:22:02');
+INSERT INTO `dm_error` (`id`, `php_class`, `name`, `description`, `module`, `action`, `uri`, `env`, `created_at`) VALUES
+(188, 'dmException', 'patente is not a valid link resource', 'patente is not a valid link resource\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\link\\dmFrontLinkTagFactory.php(12): dmFrontLinkResource->initialize(''patente sobre c...'')\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\view\\dmHelper.php(91): dmFrontLinkTagFactory->buildLink(''patente sobre c...'')\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\helper\\DmHelper.php(13): dmHelper->link(''patente sobre c...'')\n#3 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\recurso\\templates\\_list.php(12): _link(''patente sobre c...'')\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(155): sfPartialView->render()\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\view\\dmHelper.php(56): get_component(''recurso'', ''list'', Array)\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(150): dmHelper->renderComponent(''recurso'', ''list'', Array)\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(141): dmWidgetBaseView->doRenderPartial(Array)\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(120): dmWidgetBaseView->renderPartial(Array)\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(108): dmWidgetBaseView->doRender()\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\widget\\dmFrontWidgetRenderer.php(71): dmWidgetBaseView->render()\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\widget\\dmFrontWidgetRenderer.php(43): dmFrontWidgetRenderer->doRender()\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(331): dmFrontWidgetRenderer->getHtml()\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(308): dmFrontPageBaseHelper->renderWidgetInner(Array)\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(284): dmFrontPageBaseHelper->renderWidget(Array)\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(267): dmFrontPageBaseHelper->renderZoneInner(Array)\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(227): dmFrontPageBaseHelper->renderZone(Array)\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(202): dmFrontPageBaseHelper->renderAreaInner(Array)\n#20 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\dmFront\\templates\\pageSuccess.php(20): dmFrontPageBaseHelper->renderArea(''page.content'')\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(185): sfPHPView->renderFile(''C:\\development\\...'')\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(155): sfPHPView->render()\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(116): sfExecutionFilter->executeView(''dmFront'', ''page'', ''Success'', Array)\n#25 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(47): sfExecutionFilter->handleView(Object(sfFilterChain), Object(dmFrontActions), ''Success'')\n#26 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#27 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#28 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#29 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#30 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#31 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#32 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#33 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#34 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmFront'', ''page'')\n#35 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#36 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#37 {main}', 'dmFront', 'page', 'http://bibliocnic:8080/dev.php/recursos?dm_debug=1', 'dev', '2011-08-22 14:54:24'),
+(189, 'Doctrine_Record_UnknownPropertyException', 'Unknown record property / related component "tematica" on "Patente"', 'Unknown record property / related component "tematica" on "Patente"\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\doctrine\\record\\dmDoctrineRecord.php(700): Doctrine_Record_Filter_Standard->filterGet(Object(Patente), ''tematica'')\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\doctrine\\record\\dmDoctrineRecord.php(616): dmDoctrineRecord->_get(''tematica'', true)\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\vendor\\doctrine\\Doctrine\\Access.php(72): dmDoctrineRecord->get(''tematica'')\n#3 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\recurso\\templates\\_list.php(15): Doctrine_Access->__get(''tematica'')\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(155): sfPartialView->render()\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\view\\dmHelper.php(56): get_component(''recurso'', ''list'', Array)\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(150): dmHelper->renderComponent(''recurso'', ''list'', Array)\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(141): dmWidgetBaseView->doRenderPartial(Array)\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(120): dmWidgetBaseView->renderPartial(Array)\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(108): dmWidgetBaseView->doRender()\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\widget\\dmFrontWidgetRenderer.php(71): dmWidgetBaseView->render()\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\widget\\dmFrontWidgetRenderer.php(43): dmFrontWidgetRenderer->doRender()\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(331): dmFrontWidgetRenderer->getHtml()\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(308): dmFrontPageBaseHelper->renderWidgetInner(Array)\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(284): dmFrontPageBaseHelper->renderWidget(Array)\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(267): dmFrontPageBaseHelper->renderZoneInner(Array)\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(227): dmFrontPageBaseHelper->renderZone(Array)\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(202): dmFrontPageBaseHelper->renderAreaInner(Array)\n#20 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\dmFront\\templates\\pageSuccess.php(20): dmFrontPageBaseHelper->renderArea(''page.content'')\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(185): sfPHPView->renderFile(''C:\\development\\...'')\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(155): sfPHPView->render()\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(116): sfExecutionFilter->executeView(''dmFront'', ''page'', ''Success'', Array)\n#25 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(47): sfExecutionFilter->handleView(Object(sfFilterChain), Object(dmFrontActions), ''Success'')\n#26 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#27 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#28 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#29 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#30 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#31 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#32 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#33 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#34 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmFront'', ''page'')\n#35 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#36 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#37 {main}', 'dmFront', 'page', 'http://bibliocnic:8080/dev.php/recursos?dm_debug=1', 'dev', '2011-08-22 16:17:16'),
+(190, 'dmException', 'Patente is not a valid link resource', 'Patente is not a valid link resource\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\link\\dmFrontLinkTagFactory.php(12): dmFrontLinkResource->initialize(''Patente'')\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\view\\dmHelper.php(91): dmFrontLinkTagFactory->buildLink(''Patente'')\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\helper\\DmHelper.php(13): dmHelper->link(''Patente'')\n#3 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\recurso\\templates\\_list.php(20): _link(''Patente'')\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(155): sfPartialView->render()\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\view\\dmHelper.php(56): get_component(''recurso'', ''list'', Array)\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(150): dmHelper->renderComponent(''recurso'', ''list'', Array)\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(141): dmWidgetBaseView->doRenderPartial(Array)\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(120): dmWidgetBaseView->renderPartial(Array)\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(108): dmWidgetBaseView->doRender()\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\widget\\dmFrontWidgetRenderer.php(71): dmWidgetBaseView->render()\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\widget\\dmFrontWidgetRenderer.php(43): dmFrontWidgetRenderer->doRender()\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(331): dmFrontWidgetRenderer->getHtml()\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageEditHelper.php(129): dmFrontPageBaseHelper->renderWidgetInner(Array)\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(284): dmFrontPageEditHelper->renderWidget(Array)\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageEditHelper.php(36): dmFrontPageBaseHelper->renderZoneInner(Array)\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(227): dmFrontPageEditHelper->renderZone(Array)\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(202): dmFrontPageBaseHelper->renderAreaInner(Array)\n#20 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\dmFront\\templates\\pageSuccess.php(20): dmFrontPageBaseHelper->renderArea(''page.content'')\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(185): sfPHPView->renderFile(''C:\\development\\...'')\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(155): sfPHPView->render()\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(116): sfExecutionFilter->executeView(''dmFront'', ''page'', ''Success'', Array)\n#25 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(47): sfExecutionFilter->handleView(Object(sfFilterChain), Object(dmFrontActions), ''Success'')\n#26 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#27 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#28 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#29 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#30 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#31 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#32 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#33 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#34 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmFront'', ''page'')\n#35 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#36 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#37 {main}', 'dmFront', 'page', 'http://bibliocnic.localhost/dev.php/recursos?dm_debug=1', 'dev', '2011-08-22 23:03:03'),
+(191, 'dmException', 'Diem can only filter by module or boolean fields, string given', 'Diem can only filter by module or boolean fields, string given\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(70): dmWidgetListForm->configure()\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormSymfony.class.php(33): sfForm->__construct(NULL, Array, false)\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseForm.php(27): sfFormSymfony->__construct(NULL, Array, false)\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmWidget\\lib\\BasedmWidgetActions.class.php(276): dmWidgetBaseForm->__construct(Object(DmWidget))\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmWidgetActions->executeAdd(Object(dmWebRequest))\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmWidgetActions))\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmWidgetActions))\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmWidget'', ''add'')\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#20 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#21 {main}', 'dmWidget', 'add', 'http://bibliocnic:8080/dev.php/+/dmWidget/add?to_dm_zone=16&_=1314107252565&dm_cpi=31&dm_xhr=1&mod=recurso&act=list', 'dev', '2011-08-23 15:47:33'),
+(192, 'dmException', 'Diem can only filter by module or boolean fields, string given', 'Diem can only filter by module or boolean fields, string given\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(70): dmWidgetListForm->configure()\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormSymfony.class.php(33): sfForm->__construct(NULL, Array, false)\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseForm.php(27): sfFormSymfony->__construct(NULL, Array, false)\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmWidget\\lib\\BasedmWidgetActions.class.php(276): dmWidgetBaseForm->__construct(Object(DmWidget))\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmWidgetActions->executeAdd(Object(dmWebRequest))\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmWidgetActions))\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmWidgetActions))\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmWidget'', ''add'')\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#20 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#21 {main}', 'dmWidget', 'add', 'http://bibliocnic:8080/dev.php/+/dmWidget/add?to_dm_zone=16&_=1314107635955&dm_cpi=31&dm_xhr=1&mod=recurso&act=list', 'dev', '2011-08-23 15:53:57');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_group`
+-- Estructura de tabla para la tabla `dm_group`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_group` (
@@ -606,7 +622,7 @@ CREATE TABLE IF NOT EXISTS `dm_group` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `dm_group`
+-- Volcar la base de datos para la tabla `dm_group`
 --
 
 INSERT INTO `dm_group` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
@@ -621,7 +637,7 @@ INSERT INTO `dm_group` (`id`, `name`, `description`, `created_at`, `updated_at`)
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_group_permission`
+-- Estructura de tabla para la tabla `dm_group_permission`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_group_permission` (
@@ -632,7 +648,7 @@ CREATE TABLE IF NOT EXISTS `dm_group_permission` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_group_permission`
+-- Volcar la base de datos para la tabla `dm_group_permission`
 --
 
 INSERT INTO `dm_group_permission` (`dm_group_id`, `dm_permission_id`) VALUES
@@ -717,7 +733,7 @@ INSERT INTO `dm_group_permission` (`dm_group_id`, `dm_permission_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_layout`
+-- Estructura de tabla para la tabla `dm_layout`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_layout` (
@@ -730,7 +746,7 @@ CREATE TABLE IF NOT EXISTS `dm_layout` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
--- Dumping data for table `dm_layout`
+-- Volcar la base de datos para la tabla `dm_layout`
 --
 
 INSERT INTO `dm_layout` (`id`, `name`, `template`, `css_class`) VALUES
@@ -739,7 +755,7 @@ INSERT INTO `dm_layout` (`id`, `name`, `template`, `css_class`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_lock`
+-- Estructura de tabla para la tabla `dm_lock`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_lock` (
@@ -759,7 +775,7 @@ CREATE TABLE IF NOT EXISTS `dm_lock` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=8 ;
 
 --
--- Dumping data for table `dm_lock`
+-- Volcar la base de datos para la tabla `dm_lock`
 --
 
 INSERT INTO `dm_lock` (`id`, `user_id`, `user_name`, `module`, `action`, `record_id`, `time`, `app`, `url`, `culture`) VALUES
@@ -769,7 +785,7 @@ INSERT INTO `dm_lock` (`id`, `user_id`, `user_name`, `module`, `action`, `record
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_mail_template`
+-- Estructura de tabla para la tabla `dm_mail_template`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_mail_template` (
@@ -783,7 +799,7 @@ CREATE TABLE IF NOT EXISTS `dm_mail_template` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `dm_mail_template`
+-- Volcar la base de datos para la tabla `dm_mail_template`
 --
 
 INSERT INTO `dm_mail_template` (`id`, `name`, `vars`, `created_at`, `updated_at`) VALUES
@@ -795,7 +811,7 @@ INSERT INTO `dm_mail_template` (`id`, `name`, `vars`, `created_at`, `updated_at`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_mail_template_translation`
+-- Estructura de tabla para la tabla `dm_mail_template_translation`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_mail_template_translation` (
@@ -817,7 +833,7 @@ CREATE TABLE IF NOT EXISTS `dm_mail_template_translation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_mail_template_translation`
+-- Volcar la base de datos para la tabla `dm_mail_template_translation`
 --
 
 INSERT INTO `dm_mail_template_translation` (`id`, `description`, `subject`, `body`, `from_email`, `to_email`, `cc_email`, `bcc_email`, `reply_to_email`, `sender_email`, `list_unsuscribe`, `is_html`, `is_active`, `lang`) VALUES
@@ -829,7 +845,7 @@ INSERT INTO `dm_mail_template_translation` (`id`, `description`, `subject`, `bod
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_media`
+-- Estructura de tabla para la tabla `dm_media`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_media` (
@@ -850,7 +866,7 @@ CREATE TABLE IF NOT EXISTS `dm_media` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=45 ;
 
 --
--- Dumping data for table `dm_media`
+-- Volcar la base de datos para la tabla `dm_media`
 --
 
 INSERT INTO `dm_media` (`id`, `dm_media_folder_id`, `file`, `legend`, `author`, `license`, `mime`, `size`, `dimensions`, `created_at`, `updated_at`) VALUES
@@ -891,7 +907,7 @@ INSERT INTO `dm_media` (`id`, `dm_media_folder_id`, `file`, `legend`, `author`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_media_folder`
+-- Estructura de tabla para la tabla `dm_media_folder`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_media_folder` (
@@ -905,7 +921,7 @@ CREATE TABLE IF NOT EXISTS `dm_media_folder` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=14 ;
 
 --
--- Dumping data for table `dm_media_folder`
+-- Volcar la base de datos para la tabla `dm_media_folder`
 --
 
 INSERT INTO `dm_media_folder` (`id`, `rel_path`, `lft`, `rgt`, `level`) VALUES
@@ -926,7 +942,7 @@ INSERT INTO `dm_media_folder` (`id`, `rel_path`, `lft`, `rgt`, `level`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_page`
+-- Estructura de tabla para la tabla `dm_page`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_page` (
@@ -940,14 +956,14 @@ CREATE TABLE IF NOT EXISTS `dm_page` (
   `level` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `recordModuleAction_idx` (`module`,`action`,`record_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=82 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=85 ;
 
 --
--- Dumping data for table `dm_page`
+-- Volcar la base de datos para la tabla `dm_page`
 --
 
 INSERT INTO `dm_page` (`id`, `module`, `action`, `record_id`, `credentials`, `lft`, `rgt`, `level`) VALUES
-(1, 'main', 'root', 0, NULL, 1, 134, 0),
+(1, 'main', 'root', 0, NULL, 1, 140, 0),
 (2, 'main', 'error404', 0, NULL, 4, 5, 1),
 (3, 'main', 'signin', 0, NULL, 2, 3, 1),
 (4, 'main', 'busquedas', 0, NULL, 6, 7, 1),
@@ -964,15 +980,15 @@ INSERT INTO `dm_page` (`id`, `module`, `action`, `record_id`, `credentials`, `lf
 (25, 'respuestaBusqueda', 'show', 1, NULL, 59, 60, 2),
 (26, 'respuestaBusqueda', 'show', 2, NULL, 61, 62, 2),
 (27, 'busqueda', 'show', 63, NULL, 21, 22, 2),
-(30, 'monografia', 'list', 0, NULL, 74, 77, 1),
-(31, 'recurso', 'list', 0, NULL, 78, 89, 1),
-(32, 'pregunta', 'list', 0, '', 90, 105, 1),
-(33, 'respuesta', 'list', 0, NULL, 106, 111, 1),
+(30, 'monografia', 'list', 0, '', 74, 77, 1),
+(31, 'recurso', 'list', 0, NULL, 78, 95, 1),
+(32, 'pregunta', 'list', 0, '', 96, 111, 1),
+(33, 'respuesta', 'list', 0, NULL, 112, 117, 1),
 (34, 'busqueda', 'show', 64, NULL, 23, 24, 2),
 (35, 'busqueda', 'show', 66, NULL, 25, 26, 2),
-(36, 'pregunta', 'show', 3, NULL, 91, 92, 2),
-(37, 'pregunta', 'show', 4, NULL, 93, 94, 2),
-(38, 'respuesta', 'show', 1, NULL, 107, 108, 2),
+(36, 'pregunta', 'show', 3, NULL, 97, 98, 2),
+(37, 'pregunta', 'show', 4, NULL, 99, 100, 2),
+(38, 'respuesta', 'show', 1, NULL, 113, 114, 2),
 (39, 'busqueda', 'show', 67, NULL, 27, 28, 2),
 (40, 'busqueda', 'show', 68, NULL, 29, 30, 2),
 (41, 'busqueda', 'show', 69, NULL, 31, 32, 2),
@@ -987,38 +1003,41 @@ INSERT INTO `dm_page` (`id`, `module`, `action`, `record_id`, `credentials`, `lf
 (50, 'respuestaBusqueda', 'show', 3, NULL, 63, 64, 2),
 (51, 'respuestaBusqueda', 'show', 4, NULL, 65, 66, 2),
 (52, 'respuestaBusqueda', 'show', 5, NULL, 67, 68, 2),
-(53, 'pregunta', 'show', 5, NULL, 95, 96, 2),
-(54, 'pregunta', 'show', 6, NULL, 97, 98, 2),
-(55, 'pregunta', 'show', 7, NULL, 99, 100, 2),
-(56, 'pregunta', 'show', 8, NULL, 101, 102, 2),
-(57, 'pregunta', 'show', 9, NULL, 103, 104, 2),
-(58, 'respuesta', 'show', 2, NULL, 109, 110, 2),
+(53, 'pregunta', 'show', 5, NULL, 101, 102, 2),
+(54, 'pregunta', 'show', 6, NULL, 103, 104, 2),
+(55, 'pregunta', 'show', 7, NULL, 105, 106, 2),
+(56, 'pregunta', 'show', 8, NULL, 107, 108, 2),
+(57, 'pregunta', 'show', 9, NULL, 109, 110, 2),
+(58, 'respuesta', 'show', 2, NULL, 115, 116, 2),
 (59, 'busqueda', 'show', 78, NULL, 49, 50, 2),
 (60, 'busqueda', 'show', 79, NULL, 51, 52, 2),
 (61, 'busqueda', 'show', 80, NULL, 53, 54, 2),
-(62, 'articulo', 'list', 0, NULL, 112, 115, 1),
-(63, 'patente', 'list', 0, NULL, 116, 121, 1),
-(64, 'presentacion', 'list', 0, NULL, 122, 127, 1),
-(65, 'bibliotecaPersonal', 'list', 0, NULL, 128, 129, 1),
-(66, 'documentoLegal', 'list', 0, NULL, 130, 133, 1),
-(69, 'patente', 'show', 2, NULL, 117, 118, 2),
+(62, 'articulo', 'list', 0, NULL, 118, 121, 1),
+(63, 'patente', 'list', 0, NULL, 122, 127, 1),
+(64, 'presentacion', 'list', 0, NULL, 128, 133, 1),
+(65, 'bibliotecaPersonal', 'list', 0, NULL, 134, 135, 1),
+(66, 'documentoLegal', 'list', 0, NULL, 136, 139, 1),
+(69, 'patente', 'show', 2, NULL, 123, 124, 2),
 (70, 'recurso', 'show', 2, NULL, 79, 80, 2),
-(71, 'patente', 'show', 3, NULL, 119, 120, 2),
-(72, 'documentoLegal', 'show', 4, NULL, 131, 132, 2),
+(71, 'patente', 'show', 3, NULL, 125, 126, 2),
+(72, 'documentoLegal', 'show', 4, NULL, 137, 138, 2),
 (73, 'monografia', 'show', 5, NULL, 75, 76, 2),
 (74, 'recurso', 'show', 3, NULL, 81, 82, 2),
 (75, 'recurso', 'show', 4, NULL, 83, 84, 2),
 (76, 'recurso', 'show', 5, NULL, 85, 86, 2),
-(77, 'articulo', 'show', 6, NULL, 113, 114, 2),
+(77, 'articulo', 'show', 6, NULL, 119, 120, 2),
 (78, 'recurso', 'show', 6, NULL, 87, 88, 2),
-(79, 'presentacion', 'show', 7, NULL, 123, 124, 2),
-(80, 'presentacion', 'show', 8, NULL, 125, 126, 2),
-(81, 'tesis', 'show', 9, NULL, 71, 72, 2);
+(79, 'presentacion', 'show', 7, NULL, 129, 130, 2),
+(80, 'presentacion', 'show', 8, NULL, 131, 132, 2),
+(81, 'tesis', 'show', 9, NULL, 71, 72, 2),
+(82, 'recurso', 'show', 7, NULL, 89, 90, 2),
+(83, 'recurso', 'show', 8, NULL, 91, 92, 2),
+(84, 'recurso', 'show', 9, NULL, 93, 94, 2);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_page_translation`
+-- Estructura de tabla para la tabla `dm_page_translation`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_page_translation` (
@@ -1038,7 +1057,7 @@ CREATE TABLE IF NOT EXISTS `dm_page_translation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_page_translation`
+-- Volcar la base de datos para la tabla `dm_page_translation`
 --
 
 INSERT INTO `dm_page_translation` (`id`, `slug`, `name`, `title`, `h1`, `description`, `keywords`, `auto_mod`, `is_active`, `is_secure`, `is_indexable`, `lang`) VALUES
@@ -1059,7 +1078,7 @@ INSERT INTO `dm_page_translation` (`id`, `slug`, `name`, `title`, `h1`, `descrip
 (25, 'respuesta-busquedas/1', '1', '1', NULL, '1', NULL, 'snthdk', 1, 0, 1, 'es'),
 (26, 'respuesta-busquedas/2', '2', '2', NULL, '2', NULL, 'snthdk', 1, 0, 1, 'es'),
 (27, 'busqueda-especializada/prueba-despues-de-algunos-cambios', 'Prueba después de algunos cambios', 'Prueba después de algunos cambios', NULL, 'Prueba después de algunos cambios', NULL, 'snthdk', 1, 0, 1, 'es'),
-(30, 'monografias', 'Monograf''ias', 'Monografias', NULL, 'Monografias', NULL, 'snthdk', 1, 0, 1, 'es'),
+(30, 'monografias', 'Monografías', 'Monografias', '', 'Monografias', 'monografias libros ', 'snthdk', 1, 0, 1, 'es'),
 (31, 'recursos', 'Recursos', 'Recursos', NULL, 'Recursos', NULL, 'snthdk', 1, 0, 1, 'es'),
 (32, 'pregunte-al-bibliotecario', 'Preguntas', 'Preguntas', '', 'Preguntas', '', 'snthdk', 1, 1, 1, 'es'),
 (33, 'respuestas', 'Respuestas', 'Respuestas', NULL, 'Respuestas', NULL, 'snthdk', 1, 0, 1, 'es'),
@@ -1098,22 +1117,25 @@ INSERT INTO `dm_page_translation` (`id`, `slug`, `name`, `title`, `h1`, `descrip
 (66, 'documentos-legales', 'Documentos legales', 'Documentos legales', NULL, 'Documento legals', NULL, 'snthdk', 1, 0, 1, 'es'),
 (69, 'patentes/2', '2', '2', NULL, '2', NULL, 'snthdk', 1, 0, 1, 'es'),
 (70, 'recursos/2', '2', '2', NULL, '2', NULL, 'snthdk', 1, 0, 1, 'es'),
-(71, 'patentes/3', '3', '3', NULL, '3', NULL, 'snthdk', 0, 0, 1, 'es'),
+(71, 'patentes/3', '3', '3', NULL, '3', NULL, 'snthdk', 1, 0, 1, 'es'),
 (72, 'documentos-legales/4', '4', '4', NULL, '4', NULL, 'snthdk', 1, 0, 1, 'es'),
 (73, 'monografias/5', '5', '5', NULL, '5', NULL, 'snthdk', 1, 0, 1, 'es'),
-(74, 'recursos/3', '3', '3', NULL, '3', NULL, 'snthdk', 0, 0, 1, 'es'),
+(74, 'recursos/3', '3', '3', NULL, '3', NULL, 'snthdk', 1, 0, 1, 'es'),
 (75, 'recursos/4', '4', '4', NULL, '4', NULL, 'snthdk', 1, 0, 1, 'es'),
 (76, 'recursos/5', '5', '5', NULL, '5', NULL, 'snthdk', 1, 0, 1, 'es'),
 (77, 'articulos/6', '6', '6', NULL, '6', NULL, 'snthdk', 1, 0, 1, 'es'),
 (78, 'recursos/6', '6', '6', NULL, '6', NULL, 'snthdk', 1, 0, 1, 'es'),
 (79, 'presentaciones/7', '7', '7', NULL, '7', 'presentacion ppt powerpoint', 'snthdk', 1, 0, 1, 'es'),
 (80, 'presentaciones/8', '8', '8', NULL, '8', 'presentacion ppt powerpoint', 'snthdk', 1, 0, 1, 'es'),
-(81, 'tesis/9', '9', '9', NULL, '9', NULL, 'snthdk', 1, 0, 1, 'es');
+(81, 'tesis/9', '9', '9', NULL, '9', NULL, 'snthdk', 1, 0, 1, 'es'),
+(82, 'recursos/7', '7', '7', NULL, '7', NULL, 'snthdk', 1, 0, 1, 'es'),
+(83, 'recursos/8', '8', '8', NULL, '8', NULL, 'snthdk', 1, 0, 1, 'es'),
+(84, 'recursos/9', '9', '9', NULL, '9', NULL, 'snthdk', 1, 0, 1, 'es');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_page_view`
+-- Estructura de tabla para la tabla `dm_page_view`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_page_view` (
@@ -1127,7 +1149,7 @@ CREATE TABLE IF NOT EXISTS `dm_page_view` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=29 ;
 
 --
--- Dumping data for table `dm_page_view`
+-- Volcar la base de datos para la tabla `dm_page_view`
 --
 
 INSERT INTO `dm_page_view` (`id`, `module`, `action`, `dm_layout_id`) VALUES
@@ -1163,7 +1185,7 @@ INSERT INTO `dm_page_view` (`id`, `module`, `action`, `dm_layout_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_permission`
+-- Estructura de tabla para la tabla `dm_permission`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_permission` (
@@ -1177,7 +1199,7 @@ CREATE TABLE IF NOT EXISTS `dm_permission` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=60 ;
 
 --
--- Dumping data for table `dm_permission`
+-- Volcar la base de datos para la tabla `dm_permission`
 --
 
 INSERT INTO `dm_permission` (`id`, `name`, `description`, `created_at`, `updated_at`) VALUES
@@ -1244,7 +1266,7 @@ INSERT INTO `dm_permission` (`id`, `name`, `description`, `created_at`, `updated
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_redirect`
+-- Estructura de tabla para la tabla `dm_redirect`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_redirect` (
@@ -1258,14 +1280,14 @@ CREATE TABLE IF NOT EXISTS `dm_redirect` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `dm_redirect`
+-- Volcar la base de datos para la tabla `dm_redirect`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_remember_key`
+-- Estructura de tabla para la tabla `dm_remember_key`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_remember_key` (
@@ -1278,16 +1300,16 @@ CREATE TABLE IF NOT EXISTS `dm_remember_key` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_remember_key`
+-- Volcar la base de datos para la tabla `dm_remember_key`
 --
 
 INSERT INTO `dm_remember_key` (`dm_user_id`, `remember_key`, `ip_address`, `created_at`) VALUES
-(1, 'f739bf13c7a2d66891a2eeacb12d221a', '127.0.0.3', '2011-08-20 00:45:05');
+(1, '65bee5e5b32fef9deecfd94151fb61ac', '10.36.46.6', '2011-08-22 09:21:40');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_sent_mail`
+-- Estructura de tabla para la tabla `dm_sent_mail`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_sent_mail` (
@@ -1311,7 +1333,7 @@ CREATE TABLE IF NOT EXISTS `dm_sent_mail` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=28 ;
 
 --
--- Dumping data for table `dm_sent_mail`
+-- Volcar la base de datos para la tabla `dm_sent_mail`
 --
 
 INSERT INTO `dm_sent_mail` (`id`, `dm_mail_template_id`, `subject`, `body`, `from_email`, `to_email`, `cc_email`, `bcc_email`, `reply_to_email`, `sender_email`, `strategy`, `transport`, `culture`, `debug_string`, `created_at`) VALUES
@@ -1334,7 +1356,7 @@ INSERT INTO `dm_sent_mail` (`id`, `dm_mail_template_id`, `subject`, `body`, `fro
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_setting`
+-- Estructura de tabla para la tabla `dm_setting`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_setting` (
@@ -1349,7 +1371,7 @@ CREATE TABLE IF NOT EXISTS `dm_setting` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=19 ;
 
 --
--- Dumping data for table `dm_setting`
+-- Volcar la base de datos para la tabla `dm_setting`
 --
 
 INSERT INTO `dm_setting` (`id`, `name`, `type`, `params`, `group_name`, `credentials`) VALUES
@@ -1375,7 +1397,7 @@ INSERT INTO `dm_setting` (`id`, `name`, `type`, `params`, `group_name`, `credent
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_setting_translation`
+-- Estructura de tabla para la tabla `dm_setting_translation`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_setting_translation` (
@@ -1388,7 +1410,7 @@ CREATE TABLE IF NOT EXISTS `dm_setting_translation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_setting_translation`
+-- Volcar la base de datos para la tabla `dm_setting_translation`
 --
 
 INSERT INTO `dm_setting_translation` (`id`, `description`, `value`, `default_value`, `lang`) VALUES
@@ -1401,7 +1423,7 @@ INSERT INTO `dm_setting_translation` (`id`, `description`, `value`, `default_val
 (7, 'The google webmaster tools filename without google and .html ( e.g. a913b555ba9b4f13 )', NULL, '', 'es'),
 (8, 'The xiti html code', NULL, '', 'es'),
 (9, 'Words to exclude from searches (e.g. the, a, to )', NULL, '', 'es'),
-(10, 'Diem base urls for different applications/environments/cultures', '{"front-dev":"http:\\/\\/bibliocnic:8080\\/dev.php","admin-dev":"http:\\/\\/bibliocnic.localhost\\/admin_dev.php","admin-prod":"http:\\/\\/bibliocnic.localhost\\/admin.php","front-prod":"http:\\/\\/bibliocnic.localhost\\/index.php"}', '', 'es'),
+(10, 'Diem base urls for different applications/environments/cultures', '{"front-dev":"http:\\/\\/bibliocnic:8080\\/dev.php","admin-dev":"http:\\/\\/bibliocnic:8080\\/admin_dev.php","admin-prod":"http:\\/\\/bibliocnic.localhost\\/admin.php","front-prod":"http:\\/\\/bibliocnic.localhost\\/index.php"}', '', 'es'),
 (11, 'Default method when an image needs to be resized', 'center', 'center', 'es'),
 (12, 'Jpeg default quality when generating thumbnails', '95', '95', 'es'),
 (13, 'Links to other domain get automatically a _blank target', NULL, '0', 'es'),
@@ -1414,7 +1436,7 @@ INSERT INTO `dm_setting_translation` (`id`, `description`, `value`, `default_val
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_trans_unit`
+-- Estructura de tabla para la tabla `dm_trans_unit`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_trans_unit` (
@@ -1430,7 +1452,7 @@ CREATE TABLE IF NOT EXISTS `dm_trans_unit` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=519 ;
 
 --
--- Dumping data for table `dm_trans_unit`
+-- Volcar la base de datos para la tabla `dm_trans_unit`
 --
 
 INSERT INTO `dm_trans_unit` (`id`, `dm_catalogue_id`, `source`, `target`, `meta`, `created_at`, `updated_at`) VALUES
@@ -1957,7 +1979,7 @@ INSERT INTO `dm_trans_unit` (`id`, `dm_catalogue_id`, `source`, `target`, `meta`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_user`
+-- Estructura de tabla para la tabla `dm_user`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_user` (
@@ -1989,12 +2011,12 @@ CREATE TABLE IF NOT EXISTS `dm_user` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
--- Dumping data for table `dm_user`
+-- Volcar la base de datos para la tabla `dm_user`
 --
 
 INSERT INTO `dm_user` (`username`, `email`, `algorithm`, `salt`, `password`, `is_active`, `is_super_admin`, `last_login`, `forgot_password_code`, `id`, `titulo`, `nombre`, `apellidos`, `foto_id`, `penalizado`, `solapin`, `departamento`, `created_at`, `updated_at`) VALUES
-('admin', 'pablo.reyes.mail@gmail.com', 'sha1', '20145d874137f0b47716601f40edba0e', '17d7ba6c9efddf6f3718ca89778bb2fbd542848f', 1, 1, '2011-08-21 16:14:57', NULL, 1, 'Ing', 'DiemAdmin', 'DiemAdmin', 33, 0, '', '', '2011-06-05 16:30:32', '2011-08-03 14:33:02'),
-('corey', 'pablo.reyes@cnic.edu.cu', 'sha1', 'd9e8c6471b33f15fe80e25514136897f', '7283bc02eef5be6b92e1ca7191280bacedd524fa', 1, 0, '2011-08-15 16:03:27', NULL, 2, '12', 'Pablo', 'Reyes Naranjo', 2, 0, '0512', 'ICT', '2011-06-20 11:18:15', '2011-06-20 11:18:15'),
+('admin', 'pablo.reyes.mail@gmail.com', 'sha1', '20145d874137f0b47716601f40edba0e', '17d7ba6c9efddf6f3718ca89778bb2fbd542848f', 1, 1, '2011-08-23 13:22:34', NULL, 1, 'Ing', 'DiemAdmin', 'DiemAdmin', 33, 0, '', '', '2011-06-05 16:30:32', '2011-08-03 14:33:02'),
+('corey', 'pablo.reyes@cnic.edu.cu', 'sha1', 'd9e8c6471b33f15fe80e25514136897f', '7283bc02eef5be6b92e1ca7191280bacedd524fa', 1, 0, '2011-08-22 13:56:57', NULL, 2, '12', 'Pablo', 'Reyes Naranjo', 2, 0, '0512', 'ICT', '2011-06-20 11:18:15', '2011-06-20 11:18:15'),
 ('xinita', 'yanays@cneuro.edu.cu', 'sha1', '6a6ed21d7e776365d62266f24988b607', '7d134057f573b96402614d61f7422a2d4488bf54', 1, 0, '2011-08-03 12:50:25', NULL, 3, 'MsC', 'Yanays', 'Rodriguez Puentes', 17, 0, '0416', 'Fisica Nuclear', '2011-07-06 20:48:18', '2011-07-06 20:50:04'),
 ('DRM', 'dalmer.ruiz@cnic.edu.cu', 'sha1', '93b277d7b15320a3cb498c6bb20be858', '3dc1b6c105cb880c386c8e2d1573afa35c16fee1', 1, 0, '2011-08-03 13:59:19', NULL, 8, '9no', 'Dalmer', 'Ruiz Mas', 32, 0, '1478', 'si', '2011-07-11 18:24:34', '2011-08-03 14:08:34'),
 ('Richin', 'ricardo.arencibia@cnic.edu.cu', 'sha1', 'e830c29ae178a0dabece9249d9308a8f', '901ae91095d4e12b11165e5ba5bb9802606d7c88', 1, 1, NULL, NULL, 9, 'Dr', 'Ricardo', 'Arencibia', 36, 0, '0552', 'ICT', '2011-08-09 12:05:23', '2011-08-09 17:01:22');
@@ -2002,7 +2024,7 @@ INSERT INTO `dm_user` (`username`, `email`, `algorithm`, `salt`, `password`, `is
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_user_group`
+-- Estructura de tabla para la tabla `dm_user_group`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_user_group` (
@@ -2013,7 +2035,7 @@ CREATE TABLE IF NOT EXISTS `dm_user_group` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_user_group`
+-- Volcar la base de datos para la tabla `dm_user_group`
 --
 
 INSERT INTO `dm_user_group` (`dm_user_id`, `dm_group_id`) VALUES
@@ -2024,7 +2046,7 @@ INSERT INTO `dm_user_group` (`dm_user_id`, `dm_group_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_user_permission`
+-- Estructura de tabla para la tabla `dm_user_permission`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_user_permission` (
@@ -2035,7 +2057,7 @@ CREATE TABLE IF NOT EXISTS `dm_user_permission` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_user_permission`
+-- Volcar la base de datos para la tabla `dm_user_permission`
 --
 
 INSERT INTO `dm_user_permission` (`dm_user_id`, `dm_permission_id`) VALUES
@@ -2047,7 +2069,7 @@ INSERT INTO `dm_user_permission` (`dm_user_id`, `dm_permission_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_widget`
+-- Estructura de tabla para la tabla `dm_widget`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_widget` (
@@ -2060,10 +2082,10 @@ CREATE TABLE IF NOT EXISTS `dm_widget` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `dm_zone_id_idx` (`dm_zone_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=21 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=31 ;
 
 --
--- Dumping data for table `dm_widget`
+-- Volcar la base de datos para la tabla `dm_widget`
 --
 
 INSERT INTO `dm_widget` (`id`, `dm_zone_id`, `module`, `action`, `css_class`, `position`, `updated_at`) VALUES
@@ -2084,12 +2106,21 @@ INSERT INTO `dm_widget` (`id`, `dm_zone_id`, `module`, `action`, `css_class`, `p
 (17, 7, 'main', 'footer', 'main_footer', 2, '2011-08-15 10:28:22'),
 (18, 14, 'dmWidgetContent', 'title', '', 1, '2011-08-01 10:55:42'),
 (19, 14, 'dmWidgetContent', 'text', '', 2, '2011-08-01 10:58:43'),
-(20, 14, 'pregunta', 'form', 'busqueda_form', 3, '2011-08-01 11:01:32');
+(20, 14, 'pregunta', 'form', 'busqueda_form', 3, '2011-08-01 11:01:32'),
+(21, 16, 'recurso', 'list', '', 1, '2011-08-22 22:21:25'),
+(23, 19, 'patente', 'list', 'recurso_list', 1, '2011-08-23 16:33:23'),
+(24, 17, 'patente', 'show', '', 1, '2011-08-22 16:53:21'),
+(25, 15, 'tesis', 'list', '', 1, '2011-08-23 14:00:40'),
+(26, 21, 'monografia', 'list', '', 1, '2011-08-23 14:02:35'),
+(27, 22, 'articulo', 'list', '', 1, '2011-08-23 14:04:39'),
+(28, 23, 'presentacion', 'list', '', 1, '2011-08-23 14:05:56'),
+(29, 24, 'bibliotecaPersonal', 'list', '', 1, '2011-08-23 14:07:57'),
+(30, 20, 'documentoLegal', 'list', '', 1, '2011-08-23 15:10:14');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_widget_translation`
+-- Estructura de tabla para la tabla `dm_widget_translation`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_widget_translation` (
@@ -2100,13 +2131,13 @@ CREATE TABLE IF NOT EXISTS `dm_widget_translation` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `dm_widget_translation`
+-- Volcar la base de datos para la tabla `dm_widget_translation`
 --
 
 INSERT INTO `dm_widget_translation` (`id`, `value`, `lang`) VALUES
 (1, '{"text":"Page not found","tag":"h1"}', 'es'),
 (2, '[]', 'es'),
-(3, '{"ulClass":"","liClass":"","menuClass":"","items":[{"link":"page:1","text":"INICIO","secure":0,"nofollow":0,"depth":"0"},{"link":"page:5","text":"B\\u00fasqueda Especializada","secure":0,"nofollow":0,"depth":"0"},{"link":"page:32","text":"PREGUNTE AL BIBLIOTECARIO","secure":0,"nofollow":0,"depth":"0"},{"link":"page:16","text":"Registrarse","secure":0,"nofollow":0,"depth":"0"}]}', 'es'),
+(3, '{"ulClass":"","liClass":"","menuClass":"","items":[{"link":"page:1","text":"INICIO","secure":0,"nofollow":0,"depth":"0"},{"link":"page:5","text":"B\\u00fasqueda Especializada","secure":0,"nofollow":0,"depth":"0"},{"link":"page:32","text":"PREGUNTE AL BIBLIOTECARIO","secure":0,"nofollow":0,"depth":"0"},{"link":"page:31","text":"Cat\\u00e1logo","secure":0,"nofollow":0,"depth":"0"},{"link":"page:16","text":"Registrarse","secure":0,"nofollow":0,"depth":"0"}]}', 'es'),
 (4, '{"text":"B\\u00fasqueda especializada","tag":"h1","href":""}', 'es'),
 (5, '{"title":"","text":"Llene el formulario con los datos necesarios para la b\\u00fasqueda.\\nRecuerde que cuanto m\\u00e1s datos ofrezca, m\\u00e1s pertinente ser\\u00e1 la b\\u00fasqueda.","mediaId":null,"titleLink":"","mediaLink":"","titlePosition":"outside","width":"","height":"","legend":"","method":"center","background":"FFFFFF","quality":null}', 'es'),
 (6, '[]', 'es'),
@@ -2121,12 +2152,21 @@ INSERT INTO `dm_widget_translation` (`id`, `value`, `lang`) VALUES
 (17, '[]', 'es'),
 (18, '{"text":"Pregunte al bibliotecario","tag":"h1","href":""}', 'es'),
 (19, '{"title":"","text":"Llene correctamente el formulario formulando un pregunta. Por favor sea claro en su redacci\\u00f3n para facilitar la comprensi\\u00f3n del bibliotecario y as\\u00ed garantizar una respuesta pertinente. Gracias ","mediaId":null,"titleLink":"","mediaLink":"","titlePosition":"outside","width":"","height":"","legend":"","method":"center","background":"FFFFFF","quality":null}', 'es'),
-(20, '[]', 'es');
+(20, '[]', 'es'),
+(21, '{"orderField":"created_at","orderType":"asc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es'),
+(23, '{"orderField":"position","orderType":"asc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es'),
+(24, '{"recordId":null}', 'es'),
+(25, '{"orderField":"position","orderType":"asc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es'),
+(26, '{"orderField":"position","orderType":"asc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es'),
+(27, '{"orderField":"position","orderType":"asc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es'),
+(28, '{"orderField":"position","orderType":"asc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es'),
+(29, '{"orderField":"position","orderType":"asc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es'),
+(30, '{"orderField":"created_at","orderType":"asc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `dm_zone`
+-- Estructura de tabla para la tabla `dm_zone`
 --
 
 CREATE TABLE IF NOT EXISTS `dm_zone` (
@@ -2137,10 +2177,10 @@ CREATE TABLE IF NOT EXISTS `dm_zone` (
   `position` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `dm_area_id_idx` (`dm_area_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=25 ;
 
 --
--- Dumping data for table `dm_zone`
+-- Volcar la base de datos para la tabla `dm_zone`
 --
 
 INSERT INTO `dm_zone` (`id`, `dm_area_id`, `css_class`, `width`, `position`) VALUES
@@ -2158,12 +2198,21 @@ INSERT INTO `dm_zone` (`id`, `dm_area_id`, `css_class`, `width`, `position`) VAL
 (12, 11, NULL, NULL, -11),
 (13, 12, NULL, NULL, -12),
 (14, 13, NULL, NULL, -13),
-(15, 14, NULL, NULL, -14);
+(15, 14, NULL, NULL, -14),
+(16, 15, NULL, NULL, -15),
+(17, 16, NULL, NULL, -16),
+(18, 17, NULL, NULL, -17),
+(19, 18, NULL, NULL, -18),
+(20, 19, NULL, NULL, -19),
+(21, 20, NULL, NULL, -20),
+(22, 21, NULL, NULL, -21),
+(23, 22, NULL, NULL, -22),
+(24, 23, NULL, NULL, -23);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `documento_legal_version`
+-- Estructura de tabla para la tabla `documento_legal_version`
 --
 
 CREATE TABLE IF NOT EXISTS `documento_legal_version` (
@@ -2206,7 +2255,7 @@ CREATE TABLE IF NOT EXISTS `documento_legal_version` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `documento_legal_version`
+-- Volcar la base de datos para la tabla `documento_legal_version`
 --
 
 INSERT INTO `documento_legal_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `aprobado`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `palabras_claves`, `slide_id`) VALUES
@@ -2216,7 +2265,7 @@ INSERT INTO `documento_legal_version` (`id`, `titulo`, `anno`, `resumen`, `idiom
 -- --------------------------------------------------------
 
 --
--- Table structure for table `migration_version`
+-- Estructura de tabla para la tabla `migration_version`
 --
 
 CREATE TABLE IF NOT EXISTS `migration_version` (
@@ -2224,7 +2273,7 @@ CREATE TABLE IF NOT EXISTS `migration_version` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data for table `migration_version`
+-- Volcar la base de datos para la tabla `migration_version`
 --
 
 INSERT INTO `migration_version` (`version`) VALUES
@@ -2233,7 +2282,7 @@ INSERT INTO `migration_version` (`version`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `monografia_version`
+-- Estructura de tabla para la tabla `monografia_version`
 --
 
 CREATE TABLE IF NOT EXISTS `monografia_version` (
@@ -2276,17 +2325,19 @@ CREATE TABLE IF NOT EXISTS `monografia_version` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `monografia_version`
+-- Volcar la base de datos para la tabla `monografia_version`
 --
 
 INSERT INTO `monografia_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `aprobado`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `palabras_claves`, `slide_id`) VALUES
 (5, 'Este libro promete', '1970', 'Esto trata sobre terminar una tesis', 'fr', 0, 1, 0, 'Monografia', '', '', 200, '', '', NULL, NULL, '', '', 'gente nueva', 'dfdfgdfdg54', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 21:14:39', '2011-08-20 21:14:39', 1, 'tesis ruso ahora', 41),
-(5, 'Este libro promete', '1970', 'Esto trata sobre terminar una tesis', 'fr', 0, 1, 0, 'Monografia', '', '', 200, '', '', NULL, NULL, '', '', 'gente nueva', 'dfdfgdfdg54', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 21:14:39', '2011-08-20 21:14:39', 2, 'tesis ruso ahora', 41);
+(5, 'Este libro promete', '1970', 'Esto trata sobre terminar una tesis', 'fr', 0, 1, 0, 'Monografia', '', '', 200, '', '', NULL, NULL, '', '', 'gente nueva', 'dfdfgdfdg54', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 21:14:39', '2011-08-20 21:14:39', 2, 'tesis ruso ahora', 41),
+(5, 'Este libro promete', '1970', 'Esto trata sobre terminar una tesis', 'fr', 0, 0, 0, 'Monografia', '', '', 200, '', '', NULL, NULL, '', '', 'gente nueva', 'dfdfgdfdg54', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 21:14:39', '2011-08-22 13:44:26', 3, 'tesis ruso ahora', 41),
+(5, 'Este libro promete', '1970', 'Esto trata sobre terminar una tesis', 'fr', 0, 1, 0, 'Monografia', '', '', 200, '', '', NULL, NULL, '', '', 'gente nueva', 'dfdfgdfdg54', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 21:14:39', '2011-08-22 13:44:27', 4, 'tesis ruso ahora', 41);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `patente_version`
+-- Estructura de tabla para la tabla `patente_version`
 --
 
 CREATE TABLE IF NOT EXISTS `patente_version` (
@@ -2329,7 +2380,7 @@ CREATE TABLE IF NOT EXISTS `patente_version` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `patente_version`
+-- Volcar la base de datos para la tabla `patente_version`
 --
 
 INSERT INTO `patente_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `aprobado`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `palabras_claves`, `slide_id`) VALUES
@@ -2341,15 +2392,17 @@ INSERT INTO `patente_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `apr
 (2, 'patente sobre comida', '1970', 'Se trata de cmo preparar abicguelas', 'es', 0, 1, 0, 'Patente', 'Cuba', 'CNIC', 50, 'po121231A4546', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-20 18:39:08', 6, 'Abichuelas, comida, preparar', 39),
 (2, 'patente sobre comida', '1970', 'Se trata de cmo preparar abicguelas', 'es', 0, 1, 0, 'Patente', 'Cuba', 'CNIC', 150, 'po121231A4546', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-20 18:44:37', 7, 'Abichuelas, comida, preparar', 39),
 (2, 'patente sobre comida', '1970', 'Se trata de cmo preparar abicguelas', 'es', 0, 1, 0, 'Patente', 'Cuba', 'CNIC', 150, 'po121231A4546', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-20 18:44:50', 8, 'Abichuelas, comida, preparar', 39),
+(2, 'patente sobre comida', '1970', '', 'es', 0, 1, 0, 'Patente', 'Cuba', 'CNIC', 150, 'po121231A4546', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-22 22:49:44', 9, 'Abichuelas, comida, preparar', 39),
 (3, 'Otra patente', '1970', 'Que decir esto no se si será obligatorio', 'es', 0, 0, 1, 'Patente', 'EUA', 'CUJAE', 0, 'asdadsasdaA', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:43:15', '2011-08-20 18:43:15', 1, 'comida rapida china', NULL),
 (3, 'Otra patente', '1970', 'Que decir esto no se si será obligatorio', 'es', 0, 0, 1, 'Patente', 'EUA', 'CUJAE', 0, 'asdadsasdaA', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:43:15', '2011-08-20 18:43:16', 2, 'comida rapida china', NULL),
 (3, 'Otra patente', '1970', 'Que decir esto no se si será obligatorio', 'es', 0, 0, 1, 'Patente', 'EUA', 'CUJAE', 0, 'asdadsasdaA', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:43:15', '2011-08-20 18:45:42', 3, 'comida rapida china', NULL),
-(3, 'Otra patente', '1970', 'Que decir esto no se si será obligatorio', 'es', 0, 0, 1, 'Patente', 'EUA', 'CUJAE', 5, 'asdadsasdaA', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:43:15', '2011-08-20 18:47:34', 4, 'comida rapida china', NULL);
+(3, 'Otra patente', '1970', 'Que decir esto no se si será obligatorio', 'es', 0, 0, 1, 'Patente', 'EUA', 'CUJAE', 5, 'asdadsasdaA', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:43:15', '2011-08-20 18:47:34', 4, 'comida rapida china', NULL),
+(3, 'Otra patente', '1970', 'Que decir esto no se si será obligatorio', 'es', 0, 1, 1, 'Patente', 'EUA', 'CUJAE', 5, 'asdadsasdaA', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:43:15', '2011-08-22 16:36:43', 5, 'comida rapida china', NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pregunta`
+-- Estructura de tabla para la tabla `pregunta`
 --
 
 CREATE TABLE IF NOT EXISTS `pregunta` (
@@ -2364,7 +2417,7 @@ CREATE TABLE IF NOT EXISTS `pregunta` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
--- Dumping data for table `pregunta`
+-- Volcar la base de datos para la tabla `pregunta`
 --
 
 INSERT INTO `pregunta` (`id`, `titulo`, `mensaje`, `created_at`, `updated_at`, `dm_user_id`) VALUES
@@ -2379,7 +2432,7 @@ INSERT INTO `pregunta` (`id`, `titulo`, `mensaje`, `created_at`, `updated_at`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `presentacion_version`
+-- Estructura de tabla para la tabla `presentacion_version`
 --
 
 CREATE TABLE IF NOT EXISTS `presentacion_version` (
@@ -2422,7 +2475,7 @@ CREATE TABLE IF NOT EXISTS `presentacion_version` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `presentacion_version`
+-- Volcar la base de datos para la tabla `presentacion_version`
 --
 
 INSERT INTO `presentacion_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `aprobado`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `palabras_claves`, `slide_id`) VALUES
@@ -2434,7 +2487,7 @@ INSERT INTO `presentacion_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `prestamo`
+-- Estructura de tabla para la tabla `prestamo`
 --
 
 CREATE TABLE IF NOT EXISTS `prestamo` (
@@ -2450,14 +2503,14 @@ CREATE TABLE IF NOT EXISTS `prestamo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `prestamo`
+-- Volcar la base de datos para la tabla `prestamo`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recurso`
+-- Estructura de tabla para la tabla `recurso`
 --
 
 CREATE TABLE IF NOT EXISTS `recurso` (
@@ -2507,14 +2560,14 @@ CREATE TABLE IF NOT EXISTS `recurso` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
 
 --
--- Dumping data for table `recurso`
+-- Volcar la base de datos para la tabla `recurso`
 --
 
 INSERT INTO `recurso` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `aprobado`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `position`, `created_by`, `updated_by`, `palabras_claves`, `slide_id`) VALUES
-(2, 'patente sobre comida', '1970', 'Se trata de cmo preparar abicguelas', 'es', 0, 1, 0, 'Patente', 'Cuba', 'CNIC', 150, 'po121231A4546', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-20 18:44:50', 8, -1, NULL, 1, 'Abichuelas, comida, preparar', 39),
-(3, 'Otra patente', '1970', 'Que decir esto no se si será obligatorio', 'es', 0, 0, 1, 'Patente', 'EUA', 'CUJAE', 5, 'asdadsasdaA', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:43:15', '2011-08-20 18:47:34', 4, -2, NULL, 1, 'comida rapida china', NULL),
+(2, 'patente sobre comida', '1970', '', 'es', 0, 1, 0, 'Patente', 'Cuba', 'CNIC', 150, 'po121231A4546', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-22 22:49:44', 9, -1, NULL, 1, 'Abichuelas, comida, preparar', 39),
+(3, 'Otra patente', '1970', 'Que decir esto no se si será obligatorio', 'es', 0, 1, 1, 'Patente', 'EUA', 'CUJAE', 5, 'asdadsasdaA', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:43:15', '2011-08-22 16:36:43', 5, -2, NULL, 1, 'comida rapida china', NULL),
 (4, 'Ley contra el aborto de nutrias', '1970', 'Realmente las nutrias no están de acuerdo', 'en', 0, 1, 0, 'DocumentoLegal', '', '', 122, '', 'MES', 'Reglamento', NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 19:51:12', '2011-08-20 19:51:12', 2, -1, 1, 1, 'nutrias aborto desparpajo', 40),
-(5, 'Este libro promete', '1970', 'Esto trata sobre terminar una tesis', 'fr', 0, 1, 0, 'Monografia', '', '', 200, '', '', NULL, NULL, '', '', 'gente nueva', 'dfdfgdfdg54', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 21:14:39', '2011-08-20 21:14:39', 2, -1, 1, 1, 'tesis ruso ahora', 41),
+(5, 'Este libro promete', '1970', 'Esto trata sobre terminar una tesis', 'fr', 0, 1, 0, 'Monografia', '', '', 200, '', '', NULL, NULL, '', '', 'gente nueva', 'dfdfgdfdg54', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 21:14:39', '2011-08-22 13:44:27', 4, -1, 1, 1, 'tesis ruso ahora', 41),
 (6, 'Revista de animales', '1970', 'Los animales se comen a los mosquitos', 'es', 0, 1, 1, 'Articulo', '', '', NULL, '', '', NULL, NULL, '', '', '', '', '1', '2000', 4, 6, '1234', NULL, '', '', '', NULL, '2011-08-21 13:13:07', '2011-08-21 13:13:08', 2, -1, 1, 1, 'animales lagartijas cocodrilos', NULL),
 (7, 'Presentacion sobre ', '1970', 'esta presentaci''on es sobre algo que no recuerdo', 'ru', 0, 1, 0, 'Presentacion', '', '', NULL, '', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', 0, '', '', '', NULL, '2011-08-21 14:26:38', '2011-08-21 14:26:39', 2, -1, 1, 1, 'sobre', 42),
 (8, 'Presentacion sobre ', '1970', 'esta presentaci''on es sobre algo que no recuerdo', 'ru', 0, 1, 0, 'Presentacion', '', '', NULL, '', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', 0, '', '', '', NULL, '2011-08-21 14:29:02', '2011-08-21 14:29:02', 2, -2, 1, 1, 'sobre', 43),
@@ -2523,7 +2576,7 @@ INSERT INTO `recurso` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `aprobado`, 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recurso_autor`
+-- Estructura de tabla para la tabla `recurso_autor`
 --
 
 CREATE TABLE IF NOT EXISTS `recurso_autor` (
@@ -2534,14 +2587,14 @@ CREATE TABLE IF NOT EXISTS `recurso_autor` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `recurso_autor`
+-- Volcar la base de datos para la tabla `recurso_autor`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recurso_tematica`
+-- Estructura de tabla para la tabla `recurso_tematica`
 --
 
 CREATE TABLE IF NOT EXISTS `recurso_tematica` (
@@ -2552,14 +2605,14 @@ CREATE TABLE IF NOT EXISTS `recurso_tematica` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `recurso_tematica`
+-- Volcar la base de datos para la tabla `recurso_tematica`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recurso_version`
+-- Estructura de tabla para la tabla `recurso_version`
 --
 
 CREATE TABLE IF NOT EXISTS `recurso_version` (
@@ -2602,14 +2655,14 @@ CREATE TABLE IF NOT EXISTS `recurso_version` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `recurso_version`
+-- Volcar la base de datos para la tabla `recurso_version`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `respuesta`
+-- Estructura de tabla para la tabla `respuesta`
 --
 
 CREATE TABLE IF NOT EXISTS `respuesta` (
@@ -2627,7 +2680,7 @@ CREATE TABLE IF NOT EXISTS `respuesta` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
 
 --
--- Dumping data for table `respuesta`
+-- Volcar la base de datos para la tabla `respuesta`
 --
 
 INSERT INTO `respuesta` (`id`, `mensaje`, `pregunta_id`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
@@ -2637,7 +2690,7 @@ INSERT INTO `respuesta` (`id`, `mensaje`, `pregunta_id`, `created_at`, `updated_
 -- --------------------------------------------------------
 
 --
--- Table structure for table `respuestab`
+-- Estructura de tabla para la tabla `respuestab`
 --
 
 CREATE TABLE IF NOT EXISTS `respuestab` (
@@ -2656,7 +2709,7 @@ CREATE TABLE IF NOT EXISTS `respuestab` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `respuestab`
+-- Volcar la base de datos para la tabla `respuestab`
 --
 
 INSERT INTO `respuestab` (`id`, `mensaje`, `busqueda_id`, `uri`, `created_at`, `updated_at`, `created_by`, `updated_by`) VALUES
@@ -2669,7 +2722,7 @@ INSERT INTO `respuestab` (`id`, `mensaje`, `busqueda_id`, `uri`, `created_at`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `solicitud_prestamo`
+-- Estructura de tabla para la tabla `solicitud_prestamo`
 --
 
 CREATE TABLE IF NOT EXISTS `solicitud_prestamo` (
@@ -2687,14 +2740,14 @@ CREATE TABLE IF NOT EXISTS `solicitud_prestamo` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `solicitud_prestamo`
+-- Volcar la base de datos para la tabla `solicitud_prestamo`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tematica`
+-- Estructura de tabla para la tabla `tematica`
 --
 
 CREATE TABLE IF NOT EXISTS `tematica` (
@@ -2704,14 +2757,14 @@ CREATE TABLE IF NOT EXISTS `tematica` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `tematica`
+-- Volcar la base de datos para la tabla `tematica`
 --
 
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tesis_version`
+-- Estructura de tabla para la tabla `tesis_version`
 --
 
 CREATE TABLE IF NOT EXISTS `tesis_version` (
@@ -2754,7 +2807,7 @@ CREATE TABLE IF NOT EXISTS `tesis_version` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
--- Dumping data for table `tesis_version`
+-- Volcar la base de datos para la tabla `tesis_version`
 --
 
 INSERT INTO `tesis_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `aprobado`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `palabras_claves`, `slide_id`) VALUES
@@ -2762,192 +2815,192 @@ INSERT INTO `tesis_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `aprob
 (9, 'teses de cosas raras', '1970', 'Esta tesis esta en talla no se si ya', 'es', 0, 1, 0, 'Tesis', '', 'CNIC', 124, '', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, 'Software', 'habana', 'rafix, dalmer', 'Diplomado', '2011-08-21 17:33:02', '2011-08-21 17:33:02', 2, 'raro negro azul', 44);
 
 --
--- Constraints for dumped tables
+-- Filtros para las tablas descargadas (dump)
 --
 
 --
--- Constraints for table `articulo_version`
+-- Filtros para la tabla `articulo_version`
 --
 ALTER TABLE `articulo_version`
   ADD CONSTRAINT `articulo_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `biblioteca_personal_version`
+-- Filtros para la tabla `biblioteca_personal_version`
 --
 ALTER TABLE `biblioteca_personal_version`
   ADD CONSTRAINT `biblioteca_personal_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `busqueda`
+-- Filtros para la tabla `busqueda`
 --
 ALTER TABLE `busqueda`
   ADD CONSTRAINT `busqueda_dm_user_id_dm_user_id` FOREIGN KEY (`dm_user_id`) REFERENCES `dm_user` (`id`);
 
 --
--- Constraints for table `descarga`
+-- Filtros para la tabla `descarga`
 --
 ALTER TABLE `descarga`
   ADD CONSTRAINT `descarga_dm_user_id_dm_user_id` FOREIGN KEY (`dm_user_id`) REFERENCES `dm_user` (`id`),
   ADD CONSTRAINT `descarga_recurso_id_recurso_id` FOREIGN KEY (`recurso_id`) REFERENCES `recurso` (`id`);
 
 --
--- Constraints for table `diseminacion`
+-- Filtros para la tabla `diseminacion`
 --
 ALTER TABLE `diseminacion`
   ADD CONSTRAINT `diseminacion_dm_user_id_dm_user_id` FOREIGN KEY (`dm_user_id`) REFERENCES `dm_user` (`id`),
   ADD CONSTRAINT `diseminacion_tematica_id_tematica_id` FOREIGN KEY (`tematica_id`) REFERENCES `tematica` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_area`
+-- Filtros para la tabla `dm_area`
 --
 ALTER TABLE `dm_area`
   ADD CONSTRAINT `dm_area_dm_layout_id_dm_layout_id` FOREIGN KEY (`dm_layout_id`) REFERENCES `dm_layout` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `dm_area_dm_page_view_id_dm_page_view_id` FOREIGN KEY (`dm_page_view_id`) REFERENCES `dm_page_view` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_auto_seo_translation`
+-- Filtros para la tabla `dm_auto_seo_translation`
 --
 ALTER TABLE `dm_auto_seo_translation`
   ADD CONSTRAINT `dm_auto_seo_translation_id_dm_auto_seo_id` FOREIGN KEY (`id`) REFERENCES `dm_auto_seo` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `dm_group_permission`
+-- Filtros para la tabla `dm_group_permission`
 --
 ALTER TABLE `dm_group_permission`
   ADD CONSTRAINT `dm_group_permission_dm_group_id_dm_group_id` FOREIGN KEY (`dm_group_id`) REFERENCES `dm_group` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `dm_group_permission_dm_permission_id_dm_permission_id` FOREIGN KEY (`dm_permission_id`) REFERENCES `dm_permission` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_lock`
+-- Filtros para la tabla `dm_lock`
 --
 ALTER TABLE `dm_lock`
   ADD CONSTRAINT `dm_lock_user_id_dm_user_id` FOREIGN KEY (`user_id`) REFERENCES `dm_user` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_mail_template_translation`
+-- Filtros para la tabla `dm_mail_template_translation`
 --
 ALTER TABLE `dm_mail_template_translation`
   ADD CONSTRAINT `dm_mail_template_translation_id_dm_mail_template_id` FOREIGN KEY (`id`) REFERENCES `dm_mail_template` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `dm_media`
+-- Filtros para la tabla `dm_media`
 --
 ALTER TABLE `dm_media`
   ADD CONSTRAINT `dm_media_dm_media_folder_id_dm_media_folder_id` FOREIGN KEY (`dm_media_folder_id`) REFERENCES `dm_media_folder` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_page_translation`
+-- Filtros para la tabla `dm_page_translation`
 --
 ALTER TABLE `dm_page_translation`
   ADD CONSTRAINT `dm_page_translation_id_dm_page_id` FOREIGN KEY (`id`) REFERENCES `dm_page` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `dm_page_view`
+-- Filtros para la tabla `dm_page_view`
 --
 ALTER TABLE `dm_page_view`
   ADD CONSTRAINT `dm_page_view_dm_layout_id_dm_layout_id` FOREIGN KEY (`dm_layout_id`) REFERENCES `dm_layout` (`id`) ON DELETE SET NULL;
 
 --
--- Constraints for table `dm_remember_key`
+-- Filtros para la tabla `dm_remember_key`
 --
 ALTER TABLE `dm_remember_key`
   ADD CONSTRAINT `dm_remember_key_dm_user_id_dm_user_id` FOREIGN KEY (`dm_user_id`) REFERENCES `dm_user` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_sent_mail`
+-- Filtros para la tabla `dm_sent_mail`
 --
 ALTER TABLE `dm_sent_mail`
   ADD CONSTRAINT `dm_sent_mail_dm_mail_template_id_dm_mail_template_id` FOREIGN KEY (`dm_mail_template_id`) REFERENCES `dm_mail_template` (`id`) ON DELETE SET NULL;
 
 --
--- Constraints for table `dm_setting_translation`
+-- Filtros para la tabla `dm_setting_translation`
 --
 ALTER TABLE `dm_setting_translation`
   ADD CONSTRAINT `dm_setting_translation_id_dm_setting_id` FOREIGN KEY (`id`) REFERENCES `dm_setting` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `dm_trans_unit`
+-- Filtros para la tabla `dm_trans_unit`
 --
 ALTER TABLE `dm_trans_unit`
   ADD CONSTRAINT `dm_trans_unit_dm_catalogue_id_dm_catalogue_id` FOREIGN KEY (`dm_catalogue_id`) REFERENCES `dm_catalogue` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_user`
+-- Filtros para la tabla `dm_user`
 --
 ALTER TABLE `dm_user`
   ADD CONSTRAINT `dm_user_foto_id_dm_media_id` FOREIGN KEY (`foto_id`) REFERENCES `dm_media` (`id`);
 
 --
--- Constraints for table `dm_user_group`
+-- Filtros para la tabla `dm_user_group`
 --
 ALTER TABLE `dm_user_group`
   ADD CONSTRAINT `dm_user_group_dm_group_id_dm_group_id` FOREIGN KEY (`dm_group_id`) REFERENCES `dm_group` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `dm_user_group_dm_user_id_dm_user_id` FOREIGN KEY (`dm_user_id`) REFERENCES `dm_user` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_user_permission`
+-- Filtros para la tabla `dm_user_permission`
 --
 ALTER TABLE `dm_user_permission`
   ADD CONSTRAINT `dm_user_permission_dm_permission_id_dm_permission_id` FOREIGN KEY (`dm_permission_id`) REFERENCES `dm_permission` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `dm_user_permission_dm_user_id_dm_user_id` FOREIGN KEY (`dm_user_id`) REFERENCES `dm_user` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_widget`
+-- Filtros para la tabla `dm_widget`
 --
 ALTER TABLE `dm_widget`
   ADD CONSTRAINT `dm_widget_dm_zone_id_dm_zone_id` FOREIGN KEY (`dm_zone_id`) REFERENCES `dm_zone` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `dm_widget_translation`
+-- Filtros para la tabla `dm_widget_translation`
 --
 ALTER TABLE `dm_widget_translation`
   ADD CONSTRAINT `dm_widget_translation_id_dm_widget_id` FOREIGN KEY (`id`) REFERENCES `dm_widget` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `dm_zone`
+-- Filtros para la tabla `dm_zone`
 --
 ALTER TABLE `dm_zone`
   ADD CONSTRAINT `dm_zone_dm_area_id_dm_area_id` FOREIGN KEY (`dm_area_id`) REFERENCES `dm_area` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `documento_legal_version`
+-- Filtros para la tabla `documento_legal_version`
 --
 ALTER TABLE `documento_legal_version`
   ADD CONSTRAINT `documento_legal_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `monografia_version`
+-- Filtros para la tabla `monografia_version`
 --
 ALTER TABLE `monografia_version`
   ADD CONSTRAINT `monografia_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `patente_version`
+-- Filtros para la tabla `patente_version`
 --
 ALTER TABLE `patente_version`
   ADD CONSTRAINT `patente_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `pregunta`
+-- Filtros para la tabla `pregunta`
 --
 ALTER TABLE `pregunta`
   ADD CONSTRAINT `pregunta_dm_user_id_dm_user_id` FOREIGN KEY (`dm_user_id`) REFERENCES `dm_user` (`id`);
 
 --
--- Constraints for table `presentacion_version`
+-- Filtros para la tabla `presentacion_version`
 --
 ALTER TABLE `presentacion_version`
   ADD CONSTRAINT `presentacion_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `prestamo`
+-- Filtros para la tabla `prestamo`
 --
 ALTER TABLE `prestamo`
   ADD CONSTRAINT `prestamo_dm_user_id_dm_user_id` FOREIGN KEY (`dm_user_id`) REFERENCES `dm_user` (`id`),
   ADD CONSTRAINT `prestamo_recurso_id_recurso_id` FOREIGN KEY (`recurso_id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `recurso`
+-- Filtros para la tabla `recurso`
 --
 ALTER TABLE `recurso`
   ADD CONSTRAINT `recurso_created_by_dm_user_id` FOREIGN KEY (`created_by`) REFERENCES `dm_user` (`id`),
@@ -2955,27 +3008,27 @@ ALTER TABLE `recurso`
   ADD CONSTRAINT `recurso_updated_by_dm_user_id` FOREIGN KEY (`updated_by`) REFERENCES `dm_user` (`id`);
 
 --
--- Constraints for table `recurso_autor`
+-- Filtros para la tabla `recurso_autor`
 --
 ALTER TABLE `recurso_autor`
   ADD CONSTRAINT `recurso_autor_autor_id_autor_id` FOREIGN KEY (`autor_id`) REFERENCES `autor` (`id`),
   ADD CONSTRAINT `recurso_autor_recurso_id_recurso_id` FOREIGN KEY (`recurso_id`) REFERENCES `recurso` (`id`);
 
 --
--- Constraints for table `recurso_tematica`
+-- Filtros para la tabla `recurso_tematica`
 --
 ALTER TABLE `recurso_tematica`
   ADD CONSTRAINT `recurso_tematica_recurso_id_recurso_id` FOREIGN KEY (`recurso_id`) REFERENCES `recurso` (`id`),
   ADD CONSTRAINT `recurso_tematica_tematica_id_tematica_id` FOREIGN KEY (`tematica_id`) REFERENCES `tematica` (`id`);
 
 --
--- Constraints for table `recurso_version`
+-- Filtros para la tabla `recurso_version`
 --
 ALTER TABLE `recurso_version`
   ADD CONSTRAINT `recurso_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `respuesta`
+-- Filtros para la tabla `respuesta`
 --
 ALTER TABLE `respuesta`
   ADD CONSTRAINT `respuesta_created_by_dm_user_id` FOREIGN KEY (`created_by`) REFERENCES `dm_user` (`id`),
@@ -2983,7 +3036,7 @@ ALTER TABLE `respuesta`
   ADD CONSTRAINT `respuesta_updated_by_dm_user_id` FOREIGN KEY (`updated_by`) REFERENCES `dm_user` (`id`);
 
 --
--- Constraints for table `respuestab`
+-- Filtros para la tabla `respuestab`
 --
 ALTER TABLE `respuestab`
   ADD CONSTRAINT `respuestab_busqueda_id_busqueda_id` FOREIGN KEY (`busqueda_id`) REFERENCES `busqueda` (`id`) ON DELETE CASCADE,
@@ -2991,14 +3044,14 @@ ALTER TABLE `respuestab`
   ADD CONSTRAINT `respuestab_updated_by_dm_user_id` FOREIGN KEY (`updated_by`) REFERENCES `dm_user` (`id`);
 
 --
--- Constraints for table `solicitud_prestamo`
+-- Filtros para la tabla `solicitud_prestamo`
 --
 ALTER TABLE `solicitud_prestamo`
   ADD CONSTRAINT `solicitud_prestamo_dm_user_id_dm_user_id` FOREIGN KEY (`dm_user_id`) REFERENCES `dm_user` (`id`),
   ADD CONSTRAINT `solicitud_prestamo_recurso_id_recurso_id` FOREIGN KEY (`recurso_id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE;
 
 --
--- Constraints for table `tesis_version`
+-- Filtros para la tabla `tesis_version`
 --
 ALTER TABLE `tesis_version`
   ADD CONSTRAINT `tesis_version_id_recurso_id` FOREIGN KEY (`id`) REFERENCES `recurso` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;

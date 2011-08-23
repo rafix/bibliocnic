@@ -8,7 +8,7 @@ foreach ($tesisPager as $tesis)
 {
   echo _open('li.element');
 
-    echo _link($tesis);
+    echo _link($tesis)->text($tesis->titulo);
 
   echo _close('li');
 }
