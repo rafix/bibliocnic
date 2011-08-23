@@ -8,7 +8,7 @@ foreach ($bibliotecaPersonalPager as $bibliotecaPersonal)
 {
   echo _open('li.element');
 
-    echo _link($bibliotecaPersonal);
+    echo _link($bibliotecaPersonal)->text($bibliotecaPersonal->titulo);
 
   echo _close('li');
 }

@@ -8,7 +8,7 @@ foreach ($articuloPager as $articulo)
 {
   echo _open('li.element');
 
-    echo _link($articulo);
+    echo _link($articulo)->text($articulo->titulo);
 
   echo _close('li');
 }

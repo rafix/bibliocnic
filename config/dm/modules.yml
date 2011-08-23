@@ -73,7 +73,7 @@ Content:
         form:
     DocumentoLegal:
       page: true
-      componets:
+      components:
         list:
         show:
         form:

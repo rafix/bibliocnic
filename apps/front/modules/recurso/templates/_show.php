@@ -1,3 +1,3 @@
 <?php // Vars: $recurso
 
-echo $recurso;
+echo $recurso->titulo;
