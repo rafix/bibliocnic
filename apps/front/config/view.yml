@@ -12,6 +12,7 @@ default:
     - main
     - markdown
     - typography
+    - recursos
 
   javascripts:
 

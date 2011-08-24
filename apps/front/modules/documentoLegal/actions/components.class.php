@@ -6,6 +6,24 @@
  */
 class documentoLegalComponents extends myFrontModuleComponents
 {
+public function executeList()
+  {
+    $query = $this->getListQuery();
+    
+    $this->documentoLegalPager = $this->getPager($query);
+  }
+
+  public function executeShow()
+  {
+    $query = $this->getShowQuery();
+    
+    $this->documentoLegal = $this->getRecord($query);
+  }
+
+  public function executeForm()
+  {
+    $this->form = $this->forms['documentolegal'];
+  }
 
 
 }

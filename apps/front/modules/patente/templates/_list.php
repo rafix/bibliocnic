@@ -8,7 +8,13 @@ foreach ($patentePager as $patente)
 {
   echo _open('li.element');
 
-    echo _link($patente);
+    echo 'T&iacutetulo: '._link($patente)->text($patente->titulo);
+	if($patente->resumen){
+	  
+	  echo _tag('p', 'Resumen: '.markdown($patente->resumen, '.resumen'));}
+	  else{
+	  echo _tag('p.recurso_list', 'Sin resumen');
+	  }
 
   echo _close('li');
 }

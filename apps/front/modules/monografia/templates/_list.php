@@ -8,7 +8,7 @@ foreach ($monografiaPager as $monografia)
 {
   echo _open('li.element');
 
-    echo _link($monografia);
+    echo _link($monografia)->text($monografia->titulo);
 
   echo _close('li');
 }
