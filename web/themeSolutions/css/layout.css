@@ -17,7 +17,7 @@ body{
 	padding:0;
 	font-size:13px;
 	font-family:verdana, Arial, Helvetica, sans-serif;
-	color:#CCCCCC;
+	color:#fff;
 	background-color:#000000;
 	}
 div.dm_layout {
@@ -29,9 +29,9 @@ div.dm_layout {
   float: right;
   width: 27.5%;
   padding: 10px;
-  background-color:#333;
+  background-color: #1F262C;
   1border: 1px solid #7C7C7C;
-  
+  min-height: 300px;
 }
 .header_left {
 width: 30%;
@@ -47,8 +47,9 @@ float: right
   float: left;
   width: 70%;
   padding: 20px 0 0 0;
-  background-color:#3B4852;
+  background-color:#22292F;
   min-height: 300px;
+
 
 }
 #dm_content .dm_page_content {
@@ -66,6 +67,7 @@ bottom: 0;
 .dm_layout_top{
   height: 170px;
   position: relative;
+  margin-top: 15px;
 }
 
 

@@ -63,7 +63,7 @@ class RecursoForm extends BaseRecursoForm
   
   $this->validatorSchema['idioma'] = new sfValidatorString(array( 'required' => false));
   
-  $this->validatorSchema['aprobado'] = new sfValidatorBoolean();
+  $this->validatorSchema['prestado'] = new sfValidatorBoolean();
   $this->validatorSchema['is_active'] = new sfValidatorBoolean();
   $this->validatorSchema['formato_duro'] = new sfValidatorBoolean();
   

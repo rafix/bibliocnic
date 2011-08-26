@@ -24,7 +24,7 @@ generator:
           - '=titulo'
           - anno
           - idioma
-          - aprobado
+          - prestado
           - is_active
           - formato_duro
           - palabras_claves
@@ -47,7 +47,7 @@ generator:
       filter:
         display:
           - id
-          - aprobado
+          - prestado
           - is_active
           - formato_duro
           - titulo
@@ -63,7 +63,7 @@ generator:
           - updated_by
       form:
         display:
-          NONE: [aprobado, is_active, formato_duro]
+          NONE: [prestado, is_active, formato_duro]
           Slide: [slide_id_form, slide_id_view]
           Datos: [titulo, anno, resumen, idioma, palabras_claves, pais, institucion, total_paginas, num_internacional, tematicas_list]
         class: PatenteAdminForm

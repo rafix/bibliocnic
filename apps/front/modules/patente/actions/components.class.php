@@ -15,10 +15,13 @@ class patenteComponents extends myFrontModuleComponents
   }
 
   public function executeShow()
-  {
+  { 
+    
     $query = $this->getShowQuery();
     
     $this->patente = $this->getRecord($query);
+	
+	
   }
 
   public function executeForm()

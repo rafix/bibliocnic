@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 23-08-2011 a las 16:54:29
+-- Tiempo de generación: 25-08-2011 a las 17:42:17
 -- Versión del servidor: 5.1.41
 -- Versión de PHP: 5.3.1
 
@@ -31,7 +31,6 @@ CREATE TABLE IF NOT EXISTS `articulo_version` (
   `anno` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
   `resumen` longtext COLLATE utf8_unicode_ci,
   `idioma` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `aprobado` tinyint(1) DEFAULT '0',
   `is_active` tinyint(1) DEFAULT '0',
   `formato_duro` tinyint(1) DEFAULT '0',
   `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -42,7 +41,7 @@ CREATE TABLE IF NOT EXISTS `articulo_version` (
   `organismo` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tipo_dc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `cant_registros` int(11) DEFAULT NULL,
-  `fecha_inicial` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fecha_inicial` datetime NOT NULL,
   `ciudad_pub` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `editorial` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `isbn` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -61,6 +60,11 @@ CREATE TABLE IF NOT EXISTS `articulo_version` (
   `version` bigint(20) NOT NULL DEFAULT '0',
   `palabras_claves` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `slide_id` bigint(20) DEFAULT NULL,
+  `prestado` tinyint(1) DEFAULT '0',
+  `consultado` bigint(20) DEFAULT NULL,
+  `descargado` bigint(20) DEFAULT NULL,
+  `fecha_final` datetime NOT NULL,
+  `num_inventario` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -68,9 +72,9 @@ CREATE TABLE IF NOT EXISTS `articulo_version` (
 -- Volcar la base de datos para la tabla `articulo_version`
 --
 
-INSERT INTO `articulo_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `aprobado`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `palabras_claves`, `slide_id`) VALUES
-(6, 'Revista de animales', '1970', 'Los animales se comen a los mosquitos', 'es', 0, 1, 1, 'Articulo', '', '', NULL, '', '', NULL, NULL, '', '', '', '', '1', '2000', 4, 6, '1234', NULL, '', '', '', NULL, '2011-08-21 13:13:07', '2011-08-21 13:13:07', 1, 'animales lagartijas cocodrilos', NULL),
-(6, 'Revista de animales', '1970', 'Los animales se comen a los mosquitos', 'es', 0, 1, 1, 'Articulo', '', '', NULL, '', '', NULL, NULL, '', '', '', '', '1', '2000', 4, 6, '1234', NULL, '', '', '', NULL, '2011-08-21 13:13:07', '2011-08-21 13:13:08', 2, 'animales lagartijas cocodrilos', NULL);
+INSERT INTO `articulo_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `palabras_claves`, `slide_id`, `prestado`, `consultado`, `descargado`, `fecha_final`, `num_inventario`) VALUES
+(6, 'Revista de animales', '1970', 'Los animales se comen a los mosquitos', 'es', 1, 1, 'Articulo', '', '', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '1', '2000', 4, 6, '1234', NULL, '', '', '', NULL, '2011-08-21 13:13:07', '2011-08-21 13:13:07', 1, 'animales lagartijas cocodrilos', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(6, 'Revista de animales', '1970', 'Los animales se comen a los mosquitos', 'es', 1, 1, 'Articulo', '', '', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '1', '2000', 4, 6, '1234', NULL, '', '', '', NULL, '2011-08-21 13:13:07', '2011-08-21 13:13:08', 2, 'animales lagartijas cocodrilos', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -104,7 +108,6 @@ CREATE TABLE IF NOT EXISTS `biblioteca_personal_version` (
   `anno` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
   `resumen` longtext COLLATE utf8_unicode_ci,
   `idioma` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `aprobado` tinyint(1) DEFAULT '0',
   `is_active` tinyint(1) DEFAULT '0',
   `formato_duro` tinyint(1) DEFAULT '0',
   `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -115,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `biblioteca_personal_version` (
   `organismo` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tipo_dc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `cant_registros` int(11) DEFAULT NULL,
-  `fecha_inicial` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fecha_inicial` datetime NOT NULL,
   `ciudad_pub` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `editorial` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `isbn` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -134,6 +137,11 @@ CREATE TABLE IF NOT EXISTS `biblioteca_personal_version` (
   `version` bigint(20) NOT NULL DEFAULT '0',
   `palabras_claves` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `slide_id` bigint(20) DEFAULT NULL,
+  `prestado` tinyint(1) DEFAULT '0',
+  `consultado` bigint(20) DEFAULT NULL,
+  `descargado` bigint(20) DEFAULT NULL,
+  `fecha_final` datetime NOT NULL,
+  `num_inventario` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -141,6 +149,15 @@ CREATE TABLE IF NOT EXISTS `biblioteca_personal_version` (
 -- Volcar la base de datos para la tabla `biblioteca_personal_version`
 --
 
+INSERT INTO `biblioteca_personal_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `palabras_claves`, `slide_id`, `prestado`, `consultado`, `descargado`, `fecha_final`, `num_inventario`) VALUES
+(10, 'Biblioteca personal de pablo', '1970', 'En esta biblioteca se recogen varios repositorios de pensamientos', 'es', 1, 1, 'BibliotecaPersonal', '', '', NULL, '', '', NULL, 20, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-24 22:58:02', '2011-08-24 22:58:02', 1, 'pensamientos filosofia medio ambiente', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(10, 'Biblioteca personal de pablo', '1970', 'En esta biblioteca se recogen varios repositorios de pensamientos', 'es', 1, 1, 'BibliotecaPersonal', '', '', NULL, '', '', NULL, 20, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-24 22:58:02', '2011-08-24 22:58:03', 2, 'pensamientos filosofia medio ambiente', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(10, 'Biblioteca personal de pablo', '1970', 'En esta biblioteca se recogen varios repositorios de pensamientos', 'es', 1, 1, 'BibliotecaPersonal', '', '', NULL, '', '', NULL, 20, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-24 22:58:02', '2011-08-24 23:00:28', 3, 'pensamientos filosofia medio ambiente', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(10, 'Biblioteca personal de pablo', '1970', 'En esta biblioteca se recogen varios repositorios de pensamientos', 'es', 1, 1, 'BibliotecaPersonal', '', '', NULL, '', '', NULL, 20, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-24 22:58:02', '2011-08-24 23:25:00', 4, 'pensamientos filosofia medio ambiente', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(10, 'Biblioteca personal de pablo', '1970', 'En esta biblioteca se recogen varios repositorios de pensamientos', 'es', 1, 1, 'BibliotecaPersonal', '', '', NULL, '', '', NULL, 20, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-24 22:58:02', '2011-08-25 16:01:13', 5, 'pensamientos filosofia medio ambiente', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(10, 'Biblioteca personal de pablo', '1970', 'En esta biblioteca se recogen varios repositorios de pensamientos', 'es', 1, 1, 'BibliotecaPersonal', '', '', NULL, '', '', NULL, 20, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-24 22:58:02', '2011-08-25 16:02:27', 6, 'pensamientos filosofia medio ambiente', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(10, 'Biblioteca personal de pablo', '1970', 'En esta biblioteca se recogen varios repositorios de pensamientos', 'es', 1, 1, 'BibliotecaPersonal', '', '', NULL, '', '', NULL, 20, '2011-08-20 14:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-24 22:58:02', '2011-08-25 16:13:51', 7, 'pensamientos filosofia medio ambiente', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(10, 'Biblioteca personal de pablo', '1970', 'En esta biblioteca se recogen varios repositorios de pensamientos', 'es', 1, 1, 'BibliotecaPersonal', '', '', NULL, '', '', NULL, 20, '2011-08-25 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-24 22:58:02', '2011-08-25 16:23:10', 8, 'pensamientos filosofia medio ambiente', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -247,7 +264,7 @@ CREATE TABLE IF NOT EXISTS `dm_area` (
   PRIMARY KEY (`id`),
   KEY `dm_layout_id_idx` (`dm_layout_id`),
   KEY `dm_page_view_id_idx` (`dm_page_view_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=24 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=28 ;
 
 --
 -- Volcar la base de datos para la tabla `dm_area`
@@ -276,7 +293,11 @@ INSERT INTO `dm_area` (`id`, `dm_layout_id`, `dm_page_view_id`, `type`) VALUES
 (20, NULL, 12, 'content'),
 (21, NULL, 18, 'content'),
 (22, NULL, 20, 'content'),
-(23, NULL, 21, 'content');
+(23, NULL, 21, 'content'),
+(24, NULL, 11, 'content'),
+(25, NULL, 30, '1'),
+(26, NULL, 30, 'content'),
+(27, NULL, 29, 'content');
 
 -- --------------------------------------------------------
 
@@ -388,7 +409,7 @@ CREATE TABLE IF NOT EXISTS `dm_error` (
   `env` varchar(63) COLLATE utf8_unicode_ci NOT NULL,
   `created_at` datetime NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=193 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=198 ;
 
 --
 -- Volcar la base de datos para la tabla `dm_error`
@@ -603,7 +624,13 @@ INSERT INTO `dm_error` (`id`, `php_class`, `name`, `description`, `module`, `act
 (189, 'Doctrine_Record_UnknownPropertyException', 'Unknown record property / related component "tematica" on "Patente"', 'Unknown record property / related component "tematica" on "Patente"\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\doctrine\\record\\dmDoctrineRecord.php(700): Doctrine_Record_Filter_Standard->filterGet(Object(Patente), ''tematica'')\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\doctrine\\record\\dmDoctrineRecord.php(616): dmDoctrineRecord->_get(''tematica'', true)\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\vendor\\doctrine\\Doctrine\\Access.php(72): dmDoctrineRecord->get(''tematica'')\n#3 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\recurso\\templates\\_list.php(15): Doctrine_Access->__get(''tematica'')\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(155): sfPartialView->render()\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\view\\dmHelper.php(56): get_component(''recurso'', ''list'', Array)\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(150): dmHelper->renderComponent(''recurso'', ''list'', Array)\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(141): dmWidgetBaseView->doRenderPartial(Array)\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(120): dmWidgetBaseView->renderPartial(Array)\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(108): dmWidgetBaseView->doRender()\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\widget\\dmFrontWidgetRenderer.php(71): dmWidgetBaseView->render()\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\widget\\dmFrontWidgetRenderer.php(43): dmFrontWidgetRenderer->doRender()\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(331): dmFrontWidgetRenderer->getHtml()\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(308): dmFrontPageBaseHelper->renderWidgetInner(Array)\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(284): dmFrontPageBaseHelper->renderWidget(Array)\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(267): dmFrontPageBaseHelper->renderZoneInner(Array)\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(227): dmFrontPageBaseHelper->renderZone(Array)\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(202): dmFrontPageBaseHelper->renderAreaInner(Array)\n#20 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\dmFront\\templates\\pageSuccess.php(20): dmFrontPageBaseHelper->renderArea(''page.content'')\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(185): sfPHPView->renderFile(''C:\\development\\...'')\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(155): sfPHPView->render()\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(116): sfExecutionFilter->executeView(''dmFront'', ''page'', ''Success'', Array)\n#25 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(47): sfExecutionFilter->handleView(Object(sfFilterChain), Object(dmFrontActions), ''Success'')\n#26 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#27 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#28 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#29 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#30 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#31 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#32 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#33 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#34 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmFront'', ''page'')\n#35 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#36 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#37 {main}', 'dmFront', 'page', 'http://bibliocnic:8080/dev.php/recursos?dm_debug=1', 'dev', '2011-08-22 16:17:16'),
 (190, 'dmException', 'Patente is not a valid link resource', 'Patente is not a valid link resource\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\link\\dmFrontLinkTagFactory.php(12): dmFrontLinkResource->initialize(''Patente'')\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\view\\dmHelper.php(91): dmFrontLinkTagFactory->buildLink(''Patente'')\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\helper\\DmHelper.php(13): dmHelper->link(''Patente'')\n#3 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\recurso\\templates\\_list.php(20): _link(''Patente'')\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(155): sfPartialView->render()\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\view\\dmHelper.php(56): get_component(''recurso'', ''list'', Array)\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(150): dmHelper->renderComponent(''recurso'', ''list'', Array)\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(141): dmWidgetBaseView->doRenderPartial(Array)\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(120): dmWidgetBaseView->renderPartial(Array)\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(108): dmWidgetBaseView->doRender()\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\widget\\dmFrontWidgetRenderer.php(71): dmWidgetBaseView->render()\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\widget\\dmFrontWidgetRenderer.php(43): dmFrontWidgetRenderer->doRender()\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(331): dmFrontWidgetRenderer->getHtml()\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageEditHelper.php(129): dmFrontPageBaseHelper->renderWidgetInner(Array)\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(284): dmFrontPageEditHelper->renderWidget(Array)\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageEditHelper.php(36): dmFrontPageBaseHelper->renderZoneInner(Array)\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(227): dmFrontPageEditHelper->renderZone(Array)\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(202): dmFrontPageBaseHelper->renderAreaInner(Array)\n#20 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\dmFront\\templates\\pageSuccess.php(20): dmFrontPageBaseHelper->renderArea(''page.content'')\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(185): sfPHPView->renderFile(''C:\\development\\...'')\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(155): sfPHPView->render()\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(116): sfExecutionFilter->executeView(''dmFront'', ''page'', ''Success'', Array)\n#25 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(47): sfExecutionFilter->handleView(Object(sfFilterChain), Object(dmFrontActions), ''Success'')\n#26 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#27 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#28 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#29 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#30 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#31 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#32 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#33 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#34 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmFront'', ''page'')\n#35 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#36 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#37 {main}', 'dmFront', 'page', 'http://bibliocnic.localhost/dev.php/recursos?dm_debug=1', 'dev', '2011-08-22 23:03:03'),
 (191, 'dmException', 'Diem can only filter by module or boolean fields, string given', 'Diem can only filter by module or boolean fields, string given\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(70): dmWidgetListForm->configure()\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormSymfony.class.php(33): sfForm->__construct(NULL, Array, false)\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseForm.php(27): sfFormSymfony->__construct(NULL, Array, false)\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmWidget\\lib\\BasedmWidgetActions.class.php(276): dmWidgetBaseForm->__construct(Object(DmWidget))\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmWidgetActions->executeAdd(Object(dmWebRequest))\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmWidgetActions))\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmWidgetActions))\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmWidget'', ''add'')\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#20 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#21 {main}', 'dmWidget', 'add', 'http://bibliocnic:8080/dev.php/+/dmWidget/add?to_dm_zone=16&_=1314107252565&dm_cpi=31&dm_xhr=1&mod=recurso&act=list', 'dev', '2011-08-23 15:47:33'),
-(192, 'dmException', 'Diem can only filter by module or boolean fields, string given', 'Diem can only filter by module or boolean fields, string given\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(70): dmWidgetListForm->configure()\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormSymfony.class.php(33): sfForm->__construct(NULL, Array, false)\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseForm.php(27): sfFormSymfony->__construct(NULL, Array, false)\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmWidget\\lib\\BasedmWidgetActions.class.php(276): dmWidgetBaseForm->__construct(Object(DmWidget))\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmWidgetActions->executeAdd(Object(dmWebRequest))\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmWidgetActions))\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmWidgetActions))\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmWidget'', ''add'')\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#20 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#21 {main}', 'dmWidget', 'add', 'http://bibliocnic:8080/dev.php/+/dmWidget/add?to_dm_zone=16&_=1314107635955&dm_cpi=31&dm_xhr=1&mod=recurso&act=list', 'dev', '2011-08-23 15:53:57');
+(192, 'dmException', 'Diem can only filter by module or boolean fields, string given', 'Diem can only filter by module or boolean fields, string given\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\sfForm.class.php(70): dmWidgetListForm->configure()\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormSymfony.class.php(33): sfForm->__construct(NULL, Array, false)\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseForm.php(27): sfFormSymfony->__construct(NULL, Array, false)\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\modules\\dmWidget\\lib\\BasedmWidgetActions.class.php(276): dmWidgetBaseForm->__construct(Object(DmWidget))\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmWidgetActions->executeAdd(Object(dmWebRequest))\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmWidgetActions))\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmWidgetActions))\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmWidget'', ''add'')\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#20 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#21 {main}', 'dmWidget', 'add', 'http://bibliocnic:8080/dev.php/+/dmWidget/add?to_dm_zone=16&_=1314107635955&dm_cpi=31&dm_xhr=1&mod=recurso&act=list', 'dev', '2011-08-23 15:53:57'),
+(193, 'dmException', 'aprobado is not a valid form field', 'aprobado is not a valid form field\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require()\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''patente/form_fi...'', Array)\n#4 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoPatente\\templates\\_form_fieldset.php(24): include_partial(''patente/form_fi...'', Array)\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''patente/form_fi...'', Array)\n#9 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoPatente\\templates\\_form.php(29): include_partial(''patente/form_fi...'', Array)\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''patente/form'', Array)\n#14 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoPatente\\templates\\editSuccess.php(33): include_partial(''patente/form'', Array)\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(185): sfPHPView->renderFile(''C:\\development\\...'')\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(155): sfPHPView->render()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(116): sfExecutionFilter->executeView(''patente'', ''edit'', ''Success'', Array)\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(47): sfExecutionFilter->handleView(Object(sfFilterChain), Object(patenteActions), ''Success'')\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#25 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#26 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#27 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#28 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#29 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#30 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''patente'', ''edit'')\n#31 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#32 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#33 {main}', 'patente', 'edit', 'http://bibliocnic.localhost/admin_dev.php/+/patente/edit?pk=3&dm_embed=1', 'dev', '2011-08-23 22:51:17'),
+(194, 'dmException', 'aprobado is not a valid form field', 'aprobado is not a valid form field\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require()\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''patente/form_fi...'', Array)\n#4 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoPatente\\templates\\_form_fieldset.php(24): include_partial(''patente/form_fi...'', Array)\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''patente/form_fi...'', Array)\n#9 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoPatente\\templates\\_form.php(29): include_partial(''patente/form_fi...'', Array)\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPartialView.class.php(110): sfPHPView->renderFile(''C:\\development\\...'')\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(218): sfPartialView->render()\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(180): get_partial(''patente/form'', Array)\n#14 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoPatente\\templates\\editSuccess.php(33): include_partial(''patente/form'', Array)\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(185): sfPHPView->renderFile(''C:\\development\\...'')\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(155): sfPHPView->render()\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(116): sfExecutionFilter->executeView(''patente'', ''edit'', ''Success'', Array)\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(47): sfExecutionFilter->handleView(Object(sfFilterChain), Object(patenteActions), ''Success'')\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#25 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#26 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#27 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#28 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#29 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#30 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''patente'', ''edit'')\n#31 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#32 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#33 {main}', 'patente', 'edit', 'http://bibliocnic.localhost/admin_dev.php/+/patente/edit?pk=3&dm_embed=1', 'dev', '2011-08-23 22:59:55'),
+(195, 'sfException', 'Call to undefined method patenteComponents::setConsultado.', 'Call to undefined method patenteComponents::setConsultado.\n#0 [internal function]: sfComponent->__call(''setConsultado'', Array)\n#1 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\patente\\actions\\components.class.php(22): patenteComponents->setConsultado()\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(386): patenteComponents->executeShow(Object(dmWebRequest))\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\helper\\PartialHelper.php(148): _call_component(''patente'', ''show'', Array)\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\view\\dmHelper.php(56): get_component(''patente'', ''show'', Array)\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(150): dmHelper->renderComponent(''patente'', ''show'', Array)\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(141): dmWidgetBaseView->doRenderPartial(Array)\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(120): dmWidgetBaseView->renderPartial(Array)\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\dmWidget\\base\\dmWidgetBaseView.php(108): dmWidgetBaseView->doRender()\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\widget\\dmFrontWidgetRenderer.php(71): dmWidgetBaseView->render()\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\widget\\dmFrontWidgetRenderer.php(43): dmFrontWidgetRenderer->doRender()\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(331): dmFrontWidgetRenderer->getHtml()\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(308): dmFrontPageBaseHelper->renderWidgetInner(Array)\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(284): dmFrontPageBaseHelper->renderWidget(Array)\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(267): dmFrontPageBaseHelper->renderZoneInner(Array)\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(227): dmFrontPageBaseHelper->renderZone(Array)\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\view\\html\\page\\dmFrontPageBaseHelper.php(202): dmFrontPageBaseHelper->renderAreaInner(Array)\n#17 C:\\development\\dmprojects\\bibliocnic\\apps\\front\\modules\\dmFront\\templates\\pageSuccess.php(20): dmFrontPageBaseHelper->renderArea(''page.content'')\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(75): require(''C:\\development\\...'')\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\view\\sfPHPView.class.php(185): sfPHPView->renderFile(''C:\\development\\...'')\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(155): sfPHPView->render()\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(116): sfExecutionFilter->executeView(''dmFront'', ''page'', ''Success'', Array)\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(47): sfExecutionFilter->handleView(Object(sfFilterChain), Object(dmFrontActions), ''Success'')\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmFrontPlugin\\lib\\filter\\dmFrontInitFilter.php(34): sfFilterChain->execute()\n#25 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmFrontInitFilter->execute(Object(sfFilterChain))\n#26 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#27 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#28 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#29 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#30 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#31 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmFront'', ''page'')\n#32 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#33 C:\\development\\dmprojects\\bibliocnic\\web\\dev.php(7): dmContext->dispatch()\n#34 {main}', 'dmFront', 'page', 'http://bibliocnic:8080/dev.php/patentes/3?dm_debug=1', 'dev', '2011-08-24 12:27:44'),
+(196, 'Exception', 'Warning : "fopen(http://diem-project.org/service/current-version/5_1) [<a href=''function.fopen''>function.fopen</a>]: failed to open stream: HTTP request failed! " occured in C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBr', 'Warning : "fopen(http://diem-project.org/service/current-version/5_1) [<a href=''function.fopen''>function.fopen</a>]: failed to open stream: HTTP request failed! " occured in C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfFopenAdapter.class.php on line 60\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfWebBrowser.class.php(217): sfFopenAdapter->call(Object(dmWebBrowser), ''http://diem-pro...'', ''GET'', Array, Array)\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\sfWebBrowserPlugin\\lib\\sfWebBrowser.class.php(116): sfWebBrowser->call(''http://diem-pro...'', ''GET'', Array, Array)\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\webService\\dmDiemVersionCheck.php(50): sfWebBrowser->get(''http://diem-pro...'')\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\webService\\dmDiemVersionCheck.php(32): dmDiemVersionCheck->getLatestServerVersionForBranch(''5.1'')\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\modules\\dmAdmin\\lib\\BasedmAdminActions.class.php(93): dmDiemVersionCheck->isUpToDate()\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): BasedmAdminActions->executeVersionCheck(Object(dmWebRequest))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(dmAdminActions))\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(dmAdminActions))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#16 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#17 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''dmAdmin'', ''versionCheck'')\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#21 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#22 {main}', 'dmAdmin', 'versionCheck', 'http://bibliocnic:8080/admin_dev.php/+/dmAdmin/versionCheck?_=1314267632759&dm_cpi=0&dm_xhr=1', 'dev', '2011-08-25 12:20:59');
+INSERT INTO `dm_error` (`id`, `php_class`, `name`, `description`, `module`, `action`, `uri`, `env`, `created_at`) VALUES
+(197, 'Doctrine_Connection_Mysql_Exception', 'SQLSTATE[42S02]: Base table or view not found: 1146 Table ''bibliocnic.bibliotecapersonal_version'' doesn''t exist', 'SQLSTATE[42S02]: Base table or view not found: 1146 Table ''bibliocnic.bibliotecapersonal_version'' doesn''t exist\n#0 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\vendor\\doctrine\\Doctrine\\Connection\\Statement.php(269): Doctrine_Connection->rethrowException(Object(PDOException), Object(Doctrine_Connection_Statement))\n#1 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\vendor\\doctrine\\Doctrine\\Connection.php(1006): Doctrine_Connection_Statement->execute(Array)\n#2 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\vendor\\doctrine\\Doctrine\\Query\\Abstract.php(976): Doctrine_Connection->execute(''SELECT MAX(b.ve...'', Array)\n#3 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\vendor\\doctrine\\Doctrine\\Query\\Abstract.php(1026): Doctrine_Query_Abstract->_execute(Array)\n#4 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\vendor\\doctrine\\Doctrine\\AuditLog.php(166): Doctrine_Query_Abstract->execute(Array, 3)\n#5 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\vendor\\doctrine\\Doctrine\\AuditLog\\Listener.php(161): Doctrine_AuditLog->getMaxVersion(Object(BibliotecaPersonal))\n#6 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\vendor\\doctrine\\Doctrine\\AuditLog\\Listener.php(133): Doctrine_AuditLog_Listener->_getNextVersion(Object(BibliotecaPersonal))\n#7 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\doctrine\\extension\\DmVersionable\\Listener\\Listener.php(47): Doctrine_AuditLog_Listener->preUpdate(Object(Doctrine_Event))\n#8 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\vendor\\doctrine\\Doctrine\\Record\\Listener\\Chain.php(312): dmDoctrineAuditLogListener->preUpdate(Object(Doctrine_Event))\n#9 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\vendor\\doctrine\\Doctrine\\Record.php(355): Doctrine_Record_Listener_Chain->preUpdate(Object(Doctrine_Event))\n#10 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\vendor\\doctrine\\Doctrine\\Connection\\UnitOfWork.php(522): Doctrine_Record->invokeSaveHooks(''pre'', ''update'')\n#11 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\vendor\\doctrine\\Doctrine\\Connection\\UnitOfWork.php(89): Doctrine_Connection_UnitOfWork->update(Object(BibliotecaPersonal))\n#12 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\plugins\\sfDoctrinePlugin\\lib\\vendor\\doctrine\\Doctrine\\Record.php(1718): Doctrine_Connection_UnitOfWork->saveGraph(Object(BibliotecaPersonal))\n#13 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormObject.class.php(161): Doctrine_Record->save(Object(Doctrine_Connection_Mysql))\n#14 C:\\development\\dmprojects\\bibliocnic\\lib\\form\\doctrine\\base\\BaseRecursoForm.class.php(190): sfFormObject->doSave(Object(Doctrine_Connection_Mysql))\n#15 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\form\\addon\\sfFormObject.class.php(130): BaseRecursoForm->doSave(Object(Doctrine_Connection_Mysql))\n#16 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoBibliotecaPersonal\\actions\\actions.class.php(189): sfFormObject->save()\n#17 C:\\development\\dmprojects\\bibliocnic\\cache\\admin\\dev\\modules\\autoBibliotecaPersonal\\actions\\actions.class.php(163): autoBibliotecaPersonalActions->processForm(Object(dmWebRequest), Object(bibliotecapersonalAdminForm))\n#18 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\action\\sfActions.class.php(60): autoBibliotecaPersonalActions->executeUpdate(Object(dmWebRequest))\n#19 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(92): sfActions->execute(Object(dmWebRequest))\n#20 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(78): sfExecutionFilter->executeAction(Object(bibliotecaPersonalActions))\n#21 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfExecutionFilter.class.php(42): sfExecutionFilter->handleAction(Object(sfFilterChain), Object(bibliotecaPersonalActions))\n#22 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfExecutionFilter->execute(Object(sfFilterChain))\n#23 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmAdminPlugin\\lib\\filter\\dmAdminInitFilter.php(32): sfFilterChain->execute()\n#24 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmAdminInitFilter->execute(Object(sfFilterChain))\n#25 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfBasicSecurityFilter.class.php(72): sfFilterChain->execute()\n#26 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfBasicSecurityFilter->execute(Object(sfFilterChain))\n#27 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\plugins\\dmUserPlugin\\lib\\dmRememberMeFilter.class.php(56): sfFilterChain->execute()\n#28 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): dmRememberMeFilter->execute(Object(sfFilterChain))\n#29 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfRenderingFilter.class.php(33): sfFilterChain->execute()\n#30 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\filter\\sfFilterChain.class.php(53): sfRenderingFilter->execute(Object(sfFilterChain))\n#31 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfController.class.php(233): sfFilterChain->execute()\n#32 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\symfony\\lib\\controller\\sfFrontWebController.class.php(48): sfController->forward(''bibliotecaPerso...'', ''update'')\n#33 C:\\development\\dmprojects\\bibliocnic\\lib\\vendor\\diem\\dmCorePlugin\\lib\\context\\dmContext.php(280): sfFrontWebController->dispatch()\n#34 C:\\development\\dmprojects\\bibliocnic\\web\\admin_dev.php(7): dmContext->dispatch()\n#35 {main}', 'bibliotecaPersonal', 'update', 'http://bibliocnic:8080/admin_dev.php/content/recursos/biblioteca-personals/update/pk/10', 'dev', '2011-08-25 13:59:36');
 
 -- --------------------------------------------------------
 
@@ -956,14 +983,14 @@ CREATE TABLE IF NOT EXISTS `dm_page` (
   `level` smallint(6) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `recordModuleAction_idx` (`module`,`action`,`record_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=85 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=88 ;
 
 --
 -- Volcar la base de datos para la tabla `dm_page`
 --
 
 INSERT INTO `dm_page` (`id`, `module`, `action`, `record_id`, `credentials`, `lft`, `rgt`, `level`) VALUES
-(1, 'main', 'root', 0, NULL, 1, 140, 0),
+(1, 'main', 'root', 0, '', 1, 146, 0),
 (2, 'main', 'error404', 0, NULL, 4, 5, 1),
 (3, 'main', 'signin', 0, NULL, 2, 3, 1),
 (4, 'main', 'busquedas', 0, NULL, 6, 7, 1),
@@ -981,14 +1008,14 @@ INSERT INTO `dm_page` (`id`, `module`, `action`, `record_id`, `credentials`, `lf
 (26, 'respuestaBusqueda', 'show', 2, NULL, 61, 62, 2),
 (27, 'busqueda', 'show', 63, NULL, 21, 22, 2),
 (30, 'monografia', 'list', 0, '', 74, 77, 1),
-(31, 'recurso', 'list', 0, NULL, 78, 95, 1),
-(32, 'pregunta', 'list', 0, '', 96, 111, 1),
-(33, 'respuesta', 'list', 0, NULL, 112, 117, 1),
+(31, 'recurso', 'list', 0, NULL, 78, 97, 1),
+(32, 'pregunta', 'list', 0, '', 98, 113, 1),
+(33, 'respuesta', 'list', 0, NULL, 114, 119, 1),
 (34, 'busqueda', 'show', 64, NULL, 23, 24, 2),
 (35, 'busqueda', 'show', 66, NULL, 25, 26, 2),
-(36, 'pregunta', 'show', 3, NULL, 97, 98, 2),
-(37, 'pregunta', 'show', 4, NULL, 99, 100, 2),
-(38, 'respuesta', 'show', 1, NULL, 113, 114, 2),
+(36, 'pregunta', 'show', 3, NULL, 99, 100, 2),
+(37, 'pregunta', 'show', 4, NULL, 101, 102, 2),
+(38, 'respuesta', 'show', 1, NULL, 115, 116, 2),
 (39, 'busqueda', 'show', 67, NULL, 27, 28, 2),
 (40, 'busqueda', 'show', 68, NULL, 29, 30, 2),
 (41, 'busqueda', 'show', 69, NULL, 31, 32, 2),
@@ -1003,36 +1030,39 @@ INSERT INTO `dm_page` (`id`, `module`, `action`, `record_id`, `credentials`, `lf
 (50, 'respuestaBusqueda', 'show', 3, NULL, 63, 64, 2),
 (51, 'respuestaBusqueda', 'show', 4, NULL, 65, 66, 2),
 (52, 'respuestaBusqueda', 'show', 5, NULL, 67, 68, 2),
-(53, 'pregunta', 'show', 5, NULL, 101, 102, 2),
-(54, 'pregunta', 'show', 6, NULL, 103, 104, 2),
-(55, 'pregunta', 'show', 7, NULL, 105, 106, 2),
-(56, 'pregunta', 'show', 8, NULL, 107, 108, 2),
-(57, 'pregunta', 'show', 9, NULL, 109, 110, 2),
-(58, 'respuesta', 'show', 2, NULL, 115, 116, 2),
+(53, 'pregunta', 'show', 5, NULL, 103, 104, 2),
+(54, 'pregunta', 'show', 6, NULL, 105, 106, 2),
+(55, 'pregunta', 'show', 7, NULL, 107, 108, 2),
+(56, 'pregunta', 'show', 8, NULL, 109, 110, 2),
+(57, 'pregunta', 'show', 9, NULL, 111, 112, 2),
+(58, 'respuesta', 'show', 2, NULL, 117, 118, 2),
 (59, 'busqueda', 'show', 78, NULL, 49, 50, 2),
 (60, 'busqueda', 'show', 79, NULL, 51, 52, 2),
 (61, 'busqueda', 'show', 80, NULL, 53, 54, 2),
-(62, 'articulo', 'list', 0, NULL, 118, 121, 1),
-(63, 'patente', 'list', 0, NULL, 122, 127, 1),
-(64, 'presentacion', 'list', 0, NULL, 128, 133, 1),
-(65, 'bibliotecaPersonal', 'list', 0, NULL, 134, 135, 1),
-(66, 'documentoLegal', 'list', 0, NULL, 136, 139, 1),
-(69, 'patente', 'show', 2, NULL, 123, 124, 2),
+(62, 'articulo', 'list', 0, NULL, 120, 123, 1),
+(63, 'patente', 'list', 0, NULL, 124, 129, 1),
+(64, 'presentacion', 'list', 0, NULL, 130, 135, 1),
+(65, 'bibliotecaPersonal', 'list', 0, NULL, 136, 139, 1),
+(66, 'documentoLegal', 'list', 0, NULL, 140, 143, 1),
+(69, 'patente', 'show', 2, NULL, 125, 126, 2),
 (70, 'recurso', 'show', 2, NULL, 79, 80, 2),
-(71, 'patente', 'show', 3, NULL, 125, 126, 2),
-(72, 'documentoLegal', 'show', 4, NULL, 137, 138, 2),
+(71, 'patente', 'show', 3, NULL, 127, 128, 2),
+(72, 'documentoLegal', 'show', 4, NULL, 141, 142, 2),
 (73, 'monografia', 'show', 5, NULL, 75, 76, 2),
 (74, 'recurso', 'show', 3, NULL, 81, 82, 2),
 (75, 'recurso', 'show', 4, NULL, 83, 84, 2),
 (76, 'recurso', 'show', 5, NULL, 85, 86, 2),
-(77, 'articulo', 'show', 6, NULL, 119, 120, 2),
+(77, 'articulo', 'show', 6, NULL, 121, 122, 2),
 (78, 'recurso', 'show', 6, NULL, 87, 88, 2),
-(79, 'presentacion', 'show', 7, NULL, 129, 130, 2),
-(80, 'presentacion', 'show', 8, NULL, 131, 132, 2),
+(79, 'presentacion', 'show', 7, NULL, 131, 132, 2),
+(80, 'presentacion', 'show', 8, NULL, 133, 134, 2),
 (81, 'tesis', 'show', 9, NULL, 71, 72, 2),
 (82, 'recurso', 'show', 7, NULL, 89, 90, 2),
 (83, 'recurso', 'show', 8, NULL, 91, 92, 2),
-(84, 'recurso', 'show', 9, NULL, 93, 94, 2);
+(84, 'recurso', 'show', 9, NULL, 93, 94, 2),
+(85, 'bibliotecaPersonal', 'show', 10, NULL, 137, 138, 2),
+(86, 'recurso', 'show', 10, NULL, 95, 96, 2),
+(87, 'main', 'search', 0, NULL, 144, 145, 1);
 
 -- --------------------------------------------------------
 
@@ -1061,7 +1091,7 @@ CREATE TABLE IF NOT EXISTS `dm_page_translation` (
 --
 
 INSERT INTO `dm_page_translation` (`id`, `slug`, `name`, `title`, `h1`, `description`, `keywords`, `auto_mod`, `is_active`, `is_secure`, `is_indexable`, `lang`) VALUES
-(1, '', 'Home', 'Home', NULL, NULL, NULL, 'snthdk', 1, 0, 1, 'es'),
+(1, '', 'Inicio', 'Inicio', '', '', '', 'snthdk', 1, 0, 1, 'es'),
 (2, 'error404', 'Page not found', 'Page not found', NULL, NULL, NULL, 'snthdk', 1, 0, 1, 'es'),
 (3, 'security/signin', 'Signin', 'Signin', NULL, NULL, NULL, 'snthdk', 1, 0, 1, 'es'),
 (4, 'busquedas', 'Busquedas', 'Busquedas', NULL, NULL, NULL, 'snthdk', 1, 0, 1, 'es'),
@@ -1130,7 +1160,10 @@ INSERT INTO `dm_page_translation` (`id`, `slug`, `name`, `title`, `h1`, `descrip
 (81, 'tesis/9', '9', '9', NULL, '9', NULL, 'snthdk', 1, 0, 1, 'es'),
 (82, 'recursos/7', '7', '7', NULL, '7', NULL, 'snthdk', 1, 0, 1, 'es'),
 (83, 'recursos/8', '8', '8', NULL, '8', NULL, 'snthdk', 1, 0, 1, 'es'),
-(84, 'recursos/9', '9', '9', NULL, '9', NULL, 'snthdk', 1, 0, 1, 'es');
+(84, 'recursos/9', '9', '9', NULL, '9', NULL, 'snthdk', 1, 0, 1, 'es'),
+(85, 'bibliotecas-personales/10', '10', '10', NULL, '10', NULL, 'snthdk', 1, 0, 1, 'es'),
+(86, 'recursos/10', '10', '10', NULL, '10', NULL, 'snthdk', 1, 0, 1, 'es'),
+(87, 'search', 'Resultados de la búsqueda', 'Resultados de la búsqueda', NULL, NULL, NULL, 'snthdk', 1, 0, 1, 'es');
 
 -- --------------------------------------------------------
 
@@ -1146,7 +1179,7 @@ CREATE TABLE IF NOT EXISTS `dm_page_view` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `dmPageViewModuleAction_idx` (`module`,`action`),
   KEY `dm_layout_id_idx` (`dm_layout_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=29 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=31 ;
 
 --
 -- Volcar la base de datos para la tabla `dm_page_view`
@@ -1180,7 +1213,9 @@ INSERT INTO `dm_page_view` (`id`, `module`, `action`, `dm_layout_id`) VALUES
 (25, 'patente', 'show', 1),
 (26, 'documentoLegal', 'show', 1),
 (27, 'articulo', 'show', 1),
-(28, 'presentacion', 'show', 1);
+(28, 'presentacion', 'show', 1),
+(29, 'bibliotecaPersonal', 'show', 1),
+(30, 'main', 'search', 1);
 
 -- --------------------------------------------------------
 
@@ -1277,12 +1312,14 @@ CREATE TABLE IF NOT EXISTS `dm_redirect` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `source` (`source`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=2 ;
 
 --
 -- Volcar la base de datos para la tabla `dm_redirect`
 --
 
+INSERT INTO `dm_redirect` (`id`, `source`, `dest`, `created_at`, `updated_at`) VALUES
+(1, 'bibliocnic/index.php', 'page:1 Inicio', '2011-08-25 01:35:28', '2011-08-25 01:35:28');
 
 -- --------------------------------------------------------
 
@@ -1304,7 +1341,7 @@ CREATE TABLE IF NOT EXISTS `dm_remember_key` (
 --
 
 INSERT INTO `dm_remember_key` (`dm_user_id`, `remember_key`, `ip_address`, `created_at`) VALUES
-(1, '65bee5e5b32fef9deecfd94151fb61ac', '10.36.46.6', '2011-08-22 09:21:40');
+(1, '00ecd3ff82d01ef3822d06f1c47b85f9', '10.36.46.6', '2011-08-25 17:28:37');
 
 -- --------------------------------------------------------
 
@@ -2015,8 +2052,8 @@ CREATE TABLE IF NOT EXISTS `dm_user` (
 --
 
 INSERT INTO `dm_user` (`username`, `email`, `algorithm`, `salt`, `password`, `is_active`, `is_super_admin`, `last_login`, `forgot_password_code`, `id`, `titulo`, `nombre`, `apellidos`, `foto_id`, `penalizado`, `solapin`, `departamento`, `created_at`, `updated_at`) VALUES
-('admin', 'pablo.reyes.mail@gmail.com', 'sha1', '20145d874137f0b47716601f40edba0e', '17d7ba6c9efddf6f3718ca89778bb2fbd542848f', 1, 1, '2011-08-23 13:22:34', NULL, 1, 'Ing', 'DiemAdmin', 'DiemAdmin', 33, 0, '', '', '2011-06-05 16:30:32', '2011-08-03 14:33:02'),
-('corey', 'pablo.reyes@cnic.edu.cu', 'sha1', 'd9e8c6471b33f15fe80e25514136897f', '7283bc02eef5be6b92e1ca7191280bacedd524fa', 1, 0, '2011-08-22 13:56:57', NULL, 2, '12', 'Pablo', 'Reyes Naranjo', 2, 0, '0512', 'ICT', '2011-06-20 11:18:15', '2011-06-20 11:18:15'),
+('admin', 'pablo.reyes.mail@gmail.com', 'sha1', '20145d874137f0b47716601f40edba0e', '17d7ba6c9efddf6f3718ca89778bb2fbd542848f', 1, 1, '2011-08-25 17:28:37', NULL, 1, 'Ing', 'DiemAdmin', 'DiemAdmin', 33, 0, '', '', '2011-06-05 16:30:32', '2011-08-03 14:33:02'),
+('corey', 'pablo.reyes@cnic.edu.cu', 'sha1', 'd9e8c6471b33f15fe80e25514136897f', '7283bc02eef5be6b92e1ca7191280bacedd524fa', 1, 0, '2011-08-25 16:51:33', NULL, 2, '12', 'Pablo', 'Reyes Naranjo', 2, 0, '0512', 'ICT', '2011-06-20 11:18:15', '2011-06-20 11:18:15'),
 ('xinita', 'yanays@cneuro.edu.cu', 'sha1', '6a6ed21d7e776365d62266f24988b607', '7d134057f573b96402614d61f7422a2d4488bf54', 1, 0, '2011-08-03 12:50:25', NULL, 3, 'MsC', 'Yanays', 'Rodriguez Puentes', 17, 0, '0416', 'Fisica Nuclear', '2011-07-06 20:48:18', '2011-07-06 20:50:04'),
 ('DRM', 'dalmer.ruiz@cnic.edu.cu', 'sha1', '93b277d7b15320a3cb498c6bb20be858', '3dc1b6c105cb880c386c8e2d1573afa35c16fee1', 1, 0, '2011-08-03 13:59:19', NULL, 8, '9no', 'Dalmer', 'Ruiz Mas', 32, 0, '1478', 'si', '2011-07-11 18:24:34', '2011-08-03 14:08:34'),
 ('Richin', 'ricardo.arencibia@cnic.edu.cu', 'sha1', 'e830c29ae178a0dabece9249d9308a8f', '901ae91095d4e12b11165e5ba5bb9802606d7c88', 1, 1, NULL, NULL, 9, 'Dr', 'Ricardo', 'Arencibia', 36, 0, '0552', 'ICT', '2011-08-09 12:05:23', '2011-08-09 17:01:22');
@@ -2082,7 +2119,7 @@ CREATE TABLE IF NOT EXISTS `dm_widget` (
   `updated_at` datetime NOT NULL,
   PRIMARY KEY (`id`),
   KEY `dm_zone_id_idx` (`dm_zone_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=31 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=55 ;
 
 --
 -- Volcar la base de datos para la tabla `dm_widget`
@@ -2095,7 +2132,7 @@ INSERT INTO `dm_widget` (`id`, `dm_zone_id`, `module`, `action`, `css_class`, `p
 (4, 10, 'dmWidgetContent', 'title', '', 1, '2011-06-05 22:31:46'),
 (5, 10, 'dmWidgetContent', 'text', '', 2, '2011-06-05 22:36:27'),
 (6, 10, 'busqueda', 'form', '', 3, '2011-06-05 22:38:30'),
-(7, 3, 'main', 'header', 'texto_header', 1, '2011-06-24 21:57:25'),
+(7, 3, 'main', 'header', 'texto_header', 2, '2011-08-25 02:05:55'),
 (9, 6, 'dmUser', 'signin', 'loguearse_form', 1, '2011-06-24 22:12:36'),
 (10, 13, 'dmUser', 'form', 'registrarse_form', 3, '2011-06-22 09:19:36'),
 (11, 13, 'dmWidgetContent', 'title', '', 1, '2011-06-22 08:28:02'),
@@ -2107,15 +2144,37 @@ INSERT INTO `dm_widget` (`id`, `dm_zone_id`, `module`, `action`, `css_class`, `p
 (18, 14, 'dmWidgetContent', 'title', '', 1, '2011-08-01 10:55:42'),
 (19, 14, 'dmWidgetContent', 'text', '', 2, '2011-08-01 10:58:43'),
 (20, 14, 'pregunta', 'form', 'busqueda_form', 3, '2011-08-01 11:01:32'),
-(21, 16, 'recurso', 'list', '', 1, '2011-08-22 22:21:25'),
-(23, 19, 'patente', 'list', 'recurso_list', 1, '2011-08-23 16:33:23'),
+(21, 16, 'recurso', 'list', '', 4, '2011-08-25 02:59:17'),
+(23, 19, 'patente', 'list', 'recurso_list', 3, '2011-08-25 01:00:55'),
 (24, 17, 'patente', 'show', '', 1, '2011-08-22 16:53:21'),
-(25, 15, 'tesis', 'list', '', 1, '2011-08-23 14:00:40'),
-(26, 21, 'monografia', 'list', '', 1, '2011-08-23 14:02:35'),
-(27, 22, 'articulo', 'list', '', 1, '2011-08-23 14:04:39'),
-(28, 23, 'presentacion', 'list', '', 1, '2011-08-23 14:05:56'),
-(29, 24, 'bibliotecaPersonal', 'list', '', 1, '2011-08-23 14:07:57'),
-(30, 20, 'documentoLegal', 'list', '', 1, '2011-08-23 15:10:14');
+(25, 15, 'tesis', 'list', 'recurso_list', 3, '2011-08-24 21:35:48'),
+(26, 21, 'monografia', 'list', 'recurso_list', 3, '2011-08-25 00:51:25'),
+(27, 22, 'articulo', 'list', 'recurso_list', 3, '2011-08-25 03:20:39'),
+(28, 23, 'presentacion', 'list', 'recurso_list', 3, '2011-08-25 03:25:09'),
+(29, 24, 'bibliotecaPersonal', 'list', 'recurso_list', 3, '2011-08-24 23:38:41'),
+(30, 20, 'documentoLegal', 'list', 'recurso_list', 3, '2011-08-25 04:02:34'),
+(31, 16, 'dmWidgetContent', 'title', '', 2, '2011-08-23 23:31:24'),
+(32, 16, 'dmWidgetNavigation', 'breadCrumb', '', 1, '2011-08-23 23:31:36'),
+(33, 15, 'dmWidgetContent', 'title', '', 2, '2011-08-23 23:35:18'),
+(34, 15, 'dmWidgetNavigation', 'breadCrumb', '', 1, '2011-08-23 23:35:28'),
+(35, 25, 'dmWidgetNavigation', 'breadCrumb', '', 1, '2011-08-23 23:37:27'),
+(36, 25, 'tesis', 'show', '', 2, '2011-08-23 23:38:01'),
+(37, 24, 'dmWidgetNavigation', 'breadCrumb', '', 1, '2011-08-24 23:31:46'),
+(38, 24, 'dmWidgetContent', 'title', '', 2, '2011-08-24 23:39:27'),
+(39, 21, 'dmWidgetNavigation', 'breadCrumb', '', 1, '2011-08-24 23:59:15'),
+(40, 21, 'dmWidgetContent', 'title', '', 2, '2011-08-25 00:00:37'),
+(43, 19, 'dmWidgetNavigation', 'breadCrumb', '', 1, '2011-08-25 01:00:36'),
+(44, 19, 'dmWidgetContent', 'title', '', 2, '2011-08-25 01:01:27'),
+(45, 26, 'dmWidgetSearch', 'results', NULL, -3, '2011-08-25 01:39:39'),
+(46, 6, 'dmWidgetSearch', 'form', 'search', 2, '2011-08-25 02:06:39'),
+(47, 27, 'dmWidgetSearch', 'results', 'recurso_list', 1, '2011-08-25 01:43:11'),
+(48, 16, 'dmWidgetNavigation', 'menu', 'mini_menu', 3, '2011-08-25 03:04:57'),
+(49, 22, 'dmWidgetNavigation', 'breadCrumb', '', 1, '2011-08-25 03:20:17'),
+(50, 22, 'dmWidgetContent', 'title', '', 2, '2011-08-25 03:20:55'),
+(51, 23, 'dmWidgetNavigation', 'breadCrumb', '', 1, '2011-08-25 03:24:12'),
+(52, 23, 'dmWidgetContent', 'title', '', 2, '2011-08-25 03:25:21'),
+(53, 20, 'dmWidgetNavigation', 'breadCrumb', '', 1, '2011-08-25 04:02:08'),
+(54, 20, 'dmWidgetContent', 'title', '', 2, '2011-08-25 04:02:53');
 
 -- --------------------------------------------------------
 
@@ -2153,15 +2212,37 @@ INSERT INTO `dm_widget_translation` (`id`, `value`, `lang`) VALUES
 (18, '{"text":"Pregunte al bibliotecario","tag":"h1","href":""}', 'es'),
 (19, '{"title":"","text":"Llene correctamente el formulario formulando un pregunta. Por favor sea claro en su redacci\\u00f3n para facilitar la comprensi\\u00f3n del bibliotecario y as\\u00ed garantizar una respuesta pertinente. Gracias ","mediaId":null,"titleLink":"","mediaLink":"","titlePosition":"outside","width":"","height":"","legend":"","method":"center","background":"FFFFFF","quality":null}', 'es'),
 (20, '[]', 'es'),
-(21, '{"orderField":"created_at","orderType":"asc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es'),
+(21, '{"orderField":"created_at","orderType":"desc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es'),
 (23, '{"orderField":"position","orderType":"asc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es'),
 (24, '{"recordId":null}', 'es'),
-(25, '{"orderField":"position","orderType":"asc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es'),
-(26, '{"orderField":"position","orderType":"asc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es'),
-(27, '{"orderField":"position","orderType":"asc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es'),
-(28, '{"orderField":"position","orderType":"asc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es'),
-(29, '{"orderField":"position","orderType":"asc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es'),
-(30, '{"orderField":"created_at","orderType":"asc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es');
+(25, '{"orderField":"created_at","orderType":"desc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es'),
+(26, '{"orderField":"created_at","orderType":"desc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es'),
+(27, '{"orderField":"created_at","orderType":"desc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es'),
+(28, '{"orderField":"created_at","orderType":"desc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es'),
+(29, '{"orderField":"created_at","orderType":"desc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es'),
+(30, '{"orderField":"created_at","orderType":"desc","maxPerPage":5,"navTop":true,"navBottom":true}', 'es'),
+(31, '{"text":"Cat\\u00e1logo","tag":"h2","href":""}', 'es'),
+(32, '{"separator":">","includeCurrent":true}', 'es'),
+(33, '{"text":"Tesis","tag":"h2","href":""}', 'es'),
+(34, '{"separator":">","includeCurrent":true}', 'es'),
+(35, '{"separator":">","includeCurrent":true}', 'es'),
+(36, '{"recordId":null}', 'es'),
+(37, '{"separator":">","includeCurrent":true}', 'es'),
+(38, '{"text":"Bibliotecas personales","tag":"h2","href":""}', 'es'),
+(39, '{"separator":">","includeCurrent":true}', 'es'),
+(40, '{"text":"Monograf\\u00edas y Obras de referencia","tag":"h2","href":""}', 'es'),
+(43, '{"separator":">","includeCurrent":true}', 'es'),
+(44, '{"text":"Patentes","tag":"h2","href":""}', 'es'),
+(45, '[]', 'es'),
+(46, '[]', 'es'),
+(47, '{"maxPerPage":20,"navTop":true,"navBottom":true}', 'es'),
+(48, '{"ulClass":"","liClass":"","menuClass":"","items":[{"link":"page:64","text":"Presentaciones","secure":0,"nofollow":0,"depth":"0"},{"link":"page:30","text":"Monograf\\u00edas","secure":0,"nofollow":0,"depth":"0"},{"link":"page:62","text":"Articulos","secure":0,"nofollow":0,"depth":"0"},{"link":"page:63","text":"Patentes","secure":0,"nofollow":0,"depth":"0"},{"link":"page:65","text":"Bibliotecas personales","secure":0,"nofollow":0,"depth":"0"},{"link":"page:66","text":"Documentos legales","secure":0,"nofollow":0,"depth":"0"},{"link":"page:18","text":"Tesis","secure":0,"nofollow":0,"depth":"0"}]}', 'es'),
+(49, '{"separator":">","includeCurrent":true}', 'es'),
+(50, '{"text":"Art\\u00edculos","tag":"h2","href":""}', 'es'),
+(51, '{"separator":">","includeCurrent":true}', 'es'),
+(52, '{"text":"Presentaciones","tag":"h2","href":""}', 'es'),
+(53, '{"separator":">","includeCurrent":true}', 'es'),
+(54, '{"text":"Documentos legales","tag":"h2","href":""}', 'es');
 
 -- --------------------------------------------------------
 
@@ -2177,7 +2258,7 @@ CREATE TABLE IF NOT EXISTS `dm_zone` (
   `position` bigint(20) DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `dm_area_id_idx` (`dm_area_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=25 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=29 ;
 
 --
 -- Volcar la base de datos para la tabla `dm_zone`
@@ -2207,7 +2288,11 @@ INSERT INTO `dm_zone` (`id`, `dm_area_id`, `css_class`, `width`, `position`) VAL
 (21, 20, NULL, NULL, -20),
 (22, 21, NULL, NULL, -21),
 (23, 22, NULL, NULL, -22),
-(24, 23, NULL, NULL, -23);
+(24, 23, NULL, NULL, -23),
+(25, 24, NULL, NULL, -24),
+(26, 25, NULL, NULL, -25),
+(27, 26, NULL, NULL, -26),
+(28, 27, NULL, NULL, -27);
 
 -- --------------------------------------------------------
 
@@ -2221,7 +2306,6 @@ CREATE TABLE IF NOT EXISTS `documento_legal_version` (
   `anno` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
   `resumen` longtext COLLATE utf8_unicode_ci,
   `idioma` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `aprobado` tinyint(1) DEFAULT '0',
   `is_active` tinyint(1) DEFAULT '0',
   `formato_duro` tinyint(1) DEFAULT '0',
   `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -2232,7 +2316,7 @@ CREATE TABLE IF NOT EXISTS `documento_legal_version` (
   `organismo` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tipo_dc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `cant_registros` int(11) DEFAULT NULL,
-  `fecha_inicial` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fecha_inicial` datetime NOT NULL,
   `ciudad_pub` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `editorial` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `isbn` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -2251,6 +2335,11 @@ CREATE TABLE IF NOT EXISTS `documento_legal_version` (
   `version` bigint(20) NOT NULL DEFAULT '0',
   `palabras_claves` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `slide_id` bigint(20) DEFAULT NULL,
+  `prestado` tinyint(1) DEFAULT '0',
+  `consultado` bigint(20) DEFAULT NULL,
+  `descargado` bigint(20) DEFAULT NULL,
+  `fecha_final` datetime NOT NULL,
+  `num_inventario` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -2258,9 +2347,9 @@ CREATE TABLE IF NOT EXISTS `documento_legal_version` (
 -- Volcar la base de datos para la tabla `documento_legal_version`
 --
 
-INSERT INTO `documento_legal_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `aprobado`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `palabras_claves`, `slide_id`) VALUES
-(4, 'Ley contra el aborto de nutrias', '1970', 'Realmente las nutrias no están de acuerdo', 'en', 0, 1, 0, 'DocumentoLegal', '', '', 122, '', 'MES', 'Reglamento', NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 19:51:12', '2011-08-20 19:51:12', 1, 'nutrias aborto desparpajo', 40),
-(4, 'Ley contra el aborto de nutrias', '1970', 'Realmente las nutrias no están de acuerdo', 'en', 0, 1, 0, 'DocumentoLegal', '', '', 122, '', 'MES', 'Reglamento', NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 19:51:12', '2011-08-20 19:51:12', 2, 'nutrias aborto desparpajo', 40);
+INSERT INTO `documento_legal_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `palabras_claves`, `slide_id`, `prestado`, `consultado`, `descargado`, `fecha_final`, `num_inventario`) VALUES
+(4, 'Ley contra el aborto de nutrias', '1970', 'Realmente las nutrias no están de acuerdo', 'en', 1, 0, 'DocumentoLegal', '', '', 122, '', 'MES', 'Reglamento', NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 19:51:12', '2011-08-20 19:51:12', 1, 'nutrias aborto desparpajo', 40, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(4, 'Ley contra el aborto de nutrias', '1970', 'Realmente las nutrias no están de acuerdo', 'en', 1, 0, 'DocumentoLegal', '', '', 122, '', 'MES', 'Reglamento', NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 19:51:12', '2011-08-20 19:51:12', 2, 'nutrias aborto desparpajo', 40, 0, NULL, NULL, '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -2277,7 +2366,7 @@ CREATE TABLE IF NOT EXISTS `migration_version` (
 --
 
 INSERT INTO `migration_version` (`version`) VALUES
-(6);
+(10);
 
 -- --------------------------------------------------------
 
@@ -2291,7 +2380,6 @@ CREATE TABLE IF NOT EXISTS `monografia_version` (
   `anno` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
   `resumen` longtext COLLATE utf8_unicode_ci,
   `idioma` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `aprobado` tinyint(1) DEFAULT '0',
   `is_active` tinyint(1) DEFAULT '0',
   `formato_duro` tinyint(1) DEFAULT '0',
   `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -2302,7 +2390,7 @@ CREATE TABLE IF NOT EXISTS `monografia_version` (
   `organismo` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tipo_dc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `cant_registros` int(11) DEFAULT NULL,
-  `fecha_inicial` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fecha_inicial` datetime NOT NULL,
   `ciudad_pub` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `editorial` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `isbn` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -2321,6 +2409,11 @@ CREATE TABLE IF NOT EXISTS `monografia_version` (
   `version` bigint(20) NOT NULL DEFAULT '0',
   `palabras_claves` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `slide_id` bigint(20) DEFAULT NULL,
+  `prestado` tinyint(1) DEFAULT '0',
+  `consultado` bigint(20) DEFAULT NULL,
+  `descargado` bigint(20) DEFAULT NULL,
+  `fecha_final` datetime NOT NULL,
+  `num_inventario` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -2328,11 +2421,11 @@ CREATE TABLE IF NOT EXISTS `monografia_version` (
 -- Volcar la base de datos para la tabla `monografia_version`
 --
 
-INSERT INTO `monografia_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `aprobado`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `palabras_claves`, `slide_id`) VALUES
-(5, 'Este libro promete', '1970', 'Esto trata sobre terminar una tesis', 'fr', 0, 1, 0, 'Monografia', '', '', 200, '', '', NULL, NULL, '', '', 'gente nueva', 'dfdfgdfdg54', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 21:14:39', '2011-08-20 21:14:39', 1, 'tesis ruso ahora', 41),
-(5, 'Este libro promete', '1970', 'Esto trata sobre terminar una tesis', 'fr', 0, 1, 0, 'Monografia', '', '', 200, '', '', NULL, NULL, '', '', 'gente nueva', 'dfdfgdfdg54', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 21:14:39', '2011-08-20 21:14:39', 2, 'tesis ruso ahora', 41),
-(5, 'Este libro promete', '1970', 'Esto trata sobre terminar una tesis', 'fr', 0, 0, 0, 'Monografia', '', '', 200, '', '', NULL, NULL, '', '', 'gente nueva', 'dfdfgdfdg54', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 21:14:39', '2011-08-22 13:44:26', 3, 'tesis ruso ahora', 41),
-(5, 'Este libro promete', '1970', 'Esto trata sobre terminar una tesis', 'fr', 0, 1, 0, 'Monografia', '', '', 200, '', '', NULL, NULL, '', '', 'gente nueva', 'dfdfgdfdg54', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 21:14:39', '2011-08-22 13:44:27', 4, 'tesis ruso ahora', 41);
+INSERT INTO `monografia_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `palabras_claves`, `slide_id`, `prestado`, `consultado`, `descargado`, `fecha_final`, `num_inventario`) VALUES
+(5, 'Este libro promete', '1970', 'Esto trata sobre terminar una tesis', 'fr', 1, 0, 'Monografia', '', '', 200, '', '', NULL, NULL, '0000-00-00 00:00:00', '', 'gente nueva', 'dfdfgdfdg54', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 21:14:39', '2011-08-20 21:14:39', 1, 'tesis ruso ahora', 41, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(5, 'Este libro promete', '1970', 'Esto trata sobre terminar una tesis', 'fr', 1, 0, 'Monografia', '', '', 200, '', '', NULL, NULL, '0000-00-00 00:00:00', '', 'gente nueva', 'dfdfgdfdg54', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 21:14:39', '2011-08-20 21:14:39', 2, 'tesis ruso ahora', 41, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(5, 'Este libro promete', '1970', 'Esto trata sobre terminar una tesis', 'fr', 0, 0, 'Monografia', '', '', 200, '', '', NULL, NULL, '0000-00-00 00:00:00', '', 'gente nueva', 'dfdfgdfdg54', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 21:14:39', '2011-08-22 13:44:26', 3, 'tesis ruso ahora', 41, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(5, 'Este libro promete', '1970', 'Esto trata sobre terminar una tesis', 'fr', 1, 0, 'Monografia', '', '', 200, '', '', NULL, NULL, '0000-00-00 00:00:00', '', 'gente nueva', 'dfdfgdfdg54', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 21:14:39', '2011-08-22 13:44:27', 4, 'tesis ruso ahora', 41, 0, NULL, NULL, '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -2346,7 +2439,6 @@ CREATE TABLE IF NOT EXISTS `patente_version` (
   `anno` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
   `resumen` longtext COLLATE utf8_unicode_ci,
   `idioma` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `aprobado` tinyint(1) DEFAULT '0',
   `is_active` tinyint(1) DEFAULT '0',
   `formato_duro` tinyint(1) DEFAULT '0',
   `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -2357,7 +2449,7 @@ CREATE TABLE IF NOT EXISTS `patente_version` (
   `organismo` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tipo_dc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `cant_registros` int(11) DEFAULT NULL,
-  `fecha_inicial` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fecha_inicial` datetime NOT NULL,
   `ciudad_pub` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `editorial` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `isbn` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -2376,6 +2468,11 @@ CREATE TABLE IF NOT EXISTS `patente_version` (
   `version` bigint(20) NOT NULL DEFAULT '0',
   `palabras_claves` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `slide_id` bigint(20) DEFAULT NULL,
+  `prestado` tinyint(1) DEFAULT '0',
+  `consultado` bigint(20) DEFAULT NULL,
+  `descargado` bigint(20) DEFAULT NULL,
+  `fecha_final` datetime NOT NULL,
+  `num_inventario` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -2383,21 +2480,21 @@ CREATE TABLE IF NOT EXISTS `patente_version` (
 -- Volcar la base de datos para la tabla `patente_version`
 --
 
-INSERT INTO `patente_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `aprobado`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `palabras_claves`, `slide_id`) VALUES
-(2, 'patente sobre comida', '1970', 'Se trata de cmo preparar abicguelas', 'es', 0, 1, 1, 'Patente', 'Cuba', 'CNIC', 50, 'juk23223', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-20 18:10:17', 1, 'Abichuelas, comida, preparar', NULL),
-(2, 'patente sobre comida', '1970', 'Se trata de cmo preparar abicguelas', 'es', 0, 1, 1, 'Patente', 'Cuba', 'CNIC', 50, 'juk23223', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-20 18:10:18', 2, 'Abichuelas, comida, preparar', NULL),
-(2, 'patente sobre comida', '1970', 'Se trata de cmo preparar abicguelas', 'es', 0, 1, 1, 'Patente', 'Cuba', 'CNIC', 50, '', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-20 18:11:14', 3, 'Abichuelas, comida, preparar', NULL),
-(2, 'patente sobre comida', '1970', 'Se trata de cmo preparar abicguelas', 'es', 0, 1, 1, 'Patente', 'Cuba', 'CNIC', 50, 'po121231A4546', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-20 18:37:53', 4, 'Abichuelas, comida, preparar', NULL),
-(2, 'patente sobre comida', '1970', 'Se trata de cmo preparar abicguelas', 'es', 0, 1, 1, 'Patente', 'Cuba', 'CNIC', 50, 'po121231A4546', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-20 18:38:38', 5, 'Abichuelas, comida, preparar', NULL),
-(2, 'patente sobre comida', '1970', 'Se trata de cmo preparar abicguelas', 'es', 0, 1, 0, 'Patente', 'Cuba', 'CNIC', 50, 'po121231A4546', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-20 18:39:08', 6, 'Abichuelas, comida, preparar', 39),
-(2, 'patente sobre comida', '1970', 'Se trata de cmo preparar abicguelas', 'es', 0, 1, 0, 'Patente', 'Cuba', 'CNIC', 150, 'po121231A4546', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-20 18:44:37', 7, 'Abichuelas, comida, preparar', 39),
-(2, 'patente sobre comida', '1970', 'Se trata de cmo preparar abicguelas', 'es', 0, 1, 0, 'Patente', 'Cuba', 'CNIC', 150, 'po121231A4546', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-20 18:44:50', 8, 'Abichuelas, comida, preparar', 39),
-(2, 'patente sobre comida', '1970', '', 'es', 0, 1, 0, 'Patente', 'Cuba', 'CNIC', 150, 'po121231A4546', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-22 22:49:44', 9, 'Abichuelas, comida, preparar', 39),
-(3, 'Otra patente', '1970', 'Que decir esto no se si será obligatorio', 'es', 0, 0, 1, 'Patente', 'EUA', 'CUJAE', 0, 'asdadsasdaA', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:43:15', '2011-08-20 18:43:15', 1, 'comida rapida china', NULL),
-(3, 'Otra patente', '1970', 'Que decir esto no se si será obligatorio', 'es', 0, 0, 1, 'Patente', 'EUA', 'CUJAE', 0, 'asdadsasdaA', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:43:15', '2011-08-20 18:43:16', 2, 'comida rapida china', NULL),
-(3, 'Otra patente', '1970', 'Que decir esto no se si será obligatorio', 'es', 0, 0, 1, 'Patente', 'EUA', 'CUJAE', 0, 'asdadsasdaA', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:43:15', '2011-08-20 18:45:42', 3, 'comida rapida china', NULL),
-(3, 'Otra patente', '1970', 'Que decir esto no se si será obligatorio', 'es', 0, 0, 1, 'Patente', 'EUA', 'CUJAE', 5, 'asdadsasdaA', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:43:15', '2011-08-20 18:47:34', 4, 'comida rapida china', NULL),
-(3, 'Otra patente', '1970', 'Que decir esto no se si será obligatorio', 'es', 0, 1, 1, 'Patente', 'EUA', 'CUJAE', 5, 'asdadsasdaA', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:43:15', '2011-08-22 16:36:43', 5, 'comida rapida china', NULL);
+INSERT INTO `patente_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `palabras_claves`, `slide_id`, `prestado`, `consultado`, `descargado`, `fecha_final`, `num_inventario`) VALUES
+(2, 'patente sobre comida', '1970', 'Se trata de cmo preparar abicguelas', 'es', 1, 1, 'Patente', 'Cuba', 'CNIC', 50, 'juk23223', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-20 18:10:17', 1, 'Abichuelas, comida, preparar', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(2, 'patente sobre comida', '1970', 'Se trata de cmo preparar abicguelas', 'es', 1, 1, 'Patente', 'Cuba', 'CNIC', 50, 'juk23223', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-20 18:10:18', 2, 'Abichuelas, comida, preparar', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(2, 'patente sobre comida', '1970', 'Se trata de cmo preparar abicguelas', 'es', 1, 1, 'Patente', 'Cuba', 'CNIC', 50, '', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-20 18:11:14', 3, 'Abichuelas, comida, preparar', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(2, 'patente sobre comida', '1970', 'Se trata de cmo preparar abicguelas', 'es', 1, 1, 'Patente', 'Cuba', 'CNIC', 50, 'po121231A4546', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-20 18:37:53', 4, 'Abichuelas, comida, preparar', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(2, 'patente sobre comida', '1970', 'Se trata de cmo preparar abicguelas', 'es', 1, 1, 'Patente', 'Cuba', 'CNIC', 50, 'po121231A4546', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-20 18:38:38', 5, 'Abichuelas, comida, preparar', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(2, 'patente sobre comida', '1970', 'Se trata de cmo preparar abicguelas', 'es', 1, 0, 'Patente', 'Cuba', 'CNIC', 50, 'po121231A4546', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-20 18:39:08', 6, 'Abichuelas, comida, preparar', 39, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(2, 'patente sobre comida', '1970', 'Se trata de cmo preparar abicguelas', 'es', 1, 0, 'Patente', 'Cuba', 'CNIC', 150, 'po121231A4546', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-20 18:44:37', 7, 'Abichuelas, comida, preparar', 39, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(2, 'patente sobre comida', '1970', 'Se trata de cmo preparar abicguelas', 'es', 1, 0, 'Patente', 'Cuba', 'CNIC', 150, 'po121231A4546', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-20 18:44:50', 8, 'Abichuelas, comida, preparar', 39, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(2, 'patente sobre comida', '1970', '', 'es', 1, 0, 'Patente', 'Cuba', 'CNIC', 150, 'po121231A4546', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-22 22:49:44', 9, 'Abichuelas, comida, preparar', 39, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(3, 'Otra patente', '1970', 'Que decir esto no se si será obligatorio', 'es', 0, 1, 'Patente', 'EUA', 'CUJAE', 0, 'asdadsasdaA', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:43:15', '2011-08-20 18:43:15', 1, 'comida rapida china', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(3, 'Otra patente', '1970', 'Que decir esto no se si será obligatorio', 'es', 0, 1, 'Patente', 'EUA', 'CUJAE', 0, 'asdadsasdaA', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:43:15', '2011-08-20 18:43:16', 2, 'comida rapida china', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(3, 'Otra patente', '1970', 'Que decir esto no se si será obligatorio', 'es', 0, 1, 'Patente', 'EUA', 'CUJAE', 0, 'asdadsasdaA', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:43:15', '2011-08-20 18:45:42', 3, 'comida rapida china', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(3, 'Otra patente', '1970', 'Que decir esto no se si será obligatorio', 'es', 0, 1, 'Patente', 'EUA', 'CUJAE', 5, 'asdadsasdaA', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:43:15', '2011-08-20 18:47:34', 4, 'comida rapida china', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(3, 'Otra patente', '1970', 'Que decir esto no se si será obligatorio', 'es', 1, 1, 'Patente', 'EUA', 'CUJAE', 5, 'asdadsasdaA', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:43:15', '2011-08-22 16:36:43', 5, 'comida rapida china', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -2441,7 +2538,6 @@ CREATE TABLE IF NOT EXISTS `presentacion_version` (
   `anno` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
   `resumen` longtext COLLATE utf8_unicode_ci,
   `idioma` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `aprobado` tinyint(1) DEFAULT '0',
   `is_active` tinyint(1) DEFAULT '0',
   `formato_duro` tinyint(1) DEFAULT '0',
   `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -2452,7 +2548,7 @@ CREATE TABLE IF NOT EXISTS `presentacion_version` (
   `organismo` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tipo_dc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `cant_registros` int(11) DEFAULT NULL,
-  `fecha_inicial` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fecha_inicial` datetime NOT NULL,
   `ciudad_pub` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `editorial` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `isbn` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -2471,6 +2567,11 @@ CREATE TABLE IF NOT EXISTS `presentacion_version` (
   `version` bigint(20) NOT NULL DEFAULT '0',
   `palabras_claves` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `slide_id` bigint(20) DEFAULT NULL,
+  `prestado` tinyint(1) DEFAULT '0',
+  `consultado` bigint(20) DEFAULT NULL,
+  `descargado` bigint(20) DEFAULT NULL,
+  `fecha_final` datetime NOT NULL,
+  `num_inventario` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -2478,11 +2579,11 @@ CREATE TABLE IF NOT EXISTS `presentacion_version` (
 -- Volcar la base de datos para la tabla `presentacion_version`
 --
 
-INSERT INTO `presentacion_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `aprobado`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `palabras_claves`, `slide_id`) VALUES
-(7, 'Presentacion sobre ', '1970', 'esta presentaci''on es sobre algo que no recuerdo', 'ru', 0, 1, 0, 'Presentacion', '', '', NULL, '', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', 0, '', '', '', NULL, '2011-08-21 14:26:38', '2011-08-21 14:26:38', 1, 'sobre', 42),
-(7, 'Presentacion sobre ', '1970', 'esta presentaci''on es sobre algo que no recuerdo', 'ru', 0, 1, 0, 'Presentacion', '', '', NULL, '', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', 0, '', '', '', NULL, '2011-08-21 14:26:38', '2011-08-21 14:26:39', 2, 'sobre', 42),
-(8, 'Presentacion sobre ', '1970', 'esta presentaci''on es sobre algo que no recuerdo', 'ru', 0, 1, 0, 'Presentacion', '', '', NULL, '', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', 0, '', '', '', NULL, '2011-08-21 14:29:02', '2011-08-21 14:29:02', 1, 'sobre', 43),
-(8, 'Presentacion sobre ', '1970', 'esta presentaci''on es sobre algo que no recuerdo', 'ru', 0, 1, 0, 'Presentacion', '', '', NULL, '', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', 0, '', '', '', NULL, '2011-08-21 14:29:02', '2011-08-21 14:29:02', 2, 'sobre', 43);
+INSERT INTO `presentacion_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `palabras_claves`, `slide_id`, `prestado`, `consultado`, `descargado`, `fecha_final`, `num_inventario`) VALUES
+(7, 'Presentacion sobre ', '1970', 'esta presentaci''on es sobre algo que no recuerdo', 'ru', 1, 0, 'Presentacion', '', '', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', 0, '', '', '', NULL, '2011-08-21 14:26:38', '2011-08-21 14:26:38', 1, 'sobre', 42, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(7, 'Presentacion sobre ', '1970', 'esta presentaci''on es sobre algo que no recuerdo', 'ru', 1, 0, 'Presentacion', '', '', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', 0, '', '', '', NULL, '2011-08-21 14:26:38', '2011-08-21 14:26:39', 2, 'sobre', 42, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(8, 'Presentacion sobre ', '1970', 'esta presentaci''on es sobre algo que no recuerdo', 'ru', 1, 0, 'Presentacion', '', '', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', 0, '', '', '', NULL, '2011-08-21 14:29:02', '2011-08-21 14:29:02', 1, 'sobre', 43, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(8, 'Presentacion sobre ', '1970', 'esta presentaci''on es sobre algo que no recuerdo', 'ru', 1, 0, 'Presentacion', '', '', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', 0, '', '', '', NULL, '2011-08-21 14:29:02', '2011-08-21 14:29:02', 2, 'sobre', 43, 0, NULL, NULL, '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -2519,7 +2620,6 @@ CREATE TABLE IF NOT EXISTS `recurso` (
   `anno` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
   `resumen` longtext COLLATE utf8_unicode_ci,
   `idioma` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `aprobado` tinyint(1) DEFAULT '0',
   `is_active` tinyint(1) DEFAULT '0',
   `formato_duro` tinyint(1) DEFAULT '0',
   `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -2530,7 +2630,7 @@ CREATE TABLE IF NOT EXISTS `recurso` (
   `organismo` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tipo_dc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `cant_registros` int(11) DEFAULT NULL,
-  `fecha_inicial` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fecha_inicial` datetime NOT NULL,
   `ciudad_pub` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `editorial` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `isbn` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -2552,26 +2652,32 @@ CREATE TABLE IF NOT EXISTS `recurso` (
   `updated_by` bigint(20) DEFAULT NULL,
   `palabras_claves` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `slide_id` bigint(20) DEFAULT NULL,
+  `prestado` tinyint(1) DEFAULT '0',
+  `consultado` bigint(20) DEFAULT NULL,
+  `descargado` bigint(20) DEFAULT NULL,
+  `fecha_final` datetime NOT NULL,
+  `num_inventario` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `recurso_type_idx` (`type`),
   KEY `created_by_idx` (`created_by`),
   KEY `updated_by_idx` (`updated_by`),
   KEY `recurso_slide_id_idx` (`slide_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=11 ;
 
 --
 -- Volcar la base de datos para la tabla `recurso`
 --
 
-INSERT INTO `recurso` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `aprobado`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `position`, `created_by`, `updated_by`, `palabras_claves`, `slide_id`) VALUES
-(2, 'patente sobre comida', '1970', '', 'es', 0, 1, 0, 'Patente', 'Cuba', 'CNIC', 150, 'po121231A4546', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-22 22:49:44', 9, -1, NULL, 1, 'Abichuelas, comida, preparar', 39),
-(3, 'Otra patente', '1970', 'Que decir esto no se si será obligatorio', 'es', 0, 1, 1, 'Patente', 'EUA', 'CUJAE', 5, 'asdadsasdaA', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:43:15', '2011-08-22 16:36:43', 5, -2, NULL, 1, 'comida rapida china', NULL),
-(4, 'Ley contra el aborto de nutrias', '1970', 'Realmente las nutrias no están de acuerdo', 'en', 0, 1, 0, 'DocumentoLegal', '', '', 122, '', 'MES', 'Reglamento', NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 19:51:12', '2011-08-20 19:51:12', 2, -1, 1, 1, 'nutrias aborto desparpajo', 40),
-(5, 'Este libro promete', '1970', 'Esto trata sobre terminar una tesis', 'fr', 0, 1, 0, 'Monografia', '', '', 200, '', '', NULL, NULL, '', '', 'gente nueva', 'dfdfgdfdg54', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 21:14:39', '2011-08-22 13:44:27', 4, -1, 1, 1, 'tesis ruso ahora', 41),
-(6, 'Revista de animales', '1970', 'Los animales se comen a los mosquitos', 'es', 0, 1, 1, 'Articulo', '', '', NULL, '', '', NULL, NULL, '', '', '', '', '1', '2000', 4, 6, '1234', NULL, '', '', '', NULL, '2011-08-21 13:13:07', '2011-08-21 13:13:08', 2, -1, 1, 1, 'animales lagartijas cocodrilos', NULL),
-(7, 'Presentacion sobre ', '1970', 'esta presentaci''on es sobre algo que no recuerdo', 'ru', 0, 1, 0, 'Presentacion', '', '', NULL, '', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', 0, '', '', '', NULL, '2011-08-21 14:26:38', '2011-08-21 14:26:39', 2, -1, 1, 1, 'sobre', 42),
-(8, 'Presentacion sobre ', '1970', 'esta presentaci''on es sobre algo que no recuerdo', 'ru', 0, 1, 0, 'Presentacion', '', '', NULL, '', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', 0, '', '', '', NULL, '2011-08-21 14:29:02', '2011-08-21 14:29:02', 2, -2, 1, 1, 'sobre', 43),
-(9, 'teses de cosas raras', '1970', 'Esta tesis esta en talla no se si ya', 'es', 0, 1, 0, 'Tesis', '', 'CNIC', 124, '', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, 'Software', 'habana', 'rafix, dalmer', 'Diplomado', '2011-08-21 17:33:02', '2011-08-21 17:33:02', 2, -1, 1, 1, 'raro negro azul', 44);
+INSERT INTO `recurso` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `position`, `created_by`, `updated_by`, `palabras_claves`, `slide_id`, `prestado`, `consultado`, `descargado`, `fecha_final`, `num_inventario`) VALUES
+(2, 'patente sobre comida', '1970', '', 'es', 1, 0, 'Patente', 'Cuba', 'CNIC', 150, 'po121231A4546', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:10:17', '2011-08-22 22:49:44', 9, -1, NULL, 1, 'Abichuelas, comida, preparar', 39, 0, 1, NULL, '0000-00-00 00:00:00', NULL),
+(3, 'Otra patente', '1970', 'Que decir esto no se si será obligatorio', 'es', 1, 1, 'Patente', 'EUA', 'CUJAE', 5, 'asdadsasdaA', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 18:43:15', '2011-08-22 16:36:43', 5, -2, NULL, 1, 'comida rapida china', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(4, 'Ley contra el aborto de nutrias', '1970', 'Realmente las nutrias no están de acuerdo', 'en', 1, 0, 'DocumentoLegal', '', '', 122, '', 'MES', 'Reglamento', NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 19:51:12', '2011-08-20 19:51:12', 2, -1, 1, 1, 'nutrias aborto desparpajo', 40, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(5, 'Este libro promete', '1970', 'Esto trata sobre terminar una tesis', 'fr', 1, 0, 'Monografia', '', '', 200, '', '', NULL, NULL, '0000-00-00 00:00:00', '', 'gente nueva', 'dfdfgdfdg54', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-20 21:14:39', '2011-08-22 13:44:27', 4, -1, 1, 1, 'tesis ruso ahora', 41, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(6, 'Revista de animales', '1970', 'Los animales se comen a los mosquitos', 'es', 1, 1, 'Articulo', '', '', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '1', '2000', 4, 6, '1234', NULL, '', '', '', NULL, '2011-08-21 13:13:07', '2011-08-21 13:13:08', 2, -1, 1, 1, 'animales lagartijas cocodrilos', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(7, 'Presentacion sobre ', '1970', 'esta presentaci''on es sobre algo que no recuerdo', 'ru', 1, 0, 'Presentacion', '', '', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', 0, '', '', '', NULL, '2011-08-21 14:26:38', '2011-08-21 14:26:39', 2, -1, 1, 1, 'sobre', 42, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(8, 'Presentacion sobre ', '1970', 'esta presentaci''on es sobre algo que no recuerdo', 'ru', 1, 0, 'Presentacion', '', '', NULL, '', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', 0, '', '', '', NULL, '2011-08-21 14:29:02', '2011-08-21 14:29:02', 2, -2, 1, 1, 'sobre', 43, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(9, 'teses de cosas raras', '1970', 'Esta tesis esta en talla no se si ya', 'es', 1, 0, 'Tesis', '', 'CNIC', 124, '', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, 'Software', 'habana', 'rafix, dalmer', 'Diplomado', '2011-08-21 17:33:02', '2011-08-21 17:33:02', 2, -1, 1, 1, 'raro negro azul', 44, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(10, 'Biblioteca personal de pablo', '1970', 'En esta biblioteca se recogen varios repositorios de pensamientos', 'es', 1, 1, 'BibliotecaPersonal', '', '', NULL, '', '', NULL, 20, '2011-08-25 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, '', '', '', NULL, '2011-08-24 22:58:02', '2011-08-25 16:23:10', 8, -1, NULL, 1, 'pensamientos filosofia medio ambiente', NULL, 0, NULL, NULL, '0000-00-00 00:00:00', NULL);
 
 -- --------------------------------------------------------
 
@@ -2621,7 +2727,6 @@ CREATE TABLE IF NOT EXISTS `recurso_version` (
   `anno` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
   `resumen` longtext COLLATE utf8_unicode_ci,
   `idioma` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `aprobado` tinyint(1) DEFAULT '0',
   `is_active` tinyint(1) DEFAULT '0',
   `formato_duro` tinyint(1) DEFAULT '0',
   `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -2632,7 +2737,7 @@ CREATE TABLE IF NOT EXISTS `recurso_version` (
   `organismo` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tipo_dc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `cant_registros` int(11) DEFAULT NULL,
-  `fecha_inicial` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fecha_inicial` datetime NOT NULL,
   `ciudad_pub` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `editorial` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `isbn` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -2651,6 +2756,11 @@ CREATE TABLE IF NOT EXISTS `recurso_version` (
   `version` bigint(20) NOT NULL DEFAULT '0',
   `palabras_claves` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `slide_id` bigint(20) DEFAULT NULL,
+  `prestado` tinyint(1) DEFAULT '0',
+  `consultado` bigint(20) DEFAULT NULL,
+  `descargado` bigint(20) DEFAULT NULL,
+  `fecha_final` datetime NOT NULL,
+  `num_inventario` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -2773,7 +2883,6 @@ CREATE TABLE IF NOT EXISTS `tesis_version` (
   `anno` varchar(4) COLLATE utf8_unicode_ci DEFAULT NULL,
   `resumen` longtext COLLATE utf8_unicode_ci,
   `idioma` varchar(24) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `aprobado` tinyint(1) DEFAULT '0',
   `is_active` tinyint(1) DEFAULT '0',
   `formato_duro` tinyint(1) DEFAULT '0',
   `type` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -2784,7 +2893,7 @@ CREATE TABLE IF NOT EXISTS `tesis_version` (
   `organismo` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
   `tipo_dc` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `cant_registros` int(11) DEFAULT NULL,
-  `fecha_inicial` varchar(40) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `fecha_inicial` datetime NOT NULL,
   `ciudad_pub` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `editorial` varchar(32) COLLATE utf8_unicode_ci DEFAULT NULL,
   `isbn` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
@@ -2803,6 +2912,11 @@ CREATE TABLE IF NOT EXISTS `tesis_version` (
   `version` bigint(20) NOT NULL DEFAULT '0',
   `palabras_claves` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `slide_id` bigint(20) DEFAULT NULL,
+  `prestado` tinyint(1) DEFAULT '0',
+  `consultado` bigint(20) DEFAULT NULL,
+  `descargado` bigint(20) DEFAULT NULL,
+  `fecha_final` datetime NOT NULL,
+  `num_inventario` varchar(16) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`,`version`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -2810,9 +2924,9 @@ CREATE TABLE IF NOT EXISTS `tesis_version` (
 -- Volcar la base de datos para la tabla `tesis_version`
 --
 
-INSERT INTO `tesis_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `aprobado`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `palabras_claves`, `slide_id`) VALUES
-(9, 'teses de cosas raras', '1970', 'Esta tesis esta en talla no se si ya', 'es', 0, 1, 0, 'Tesis', '', 'CNIC', 124, '', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, 'Software', 'habana', 'rafix, dalmer', 'Diplomado', '2011-08-21 17:33:02', '2011-08-21 17:33:02', 1, 'raro negro azul', 44),
-(9, 'teses de cosas raras', '1970', 'Esta tesis esta en talla no se si ya', 'es', 0, 1, 0, 'Tesis', '', 'CNIC', 124, '', '', NULL, NULL, '', '', '', '', '', '', NULL, NULL, '', NULL, 'Software', 'habana', 'rafix, dalmer', 'Diplomado', '2011-08-21 17:33:02', '2011-08-21 17:33:02', 2, 'raro negro azul', 44);
+INSERT INTO `tesis_version` (`id`, `titulo`, `anno`, `resumen`, `idioma`, `is_active`, `formato_duro`, `type`, `pais`, `institucion`, `total_paginas`, `num_internacional`, `organismo`, `tipo_dc`, `cant_registros`, `fecha_inicial`, `ciudad_pub`, `editorial`, `isbn`, `volumen`, `num_revista`, `pagina_inicial`, `pagina_final`, `issn`, `num_diapositivas`, `departamento`, `ciudad`, `tutor`, `tipo`, `created_at`, `updated_at`, `version`, `palabras_claves`, `slide_id`, `prestado`, `consultado`, `descargado`, `fecha_final`, `num_inventario`) VALUES
+(9, 'teses de cosas raras', '1970', 'Esta tesis esta en talla no se si ya', 'es', 1, 0, 'Tesis', '', 'CNIC', 124, '', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, 'Software', 'habana', 'rafix, dalmer', 'Diplomado', '2011-08-21 17:33:02', '2011-08-21 17:33:02', 1, 'raro negro azul', 44, 0, NULL, NULL, '0000-00-00 00:00:00', NULL),
+(9, 'teses de cosas raras', '1970', 'Esta tesis esta en talla no se si ya', 'es', 1, 0, 'Tesis', '', 'CNIC', 124, '', '', NULL, NULL, '0000-00-00 00:00:00', '', '', '', '', '', NULL, NULL, '', NULL, 'Software', 'habana', 'rafix, dalmer', 'Diplomado', '2011-08-21 17:33:02', '2011-08-21 17:33:02', 2, 'raro negro azul', 44, 0, NULL, NULL, '0000-00-00 00:00:00', NULL);
 
 --
 -- Filtros para las tablas descargadas (dump)
