@@ -24,7 +24,7 @@ generator:
           - '=titulo'
           - anno
           - idioma
-          - aprobado
+          - prestado
           - is_active
           - formato_duro
           - palabras_claves
@@ -32,6 +32,7 @@ generator:
           - editorial
           - total_paginas
           - isbn
+          - num_inventario
           - slide_id
           - tematicas_list
           - created_at
@@ -46,7 +47,7 @@ generator:
         sortable: true
       filter:
         display:
-          - aprobado
+          - prestado
           - is_active
           - formato_duro
           - titulo
@@ -62,9 +63,9 @@ generator:
           - updated_by
       form:
         display:
-          NONE: [aprobado, is_active, formato_duro]
+          NONE: [prestado, is_active, formato_duro]
           Pdf: [slide_id_form, slide_id_view]
-          Recurso: [titulo, anno, resumen, idioma, isbn, editorial, palabras_claves, total_paginas, tematicas_list]
+          Recurso: [titulo, anno, resumen, idioma, isbn, num_inventario, editorial, palabras_claves, total_paginas, tematicas_list, autors_list]
         class: monografiaAdminForm
         fields: 
           anno: {label: A&ntildeo de publicaci&oacuten }

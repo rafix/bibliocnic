@@ -10,11 +10,13 @@ Recurso:
     anno: {type: string(4)}
     resumen: {type: clob, extra: markdown}
     idioma: {type: string(24)}
-    aprobado: {type: boolean, default: false}
+    prestado: {type: boolean, default: false}
     is_active: {type: boolean, default: false}
     formato_duro: {type: boolean, default: false}
     palabras_claves: {type: string(255), notnull: false}
     slide_id: {type: integer, notnull: false}
+    consultado: {type: integer, notnull: false}
+    descargado: {type: integer, notnull: false}
   relations:
     Autors:
       class: Autor
@@ -163,7 +165,8 @@ BibliotecaPersonal:
     keyValue: BibliotecaPersonal
   columns:
     cant_registros: {type: integer(4)}
-    fecha_inicial: {type: string(40)}
+    fecha_inicial: {type: timestamp, notnull: true}
+    fecha_final: {type: timestamp, notnull: true}
 
 Monografia:
   inheritance:
@@ -176,6 +179,7 @@ Monografia:
     editorial: {type: string(32)}
     total_paginas: {type: integer(4)}
     isbn: {type: string(16)}
+    num_inventario: {type: string(16)}
 
 Articulo:
   inheritance:

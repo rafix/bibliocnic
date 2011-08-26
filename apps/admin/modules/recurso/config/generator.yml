@@ -31,7 +31,7 @@ generator:
           - anno
           - resumen
           - idioma
-          - aprobado
+          - prestado
           - is_active
           - formato_duro
           - palabras_claves

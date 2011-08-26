@@ -10,6 +10,7 @@ Licence: <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons 
 	display:block;
 	float: right;
 	font-size:12px;
+	font-family: Georgia,"Times New Roman",Times,serif;
 	}
 
 .menu_principal ul{
@@ -26,7 +27,7 @@ Licence: <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons 
 	margin:0 15px 0 0;
 	padding:0;
 	color:#FFFFFF;
-	background-color:#2E3A43;
+	background-color: #121618;
 	list-style:none;
 	}
 
@@ -39,7 +40,7 @@ Licence: <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons 
 	height:85px;
 	padding:70px 5px 0 5px;
 	color:#FB9233;
-	background-color:#2E3A43;
+	background-color: #121618;
 	text-transform:uppercase;
 	text-align:center;
 	font-weight:bold;
@@ -59,9 +60,35 @@ Licence: <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons 
 .menu_principal ul li#menu-1-busqueda-especializada{
    background: url(../images/busqueda.png) no-repeat 100% 100%;
 }
-.menu_principal ul li#menu-3-registrarse{
+.menu_principal ul li#menu-4-registrarse{
    background: url(../images/huella2.png) no-repeat 100% 100%;
 }   
 .menu_principal ul li#menu-2-pregunte-al-bibliotecario{
    background: url(../images/pregunte.png) no-repeat 100% 100%;  
 }
+
+.menu_principal ul li#menu-3-catalogo{
+   background: url(../images/catalogo.png) no-repeat 100% 100%;  
+}
+.mini_menu {
+    display:block;
+	float: right;
+	margin-top:10px;
+	margin-bottom:20px;
+}
+.mini_menu ul{
+	margin:0;
+	padding:0;
+	list-style:none;
+	}
+	
+.mini_menu li{
+	display:block;
+	float:left;
+	border: 1px solid #485862;
+	margin:0;
+	padding:5px 17px 5px 17px;
+	color:#FFFFFF;
+	background-color:#252D35;
+	list-style:none;
+	}

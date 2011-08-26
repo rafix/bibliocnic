@@ -24,7 +24,7 @@ generator:
           - '=titulo'
           - anno
           - idioma
-          - aprobado
+          - prestado
           - is_active
           - formato_duro
           - palabras_claves

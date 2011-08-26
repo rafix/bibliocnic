@@ -24,7 +24,7 @@ generator:
           - '=titulo'
           - anno
           - idioma
-          - aprobado
+          - prestado
           - is_active
           - formato_duro
           - palabras_claves
@@ -46,7 +46,7 @@ generator:
       filter:
         display:
           - id
-          - aprobado
+          - prestado
           - is_active
           - formato_duro
           - titulo
@@ -61,7 +61,7 @@ generator:
           - updated_by 
       form:
         display:
-          NONE: [aprobado, is_active, formato_duro]
+          NONE: [prestado, is_active, formato_duro]
           Slide: [slide_id_form, slide_id_view]
           Others: [titulo, anno, resumen, idioma, palabras_claves, organismo, total_paginas, tipo_dc, tematicas_list]
         class: documentolegalAdminForm

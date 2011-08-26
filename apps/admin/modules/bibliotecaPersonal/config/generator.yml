@@ -24,12 +24,13 @@ generator:
           - '=titulo'
           - anno
           - idioma
-          - aprobado
+          - prestado
           - is_active
           - formato_duro
           - palabras_claves
           - cant_registros
           - fecha_inicial
+          - fecha_final
           - slide_id
           - tematicas_list
           - created_at
@@ -45,7 +46,7 @@ generator:
       filter:
         display:
           - id
-          - aprobado
+          - prestado
           - is_active
           - formato_duro
           - titulo
@@ -53,15 +54,16 @@ generator:
           - idioma
           - palabras_claves
           - fecha_inicial
+          - fecha_final
           - created_at
           - updated_at
           - created_by
           - updated_by 
       form:
         display:
-          NONE: [aprobado, is_active, formato_duro]
+          NONE: [prestado, is_active, formato_duro]
           PDF: [slide_id_form, slide_id_view]
-          Others: [titulo, anno, resumen, idioma, palabras_claves, cant_registros, fecha_inicial, tematicas_list]
+          Others: [titulo, anno, resumen, idioma, palabras_claves, cant_registros, fecha_inicial, fecha_final, tematicas_list]
         class: bibliotecapersonalAdminForm
         fields: {  }
       edit: ~
