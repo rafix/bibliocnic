@@ -1,3 +1,4 @@
 <?php // Vars: $patente
 
-echo $patente;
+
+echo $patente->consultado;

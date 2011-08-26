@@ -13,6 +13,7 @@ class recursoComponents extends myFrontModuleComponents
     $query = $this->getListQuery();
     
     $this->recursoPager = $this->getPager($query);
+	$this->recursoPager->setOption('ajax', true);
   }
 
   public function executeShow()

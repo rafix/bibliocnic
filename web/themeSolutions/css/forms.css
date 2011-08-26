@@ -11,29 +11,42 @@ legend{display:none;}
 
 /* ----------------------------------------------Search Form-------------------------------------*/
 
-#search{display:block; width:285px; position:absolute; top:15px; left:0;}
+.search_form{display:block; width:285px;}
 
-#search input{
+.search_form input{
 	display:block;
 	width:229px;
-	margin:0;
+	margin:5px;
 	padding:5px;
-	color:#FFFFFF;
-	background-color:#273239;
-	border:1px solid #455560;
 	font-family:Verdana, Arial, Helvetica, sans-serif;
 	font-size:12px;
-	}
+	background-color: #F7F7F7;
+    border: 1px solid #CCCCCC;
+    color: #000000;
+   	}
 
-#search input#go{
+.search_form input.submit{
 	display:block;
-	float:right;
+	
 	width:auto;
 	height:auto;
-	margin:0;
+	margin:5px;
 	padding:4px;
+	border:1px solid #455560;
+	color: white;
+	background-color:#22292F;
 	}
+#dm_form_2{
+padding:10px;
+margin-top:20px;
 
+width: 240px;
+height:83px;
+border:1px solid #455560;
+float: left;
+}
+
+}
 /* ----------------------------------------------Forms in Content Area-------------------------------------*/
 
 #container #respond{display: block; width:100%;}
