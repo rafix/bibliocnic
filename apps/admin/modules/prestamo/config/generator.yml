@@ -1,0 +1,49 @@
+generator:
+  class: dmAdminDoctrineGenerator
+  param:
+    model_class: Prestamo
+    theme: dmAdmin
+    non_verbose_templates: true
+    with_show: false
+    route_prefix: prestamo
+    with_doctrine_route: false
+    config:
+      actions: ~
+      fields: {  }
+      list:
+        display:
+          - '=id'
+          - dm_user_id
+          - recurso_id
+          - recurso_id
+          - recurso_id
+          - recurso_id
+          - recurso_id
+          - recurso_id
+          - recurso_id
+          - recurso_id
+          - fecha_prestamo
+          - fecha_devolucion
+          - prorroga
+        sort:
+          - id
+          - asc
+        table_method: getAdminListQuery
+        table_count_method: ~
+        sortable: false
+      filter:
+        display:
+          - id
+          - prorroga
+          - dm_user_id
+          - recurso_id
+          - fecha_prestamo
+          - fecha_devolucion
+      form:
+        display:
+          NONE: [prorroga, dm_user_id, recurso_id, recurso_id, recurso_id, recurso_id, recurso_id, recurso_id, recurso_id, recurso_id]
+          Others: [fecha_prestamo, fecha_devolucion]
+        class: PrestamoAdminForm
+        fields: {  }
+      edit: ~
+      new: ~

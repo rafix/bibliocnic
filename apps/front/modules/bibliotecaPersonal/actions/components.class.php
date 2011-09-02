@@ -19,6 +19,7 @@ class bibliotecaPersonalComponents extends myFrontModuleComponents
     $query = $this->getShowQuery();
     
     $this->bibliotecaPersonal = $this->getRecord($query);
+	$this->getUser()->setAttribute('recurso', $this->bibliotecaPersonal);
   }
 
   public function executeForm()

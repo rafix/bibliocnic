@@ -109,15 +109,14 @@ SolicitudPrestamo:
   actAs:
     Timestampable:
   columns:
-    dm_user_id: {type: integer, unique: true, notnull: true}
-    recurso_id: {type: integer, unique: true, notnull: true}
+    dm_user_id: {type: integer, notnull: true}
+    recurso_id: {type: integer, notnull: true}
   relations:
     DmUser:
       local: dm_user_id
       foreignAlias: SolicitudPrestamos
     Recurso:
       foreignAlias: SolicitudPrestamos
-      onDelete: CASCADE
 
 Descarga:
   actAs:
@@ -165,8 +164,8 @@ BibliotecaPersonal:
     keyValue: BibliotecaPersonal
   columns:
     cant_registros: {type: integer(4)}
-    fecha_inicial: {type: timestamp, notnull: true}
-    fecha_final: {type: timestamp, notnull: true}
+    fecha_inicial: {type: timestamp, notnull: false}
+    fecha_final: {type: timestamp, notnull: false}
 
 Monografia:
   inheritance:
