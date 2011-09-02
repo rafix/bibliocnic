@@ -89,3 +89,19 @@ Content:
         list:
         show:
         form:
+    autor:
+      page: true
+      components:
+        form:
+        list:
+  Prestamos:
+    prestamo:
+      page: true
+      components:
+        form:
+        list:
+    SolicitudPrestamo:
+      page: true
+      components:
+        form:
+        list:

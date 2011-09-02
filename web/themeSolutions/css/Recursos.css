@@ -3,11 +3,15 @@
   padding-top: 1em;
   border: 1px solid #485862;
   margin-bottom: 5px;
+  font-family: verdana, Arial, Helvetica, sans-serif;
   
 }
 .recurso_list .element:hover {
  background-color: #232F36;
- border: 2px solid #1D3963;
+
+ -moz-box-shadow: 0 0 2px 2px #888;
+-webkit-box-shadow: 0 0 2px 5px#888;
+box-shadow: 0 0 2px 2px #888;
  1opacity: 0.5;
  1filter: alpha(opacity=50);
 1-moz-opacity: 0.5;
@@ -25,19 +29,21 @@ padding-left: 0px;
 }
  .recurso_list .elements .element .titulo_link {
 color: #FFA53A;
-font-family: Georgia,"Times New Roman",Times,serif;
+font-family: verdana, Arial, Helvetica, sans-serif;
 font-size: 13px;
 font-weight: bold;
 opacity: 1;
 
 }
 .navigation_bread_crumb ol{
-padding-left: 5px;
+
 }
 .navigation_bread_crumb {
 background-color: #252D35;
 padding-left: 10px;
-
+-moz-box-shadow: 0 0 2px 2px #252D35;
+-webkit-box-shadow: 0 0 2px 5px#252D35;
+box-shadow: 0 0 2px 2px #252D35;
 }
 /* show */
 .recurso_show .image {
@@ -64,7 +70,33 @@ padding-left: 10px;
 }
 
 /* comments */
+.descriptor_rojo{
+color: red;
+font-family: "Segoe UI",Calibri,"Myriad Pro",Myriad,"Trebuchet MS",Helvetica,Arial,sans-serif;
+font-size: 13pt;
+}
+.descriptor{
 
+color: #206BA4;
+font-family: "Segoe UI",Calibri,"Myriad Pro",Myriad,"Trebuchet MS",Helvetica,Arial,sans-serif;
+font-size: 12pt;
+}
+.descriptor .recurso_list{
+font-size:13px;
+font-family: verdana, Arial, Helvetica, sans-serif;
+color:#fff;
+}
+.recurso_list .aviso{
+display: block;
+margin-bottom: 10px;
+width: min;
+padding: 3px;
+border:1px solid lime;
+/margin-left: 10px;
+color: lime;
+margin-top: 10px;
+text-align: center;
+}
 .recurso_comment_list_by_recurso .element {
   padding-bottom: 0.5em;
   border-bottom: 1px solid #E5F0FB;

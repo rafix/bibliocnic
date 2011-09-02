@@ -26,9 +26,13 @@ color: #F78F1E;
 
 /* titles */
 h1, h2, h3 {
-  font-family: 'Trebuchet MS', Tahoma, Sans-serif;
-  margin: 10px 0;
-  padding: 10px;
+  font-family: Georgia,"Times New Roman",Times,serif;
+font-size: 18px;
+font-weight: bold;
+ padding: 10px;
+ padding-left: 15px;
+ margin-bottom: 15px;
+ margin-top: 15 px;
 }
 
 /* site name */
@@ -61,7 +65,7 @@ background: transparent;
 .t_big {
   font-size: 180%;
   font-weight: normal;
-  color: #555;
+  color: #fff;
 }
 
 .t_medium {

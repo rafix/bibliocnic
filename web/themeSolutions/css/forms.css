@@ -11,8 +11,18 @@ legend{display:none;}
 
 /* ----------------------------------------------Search Form-------------------------------------*/
 
-.search_form{display:block; width:285px;}
+.search_form{
+display:block; 
 
+border:1px solid #455560;
+padding:10px;
+margin-top:20px;
+padding-bottom: 5px;
+width: 240px;
+height:83px;
+
+float: left;
+}
 .search_form input{
 	display:block;
 	width:229px;
@@ -36,14 +46,25 @@ legend{display:none;}
 	color: white;
 	background-color:#22292F;
 	}
-#dm_form_2{
-padding:10px;
-margin-top:20px;
+.search_results h1 {
+  font-size: 180%;
+  font-weight: normal;
+  color: white;
+}
 
-width: 240px;
-height:83px;
-border:1px solid #455560;
-float: left;
+.search_result {
+  margin: 1em 0;
+  margin-left: 15px;
+}
+
+.search_result .page_name {
+  margin-left: 1em;
+  font-weight: bold;
+}
+
+.search_result .page_description {
+  margin-left: 1em;
+  color: #777777;
 }
 
 }

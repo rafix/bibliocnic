@@ -19,8 +19,9 @@ class recursoComponents extends myFrontModuleComponents
   public function executeShow()
   {
     $query = $this->getShowQuery();
+	$this->recurso = $this->getRecord($query);
+    $this->getUser()->setAttribute('recurso', $query);
     
-    $this->recurso = $this->getRecord($query);
   }
 
   public function executeForm()

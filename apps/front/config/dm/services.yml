@@ -1,1 +1,5 @@
 parameters:
+  search_document.options:  
+    boost_values:
+      autors_list: 2
+      palabras_clave: 5

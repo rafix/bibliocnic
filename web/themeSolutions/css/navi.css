@@ -29,6 +29,8 @@ Licence: <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons 
 	color:#FFFFFF;
 	background-color: #121618;
 	list-style:none;
+
+
 	}
 
 .menu_principal li.last{
@@ -75,6 +77,7 @@ Licence: <a href="http://creativecommons.org/licenses/by/3.0/">Creative Commons 
 	float: right;
 	margin-top:10px;
 	margin-bottom:20px;
+
 }
 .mini_menu ul{
 	margin:0;

@@ -16,22 +16,22 @@ class bibliotecapersonalAdminForm extends BasebibliotecapersonalForm
 	 
 	$this->widgetSchema['fecha_inicial'] = new sfWidgetFormDmDate(array(
     'format' => '%month%/%day%/%year%',
-    'with_time' => false,
-    'required' => false
+    'with_time' => false
+    
 ));
 $this->validatorSchema['fecha_inicial'] = new dmValidatorDate(array(
-    'with_time' => false,
-	'required' => false
+    'with_time' => false
+	
 	
 ));
 $this->widgetSchema['fecha_final'] = new sfWidgetFormDmDate(array(
     'format' => '%month%/%day%/%year%',
-    'with_time' => false,
-	'required' => false
+    'with_time' => false
+	
 ));
 $this->validatorSchema['fecha_final'] = new dmValidatorDate(array(
-    'with_time' => false,
-    'required' => false
+    'with_time' => false
+    
 ));
 
 
