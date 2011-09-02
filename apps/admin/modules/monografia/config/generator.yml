@@ -35,6 +35,7 @@ generator:
           - num_inventario
           - slide_id
           - tematicas_list
+          - autors_list
           - created_at
           - updated_at
           - created_by
@@ -57,6 +58,7 @@ generator:
           - ciudad_pub
           - editorial
           - isbn
+          - num_inventario
           - created_at
           - updated_at
           - created_by

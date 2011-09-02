@@ -1,0 +1,39 @@
+generator:
+  class: dmAdminDoctrineGenerator
+  param:
+    model_class: SolicitudPrestamo
+    theme: dmAdmin
+    non_verbose_templates: true
+    with_show: false
+    route_prefix: solicitud_prestamo
+    with_doctrine_route: false
+    config:
+      actions: ~
+      fields: {  }
+      list:
+        display:
+          - '=id'
+          - dm_user_id
+          - recurso_id
+          - created_at
+          - updated_at
+        sort:
+          - created_at
+          - desc
+        table_method: getAdminListQuery
+        table_count_method: ~
+        sortable: false
+      filter:
+        display:
+          - id
+          - dm_user_id
+          - recurso_id
+          - created_at
+          - updated_at
+      form:
+        display:
+          NONE: [dm_user_id, recurso_id]
+        class: SolicitudPrestamoAdminForm
+        fields: {  }
+      edit: ~
+      new: ~
