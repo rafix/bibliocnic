@@ -1,7 +1,7 @@
 <?php // Vars: $monografia
 use_helper('Date');
 
-echo _open('div.clearfix');
+echo _open('div.body.recurso');
 
 // Wrap the title in a H1
 echo _tag('h1.t_big','T&iacutetulo: '. $monografia->titulo);
@@ -12,7 +12,7 @@ echo _tag('p.recurso_infos',
 
   _tag('span', 'Creado el: '.format_date($monografia->createdAt, 'D')).
   ' | '.
-  _tag('span', 'Creado por: '.$monografia->createdBy)
+  _tag('span', 'Creado por: '.sfContext::getInstance()->getUser($monografia->createdBy))
 );}
 else{
 
@@ -60,13 +60,18 @@ if($monografia->resumen){
 	  echo _tag('span.descriptor','Idioma: '. _tag('span.recurso_list', $monografia->idioma));
 	  echo _close('p');
 	  echo _open('p');
+	  $autores = $monografia->Autors;
+	  foreach($autores as $autor)
+	  echo _tag('span.descriptor','Autor/Autores: '. _tag('span.recurso_list', $autor));
+	  echo _close('p');
+	  echo _open('p');
 	  if($monografia->formato_duro){
 	  
 	  if ($monografia->prestado){
 	  
 	$records = dmDb::query('SolicitudPrestamo s')
-    ->where('s.dm_user_id = ?', 1)
-	->andwhere('s.recurso_id = ?', $monografia)
+    ->where('s.dm_user_id = ?', sfContext::getInstance()->getUser()->getUserId())
+	->andwhere('s.recurso_id = ?', $monografia->id)
 	
     ->fetchRecords();
         $cont = 0;
@@ -90,6 +95,6 @@ if($monografia->resumen){
 	  
 }
 else{
-echo _link($monografia->Slide);
+echo _link($monografia->Slide)->title('Descargar monografia')->set('.image_descargar')->text(_media('download.png')->alt('Descargar monografía'));
 }
 echo _close('div'); 

@@ -18,6 +18,8 @@ class monografiaComponents extends myFrontModuleComponents
     $query = $this->getListQuery();
     
     $this->monografiaPager = $this->getPager($query);
+	$this->getUser()->setAttribute('recurso', $this->monografia);
+	
   }
 
   public function executeShow()

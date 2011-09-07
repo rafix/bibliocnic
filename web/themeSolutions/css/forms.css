@@ -14,18 +14,18 @@ legend{display:none;}
 .search_form{
 display:block; 
 
-border:1px solid #455560;
+border:1px dashed #455560;
 padding:10px;
 margin-top:20px;
 padding-bottom: 5px;
 width: 240px;
 height:83px;
-
+margin-bottom: 20px;
 float: left;
 }
 .search_form input{
 	display:block;
-	width:229px;
+	width:220px;
 	margin:5px;
 	padding:5px;
 	font-family:Verdana, Arial, Helvetica, sans-serif;
@@ -178,6 +178,35 @@ background-color: #FFF2C4;
 border: 1px solid #FBCB0D;
 padding: 2px;
 }
+.busqueda_form .checkbox_list li{
+float: left;
+display: block;
+padding: 5px;
+}
+.busqueda_form .checkbox_list li label{
+width: auto;
+top: 1px;
+}
+.busqueda_form .checkbox_list li input{
+width: auto;
+top: 1px;
+}
+.busqueda_form  ul .checkbox_list {
+width: 500px;
+padding: 30px;
+height: 100px;
+overflow: auto;
+float: left;
+margin-bottom: 10px;
+}
+div.scroll {
+height: 200px;
+width: 300px;
+overflow: auto;
+border: 1px solid #666;
+background-color: #ccc;
+padding: 8px;
+}
 /* ----------------------------------------------Register Form -------------------------------------*/
 .registrarse_form form{
 	
@@ -206,7 +235,10 @@ list-style-position: outside;
 	margin:0 0 12px 0;
 	padding:0;
 	}
+.registrarse_form img{
 
+margin-left: 10px;
+}
 .registrarse_form  input:focus{
 background-color: #FFF2C4;
 border: 1px solid #FBCB0D;

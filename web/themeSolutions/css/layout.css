@@ -270,6 +270,15 @@ div.wrapper h1, div.wrapper h2, div.wrapper h3, div.wrapper h4, div.wrapper h5, 
 	text-align:right;
 	line-height:normal;
 	}
+.tags_popular .elements, .tags_popular .elements .element{
+list-style: none;
+margin: 0;
+padding: 0;
+}
+.tags_popular .elements .element{
+float: left;
+margin-right: 2px;
+}
 	
 /* Featured Block */
 

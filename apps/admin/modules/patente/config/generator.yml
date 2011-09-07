@@ -63,7 +63,7 @@ generator:
           - updated_by
       form:
         display:
-          NONE: [prestado, is_active, formato_duro]
+          NONE: [prestado, is_active, formato_duro, tags]
           Slide: [slide_id_form, slide_id_view]
           Datos: [titulo, anno, resumen, idioma, palabras_claves, pais, institucion, total_paginas, num_internacional, tematicas_list]
         class: PatenteAdminForm

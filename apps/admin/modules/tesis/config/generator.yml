@@ -32,7 +32,6 @@ generator:
           - total_paginas
           - ciudad
           - institucion
-          - tutors_list
           - tipo
           - tutor
           - slide_id
@@ -50,7 +49,7 @@ generator:
       filter:
         display:
           - id
-          - aprobado
+          - prestado
           - is_active
           - formato_duro
           - titulo
@@ -68,7 +67,7 @@ generator:
           - updated_by 
       form:
         display:
-          NONE: [aprobado, is_active, formato_duro]
+          NONE: [prestado, is_active, formato_duro, tags]
           PDF: [slide_id_form, slide_id_view]
           Datos: [titulo, anno, resumen, idioma, palabras_claves, departamento, ciudad, institucion, total_paginas, tutor, tipo, tematicas_list]
         class: TesisAdminForm

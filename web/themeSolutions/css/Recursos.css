@@ -5,6 +5,7 @@
   margin-bottom: 5px;
   font-family: verdana, Arial, Helvetica, sans-serif;
   
+  
 }
 .recurso_list .element:hover {
  background-color: #232F36;
@@ -110,4 +111,52 @@ text-align: center;
 .recurso_comment_list_by_recurso .date {
   font-style: italic;
   margin-left: 1em;
+}
+.body .recurso {
+padding: 10px;
+padding-left: 20px;
+}
+.recurso_list .page .current .link{
+font-size: 13pt;
+}
+a.dm_widget_record_edit, a.dm_widget_fast_edit {
+float: right;
+position: relative;
+}
+.image_anadir a.link{
+float: right;
+opacity: 0.7;
+ filter: alpha(opacity=70);
+-moz-opacity: 0.7;
+}
+.image_anadir a.link:hover{
+float: right;
+opacity: 1;
+ filter: alpha(opacity=100);
+-moz-opacity: 1;
+}
+.link_anadir{
+
+text-align: right;
+}
+.image_descargar{
+float: right;
+opacity: 0.7;
+ filter: alpha(opacity=70);
+-moz-opacity: 0.7;
+}
+.image_descargar:hover{
+float: right;
+opacity: 1;
+ filter: alpha(opacity=100);
+-moz-opacity: 1;
+
+}
+.ultimos_recursos .elements, .ultimos_recursos .elements .element{
+list-style: none;
+
+border-bottom: 1px dashed #E5F0FB;
+}
+.ultimos_recursos .elements{
+margin-bottom: 10px;
 }

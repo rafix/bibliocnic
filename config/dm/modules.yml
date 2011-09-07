@@ -47,6 +47,7 @@ Content:
         list:
         show:
         form:
+        listPopulares:
     tesis:
       page: true
       components:

@@ -14,8 +14,11 @@ class Autor extends BaseAutor
 {
 public function __toString()
   {
-    
-	return self::getApellidos();
+    $nombre = $this->nombre;
+	$apellidos = $this->apellidos;
+	$array = array($apellidos, $nombre);
+	$comas = implode(", ", $array);
+	return $comas;
   }
 
 }

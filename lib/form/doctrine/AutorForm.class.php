@@ -12,7 +12,8 @@ class AutorForm extends BaseAutorForm
 {
   public function configure()
   {
-  $this->validatorSchema['nombre'] = new sfValidatorRegex(array ('pattern' => '(^[a-zA-Z]+$)', 'required' => false), array('invalid' => 'El nombre no debe contener n&uacutemeros o s&iacutembolos'));
-	$this->validatorSchema['apellidos'] = new sfValidatorRegex(array ('pattern' => '(^[a-zA-Z]+$)', 'required' => false), array('invalid' => 'Los apellidos no deben contener n&uacutemeros o s&iacutembolos'));
+  $this->useFields(array('nombre', 'apellidos'));
+  $this->validatorSchema['nombre'] = new sfValidatorRegex(array ('pattern' => '(^[a-zA-Z ]+$)', 'required' => false), array('invalid' => 'El nombre no debe contener n&uacutemeros o s&iacutembolos'));
+	$this->validatorSchema['apellidos'] = new sfValidatorRegex(array ('pattern' => '(^[a-zA-Z ]+$)', 'required' => false), array('invalid' => 'Los apellidos no deben contener n&uacutemeros o s&iacutembolos'));
   }
 }
