@@ -16,6 +16,9 @@ class ArticuloForm extends BaseArticuloForm
   public function configure()
   {
     parent::configure();
+	$this->useFields(array('titulo', 'anno', 'resumen', 'idioma', 'palabras_claves', 'volumen', 'num_revista', 'pagina_inicial', 'pagina_final', 'issn', 'tematicas_list', 'autors_list', 'slide_id_form'));
+	
+	
   $this->validatorSchema['volumen'] = new sfValidatorRegex(array ('pattern' => '(^[0-9]+$)', 'required' => false), array('invalid' => 'El volumen deber ser un n&uacutemero'));
   $this->validatorSchema['num_revista'] = new sfValidatorRegex(array ('pattern' => '(^[0-9]$)', 'required' => false), array('invalid' => 'El No. de revista deber ser un n&uacutemero'));
   $this->validatorSchema['pagina_inicial'] = new sfValidatorRegex(array ('pattern' => '(^[0-9]$)', 'required' => false), array('invalid' => 'La p&aacutegina inicial deber ser un n&uacutemero'));

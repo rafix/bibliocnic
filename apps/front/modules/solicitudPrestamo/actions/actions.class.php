@@ -26,8 +26,8 @@ class solicitudPrestamoActions extends myFrontModuleActions
  
  $solicitud->set('dm_user_id', $user);
  $solicitud->set('recurso_id', $recurso);
- $this->getUser()->getAttributeHolder()->remove('recurso');
  $solicitud->save();
+ $this->getUser()->getAttributeHolder()->remove('recurso');
  $this->redirectback();
 
 }

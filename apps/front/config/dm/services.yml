@@ -3,3 +3,5 @@ parameters:
     boost_values:
       autors_list: 2
       palabras_clave: 5
+  front_pager_view.options:
+    ajax: true

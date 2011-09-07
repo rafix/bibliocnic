@@ -1,7 +1,7 @@
 <?php // Vars: $bibliotecaPersonal
 use_helper('Date');
 
-echo _open('div.clearfix');
+echo _open('div.body.recurso');
 
 // Wrap the title in a H1
 echo _tag('h1.t_big','T&iacutetulo: '. $bibliotecaPersonal->titulo);
@@ -59,8 +59,8 @@ if($bibliotecaPersonal->resumen){
 	  if ($bibliotecaPersonal->prestado){
 	  
 	$records = dmDb::query('SolicitudPrestamo s')
-    ->where('s.dm_user_id = ?', 1)
-	->andwhere('s.recurso_id = ?', $bibliotecaPersonal)
+    ->where('s.dm_user_id = ?', sfContext::getInstance()->getUser()->getUserId())
+	->andwhere('s.recurso_id = ?', $bibliotecaPersonal->id)
 	
     ->fetchRecords();
         $cont = 0;

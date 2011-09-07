@@ -20,6 +20,7 @@ class patenteComponents extends myFrontModuleComponents
     $query = $this->getShowQuery();
     
     $this->patente = $this->getRecord($query);
+	$this->getUser()->setAttribute('recurso', $this->patente);
 	
 	
   }

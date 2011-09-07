@@ -30,9 +30,13 @@ h1, h2, h3 {
 font-size: 18px;
 font-weight: bold;
  padding: 10px;
- padding-left: 15px;
- margin-bottom: 15px;
- margin-top: 15 px;
+ padding-left: 0px;
+ margin-bottom: 5px;
+ margin-top: 15px;
+ margin-left: 0px;
+}
+.titulo_anadir{
+margin-left: 10px;
 }
 
 /* site name */

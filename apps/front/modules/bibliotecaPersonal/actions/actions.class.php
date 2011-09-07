@@ -12,6 +12,7 @@ class bibliotecaPersonalActions extends myFrontModuleActions
     if ($request->hasParameter($form->getName()) && $form->bindAndValid($request))
     {
       $form->save();
+	  $this->getUser()->setFlash('formulario_valido', true);
       $this->redirectBack();
     }
     

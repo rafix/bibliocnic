@@ -13,8 +13,18 @@ default:
     - markdown
     - typography
     - recursos
-
+    - lib.ui-datepicker
+    - jquery-ui-1.7.3.custom
+    - jquery.ui.timepicker.addon
   javascripts:
+    - front
+    - lib.ui-core
+    - lib.ui-widget
+    - lib.ui-mouse
+    - lib.ui-datepicker
+    - jquery-ui-1.8.2.custom.min.js
 
+    - /dmCorePlugin/lib/jquery-ui/js/minified/jquery.ui.slider.min.js
+    - jquery.ui.timepicker.addon
   has_layout:     true
   layout:         layout

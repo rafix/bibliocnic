@@ -19,6 +19,7 @@ class articuloComponents extends myFrontModuleComponents
     $query = $this->getShowQuery();
     
     $this->articulo = $this->getRecord($query);
+	$this->getUser()->setAttribute('recurso', $this->articulo);
   }
 
   public function executeForm()

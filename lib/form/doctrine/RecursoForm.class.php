@@ -18,6 +18,7 @@ class RecursoForm extends BaseRecursoForm
     // choose mime types allowed
     $form->setMimeTypeWhiteList(array(
       'application/pdf'
+	  
 
 	  
     ));
@@ -34,22 +35,26 @@ class RecursoForm extends BaseRecursoForm
 
 
 
-// $this->widgetSchema->setLabels(array(
-      // 'tipo'    => 'Tipo de tesis',
-      // 'tipo_dc'      => 'Tipo de documento',
-      // 'formato_duro'       => '¿Recurso digital?',
-	  // 'anno'       => 'A&ntildeo de publicaci&oacuten/creaci&oacute',
-	  // 'num_internacional'       => 'N&uacutemero de publicaci&oacuten',
-	  // 'total_paginas'      => 'Total de p&aacuteginas',
-	  // 'num_revista'      => 'N&uacutemero de revista',
-	  // 'cant_registros'      => 'Cantidad de registros',
-	  // 'num_diapositivas'      => 'N&uacutemero de diapositivas',
-	  // 'palabras_claves'      => 'Palabras claves',
-	  // 'pagina_inicial'      => 'P&aacuetegina inicial',
-	  // 'pagina_final'      => 'P&aacuetegina final',
-	  // 'fecha_inicial'      => 'Fecha inicial',
-	  // 'fecha_final'      => 'Fecha final'
-    // ));
+$this->widgetSchema->setLabels(array(
+      'tipo'    => 'Tipo de tesis',
+      'tipo_dc'      => 'Tipo de documento',
+      'formato_duro'       => '¿Recurso digital?',
+	  'anno'       => 'A&ntildeo de publicaci&oacuten/creaci&oacuten',
+	  'num_internacional'       => 'N&uacutemero de publicaci&oacuten',
+	  'total_paginas'      => 'Total de p&aacuteginas',
+	  'num_revista'      => 'N&uacutemero de revista',
+	  'cant_registros'      => 'Cantidad de registros',
+	  'num_diapositivas'      => 'N&uacutemero de diapositivas',
+	  'palabras_claves'      => 'Palabras claves',
+	  'pagina_inicial'      => 'P&aacutegina inicial',
+	  'pagina_final'      => 'P&aacutegina final',
+	  'fecha_inicial'      => 'Fecha inicial',
+	  'fecha_final'      => 'Fecha final',
+	  'ciudad_pub'       => 'Ciudad de publicaci&oacuten',
+	  'autors_list' => 'Autor/Autores',
+	  'slide_id_form'=> 'Subir fichero',
+	  'autors_list' => 'Autor/Autores'
+    ));
   
   
   
@@ -57,7 +62,7 @@ class RecursoForm extends BaseRecursoForm
   $this->widgetSchema['idioma'] = new sfWidgetFormChoice(array( 'choices' => array('es' => 'es', 'en' => 'en', 'pt' => 'pt', 'ru' => 'ru', 'fr' => 'fr', 'it' => 'it', 'chi' => 'chi', 'jp' => 'jp', 'nd' => 'nd')));
   
   $this->validatorSchema['titulo'] = new sfValidatorString(array('min_length' =>3), array ('required' => 'Debe escribir el t&iacutetulo del recurso', 'min_length' => 'El t&iacutetulo debe tener al menos 3 caracteres'));
-  $this->validatorSchema['anno'] = new sfValidatorDate(array ('required' => false));
+  $this->validatorSchema['anno'] = new sfValidatorRegex(array ('pattern' => '(^[0-9]{4}$)', 'required' => false), array('invalid' => 'El a&ntilde deber ser un n&uacutemero de 4 d&iacutetos'));
   $this->validatorSchema['resumen'] = new sfValidatorString(array('min_length' =>30, 'required' => false,), array ( 'min_length' => 'El resumen debe tener al menos 30 caracteres'));
   
   

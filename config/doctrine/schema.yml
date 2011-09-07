@@ -4,6 +4,7 @@ Recurso:
     DmVersionable:
     DmSortable:
     DmBlameable:
+    DmTaggable:
   columns:
     id: {type: integer, autoincrement: true, primary: true}
     titulo: {type: string(40), notnull: true}
@@ -176,9 +177,9 @@ Monografia:
   columns:
     ciudad_pub: {type: string(32)}
     editorial: {type: string(32)}
-    total_paginas: {type: integer(4)}
-    isbn: {type: string(16)}
-    num_inventario: {type: string(16)}
+    total_paginas: {type: integer(4), notnull: false, default: ''}
+    isbn: {type: string(16), notnull: false, default: ''}
+    num_inventario: {type: string(16), notnull: false, default: ''}
 
 Articulo:
   inheritance:
