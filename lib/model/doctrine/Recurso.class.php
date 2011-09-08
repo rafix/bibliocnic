@@ -12,5 +12,8 @@
  */
 class Recurso extends BaseRecurso
 {
-
+public function __toString()
+  {
+    return self::getTitulo();
+  }
 }

@@ -18,6 +18,7 @@ public function executeList()
     $query = $this->getShowQuery();
     
     $this->documentoLegal = $this->getRecord($query);
+	$this->getUser()->setAttribute('recurso', $this->documentoLegal);
   }
 
   public function executeForm()

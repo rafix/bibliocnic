@@ -19,6 +19,7 @@ class presentacionComponents extends myFrontModuleComponents
     $query = $this->getShowQuery();
     
     $this->presentacion = $this->getRecord($query);
+	$this->getUser()->setAttribute('recurso', $this->presentacion);
   }
 
   public function executeForm()

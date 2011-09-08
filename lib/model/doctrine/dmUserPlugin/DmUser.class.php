@@ -12,5 +12,8 @@
  */
 class DmUser extends PluginDmUser
 {
-
+public function __toString()
+  {
+    return self::getUsername();
+  }
 }

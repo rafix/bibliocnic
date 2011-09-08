@@ -65,9 +65,9 @@ generator:
           - updated_by
       form:
         display:
-          NONE: [prestado, is_active, formato_duro]
+          NONE: [prestado, is_active, formato_duro, tags]
           Pdf: [slide_id_form, slide_id_view]
-          Recurso: [titulo, anno, resumen, idioma, isbn, num_inventario, editorial, palabras_claves, total_paginas, tematicas_list, autors_list]
+          Recurso: [titulo, anno, resumen, idioma, ciudad_pub, isbn, num_inventario, editorial, palabras_claves, total_paginas, tematicas_list, autors_list]
         class: monografiaAdminForm
         fields: 
           anno: {label: A&ntildeo de publicaci&oacuten }

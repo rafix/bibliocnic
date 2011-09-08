@@ -21,6 +21,7 @@ class tesisComponents extends myFrontModuleComponents
     $query = $this->getShowQuery();
     
     $this->tesis = $this->getRecord($query);
+	$this->getUser()->setAttribute('recurso', $this->tesis);
   }
 
   public function executeList()
